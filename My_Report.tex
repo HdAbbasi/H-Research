@@ -402,6 +402,7 @@ for the partial assignment with
 which maps $v_i \mapsto \varepsilon_i$.
 
 \item So $\Tass(V) = \prod_{v \in V} D_v$.
+\item $n(\varphi) := \mid \var(\varphi) \mid$ (the number of variables in a partial assignment).
 \end{enumerate}
 
 %--------------------------------------------------------------------------------------------------------------------------------------
@@ -542,11 +543,21 @@ Remarks:
   A special clause-set is $\bmm{\top} := \es \in \Cls$, the \textbf{empty clause-set}.
 \end{defi}
 
+\begin{defi}\label{def:cls2}
+The clause-set $F \in \Cls$ where each clause contains at most $k$ literals (has width at most $k$) is called \textbf{k-}$\Cls$.
+This means that $\mid C \mid \leq k$ \cite{h5}.
+\end{defi}
+
+\begin{defi}\label{def:cls2}
+A literal $x$ is called \textbf{pure} for $F$ if \ $\overline{x} \not \in \bigcup F$ 
+ (the literals occuring in $F$ are give by $\bigcup F \subset \Lit$) \cite{h5}.
+\end{defi}
+
 \begin{defi}\label{def:clsbasicops}
   For $F \in \Cls$:
   \begin{enumerate}
   \item $\bmm{\var(F)} := \bc_{C \in F} \var(C) \in \pote(\Va)$.
-  \item $\bmm{\lit(F)} := \lit(\var(F)) \in \pote(\Lit)$.
+  \item $\bmm{\lit(F)} := \lit(\var(F)) \in \pote(\Lit)$ or $\lit(F) := \var(F) \cup \overline{\var(F)}$.
   \item $\bmm{n(F)} := \abs{\var(F)} \in \NNZ$ (the number of variables).
   \item $\bmm{c(F)} := \abs{F} \in \NNZ$ (the number of clauses).
   \item $\bmm{\ell(F)} := \sum_{C \in F} \abs{C} \in \NNZ$ (the number of literal occurrences).
@@ -581,6 +592,32 @@ Some examples of clause-sets are as folow:
   \end{displaymath}
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
+\section{Implication-relation}
+\label{sec:Implication-relation}
+
+\begin{defi}\label{def:imp1}
+For $F, F' \in \Cls$ the \textbf{implication-relation} is defined as: 
+$F \models F' : \Leftrightarrow  \forall \varphi \in \Pass : \varphi * F = \top \Rightarrow \varphi * F' = \top$. 
+We write $F \models C$ for $F \models \{ C \}$ \cite{h5}.
+\end{defi}
+
+\begin{defi}\label{def:imp2}
+A clause $C$ with $F \models C$ is an \textbf{implicate} of $F$, while a \textbf{prime implicate}
+ is an implicate $C$ such that no $C' \subset C$ is also an implicate; $\bmm{prc_0(F)}$ is the set of prime implicates of $F$ \cite{h5}.
+\end{defi}
+
+\begin{examp}\label{exp:imp3}
+For $F = \{ \{a\}, \{ \overline a, b \}, \{ \overline a, \overline b, c \} \}$ we have:
+$$ prc_0(F) = \{ \{a\}, \{ b \}, \{ c \} \} $$
+\end{examp}
+
+\begin{examp}\label{exp:imp3}
+For the $F= \{ \{ \overline a, \overline b \}, \{ \overline a, b\}, \{ a, b \}, \{ a, c \}, \{ \overline b, c\}, \{ b, d \}, \{ c, d \}\}$ 
+we have two $prc_0(F)$ as below:
+$$ prc_0(F)=\{ \{ \overline a\}, \{ b\}, \{ c\} \} , $$
+$$ prc_0(F)=\{ \{ a\}, \{ \overline b \}, \{ d\} \}$$
+\end{examp}
+%--------------------------------------------------------------------------------------------------------------------------------------
 \section{The Operation of Partial Assignments on Clause-sets}
 \label{sec:oppasscls}
 
@@ -609,7 +646,7 @@ Remarks:
 \item More generally, for $\vp' \supseteq \vp$ with $(\var(\vp') \sm \var(\vp)) \cap \var(\vp * F) = \es$ holds $\vp' * F = \vp * F$. Especially for $\var(\vp) \cap \var(F) = \es$ holds $\vp * F = F$.
 \end{enumerate}
 
-\begin{examp}\label{exp:cnf}
+\begin{examp}\label{exp:op1}
 Some examples of operation of partial assignments are as folow:
 $$\varphi_{\{a,\overline{b},c\}} = \langle a, \overline{b}, c\to 0\rangle = \langle a\to 0, b\to 1, c\to 0 \rangle $$
 $$C_{\langle x\to 0, y\to 1, z\to 0 \rangle} = \{x, \overline{y}, z\}$$
@@ -703,6 +740,27 @@ For Example, \begin{eqnarray*}
 are not. 
 \end{examp}
 
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Transformation to CNF}
+\label{sec:Transformation to CNF}
+
+A propositional logic formula can be transformed to a logically equivalent CNF formula by using the following rules:
+\begin{enumerate}
+   \item $ a = b \Longleftrightarrow a \leftrightarrow b$.
+    \item $a \leftrightarrow b \Longleftrightarrow (a \rightarrow b) \wedge (b \rightarrow a)}$.
+    \item $ a \rightarrow b \Longleftrightarrow \neg a \vee b$.
+	\item $ a + b \Longleftrightarrow a \vee b$.
+	\item $ a . b \Longleftrightarrow a \wedge b$.
+   \end{enumerate}
+   
+\begin{examp}\label{exp:tocnf}
+ Here is the example of transforming AND gate to CNF.
+$$ z = x . y$$
+$$ z  \leftrightarrow x . y$$
+$$(z \rightarrow x . y) . (x . y \rightarrow z)$$
+$$ ( \neg z \vee (x \wedge y)) \wedge (\neg (x \wedge y) \vee z)$$
+$$ (\neg z \vee x) \wedge ( \neg z \vee y) \wedge ( \neg x \vee \neg \vee z)$$
+\end{examp}  
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Satisfiability and Unsatisfiability}
 \label{sec:Satisfiability and Unsatisfiability}
@@ -838,25 +896,6 @@ $$f(v_1,v_2,v_3) = \{ \{ \overline{v_1},\overline{v_2}, v_3 \}, \{ \overline{v_1
   %\end{figure}
 %--------------------------------------------------------------------------------------------------------------------------------------
 
-\section{Autarkies}
-\label{sec:Autarkies}
-
-\begin{defi}\label{def:autarky}
-  Let $F$ be a clause-set. An \textbf{autarky} for $F$ is a partial assignment $\vp$ such that: $\fa C \in F : \var(\vp) \cap \var(C) \neq \es \Ra \vp * \set{C} = \top$ where $\vp * \set{C}$ is given by $\top$ when $\vp$ satisfies $\set{C}$, while otherwise $\vp * \set{C} = \set{D}$, where $D$ is given by taking out all literals from $C$ whose variable is in the domain of $\vp$.
-\end{defi}
-Namely, whenever a clause is touched by a partial assignment $\vp$, then $\vp$ satisfies it.
-
-\begin{lem}\label{lem:compaut}
-  If $\vp, \psi$ are autarkies for $F$, then also the composition $\vp \circ \psi$ is an autarky for $F$.
-\end{lem}
-\pr If $\vp \circ \psi$ touches a clause $C \in F$ then either:
-\begin{enumerate}
-\item $\psi$ touches $C$. Now, since $\psi$ is an autarky for $F, C$ is satisfied by $\vp \circ \psi$ since the assignments to variables in var($\psi$) do not  change and still exist in $\vp \circ \psi$.
-\item $\psi$ does not touch $C$ and $\vp$ therefore does touch C. Now, since $\vp$ is an autarky for $F$, C is satisfied by $\vp \circ \psi$ since the assignments to variables in $var(\vp) \cap var(C)$ for $\vp$ do not change in $\vp \circ \psi$. 
-\end{enumerate}
-
-\begin{examp}\label{exp:bdd} ??????????????
-\end{exam}
 %--------------------------------------------------------------------------------------------------------------------------------------
 
 \section{The SAT Problem}
@@ -915,6 +954,60 @@ sometimes we need to backtrack to the 2-higher level or more to investigate the 
 \section{Methods to Address SAT}
 \label{sec:Methods to Address SAT}
 
+%***************************************************************************************************************************************************************
+%***************************************************************************************************************************************************************
+
+\chapter{Hardness Measures}
+\label{cha:Hardness Measures}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Preliminaries}
+\label{sec:Preliminaries}
+
+\begin{defi}\label{def:Resolution}
+ Two clauses $C,D$ are resolvable if $\mid C \cap \overline D \mid = 1$ , i.e., they clash in exactly one variable:
+\begin{itemize}
+ \item For two resolvable clauses $C$ and $D$ the \textbf{resolvent} $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $ for $C \cap \overline D = \{ x \}$ is the union of the two clauses minus the resolution literals.
+ \item x is called the \textbf{resolution literal}, while var(x) is the \textbf{resolution variable}.
+ \end{itemize}
+ \end{defi}
+%***************************************************************************************************************************************************************
+%***************************************************************************************************************************************************************
+
+\chapter{The Conflict Matrix of Multi-clause-sets}
+\label{cha:The Conflict Matrix of Multi-clause-sets}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Definitions}
+\label{sec:Definitions}
+
+%***************************************************************************************************************************************************************
+%***************************************************************************************************************************************************************
+
+\chapter{Autarkies}
+\label{cha:Autarkies}
+%--------------------------------------------------------------------------------------------------------------------------------------
+
+\section{Autarkies}
+\label{sec:Autarkies}
+
+\begin{defi}\label{def:autarky}
+  Let $F$ be a clause-set. An \textbf{autarky} for $F$ is a partial assignment $\vp$ such that: $\fa C \in F : \var(\vp) \cap \var(C) \neq \es \Ra \vp * \set{C} = \top$ where $\vp * \set{C}$ is given by $\top$ when $\vp$ satisfies $\set{C}$, while otherwise $\vp * \set{C} = \set{D}$, where $D$ is given by taking out all literals from $C$ whose variable is in the domain of $\vp$.
+\end{defi}
+Namely, whenever a clause is touched by a partial assignment $\vp$, then $\vp$ satisfies it.
+
+\begin{defi}\label{def:week autarky}
+A \textbf{week autarky} ????????
+\end{defi} 
+\begin{lem}\label{lem:compaut}
+  If $\vp, \psi$ are autarkies for $F$, then also the composition $\vp \circ \psi$ is an autarky for $F$.
+\end{lem}
+\pr If $\vp \circ \psi$ touches a clause $C \in F$ then either:
+\begin{enumerate}
+\item $\psi$ touches $C$. Now, since $\psi$ is an autarky for $F, C$ is satisfied by $\vp \circ \psi$ since the assignments to variables in var($\psi$) do not  change and still exist in $\vp \circ \psi$.
+\item $\psi$ does not touch $C$ and $\vp$ therefore does touch C. Now, since $\vp$ is an autarky for $F$, C is satisfied by $\vp \circ \psi$ since the assignments to variables in $var(\vp) \cap var(C)$ for $\vp$ do not change in $\vp \circ \psi$. 
+\end{enumerate}
+
+\begin{examp}\label{exp:bdd} ??????????????
+\end{exam}
 
 %--------------------------------------------------------------------------------------------------------------------------------------
 \newpage
