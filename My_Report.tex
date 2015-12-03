@@ -14,135 +14,122 @@
 \newcommand{\Schrift}{report}
 %\newcommand{\Schrift}{book}
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 \begin{document}
 \title{\bf \Huge Report}
 
 \author{ \bf Hoda Abbasi\\
- PhD Candidate\\
- Computer Science Department\\
-Swansea University\\
-}
+             PhD Candidate\\
+             Computer Science Department\\
+             Swansea University\\}
 \maketitle
 %--------------------------------------------------------------------------------------------------------------------------------------
 \tableofcontents
-%\chapter{Internal organisation}
-%\label{cha:Internalorganisation}
-
-%\section{Overview on questions and conjectures}
-%\label{sec:Overview on questions and conjectures}
-
-%\begin{description}
-%\item 
-%\end{description}
-%--------------------------------------------------------------------------------------------------------------------------------------
-%\part{Preparations}
-%\label{par:Preparations}
-%***************************************************************************************************************************************************************
-%***************************************************************************************************************************************************************
-
+%***************************************************************************************************************************************
+%***************************************************************************************************************************************
 \chapter{Set Theory}
 \label{cha:settheory}
-
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Ontological Preparations}
-%\label{sec:Ontological preparations}
+\label{sec:Ontological preparations}
 
-A \textbf{thing} is in general fuzzy, perhaps escapes precise definition at all. An \textbf{object} is a clearly defined, clearly outlined thing. A \textbf{theory} is about a realm of objects.
-\textbf{Mathematical objects} are for example various types of numbers and spaces. In set theory, every mathematical object is given to us as a \textbf{set}.
+A \textbf{thing} is in general fuzzy, perhaps escapes precise definition at all. An \textbf{object} is a clearly defined, clearly outlined 
+thing. A \textbf{theory} is about a realm of objects. \textbf{Mathematical objects} are for example various types of numbers and spaces. 
+In set theory, every mathematical object is given to us as a \textbf{set}.
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 \section{Naive Set Theory}
 \label{sec:Naivesettheory}
 
-Pure set theory has exactly one type of object, called ``set'', and thus everything is a set here  \cite{h1}. We find it useful to use an extension, where there are ``sets'' and urelements, that is, objects are either urelements (``atomic'') or sets.
+Pure set theory has exactly one type of object, called ``set'', and thus everything is a set here  \cite{h1}. We find it useful to use an 
+extension, where there are ``sets'' and urelements, that is, objects are either urelements (``atomic'') or sets.
 \begin{examp}\label{exp:urelemente}
-If we want to assume ``numbers'', like $\NNZ \subset \NN \subset \ZZ \subset \QQ \subset \RR \subset \CC$, then we can consider them as urelements, that is, they are already given (from the outside), and they have no internal structure, that is, none of these numbers have elements; compare Section \ref{def:natnumberssimple} for the alternative approach of of defining $\NNZ = \omega$ via sets.
+      If we want to assume ``numbers'', like $\NNZ \subset \NN \subset \ZZ \subset \QQ \subset \RR \subset \CC$, then we can consider them 
+	  as urelements, that is, they are already given (from the outside), and they have no internal structure, that is, none of these numbers 
+	  have elements; compare Section \ref{def:natnumberssimple} for the alternative approach of of defining $\NNZ = \omega$ via sets.
 \end{examp}
-Intuitively, a set is a ``collection'' of objects, that is, a ``collection'' of sets and urelements. ``Collection'' here means a set $x$ (not an urelement), such that for every object $y$ it can be said, whether $y$ is an element of $x$, that is, ``\bmm{y \in x}'', or $y$ is not an element of $x$, that is, ``\bmm{y \notin x}''. Thus there is no order on the elements of a set, and an object can not be multiple times in a set (it is just ``in or out''). 
-Two objects $x, y$ can be compared for equality, that is, we either have \bmm{x = y} or \bmm{x \ne y}. Since a set is given by its elements, we have $x = y$ for sets $x, y$ iff for all objects $z$ holds $z \in x \Lra z \in y$, while we have $x \ne y$ iff there is an object $z$ with $z \in x$ but $z \notin y$, or $z \in y$ but $z \notin x$.
-For an urelement $x$ and every object $y$ holds $y \notin x$. Urelements can be compared by equality, where this relation is atomic (given).
+Intuitively, a set is a ``collection'' of objects, that is, a ``collection'' of sets and urelements. ``Collection'' here means a set $x$ 
+(not an urelement), such that for every object $y$ it can be said, whether $y$ is an element of $x$, that is, ``\bmm{y \in x}'', or $y$ is 
+not an element of $x$, that is, ``\bmm{y \notin x}''. Thus there is no order on the elements of a set, and an object can not be multiple 
+times in a set (it is just ``in or out''). Two objects $x, y$ can be compared for equality, that is, we either have \bmm{x = y} or \bmm{x \ne y}. 
+Since a set is given by its elements, we have $x = y$ for sets $x, y$ iff for all objects $z$ holds $z \in x \Lra z \in y$, while we have $x \ne y$ 
+iff there is an object $z$ with $z \in x$ but $z \notin y$, or $z \in y$ but $z \notin x$. For an urelement $x$ and every object $y$ holds $y \notin x$. 
+Urelements can be compared by equality, where this relation is atomic (given).
 
 \begin{defi}\label{def:sse}
-  For sets $x, y$ holds \bmm{x \sse y} if for all objects $z \in x$ holds $z \in y$, while \bmm{x \subset y} holds if $x \sse y$ and $x \ne y$.
+      For sets $x, y$ holds \bmm{x \sse y} if for all objects $z \in x$ holds $z \in y$, while \bmm{x \subset y} holds if $x \sse y$ and $x \ne y$.
 \end{defi}
-Remarks:
-% enumerate is used to create a numbered list
-\begin{enumerate}
-\item So $x = y$ iff $x \sse y$ and $y \sse x$.
-\item And $x \subset y$ iff for all elements $z \in x$ holds $z \in y$, while there is a $z' \in y$ with $z' \notin x$.
-\item \cite{h2} uses ``$\subset$'' instead of ``$\sse$''.
-\end{enumerate}
 
+Remarks:
+\begin{enumerate}
+      \item So $x = y$ iff $x \sse y$ and $y \sse x$.
+      \item And $x \subset y$ iff for all elements $z \in x$ holds $z \in y$, while there is a $z' \in y$ with $z' \notin x$.
+      \item \cite{h2} uses ``$\subset$'' instead of ``$\sse$''.
+\end{enumerate}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Set Formation}
 \label{sec:setformation}
 
 Given objects $x, y$ we can form the \textbf{singleton} \bmm{\set{x}} and the \textbf{2-set} \bmm{\set{x,y}}, that is, sets, where for every object $z$ holds:
 \begin{enumerate}
-\item $z \in \set{x} \Lra z = x$;
-\item $z \in \set{x,y} \Lra z = x \vee z = y$.
+      \item $z \in \set{x} \Lra z = x$;
+      \item $z \in \set{x,y} \Lra z = x \vee z = y$.
 \end{enumerate}
 
 More fundamentally, there is the \textbf{empty set} \bmm{\es}, characterised by the property, that for all objects $x$ holds $x \notin \es$.
 
 Given sets $x, y$, we can form three further sets:
 \begin{itemize}
-\item the \textbf{union} \bmm{x \cup y}, characterised by $\fa\, z : z \in x \cup y \Lra z \in x \vee z \in y$;
-\item the \textbf{intersection} \bmm{x \cap y}, characterised by $\fa\, z : z \in x \cap y \Lra z \in x \wedge z \in y$;
-\item the \textbf{(set-)difference} \bmm{x \sm y}, characterised by $\fa\, z : z \in x \sm y \Lra z \in x \wedge z \notin y$.
+      \item the \textbf{union} \bmm{x \cup y}, characterised by $\fa\, z : z \in x \cup y \Lra z \in x \vee z \in y$;
+      \item the \textbf{intersection} \bmm{x \cap y}, characterised by $\fa\, z : z \in x \cap y \Lra z \in x \wedge z \in y$;
+      \item the \textbf{(set-)difference} \bmm{x \sm y}, characterised by $\fa\, z : z \in x \sm y \Lra z \in x \wedge z \notin y$.
 \end{itemize}
 Remarks:
 \begin{enumerate}
- \item Intersection and union operation are {\it commutative} and {\it associative}.
- \item For sets $x, y, z$ we have the following properties \cite{h1}.
-  \begin{enumerate}
-  \item $x - \emptyset = x\ ;\ x - x = \emptyset $. 
-  \item $x \cup x = x\ ;\ x \cap x = x $.
-  \item $x \subseteq x \cup y\ ;\ x \cap y \subseteq x$.
-  \item $x \cup (y \cap z) = (x \cup y) \cap (x \cup z)$.
-  \item $x \cap (y \cup z) = (x \cap y) \cup (x \cap z)$.
-  \item $(x \subseteq y) \leftrightarrow (x \cap y=x) \leftrightarrow (x \cup y = y)$.
-  \item $x - y = x - (x \cap y)$.
-  \end{enumerate}
-  \item Two sets are said to be \bmm{disjoint} if they have no member in common; in symbols \cite{h1},
-    $$ x \cap y = \emptyset .$$
-  \item If $x, y $ are subset of $z$ , we have the following properties:
-    \begin{enumerate}
-	\item $z - ( z - x ) = x$;
-	\item $(x \subseteq y) \leftrightarrow [(z - y) \subseteq (z - x)]}$;
-	\item $x \cup (z - x) = z$;
-	\item $z - (x \cup y) = (z - x) \cap (z - y)$;
-	\item $z - (x \cap y) = (z - x) \cup (z - y)$.
-	\end{enumerate}
-  \item From the {\it axiom of extensionality}, it is proved that there is only one empty set \cite{h1}.
+      \item Intersection and union operation are {\it commutative} and {\it associative}.
+      \item For sets $x, y, z$ we have the following properties \cite{h1}.
+      \begin{enumerate}
+            \item $x - \emptyset = x\ ;\ x - x = \emptyset $. 
+            \item $x \cup x = x\ ;\ x \cap x = x $.
+            \item $x \subseteq x \cup y\ ;\ x \cap y \subseteq x$.
+            \item $x \cup (y \cap z) = (x \cup y) \cap (x \cup z)$.
+            \item $x \cap (y \cup z) = (x \cap y) \cup (x \cap z)$.
+            \item $(x \subseteq y) \leftrightarrow (x \cap y=x) \leftrightarrow (x \cup y = y)$.
+            \item $x - y = x - (x \cap y)$.
+      \end{enumerate}
+      \item Two sets are said to be \bmm{disjoint} if they have no member in common; in symbols \cite{h1},
+      $$ x \cap y = \emptyset .$$
+      \item If $x, y $ are subset of $z$ , we have the following properties:
+      \begin{enumerate}
+	        \item $z - ( z - x ) = x$;
+	        \item $(x \subseteq y) \leftrightarrow [(z - y) \subseteq (z - x)]}$;
+	        \item $x \cup (z - x) = z$;
+	        \item $z - (x \cup y) = (z - x) \cap (z - y)$;
+	        \item $z - (x \cap y) = (z - x) \cup (z - y)$.
+	  \end{enumerate}
+      \item From the {\it axiom of extensionality}, it is proved that there is only one empty set \cite{h1}.
 \end{enumerate}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{(Ordered) Pairs}
 \label{sec:ordpairs}
 
 \begin{defi}\label{def:pairs}
-  For objects $x, y$ we define the \textbf{pair} \bmm{(x,y)} via
-  \begin{displaymath}
-    (x,y) := \set{\set{x},\set{x,y}}.
-  \end{displaymath}
-  A set $x$ is called \textbf{a pair}, if there are objects $y,z$ with $x = (y,z)$.
+      For objects $x, y$ we define the \textbf{pair} \bmm{(x,y)} via
+      \begin{displaymath}
+            (x,y) := \set{\set{x},\set{x,y}}.
+      \end{displaymath}
+      A set $x$ is called \textbf{a pair}, if there are objects $y,z$ with $x = (y,z)$.
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item If $x=y$, then $(x,y) = \set{\set{x}}$.
-\item For example, $\es$ is not a pair.
+      \item If $x=y$, then $(x,y) = \set{\set{x}}$.
+      \item For example, $\es$ is not a pair.
 \end{enumerate}
 \begin{lem}\label{lem:pairs}
-  For objects $x, y, x', y'$ holds $(x,y) = (x',y') \Lra x = x' \wedge y = y'$.
+      For objects $x, y, x', y'$ holds $(x,y) = (x',y') \Lra x = x' \wedge y = y'$.
 \end{lem}
-
 \begin{defi}\label{def:projpairs}
-  For a pair $x$ we define the object \bmm{\proj_1(x)}, \bmm{\proj_2(x)} as those unique objects with $x = (\proj_1(x), \proj_2(x))$ (``projections'').
+      For a pair $x$ we define the object \bmm{\proj_1(x)}, \bmm{\proj_2(x)} as those unique objects with $x = (\proj_1(x), \proj_2(x))$ (``projections'').
 \end{defi}
-
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 \subsection{Product of Sets}
 \label{sec:productsets}
 
@@ -154,51 +141,61 @@ Remarks:
 \end{defi}
 Remarks:
 \begin{enumerate}
- \item For sets $A, B, C, D$ we have the following properties.
-  \begin{enumerate}
-  \item\label{thm:propprod5} $A \times \emptyset = \emptyset \times A = \emptyset$.
-  \item\label{thm:propprod1} $A \times (B \cap C) = (A\times B) \cap (A \times C)$.
-  \item\label{thm:propprod2} $A \times (B \cup C) = (A \times B) \cup (A \times C)$.
-  \item\label{thm:propprod3} $(A \times B) \cap (C \times D) = (A \cap C) \times (B \cap D)$.
-  \item\label{thm:propprod4} $(A \times B) \cup (C \times D) \subseteq (A \cup C) \times (B \cup D)$.
-  \end{enumerate}
+      \item For sets $A, B, C, D$ we have the following properties.
+      \begin{enumerate}
+            \item\label{thm:propprod5} $A \times \emptyset = \emptyset \times A = \emptyset$.
+            \item\label{thm:propprod1} $A \times (B \cap C) = (A\times B) \cap (A \times C)$.
+            \item\label{thm:propprod2} $A \times (B \cup C) = (A \times B) \cup (A \times C)$.
+            \item\label{thm:propprod3} $(A \times B) \cap (C \times D) = (A \cap C) \times (B \cap D)$.
+            \item\label{thm:propprod4} $(A \times B) \cup (C \times D) \subseteq (A \cup C) \times (B \cup D)$.
+      \end{enumerate}
 \end{enumerate}
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 \subsection{Infinitary Set Constructions}
 \label{sec:Infinitary set constructions}
 
 \begin{itemize}
-\item A \textbf{set system} is a set $X$, such that for all $y \in X$ holds that also $y$ is a set (all elements are sets). For a set system $X$ the \textbf{union} \bmm{\bc X} is characterised by $x \in \bc X \Lra \ex\, y \in X : x \in y$.
-\item For a set $x$ there is the \textbf{power set} \bmm{\pot(x)}, characterised by $y \in \pot(x) \Lra y \sse x$ for sets $y$ (the power set is the set of all subsets). So a powerset is a set system.
-\item If $x$ is a set, and $\Phi(y)$ a property of a set variable $y$ (a logical formula), then $\set{y \mb y \in x \wedge \Phi(y)}$ is a set, characterised by the property, that the elements of it are precisely those $y$ with $y \in x$ and $\Phi(y)$. In this way we can form specific subsets (via \textbf{comprehension}).
-\item If $X$ is a set, and $F(x)$ a specification of a unique object for all $x \in X$, then we have the set $\set{F(x) \mb x \in X}$, which is the set of all objects $y$, such that there is some $x \in X$ with $y = F(x)$. This is a form of image (via \textbf{replacement}).
+      \item A \textbf{set system} is a set $X$, such that for all $y \in X$ holds that also $y$ is a set (all elements are sets). For a set system 
+	  $X$ the \textbf{union} \bmm{\bc X} is characterised by $x \in \bc X \Lra \ex\, y \in X : x \in y$.
+      \item For a set $x$ there is the \textbf{power set} \bmm{\pot(x)}, characterised by $y \in \pot(x) \Lra y \sse x$ for sets $y$ (the power set 
+	  is the set of all subsets). So a powerset is a set system.
+      \item If $x$ is a set, and $\Phi(y)$ a property of a set variable $y$ (a logical formula), then $\set{y \mb y \in x \wedge \Phi(y)}$ is a set, 
+	  characterised by the property, that the elements of it are precisely those $y$ with $y \in x$ and $\Phi(y)$. In this way we can form specific 
+	  subsets (via \textbf{comprehension}).
+      \item If $X$ is a set, and $F(x)$ a specification of a unique object for all $x \in X$, then we have the set $\set{F(x) \mb x \in X}$, which 
+	  is the set of all objects $y$, such that there is some $x \in X$ with $y = F(x)$. This is a form of image (via \textbf{replacement}).
 \end{itemize}
 
 \begin{examp}\label{exp:infset}
- For set $A= \{1,2\}$ the power set is : $\pot(A)=\{ \emptyset,\{1\},\{2\},\{1,2\}\}$.
+      For set $A= \{1,2\}$ the power set is : $\pot(A)=\{ \emptyset,\{1\},\{2\},\{1,2\}\}$.
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Relations and Maps}
 \label{sec:maps}
 
 \begin{defi}\label{def:reli}
-  A \textbf{relation} is a set of pairs. The \textbf{first projection} of a relation $R$ is $\bmm{\proj_1(R)} := \set{\proj_1(p) : p \in R}$, the \textbf{second projection} is $\bmm{\proj_2(R)} := \set{\proj_2(p) : p \in R}$. For a relation $R$ and a set $X$ one defines $\bmm{R(X)}:= \set{y \in \proj_2(R) \mb \ex\, x \in X : (x,y) \in R}$ (the ``image'' of $X$ under $R$).
+      A \textbf{relation} is a set of pairs. The \textbf{first projection} of a relation $R$ is $\bmm{\proj_1(R)} := \set{\proj_1(p) : p \in R}$, 
+	  the \textbf{second projection} is $\bmm{\proj_2(R)} := \set{\proj_2(p) : p \in R}$. For a relation $R$ and a set $X$ one defines 
+	  $\bmm{R(X)}:= \set{y \in \proj_2(R) \mb \ex\, x \in X : (x,y) \in R}$ (the ``image'' of $X$ under $R$).
 \end{defi}
+
 Remarks:
 \begin{enumerate}
-\item Instead of ``second projection'' one might also use ``range''. However for the first projection to use ``domain'' is misleading, since a relation does not need to have every element of the domain in its first projection (different from a map).
+      \item Instead of ``second projection'' one might also use ``range''. However for the first projection to use ``domain'' is misleading, since 
+	  a relation does not need to have every element of the domain in its first projection (different from a map).
 
-  The notations $\proj_i(R)$ for $i \in \tb{1,2}$ can be understood as a special case of the notation ``$R(X)$'', but where $R$ is not a set.
-\item $\es$ is a relation, and for all sets $X$ holds $\es(X) = \es$.
+      The notations $\proj_i(R)$ for $i \in \tb{1,2}$ can be understood as a special case of the notation ``$R(X)$'', but where $R$ is not a set.
+      \item $\es$ is a relation, and for all sets $X$ holds $\es(X) = \es$.
 \end{enumerate}
 
 \begin{defi}\label{def:map}
-  A \textbf{map} is a relation $f$ such that for all $x \in \proj_1(f)$ there is exactly one $y \in \proj_2(F)$ with $(x,y) \in f$, where then $y =: \bmm{f(x)}$ is used. Furthermore $\bmm{\dom(f)} := \proj_1(f)$ (``domain'') and $\bmm{\rg(f)} := \proj_2(f)$ (``range'').
+      A \textbf{map} is a relation $f$ such that for all $x \in \proj_1(f)$ there is exactly one $y \in \proj_2(F)$ with $(x,y) \in f$, where then 
+	  $y =: \bmm{f(x)}$ is used. Furthermore $\bmm{\dom(f)} := \proj_1(f)$ (``domain'') and $\bmm{\rg(f)} := \proj_2(f)$ (``range'').
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item Normally there is no confusion between $f(X) = \set{f(x) : x \in X \cap \dom(f)}$ for a set $X$ according to Definition \ref{def:reli}, and $f(x) = y$ for a \emph{single} argument $x \in \dom(f)$.
+      \item Normally there is no confusion between $f(X) = \set{f(x) : x \in X \cap \dom(f)}$ for a set $X$ according to Definition \ref{def:reli}, 
+	  and $f(x) = y$ for a \emph{single} argument $x \in \dom(f)$.
 \end{enumerate}
 %--------------------------------------------------------------------------------------------------------------------------------------
 
@@ -206,142 +203,130 @@ Remarks:
 \label{sec:Specialmaps}
 
 \begin{defi}\label{def:inj}
-  A map $f$ is called an \textbf{injection} (``is injective'') if for all $x, x' \in \dom(f)$ holds $f(x) = f(x') \Ra x = x'$.
+      A map $f$ is called an \textbf{injection} (``is injective'') if for all $x, x' \in \dom(f)$ holds $f(x) = f(x') \Ra x = x'$.
 \end{defi}
-
 \begin{defi}\label{def:surj}
-  For a map $f$ holds the statement \bmm{f:X \ra Y} if $X, Y$ are sets with $X = \dom(f)$ and $\rg(f) \sse Y$. Such a statement attaches to \textbf{codomian} (or ``target set'') $Y$ to the map $f$. Given such a codomain $Y$, $f$ is called \textbf{surjective} if $\rg(F) = Y$.
+      For a map $f$ holds the statement \bmm{f:X \ra Y} if $X, Y$ are sets with $X = \dom(f)$ and $\rg(f) \sse Y$. Such a statement attaches to 
+	  \textbf{codomian} (or ``target set'') $Y$ to the map $f$. Given such a codomain $Y$, $f$ is called \textbf{surjective} if $\rg(F) = Y$.
 \end{defi}
-
 \begin{defi}\label{def:bij}
-  A map $f$ with codomain $Y$ is called \textbf{bijective} (``is a bijection'') if $f$ is injective and surjective.
+      A map $f$ with codomain $Y$ is called \textbf{bijective} (``is a bijection'') if $f$ is injective and surjective.
 \end{defi}
-
 Remarks:
 \begin{enumerate}
-\item If sets $A , B$ are injective and infinite, then we have $\abs{A} \leq \abs{B}$
+      \item If sets $A , B$ are injective and infinite, then we have $\abs{A} \leq \abs{B}$
 \end{enumerate}
-
 \begin{examp}\label{exp:Specialmaps}
-For map $f: \NN \to \NN$ and $f=2x$, the codomain is $\NN$ but the range is even numbers.
+      For map $f: \NN \to \NN$ and $f=2x$, the codomain is $\NN$ but the range is even numbers.
 \end{examp}
-
 \begin{examp}\label{exp:Specialmaps}
-  The map $F(x) = 3 x + 7$ is injective but the map $G(x) = x^4 - x$ is not. Fig \ref{fig:injct} showes another examples.
+      The map $F(x) = 3 x + 7$ is injective but the map $G(x) = x^4 - x$ is not. Fig \ref{fig:injct} showes another examples.
 \end{examp}
 
 \begin{figure}
-    \begin{center}
-	%\centering
-       \includegraphics[scale =0.8]{p11.png}
-       \caption{Examples of injective and non-injective maps.}
-	    \label{fig:injct}
-    \end{center}
+      \begin{center}
+	  %\centering
+      \includegraphics[scale =0.8]{p11.png}
+      \caption{Examples of injective and non-injective maps.}
+	  \label{fig:injct}
+\end{center}
 	
 \end{figure}
 \begin{examp}\label{exp:Specialmaps}
-  The map $F(x) = 2 x $ from natural numbers to the set of non-negative even numbers is surjective but from the set of natural numbers to natural numbers is non-surjective.
+      The map $F(x) = 2 x $ from natural numbers to the set of non-negative even numbers is surjective but from the set of natural numbers 
+	  to natural numbers is non-surjective.
 \end{examp}
 \begin{examp}\label{exp:Specialmaps}
-  The map $F(x) = x^2$ from the set of positive numbers to positive real numbers is injective and surjective. Therefore, it is bijective.
+      The map $F(x) = x^2$ from the set of positive numbers to positive real numbers is injective and surjective. Therefore, it is bijective.
 \end{examp}
-
 %\begin{figure}
-    %\begin{center}
-	%\centering
-      % \includegraphics{p3.png}
-      % \caption{Example of different typs of map.}
-    %\end{center}
+       %\begin{center}
+	   %\centering
+       %\includegraphics{p3.png}
+       %\caption{Example of different typs of map.}
+       %\end{center}
 %\end{figure}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Decompositions and Equivalence Relations}
 \label{sec:Decompositions}
 
 \begin{defi}\label{def:Decompositions}
-  A \textbf{partition} of a set $X$ is some $P \sse \pot(X) \sm \set{\es}$ wich is disjoint, i.e., $\fa\, A, B \in P : A \ne B \Ra A \cap B = \es$, and where $\bc P = X$.
+      A \textbf{partition} of a set $X$ is some $P \sse \pot(X) \sm \set{\es}$ wich is disjoint, i.e., $\fa\, A, B \in P : A \ne B \Ra A \cap B = \es$, 
+	  and where $\bc P = X$.
 \end{defi}
 \begin{examp}\label{exp:Decompositions}
-  The set $X = \{ 1, 2, 3 \} $ has these five partitions:
-  $$ \{ \{1\}, \{2\}, \{3\}\}$$
-  $$ \{ \{1,2\}, \{3\}\}$$
-  $$ \{ \{1, 3\}, \{2\}\}$$
-  $$ \{ \{1\}, \{2, 3\}\}$$
-  $$ \{ \{ 1, 2, 3 \}\}$$
-  The following are not partitions of X.
-  $$ \{ \{\}, \{2, 3\}\}$$
-  $$ \{ \{1, 2\}, \{2, 3\}\}$$
-  $$ \{ \{1\}, \{2\}\}$$
+      The set $X = \{ 1, 2, 3 \} $ has these five partitions:
+      $$ \{ \{1\}, \{2\}, \{3\}\}$$
+      $$ \{ \{1,2\}, \{3\}\}$$
+      $$ \{ \{1, 3\}, \{2\}\}$$
+      $$ \{ \{1\}, \{2, 3\}\}$$
+      $$ \{ \{ 1, 2, 3 \}\}$$
+      The following are not partitions of X.
+      $$ \{ \{\}, \{2, 3\}\}$$
+      $$ \{ \{1, 2\}, \{2, 3\}\}$$
+      $$ \{ \{1\}, \{2\}\}$$
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 \subsection{Finite Sets}
 \label{sec:Finite sets}
 
 \begin{defi}\label{def:finite}
-  A set $X$ is called \textbf{infinite} if there is a bijection $f: X \ra X'$ for some $X' \subset X$, otherwise $X$ is called \textbf{finite}.
+      A set $X$ is called \textbf{infinite} if there is a bijection $f: X \ra X'$ for some $X' \subset X$, otherwise $X$ is called \textbf{finite}.
 \end{defi}
-
 \begin{defi}\label{def:finitesubs}
-  For a set $X$ let $\bmm{\pote(X)} := \set{S \in \pot(X) : S \text{ finite}}$ be the set of finite subsets of $X$.
+      For a set $X$ let $\bmm{\pote(X)} := \set{S \in \pot(X) : S \text{ finite}}$ be the set of finite subsets of $X$.
 \end{defi}
-
 \begin{lem}\label{lem:finitesubs}
-  For a set $X$ holds $\pot(X) = \pote(X)$ iff $X$ is finite.
+      For a set $X$ holds $\pot(X) = \pote(X)$ iff $X$ is finite.
 \end{lem}
-
-
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Natural Numbers}
 \label{sec:natnumbers}
 
 \begin{defi}\label{def:natnumberssimple}
-  We can define the first \textbf{natural numbers} as $\bmm{0} := \es$, $\bmm{1} := \set{0}$, $\bmm{2} := \set{0,1}$, $\bmm{3} := \set{0,1,2}$.
-
-  In general, we can define the \textbf{successor} of a set $x$ as $\bmm{x'} := \set{x} \cup x$. So $1 = 0'$, $2 = 1'$, $3 = 2'$, and so on.
-
-  An important axiom of set theory is the \textbf{axiom of infinity}, which can be stated as the statement, that there is a set $X$ with $\es \in X$ and $\fa\, x \in X : x' \in X$.
+      We can define the first \textbf{natural numbers} as $\bmm{0} := \es$, $\bmm{1} := \set{0}$, $\bmm{2} := \set{0,1}$, $\bmm{3} := \set{0,1,2}$.
 \end{defi}
+	  \begin{defi}\label{def:successor}
+      In general, we can define the \textbf{successor} of a set $x$ as $\bmm{x'} := \set{x} \cup x$. So $1 = 0'$, $2 = 1'$, $3 = 2'$, and so on.
+\end{defi}
+      An important axiom of set theory is the \textbf{axiom of infinity}, which can be stated as the statement, that there is a set $X$ with $\es \in X$ 
+	  and $\fa\, x \in X : x' \in X$.
 
 \begin{lem}\label{lem:omega}
-  There exists a smallest set $\omega$ with $\es \in \omega$ and $\fa\, x \in \omega : x \in \omega \Ra x' \in \omega$, that is, $\omega$ is the unique set with these two properties and the condition, that for every set $X$ with these two conditions we have $\omega \sse X$.
+      There exists a smallest set $\omega$ with $\es \in \omega$ and $\fa\, x \in \omega : x \in \omega \Ra x' \in \omega$, that is, $\omega$ is 
+	  the unique set with these two properties and the condition, that for every set $X$ with these two conditions we have $\omega \sse X$.
 \end{lem}
 Remarks:
 \begin{enumerate}
-\item We use $\omega$ for the set of natural numbers including zero, if we wish to use the concrete representation of natural numbers, otherwise we use \bmm{\NNZ}, and $\bmm{\NN} := \NNZ \sm \set{0}$.
+      \item We use $\omega$ for the set of natural numbers including zero, if we wish to use the concrete representation of natural numbers, otherwise 
+	  we use \bmm{\NNZ}, and $\bmm{\NN} := \NNZ \sm \set{0}$.
 
-  So we can define $\NNZ := \omega$, but when using this notation, then we do not make use of the internal structure of natural numbers (so we might consider them as urelements).
+      So we can define $\NNZ := \omega$, but when using this notation, then we do not make use of the internal structure of natural numbers 
+	  so we might consider them as urelements).
 \end{enumerate}
-
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 \subsection{The Size of Sets}
 \label{sec:sizeofsets}
 
 \begin{defi}\label{def:equalsize}
-  Two sets $X, Y$ \textbf{have the same size}, if there exists a bijection from $X$ to $y$.
+      Two sets $X, Y$ \textbf{have the same size}, if there exists a bijection from $X$ to $y$.
 \end{defi}
-
 \begin{lem}\label{lem:sizefiniteset}
-  A set $X$ is finite if and only if there is $n \in \omega$ such that $X$ has the same size as $n$, and where $n$ is uniquely determined.
+      A set $X$ is finite if and only if there is $n \in \omega$ such that $X$ has the same size as $n$, and where $n$ is uniquely determined.
 \end{lem}
-
 \begin{defi}\label{def:sizefiniteset}
-  For a finite set $X$ by $\bmm{\abs{X}} \in \omega$ we denote the unique $n \in \omega$ with the same size as $X$ (according to Lemma \ref{lem:sizefiniteset}).
+      For a finite set $X$ by $\bmm{\abs{X}} \in \omega$ we denote the unique $n \in \omega$ with the same size as $X$ (according to Lemma 
+	  \ref{lem:sizefiniteset}).
 \end{defi}
 Remarks:
 \begin{enumerate}
-  \item For the sets $A , B$, we have the following properties:
-   \begin{enumerate}
-     \item $\abs{A \times B }= \abs{A} \times \abs{B}$.
-	 \item If $\abs{A} = n$ then $\abs{\pot(A)} = 2^n$.
-	 \item $\abs{A \cup B} = \abs{A} + \abs{B} - \abs{A \cap B}$.
-   \end{enumerate} 
- \end{enumerate}
-%--------------------------------------------------------------------------------------------------------------------------------------
-
-%\part{Basic Structures for SAT}
-%\label{par:basicstructuresSAT}
-
+      \item For the sets $A , B$, we have the following properties:
+      \begin{enumerate}
+            \item $\abs{A \times B }= \abs{A} \times \abs{B}$.
+	        \item If $\abs{A} = n$ then $\abs{\pot(A)} = 2^n$.
+	        \item $\abs{A \cup B} = \abs{A} + \abs{B} - \abs{A \cap B}$.
+      \end{enumerate} 
+\end{enumerate}
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
 \chapter{From Variables to Clause-sets}
@@ -350,59 +335,59 @@ Remarks:
 \section{Variables}
 \label{sec:Variables}
 
-
 \begin{defi}\label{def:var}
-  The set of ``variables'' is denoted by \bmm{\Va}. For every variable $v \in \Va$ its \textbf{domain} is a finite and non-empty set, denoted by $\bmm{D_v} \ne \es$. Together $(\Va, (D_v)_{v \in \Va})$ is the \textbf{variable-frame}.
-  \begin{itemize}
-  \item A \textbf{standard domain} is of the form $D_v = \tb 0m \subset \NNZ$ for some $m \in \NNZ$.
-  \item A \textbf{boolean variable} $v$ has domain $D_v = \set{0,1}$.
-  \item The domain-size of variables is denoted by $\bmm{\dos}: \Va \ra \NN$, with $\dos(v) := \abs{D_v}$.
-  \end{itemize}
-  It is assumed that for every occurring domain-size $m \in \dos(\Va)$ there are infinitely many variables with this domain-size, that is, $\dos^{-1}(m)$ is infinite.
-  \begin{itemize}
-  \item The \textbf{standard boolean var-set} is $\Va := \NN$, where all variables are boolean.
-  \item The \textbf{standard non-boolean var-set} is $\Va := \NN \times \NN_{\ge2}$, where all variables have a standardised domain, and where $\dos((n,m)) = m$ for $(n,m) \in \Va$.
-  \end{itemize}
+      The set of ``variables'' is denoted by \bmm{\Va}. For every variable $v \in \Va$ its \textbf{domain} is a finite and non-empty set, denoted by 
+	  $\bmm{D_v} \ne \es$. Together $(\Va, (D_v)_{v \in \Va})$ is the \textbf{variable-frame}.
+      \begin{itemize}
+            \item A \textbf{standard domain} is of the form $D_v = \tb 0m \subset \NNZ$ for some $m \in \NNZ$.
+            \item A \textbf{boolean variable} $v$ has domain $D_v = \set{0,1}$.
+            \item The domain-size of variables is denoted by $\bmm{\dos}: \Va \ra \NN$, with $\dos(v) := \abs{D_v}$.
+      \end{itemize}
+      It is assumed that for every occurring domain-size $m \in \dos(\Va)$ there are infinitely many variables with this domain-size, that is, $\dos^{-1}(m)$ is infinite.
+      \begin{itemize}
+            \item The \textbf{standard boolean var-set} is $\Va := \NN$, where all variables are boolean.
+            \item The \textbf{standard non-boolean var-set} is $\Va := \NN \times \NN_{\ge2}$, where all variables have a standardised domain, and where 
+			$\dos((n,m)) = m$ for $(n,m) \in \Va$.
+      \end{itemize}
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item For variables $v$ with standard domains holds $D_v = \tb{0}{\dos(v)-1}$.
-\item It seems not useful to allow domain-size zero; such variables couldn't be assigned at all.
-\item Allowing infinite domains would yield a very different situation; for example \href{https://en.wikipedia.org/wiki/Compact_space}{compactness} would fail.
-\item Typically we just mention $\Va$ in the basic set-up, not the full variable-frame $(\Va,
-D_v)_{v \in \Va})$, which is understood implicitly. Then one says whether we have only boolean variables or also non-boolean variables.
+      \item For variables $v$ with standard domains holds $D_v = \tb{0}{\dos(v)-1}$.
+      \item It seems not useful to allow domain-size zero; such variables couldn't be assigned at all.
+      \item Allowing infinite domains would yield a very different situation; for example \href{https://en.wikipedia.org/wiki/Compact_space}{compactness} would fail.
+      \item Typically we just mention $\Va$ in the basic set-up, not the full variable-frame $(\Va,
+      D_v)_{v \in \Va})$, which is understood implicitly. Then one says whether we have only boolean variables or also non-boolean variables.
 \end{enumerate}
 
 \begin{examp}\label{exp:var}
-  The standard boolean variables are $1, 2, 3, \dots \in \NN$, the standardd non-boolean boolean variables(!) are $(1,2), (2,2), (3,2), \dots \in \NN \times \set{2}$. The standard ternary variables (three-valued) are $(1,3), (2,3), (3,3), \dots \in \NN \times \set{3}$.
+      The standard boolean variables are $1, 2, 3, \dots \in \NN$, the standardd non-boolean boolean variables(!) are $(1,2), (2,2), (3,2), \dots \in \NN \times \set{2}$. 
+	  The standard ternary variables (three-valued) are $(1,3), (2,3), (3,3), \dots \in \NN \times \set{3}$.
 \end{examp}
-
-
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Partial Assignments}
 \label{sec:Partialassignments}
 
 \begin{defi}\label{def:Pass}
-  A \textbf{partial assignment} is a map $\vp$ with domain $\bmm{\var(\vp)} := \dom(\vp) \in \pote(\Va)$, such that for all $v \in \var(\vp)$ holds $\vp(v) \in D_v$. The set of all partial assignments is denoted by \bmm{\Pass}.
+      A \textbf{partial assignment} is a map $\vp$ with domain $\bmm{\var(\vp)} := \dom(\vp) \in \pote(\Va)$, such that for all $v \in \var(\vp)$ holds $\vp(v) \in D_v$. 
+	  The set of all partial assignments is denoted by \bmm{\Pass}.
 
- For $V \in \pote(\Va)$ let $\bmm{\Tass(V)} := \set{\vp \in \Pass : \var(\vp) = V}$ be the set of \textbf{total assignments} over $V$.
+      For $V \in \pote(\Va)$ let $\bmm{\Tass(V)} := \set{\vp \in \Pass : \var(\vp) = V}$ be the set of \textbf{total assignments} over $V$.
 
-  A special partial assignment is $\bmm{\epa} := \es \in \Pass$ (the \textbf{empty partial assignment}).
+      A special partial assignment is $\bmm{\epa} := \es \in \Pass$ (the \textbf{empty partial assignment}).
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item For variables $v_1, \ldots, v_n \in \mva, \; n\in \mathbb{N}_0$ with $v_i \neq v_j$ for $i\neq j$, and truth values $\varepsilon_1, \ldots, \varepsilon_n \in \{0,1\}$ we write
-\begin{displaymath}
-\pmb{\langle v_1 \to \varepsilon_1, \ldots, v_n \to \varepsilon_n\rangle}
-\end{displaymath}
-for the partial assignment with
-\begin{displaymath}
-\mbox{domain} \; \{v_1, \ldots, v_n\}
-\end{displaymath}
-which maps $v_i \mapsto \varepsilon_i$.
-
-\item So $\Tass(V) = \prod_{v \in V} D_v$.
-\item $n(\varphi) := \mid \var(\varphi) \mid$ (the number of variables in a partial assignment).
+      \item For variables $v_1, \ldots, v_n \in \mva, \; n\in \mathbb{N}_0$ with $v_i \neq v_j$ for $i\neq j$, and truth values $\varepsilon_1, \ldots, \varepsilon_n \in \{0,1\}$ we write
+      \begin{displaymath}
+            \pmb{\langle v_1 \to \varepsilon_1, \ldots, v_n \to \varepsilon_n\rangle}
+      \end{displaymath}
+      for the partial assignment with
+      \begin{displaymath}
+            \mbox{domain} \; \{v_1, \ldots, v_n\}
+      \end{displaymath}
+      which maps $v_i \mapsto \varepsilon_i$.
+      \item So $\Tass(V) = \prod_{v \in V} D_v$.
+      \item $n(\varphi) := \mid \var(\varphi) \mid$ (the number of variables in a partial assignment).
 \end{enumerate}
 
 %--------------------------------------------------------------------------------------------------------------------------------------
@@ -410,282 +395,237 @@ which maps $v_i \mapsto \varepsilon_i$.
 \label{sec:Litsvar}
 
 \begin{defi}\label{def:litdervar}
-  For a variable-frame $(\Va, (D_v)_{v \in \Va})$, a \textbf{literal} is a pair $(v,\ve)$ with $v \in \Va$ and $\ve \in D_v$. The set of all literals is denoted by $\bmm{\Lit}$. In other words, the set $\Lit$ of \textbf{literals} (over $\Va$) is defined as:
-
-\begin{displaymath}
- \Lit( \Va): = \Va \times \{0,1\}.
- \end{displaymath}
-
-For $(v,\ve) \in \Lit$:
-  \begin{enumerate}
-  \item $\bmm{\var((v,\ve))} := \proj_1((v,\ve)) = v \in \Va$.
-  \item $\bmm{\val((v,\ve))} := \proj_2((v,\ve)) = \ve$.
-  \item \textbf{positive} in case of $\varepsilon = 0$.
-  \item \textbf{negative} in case of $\varepsilon = 1$.
-  \end{enumerate}
-  Literals $x, y \in \Lit$ \textbf{clash} (or ``have a conflict'') if $\var(x) = \var(y)$ and $\val(x) \ne \val(y)$. For $L \sse \Lit$ we say that \textbf{$L$ is clash-free} if there are no $x, y \in L$ which clash.
+      For a variable-frame $(\Va, (D_v)_{v \in \Va})$, a \textbf{literal} is a pair $(v,\ve)$ with $v \in \Va$ and $\ve \in D_v$. The set of all literals is denoted by 
+	  $\bmm{\Lit}$. In other words, the set $\Lit$ of \textbf{literals} (over $\Va$) is defined as:
+      $$\Lit( \Va): = \Va \times \{0,1\}.$$
+      For $(v,\ve) \in \Lit$:
+      \begin{enumerate}
+            \item $\bmm{\var((v,\ve))} := \proj_1((v,\ve)) = v \in \Va$.
+            \item $\bmm{\val((v,\ve))} := \proj_2((v,\ve)) = \ve$.
+            \item \textbf{positive} in case of $\varepsilon = 0$.
+            \item \textbf{negative} in case of $\varepsilon = 1$.
+      \end{enumerate}
+      Literals $x, y \in \Lit$ \textbf{clash} (or ``have a conflict'') if $\var(x) = \var(y)$ and $\val(x) \ne \val(y)$. For $L \sse \Lit$ we say that 
+	  \textbf{$L$ is clash-free} if there are no $x, y \in L$ which clash.
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item As customary, in case we are not especially interested in the underlying set   $\Va$ of variables, we will just use  $\Lit$ instead of $\Lit$($\Va$)
-\item The set of partial assignments is the set of clash-free $\vp \in \pote(\Lit)$ (recall that by Subsection \ref{sec:maps} a map $f$ is the set of pairs $(x,f(x))$ for $x \in \dom(f)$).
-
-\item Simple properties:
-     \begin{enumerate}
-      \item $({}^{\overline{~~}}): \Lit \to  \Lit.$
-      \item $\overline{(v, \varepsilon)}: = (v, 1-\varepsilon).$
-      \item For a literal $x$ we call $\overline{{\bm x}}$ the \textbf{complement} of $x$ and we have
-      \begin{displaymath}
-      \forall x \in \mlit: \overline{\overline{x}} = x.
-      \end{displaymath}
-     \end{enumerate}
+      \item As customary, in case we are not especially interested in the underlying set   $\Va$ of variables, we will just use  $\Lit$ instead of $\Lit$($\Va$)
+      \item The set of partial assignments is the set of clash-free $\vp \in \pote(\Lit)$ (recall that by Subsection \ref{sec:maps} a map $f$ is the set of 
+	  pairs $(x,f(x))$ for $x \in \dom(f)$).
+      \item Simple properties:
+      \begin{enumerate}
+            \item $({}^{\overline{~~}}): \Lit \to  \Lit.$
+            \item $\overline{(v, \varepsilon)}: = (v, 1-\varepsilon).$
+            \item For a literal $x$ we call $\overline{{\bm x}}$ the \textbf{complement} of $x$ and we have
+            $$\forall x \in \mlit: \overline{\overline{x}} = x.$$
+      \end{enumerate}
 \end{enumerate}
-
 \begin{examp}\label{}
-Consider a variables $a\in  \Va$. Using the identification of variables and positive literals, we have
-\begin{eqnarray*}
-&a = (a,0)& \\
-&\overline{a} = \overline{(a,0)} = (a,1)&\\
-&\overline{\overline{a}} = \overline{(a,1)} = (a,0) = a&\\
-&\var(a) = \var((a,0)) = a& \\
-&\var(\overline{a}) = \var((a,1)) = a. &
-\end{eqnarray*}
+      Consider a variables $a\in  \Va$. Using the identification of variables and positive literals, we have
+      \begin{eqnarray*}
+            &a = (a,0)& \\
+            &\overline{a} = \overline{(a,0)} = (a,1)&\\
+            &\overline{\overline{a}} = \overline{(a,1)} = (a,0) = a&\\
+            &\var(a) = \var((a,0)) = a& \\
+            &\var(\overline{a}) = \var((a,1)) = a. &
+      \end{eqnarray*}
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Implementing Variables and Literals}
 \label{sec:varlit}
 For concrete implementations it is often efficient to identify
-\begin{displaymath}
-   \Va = \mathbb{N},
-\end{displaymath}
-\begin{displaymath}
-  \Lit = \mathbb{Z}\setminus \{0\}, 
-\end{displaymath}
+$$\Va = \mathbb{N},$$
+$$\Lit = \mathbb{Z}\setminus \{0\},$$ 
 and to use the identification
-\begin{displaymath}
- \overline{x} = -x
-\end{displaymath}
-for $x \in \mlit$.
+$$\overline{x} = -x$$
+for $x \in \Lit$.
 
-In C thus it is a possible choice to define the types Var as well as Lit as the basic type int (do not use unsigned int, since in this way you get into unnecessary trouble with negation). It is an easy implementation, however not type-safe.
-
-To associate information with variables and literals, the most natural way for this representation is to use variables and literals as \textit{indices}.
-
+In C thus it is a possible choice to define the types Var as well as Lit as the basic type int (do not use unsigned int, since in this 
+way you get into unnecessary trouble with negation). It is an easy implementation, however not type-safe.
+To associate information with variables and literals, the most natural way for this representation is to use variables and literals as 
+\textit{indices}.
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Clauses}
 \label{sec:Clauses}
 
 \begin{defi}\label{def:clauses}
-  For a set $L \sse \Lit$ we define:
-  \begin{itemize}
-  \item $\bmm{\var(L)} := \set{\var(x) : x \in L}$
-  \item $\bmm{\lit(L)} := \set{x \in \Lit : \var(x) \in \var(L)}$
-  \item $\bmm{\ol{L}} := \lit(L) \sm L$.
-  \end{itemize}
+      For a set $L \sse \Lit$ we define:
+      \begin{itemize}
+            \item $\bmm{\var(L)} := \set{\var(x) : x \in L}$
+            \item $\bmm{\lit(L)} := \set{x \in \Lit : \var(x) \in \var(L)}$
+            \item $\bmm{\ol{L}} := \lit(L) \sm L$.
+      \end{itemize}
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item So $\var(L)$ is the set of ``variables of $L$'', $\lit(L)$ is the set of ``literals having a variable in $L$'', while $\ol{L}$ is the set-complement of $L$ in the set of literals with variables in $L$.
-\item For $\vp \in \Pass$ holds $\ol{\vp} \in \Pass$ iff $\dos(\vp) \sse \set{1,2}$.
-\item $\set{\lit(\set{x})}_{x \in \Lit}$ is a partition of $\Lit$, and the partial assignments are the finite sets of literals which intersect with each element of this set-system in at most one element.
-\item For a finite $L \subset \Lit$ the following properties are equivalent:
-  \begin{enumerate}
-  \item $L$ is clashfree.
-  \item $\fa\, x \in \Lit : \abs{\lit(\set{x}) \cap L} \le 1$.
-  \item $\abs{L} = \abs{\var(L)}$.
-  \end{enumerate}
- \item If $L$ is a set of boolean variables, then $\lit(L)} = L \cup \ol{L}$.
- \item If $L$ is a set of non-boolean variables, then $\ol{L} = \emptyset$.
-
+      \item So $\var(L)$ is the set of ``variables of $L$'', $\lit(L)$ is the set of ``literals having a variable in $L$'', while $\ol{L}$ 
+	  is the set-complement of $L$ in the set of literals with variables in $L$.
+      \item For $\vp \in \Pass$ holds $\ol{\vp} \in \Pass$ iff $\dos(\vp) \sse \set{1,2}$.
+      \item $\set{\lit(\set{x})}_{x \in \Lit}$ is a partition of $\Lit$, and the partial assignments are the finite sets of literals which 
+	  intersect with each element of this set-system in at most one element.
+      \item For a finite $L \subset \Lit$ the following properties are equivalent:
+      \begin{enumerate}
+            \item $L$ is clashfree.
+            \item $\fa\, x \in \Lit : \abs{\lit(\set{x}) \cap L} \le 1$.
+            \item $\abs{L} = \abs{\var(L)}$.
+      \end{enumerate}
+      \item If $L$ is a set of boolean variables, then $\lit(L)} = L \cup \ol{L}$.
+      \item If $L$ is a set of non-boolean variables, then $\ol{L} = \emptyset$.
 \end{enumerate}
-
 \begin{examp}\label{exp:lit1}
-For sets $L_1, L_2 \sse \Lit$ with boolean variables, if $L_1 = \{1, 2, 3 \}$ and $L_2 = \{1, -1, -2, 3 \}$ we have:
-$$lit(L_1) = \{1, -1, 2, -2, 3, -3\}$$
-$$lit(L_2) = \{1, -1, 2, -2, 3, -3\}$$
+      For sets $L_1, L_2 \sse \Lit$ with boolean variables, if $L_1 = \{1, 2, 3 \}$ and $L_2 = \{1, -1, -2, 3 \}$ we have:
+      $$lit(L_1) = \{1, -1, 2, -2, 3, -3\}$$
+      $$lit(L_2) = \{1, -1, 2, -2, 3, -3\}$$
 \end{examp}
-
 \begin{examp}\label{exp:lit1}
-For sets $L_1, L_2 \sse \Lit$ with non-boolean variables, if $L_1 = \{1, 2, 3 \}$, and $L_2 = \{1, -1, -2, 3 \}$ we have:
-$$lit(L_1) = \{1, 2, 3\}$$
-$$lit(L_2) = \{1, -1, -2, 3\}$$
-
+      For sets $L_1, L_2 \sse \Lit$ with non-boolean variables, if $L_1 = \{1, 2, 3 \}$, and $L_2 = \{1, -1, -2, 3 \}$ we have:
+      $$lit(L_1) = \{1, 2, 3\}$$
+      $$lit(L_2) = \{1, -1, -2, 3\}$$
 \end{examp}
-
 \begin{defi}\label{def:cl}
-  A \textbf{clause} is a finite and clash-free set of literals, the set of all clauses is denoted by
-  \begin{displaymath}
-    \bmm{\Cl} := \set{C \in \pote(\Lit) : \abs{C} = \abs{\var(C)}}.
-  \end{displaymath}
-  A special clause is $\bmm{\bot} := \es \in \Cl$, the \textbf{empty clause}.
+      A \textbf{clause} is a finite and clash-free set of literals, the set of all clauses is denoted by
+      $$\bmm{\Cl} := \set{C \in \pote(\Lit) : \abs{C} = \abs{\var(C)}}.$$
+      A special clause is $\bmm{\bot} := \es \in \Cl$, the \textbf{empty clause}.
 \end{defi}
-
 \begin{lem}\label{lem::CLPASS}
-  $\Cl = \Pass$.
+      $\Cl = \Pass$.
 \end{lem}
 Remarks:
 \begin{enumerate}
-\item Since a clause is a \textit{set}, every element occurs only once in a clause;
-\item There is no order on the elements of a clause.
-\item So to partial assignments $\vp \in \Pass$ we can apply the operations which can be applied to sets of literals. Especially
-  \begin{displaymath}
-    \ol{\vp} = \set{(v,\ve) \in \Lit : v \in \var(\vp) \wedge \vp(v) \ne \ve}.
-  \end{displaymath}
+      \item Since a clause is a \textit{set}, every element occurs only once in a clause;
+      \item There is no order on the elements of a clause.
+      \item So to partial assignments $\vp \in \Pass$ we can apply the operations which can be applied to sets of literals. Especially
+      $$\ol{\vp} = \set{(v,\ve) \in \Lit : v \in \var(\vp) \wedge \vp(v) \ne \ve}.$$
 \end{enumerate}
-
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Clause-sets}
 \label{sec:cls}
 
 \begin{defi}\label{def:cls}
-  A \textbf{clause-set} is a finite set of clauses, the set of all clause-sets is denoted by $\bmm{\Cls} := \pote(\Cl)$.
+      A \textbf{clause-set} is a finite set of clauses, the set of all clause-sets is denoted by $\bmm{\Cls} := \pote(\Cl)$.
 
-  A special clause-set is $\bmm{\top} := \es \in \Cls$, the \textbf{empty clause-set}.
+      A special clause-set is $\bmm{\top} := \es \in \Cls$, the \textbf{empty clause-set}.
 \end{defi}
-
 \begin{defi}\label{def:cls2}
-The clause-set $F \in \Cls$ where each clause contains at most $k$ literals (has width at most $k$) is called \textbf{k-}$\Cls$.
-This means that $\mid C \mid \leq k$ \cite{h5}.
+      The clause-set $F \in \Cls$ where each clause contains at most $k$ literals (has width at most $k$) is called \textbf{k-}$\Cls$.
+      This means that $\mid C \mid \leq k$ \cite{h5}.
 \end{defi}
-
-\begin{defi}\label{def:cls2}
-A literal $x$ is called \textbf{pure} for $F$ if \ $\overline{x} \not \in \bigcup F$ 
- (the literals occuring in $F$ are give by $\bigcup F \subset \Lit$) \cite{h5}.
+\begin{defi}\label{def:cls3}
+      A literal $x$ is called \textbf{pure} for $F$ if \ $\overline{x} \not \in \bigcup F$ 
+      (the literals occuring in $F$ are give by $\bigcup F \subset \Lit$) \cite{h5}.
 \end{defi}
-
-\begin{defi}\label{def:clsbasicops}
-  For $F \in \Cls$:
-  \begin{enumerate}
-  \item $\bmm{\var(F)} := \bc_{C \in F} \var(C) \in \pote(\Va)$.
-  \item $\bmm{\lit(F)} := \lit(\var(F)) \in \pote(\Lit)$ or $\lit(F) := \var(F) \cup \overline{\var(F)}$.
-  \item $\bmm{n(F)} := \abs{\var(F)} \in \NNZ$ (the number of variables).
-  \item $\bmm{c(F)} := \abs{F} \in \NNZ$ (the number of clauses).
-  \item $\bmm{\ell(F)} := \sum_{C \in F} \abs{C} \in \NNZ$ (the number of literal occurrences).
-  \end{enumerate}
+\begin{defi}\label{def:cls4}
+      For $F \in \Cls$:
+      \begin{enumerate}
+            \item $\bmm{\var(F)} := \bc_{C \in F} \var(C) \in \pote(\Va)$.
+            \item $\bmm{\lit(F)} := \lit(\var(F)) \in \pote(\Lit)$ or $\lit(F) := \var(F) \cup \overline{\var(F)}$.
+            \item $\bmm{n(F)} := \abs{\var(F)} \in \NNZ$ (the number of variables).
+            \item $\bmm{c(F)} := \abs{F} \in \NNZ$ (the number of clauses).
+            \item $\bmm{\ell(F)} := \sum_{C \in F} \abs{C} \in \NNZ$ (the number of literal occurrences).
+      \end{enumerate}
+\end{defi}
+\begin{defi}\label{def:cls6}
+      Clause-sets $F,G$ are called \textbf{isomorphic}, if the variables of $F$ can be renamed and potentially flipped so that $F$ is 
+	  turned into $G$. More precisely, an isomorphism $\alpha$ from $F$ to $G$ is a bijection $\alpha : \lit(F) \rightarrow \lit(G)$ 
+	  which preservers complementation $(\alpha(\ol x) = \overline {\alpha(x)}$, and which maps the clauses of $F$ precisely to the 
+	  clauses of $G$; when considering multi-clause-sets, then the isomorphism must preserve the multiplicity of clauses (that is, 
+	  $G(\alpha(C)) = F(C)$ for all $C \in \Cl$) \cite{h9}.
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item Simple properties:
-  \begin{enumerate}
-  \item The logical laws of compositions $\wedge$ and $\vee$ are commutative, that is
-  \begin{displaymath}
-     a\wedge b \leftrightarrow b\wedge a, \quad  a\vee b \leftrightarrow b\vee a.
-  \end{displaymath} 
-  \item Repeating a proposition doesn't make any change, i.e.,
-     \begin{displaymath}
-      a\wedge a \leftrightarrow a, \quad  a\vee a \leftrightarrow a.
-    \end{displaymath}
- \end{enumerate}
- \item No clause may occur more than once in a clause-set.
- \item There is no order on the elements of a clause-set.
+      \item Simple properties:
+      \begin{enumerate}
+            \item The logical laws of compositions $\wedge$ and $\vee$ are commutative, that is
+            $$a\wedge b \leftrightarrow b\wedge a, \quad  a\vee b \leftrightarrow b\vee a.$$
+            \item Repeating a proposition doesn't make any change, i.e.,
+            $$a\wedge a \leftrightarrow a, \quad  a\vee a \leftrightarrow a.$$
+      \end{enumerate}
+      \item No clause may occur more than once in a clause-set.
+      \item There is no order on the elements of a clause-set.
 \end{enumerate}
 \begin{examp}\label{exp:cls}
-Some examples of clause-sets are as folow:
-\begin{displaymath}
-     \left\{\{a\}, \{\overline{a}\}\right\}
-  \end{displaymath} 
-  \begin{displaymath}
-     \left\{\{a,b\}, \{\overline{a},b\}, \{a, \overline{b}\}, \{\overline{a},\overline{b}\}\right\}
-  \end{displaymath}
-  \begin{displaymath}
-     \left\{\{a\}, \{\overline{a},b\}, \{\overline{a}, \overline{b}, c\}, \{\overline{a}, \overline{b}, \overline{c}\}\right\}
-  \end{displaymath}
+      Some examples of clause-sets are as folow:
+      $$\left\{\{a\}, \{\overline{a}\}\right\}$$
+      $$\left\{\{a,b\}, \{\overline{a},b\}, \{a, \overline{b}\}, \{\overline{a},\overline{b}\}\right\}$$
+      $$\left\{\{a\}, \{\overline{a},b\}, \{\overline{a}, \overline{b}, c\}, \{\overline{a}, \overline{b}, \overline{c}\}\right\}$$
+\end{examp}
+\begin{examp}\label{exp:cls}
+      For $F := \{\bot, \{1\}, \{−1, 2\}\}$ we have:
+	  \begin{enumerate}
+	        \item $\var(F) = \{1, 2\},\ \lit(F) = \{- 1, 1,- 2, 2\},\ \bigcup F = \{-1, 1, 2\}$.
+			\item Literal 2 is pure for $F$ (the other literals in $\lit(F)$ are not pure).
+			\item $n(F) = 2,\ c(F) = 3,\ \ell(F) = 3$.
+			\item $\{-1, 2\}$ is a full clause of $F$, while the two other clauses are not full.
+			\item $F$ has no full variable, while $F \setminus \{ \bot\}$ has the (single) full variable 1  \cite{h9}.
+	  \end{enumerate}
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
-\section{Implication-relation}
-\label{sec:Implication-relation}
-
-\begin{defi}\label{def:imp1}
-For $F, F' \in \Cls$ the \textbf{implication-relation} is defined as: 
-$F \models F' : \Leftrightarrow  \forall \varphi \in \Pass : \varphi * F = \top \Rightarrow \varphi * F' = \top$. 
-We write $F \models C$ for $F \models \{ C \}$ \cite{h5}.
-\end{defi}
-
-\begin{defi}\label{def:imp2}
-A clause $C$ with $F \models C$ is an \textbf{implicate} of $F$, while a \textbf{prime implicate}
- is an implicate $C$ such that no $C' \subset C$ is also an implicate; $\bmm{prc_0(F)}$ is the set of prime implicates of $F$ \cite{h5}.
-\end{defi}
-
-\begin{examp}\label{exp:imp3}
-For $F = \{ \{a\}, \{ \overline a, b \}, \{ \overline a, \overline b, c \} \}$ we have:
-$$ prc_0(F) = \{ \{a\}, \{ b \}, \{ c \} \} $$
-\end{examp}
-
-\begin{examp}\label{exp:imp3}
-For the $F= \{ \{ \overline a, \overline b \}, \{ \overline a, b\}, \{ a, b \}, \{ a, c \}, \{ \overline b, c\}, \{ b, d \}, \{ c, d \}\}$ 
-we have two $prc_0(F)$ as below:
-$$ prc_0(F)=\{ \{ \overline a\}, \{ b\}, \{ c\} \} , $$
-$$ prc_0(F)=\{ \{ a\}, \{ \overline b \}, \{ d\} \}$$
-\end{examp}
+%????????????
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{The Operation of Partial Assignments on Clause-sets}
 \label{sec:oppasscls}
 
 \begin{defi}\label{def:oppassCls}
-  For $\vp \in \Pass$ and $F \in \Cls$:
-  \begin{displaymath}
-    \bmm{\vp * F} := \set{C \sm \vp : C \in F \wedge C \cap \ol{\vp} = \es} \in \Cls.
-  \end{displaymath}
+      For $\vp \in \Pass$ and $F \in \Cls$:
+      $$\bmm{\vp * F} := \set{C \sm \vp : C \in F \wedge C \cap \ol{\vp} = \es} \in \Cls.$$
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item Simple properties:
-  \begin{enumerate}
-  \item $\vp * (F \cup G) = \vp * F \cup \vp * G$.
-  \item $\vp * \set{C} = \set{\bot}$ iff $C \sse \vp$.
-  \item $\vp * \set{C} = \top$ iff $C \cap \ol{\vp} \ne \es$.
-  \item $\vp = \set{x \in \Lit : \vp * \set{x} = \set{\bot}}$.
-  \item $\vp * F = \top \Lra \fa\, C \in F : C \cap \ol{\vp} \ne \es$.
-  \item $\bot \in \vp * F \Lra \ex\, C \in F : C \sse \vp$.
-  \item $\bot \in F \Ra \bot \in \vp * F$.
-  \item $\vp * \top = \top$.
-  \item $ var(\vp * F) = F \Leftrightarrow var(\vp) \cap var(F) = \emptyset$.
-  \item $ var(\vp * F) \subseteq var(F) \setminus var(\vp)$.
-  \end{enumerate}
-\item If $\vp * F \in \set{\top, \set{\bot}}$ and $\vp' \supseteq \vp$, then $\vp' * F = \vp * F$.
-\item More generally, for $\vp' \supseteq \vp$ with $(\var(\vp') \sm \var(\vp)) \cap \var(\vp * F) = \es$ holds $\vp' * F = \vp * F$. Especially for $\var(\vp) \cap \var(F) = \es$ holds $\vp * F = F$.
+      \item Simple properties:
+      \begin{enumerate}
+            \item $\vp * (F \cup G) = \vp * F \cup \vp * G$.
+            \item $\vp * \set{C} = \set{\bot}$ iff $C \sse \vp$.
+            \item $\vp * \set{C} = \top$ iff $C \cap \ol{\vp} \ne \es$.
+            \item $\vp = \set{x \in \Lit : \vp * \set{x} = \set{\bot}}$.
+            \item $\vp * F = \top \Lra \fa\, C \in F : C \cap \ol{\vp} \ne \es$.
+            \item $\bot \in \vp * F \Lra \ex\, C \in F : C \sse \vp$.
+            \item $\bot \in F \Ra \bot \in \vp * F$.
+            \item $\vp * \top = \top$.
+            \item $ var(\vp * F) = F \Leftrightarrow var(\vp) \cap var(F) = \emptyset$.
+            \item $ var(\vp * F) \subseteq var(F) \setminus var(\vp)$.
+      \end{enumerate}
+      \item If $\vp * F \in \set{\top, \set{\bot}}$ and $\vp' \supseteq \vp$, then $\vp' * F = \vp * F$.
+      \item More generally, for $\vp' \supseteq \vp$ with $(\var(\vp') \sm \var(\vp)) \cap \var(\vp * F) = \es$ holds $\vp' * F = \vp * F$. 
+	  Especially for $\var(\vp) \cap \var(F) = \es$ holds $\vp * F = F$.
 \end{enumerate}
 
 \begin{examp}\label{exp:op1}
-Some examples of operation of partial assignments are as folow:
-$$\varphi_{\{a,\overline{b},c\}} = \langle a, \overline{b}, c\to 0\rangle = \langle a\to 0, b\to 1, c\to 0 \rangle $$
-$$C_{\langle x\to 0, y\to 1, z\to 0 \rangle} = \{x, \overline{y}, z\}$$
-$$\langle a\to 1 \rangle * \left\{\{a,b,c\}, \{\overline{a}, \overline{c}\}, \{\overline{b}, \overline{c}\} \right\} = \left\{\{\overline{c}\}, \{\overline{b}, c\} \right\}$$
-$$\langle a\to & 0, b\to 1, c\to 0 \rangle * \left\{\{a,b,x\}, \{a,\overline{b},c\}, \{\overline{x}, \overline{y}\}, \{a,c,x\} \right\} = \left\{\bot, \{\overline{x}, \overline{y}\}, \{x\}\right\}$$
-(a falsifying assignment)
-$$\langle x\to & 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top$$
-(a satisfying assignment)
+      Some examples of operation of partial assignments are as folow:
+      $$\varphi_{\{a,\overline{b},c\}} = \langle a, \overline{b}, c\to 0\rangle = \langle a\to 0, b\to 1, c\to 0 \rangle $$
+      $$C_{\langle x\to 0, y\to 1, z\to 0 \rangle} = \{x, \overline{y}, z\}$$
+      $$\langle a\to 1 \rangle * \left\{\{a,b,c\}, \{\overline{a}, \overline{c}\}, \{\overline{b}, \overline{c}\} \right\} = \left\{\{\overline{c}\}, \{\overline{b}, c\} \right\}$$
+      $$\langle a\to & 0, b\to 1, c\to 0 \rangle * \left\{\{a,b,x\}, \{a,\overline{b},c\}, \{\overline{x}, \overline{y}\}, \{a,c,x\} \right\} = \left\{\bot, \{\overline{x}, \overline{y}\}, \{x\}\right\}$$
+      (a falsifying assignment)
+      $$\langle x\to & 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top$$
+      (a satisfying assignment)
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Composition of Partial Assignments}
 \label{sec:Compositionpass}
 
 \begin{defi}\label{def:comppass}
-  For $\vp, \psi \in \Pass$: $\bmm{\vp \circ \psi} := \psi \cup (\vp \sm \lit(\psi)) \in \Pass$.
-  In other words: For the composition of two partial assignments take their ``union'' for non-conflicting variables, while in case of a conflict the right assignments ``wins''.
+      For $\vp, \psi \in \Pass$: $\bmm{\vp \circ \psi} := \psi \cup (\vp \sm \lit(\psi)) \in \Pass$.
+      In other words: For the composition of two partial assignments take their ``union'' for non-conflicting variables, while in case of a 
+	  conflict the right assignments ``wins''.
 \end{defi}
-
 \begin{lem}\label{lem:passmon}
-  $(\Pass,\circ,\epa)$ is a monoid (an associative groupoid with identity element). It is generated by 
-  the \textbf{elementary partial assignments} $\langle v\to \varepsilon\rangle$ for $v\in \Va$ and $\varepsilon \in \{0,1\}$, and the ``defining relations'' are
-  
-$$\langle v\to \varepsilon \rangle \circ \langle v\to \varepsilon' \rangle = \langle v\to \varepsilon' \rangle $$
-$$\langle v\to \varepsilon \rangle \circ \langle w\to \varepsilon' \rangle = \langle w\to \varepsilon' \rangle \circ \langle v\to \varepsilon \rangle$$
-
-for $v, w\in \Va, v\neq w$, and $\varepsilon, \varepsilon' \in \{0, 1\}$.
-
+      $(\Pass,\circ,\epa)$ is a monoid (an associative groupoid with identity element). It is generated by 
+      the \textbf{elementary partial assignments} $\langle v\to \varepsilon\rangle$ for $v\in \Va$ and $\varepsilon \in \{0,1\}$, and the ``defining relations'' are
+      $$\langle v\to \varepsilon \rangle \circ \langle v\to \varepsilon' \rangle = \langle v\to \varepsilon' \rangle $$
+      $$\langle v\to \varepsilon \rangle \circ \langle w\to \varepsilon' \rangle = \langle w\to \varepsilon' \rangle \circ \langle v\to \varepsilon \rangle$$
+      for $v, w\in \Va, v\neq w$, and $\varepsilon, \varepsilon' \in \{0, 1\}$.
 \end{lem}
 
 Remarks:
 \begin{enumerate}
-\item Simple properties:
-   \begin{enumerate}
-     \item $\var(\varphi \circ \psi)  = \var(\varphi)\cup \var(\psi)$.
-     \item $\varphi \circ \emptyset  = \emptyset \circ \varphi = \varphi$.
-     \item $\varphi \circ (\psi \circ \vartheta) = (\varphi \circ \psi) \circ \vartheta$.
-    \end{enumerate}
- \end{enumerate}
-
+      \item Simple properties:
+      \begin{enumerate}
+            \item $\var(\varphi \circ \psi)  = \var(\varphi)\cup \var(\psi)$.
+            \item $\varphi \circ \emptyset  = \emptyset \circ \varphi = \varphi$.
+            \item $\varphi \circ (\psi \circ \vartheta) = (\varphi \circ \psi) \circ \vartheta$.
+      \end{enumerate}
+\end{enumerate}
 \begin{lem}\label{lem:comcomp}
   For $\vp, \psi \in \Pass$ the following properties are equivalent:
   \begin{enumerate}
@@ -694,261 +634,247 @@ Remarks:
   \item $\vp, \psi$ do not clash, that is, $\vp \cap \ol{\psi} = \es$.
   \end{enumerate}
 \end{lem}
-
 \begin{examp}\label{exp:cmp}
-Consider variables $a,b,c,d \in \Va$. By the term $\langle a\to 0, b\to 1 \rangle$ the partial assignment $\varphi$ with domain $\var(\varphi) = \{a, b\}$ and $\varphi(a) = 0$ and $\varphi(b) = 1$ is denoted.
-Examples for the defining relations are:
-$$\langle a\to 0 \rangle \circ \langle a\to 1 \rangle & = \langle a\to 1 \rangle $$
-$$\langle b\to 1 \rangle \circ \langle b\to 1 \rangle & = \langle b\to 1 \rangle $$
-$$\langle c\to 1 \rangle \circ \langle c\to 0 \rangle & = \langle c\to 0 \rangle$$
-and
-$$ \langle a\to 0 \rangle \circ \langle d\to 1 \rangle = \langle d\to 1 \rangle \circ \langle a\to 0 \rangle$$
-$$\langle b\to 1 \rangle \circ \langle c\to 1 \rangle = \langle c\to 1 \rangle \circ \langle b\to 1 \rangle$$
+      Consider variables $a,b,c,d \in \Va$. By the term $\langle a\to 0, b\to 1 \rangle$ the partial assignment $\varphi$ with domain 
+	  $\var(\varphi) = \{a, b\}$ and $\varphi(a) = 0$ and $\varphi(b) = 1$ is denoted.
+      Examples for the defining relations are:
+      $$\langle a\to 0 \rangle \circ \langle a\to 1 \rangle & = \langle a\to 1 \rangle $$
+      $$\langle b\to 1 \rangle \circ \langle b\to 1 \rangle & = \langle b\to 1 \rangle $$
+      $$\langle c\to 1 \rangle \circ \langle c\to 0 \rangle & = \langle c\to 0 \rangle$$
+      and
+      $$ \langle a\to 0 \rangle \circ \langle d\to 1 \rangle = \langle d\to 1 \rangle \circ \langle a\to 0 \rangle$$
+      $$\langle b\to 1 \rangle \circ \langle c\to 1 \rangle = \langle c\to 1 \rangle \circ \langle b\to 1 \rangle$$
 \end{examp}
 \begin{examp}\label{exp:cmp2}
-Every partial assignments is a composition of elementary partial assignments, for example:
-$$\langle a\to 0, b\to 1, c\to 0 \rangle = \langle a\to 0 \rangle \circ \langle b\to 1 \rangle \circ \langle c\to 0 \rangle. $$
-And an example for a composition of two non-elementary partial assignments is:
-$$\langle a\to 0, b\to 1, c\to 0 \rangle & \circ \langle a\to 1, b\to 1, d\to 0 \rangle = $$
-$$ \langle a\to 1, b\to 1, c\to 0, d\to 0 \rangle.$$
+      Every partial assignments is a composition of elementary partial assignments, for example:
+      $$\langle a\to 0, b\to 1, c\to 0 \rangle = \langle a\to 0 \rangle \circ \langle b\to 1 \rangle \circ \langle c\to 0 \rangle. $$
+      And an example for a composition of two non-elementary partial assignments is:
+      $$\langle a\to 0, b\to 1, c\to 0 \rangle & \circ \langle a\to 1, b\to 1, d\to 0 \rangle = $$
+      $$ \langle a\to 1, b\to 1, c\to 0, d\to 0 \rangle.$$
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Conjunctive Normal Forms}
 \label{sec:Conjunctive Normal Forms}
 
 \begin{defi}\label{def:CNF}
-  An important special case of propositional formulas are \textbf{propositional formulas in conjunctive normal form (CNF),} which are
-conjunctions of disjunctions of \textbf{literals,}  where a ``literal'' is a variable or a negated variable.  
+      An important special case of propositional formulas are \textbf{propositional formulas in conjunctive normal form (CNF),} which are
+      conjunctions of disjunctions of \textbf{literals,}  where a ``literal'' is a variable or a negated variable.  
 \end{defi}
-
 \begin{defi}\label{def:CNF-2}
-A CNF formula where each clause contains exactly $k$ literals is called \textbf{k-CNF}.
+      A CNF formula where each clause contains exactly $k$ literals is called \textbf{k-CNF}.
 \end{defi}
-
 \begin{examp}\label{exp:cnf}
-For Example, \begin{eqnarray*}
-&(a\vee b) \wedge (\neg a \vee c) \wedge (b\vee \neg c)& \\
-&a\wedge b \wedge c& \\
-&(\neg a \vee b) \wedge (\neg b \vee c) \wedge \neg c& \\
-&a \vee b \vee \neg c&
-\end{eqnarray*} are conjunctive normal forms, while
+      For Example, \begin{eqnarray*}
+      &(a\vee b) \wedge (\neg a \vee c) \wedge (b\vee \neg c)& \\
+      &a\wedge b \wedge c& \\
+      &(\neg a \vee b) \wedge (\neg b \vee c) \wedge \neg c& \\
+      &a \vee b \vee \neg c&
+\end{eqnarray*} 
+are conjunctive normal forms, while
 \begin{eqnarray*}
-&a\vee (b \wedge c)&\\
-&\neg(a\vee b)& \\
-&a \wedge (b\vee (c\wedge d))&
+      &a\vee (b \wedge c)&\\
+      &\neg(a\vee b)& \\
+      &a \wedge (b\vee (c\wedge d))&
 \end{eqnarray*}
 are not. 
 \end{examp}
-
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Transformation to CNF}
 \label{sec:Transformation to CNF}
 
 A propositional logic formula can be transformed to a logically equivalent CNF formula by using the following rules:
 \begin{enumerate}
-   \item $ a = b \Longleftrightarrow a \leftrightarrow b$.
-    \item $a \leftrightarrow b \Longleftrightarrow (a \rightarrow b) \wedge (b \rightarrow a)}$.
-    \item $ a \rightarrow b \Longleftrightarrow \neg a \vee b$.
-	\item $ a + b \Longleftrightarrow a \vee b$.
-	\item $ a . b \Longleftrightarrow a \wedge b$.
-   \end{enumerate}
-   
+      \item $ a = b \Longleftrightarrow a \leftrightarrow b$.
+      \item $a \leftrightarrow b \Longleftrightarrow (a \rightarrow b) \wedge (b \rightarrow a)}$.
+      \item $ a \rightarrow b \Longleftrightarrow \neg a \vee b$.
+	  \item $ a + b \Longleftrightarrow a \vee b$.
+	  \item $ a . b \Longleftrightarrow a \wedge b$.
+\end{enumerate}
 \begin{examp}\label{exp:tocnf}
- Here is the example of transforming AND gate to CNF.
-$$ z = x . y$$
-$$ z  \leftrightarrow x . y$$
-$$(z \rightarrow x . y) . (x . y \rightarrow z)$$
-$$ ( \neg z \vee (x \wedge y)) \wedge (\neg (x \wedge y) \vee z)$$
-$$ (\neg z \vee x) \wedge ( \neg z \vee y) \wedge ( \neg x \vee \neg \vee z)$$
+      Here is the example of transforming AND gate to CNF.
+      $$ z = x . y$$
+      $$ z  \leftrightarrow x . y$$
+      $$(z \rightarrow x . y) . (x . y \rightarrow z)$$
+      $$ ( \neg z \vee (x \wedge y)) \wedge (\neg (x \wedge y) \vee z)$$
+      $$ (\neg z \vee x) \wedge ( \neg z \vee y) \wedge ( \neg x \vee \neg \vee z)$$
 \end{examp}  
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Satisfiability and Unsatisfiability}
 \label{sec:Satisfiability and Unsatisfiability}
 
 \begin{defi}\label{def:sat}
-  $\bmm{\Sat} := \set{F \in \Cls \mb \ex\, \vp \in \Pass : \vp * F = \top}$ and $\bmm{\Usat} := \Cls \sm \Sat$; a partial assignment $\vp \in \Pass$ with $\vp * F = \top$ is called a \textbf{satisfying assignment} for $F \in \Cls$.
+      $\bmm{\Sat} := \set{F \in \Cls \mb \ex\, \vp \in \Pass : \vp * F = \top}$ and $\bmm{\Usat} := \Cls \sm \Sat$; a partial assignment 
+	  $\vp \in \Pass$ with $\vp * F = \top$ is called a \textbf{satisfying assignment} for $F \in \Cls$.
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item $\top \in \Sat$ and $\set{\bot} \in \Usat$.
-\item If $\bot \in F$, then $F \in \Usat$.
-\item If $F \in \Usat$, the $\vp * F \in \Usat$.
-\item If $F \in \Sat$ and $F' \sse F$, then also $F' \in \Sat$.
+      \item $\top \in \Sat$ and $\set{\bot} \in \Usat$.
+      \item If $\bot \in F$, then $F \in \Usat$.
+      \item If $F \in \Usat$, the $\vp * F \in \Usat$.
+      \item If $F \in \Sat$ and $F' \sse F$, then also $F' \in \Sat$.
 \end{enumerate}
-
 The elements of $\Sat$ are called \mbox{\textbf{satisfiable clause-sets,}}
 while the elements of  $\Usat$ are called \mbox{\textbf{unsatisfiable clause-sets.}}
 A partial assignment $\varphi \in \Pass$ with $\varphi(F) = 1$ is called a \textbf{satisfying assignment} for $F$.
 \begin{examp}\label{exp:sat1} The following clause-sets are $\Usat$:
-  $$\left\{\{a\}, \{\overline{a}\}\right\}$$
-  $$\left\{\{a,b\}, \{\overline{a},b\}, \{a, \overline{b}\}, \{\overline{a},\overline{b}\}\right\}$$
-  $$\left\{\{a\}, \{\overline{a},b\}, \{\overline{a}, \overline{b}, c\}, \{\overline{a}, \overline{b}, \overline{c}\}\right\}$$
+      $$\left\{\{a\}, \{\overline{a}\}\right\}$$
+      $$\left\{\{a,b\}, \{\overline{a},b\}, \{a, \overline{b}\}, \{\overline{a},\overline{b}\}\right\}$$
+      $$\left\{\{a\}, \{\overline{a},b\}, \{\overline{a}, \overline{b}, c\}, \{\overline{a}, \overline{b}, \overline{c}\}\right\}$$
 \end{examp}
-
 \begin{examp}\label{exp:sat2}
-Some examples of satisfying assignment and  falsifying assignment are as folow.
-Falsifying assignment:
-$$\langle a\to & 0, b\to 1, c\to 0 \rangle * \left\{\{a,b,x\}, \{a,\overline{b},c\}, \{\overline{x}, \overline{y}\}, \{a,c,x\} \right\} = \left\{\bot, \{\overline{x}, \overline{y}\}, \{x\}\right\}$$
-and satisfying assignment:
-$$\langle x\to & 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top.$$
+      Some examples of satisfying assignment and  falsifying assignment are as folow.
+      Falsifying assignment:
+      $$\langle a\to & 0, b\to 1, c\to 0 \rangle * \left\{\{a,b,x\}, \{a,\overline{b},c\}, \{\overline{x}, \overline{y}\}, \{a,c,x\} \right\} = \left\{\bot, \{\overline{x}, \overline{y}\}, \{x\}\right\}$$
+      and satisfying assignment:
+      $$\langle x\to & 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top.$$
 \end{examp}
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
-
 \chapter{The SAT Problem and SAT Solvers}
 \label{cha:SAT Problem and SAT Solvers}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{The P versus NP Problem}
 \label{sec:The P versus NP Problem}
-\begin{defi}\label{def:np} \textbf{The P versus NP problem} is to determine whether every language accepted by some nondeterministic algorithm in polynomial time is also accepted by some
-(deterministic) algorithm in polynomial time. To define the problem precisely it is necessary to give a formal model of a computer.
-The standard computer model in computability theory is the Turing machine, introduced by Alan Turing. Although the model was introduced before physical computers were built, it
-nevertheless continues to be accepted as the proper computer model for the purpose of defining the notion of computable function \cite{h4}.
+
+\begin{defi}\label{def:np} 
+      \textbf{The P versus NP problem} is to determine whether every language accepted by some nondeterministic algorithm in polynomial time is also accepted by some
+      (deterministic) algorithm in polynomial time. To define the problem precisely it is necessary to give a formal model of a computer.
+      The standard computer model in computability theory is the Turing machine, introduced by Alan Turing. Although the model was introduced before physical computers were built, it
+      nevertheless continues to be accepted as the proper computer model for the purpose of defining the notion of computable function \cite{h4}.
 \end{defi} 
 An easy explanation according to \href{http://www.claymath.org/prizeproblems/pvsnp.htm}{Stephen Cook} is:
 
-"Suppose that you are organizing housing accommodations for a group of four hundred university students. Space is limited and only one hundred of the students will receive places in the dormitory. To complicate matters, the Dean has
-provided you with a list of pairs of incompatible students, and requested that no pair from this list appears in your final choice (seems to be odd to demand that if student x gets a place, then
-student y doesn’t get a place, but this kind of condition is a very easy one). This is an example of what computer scientists call an \textbf{NP-problem}, since it is easy to check if a given choice of
-one hundred students proposed by a coworker is satisfactory, however the task of generating such a list from scratch seems to be so hard as to be completely impractical. Indeed, the total number of ways 
-of choosing one hundred students from the four hundred applicants is greater than the number of atoms in the known universe!"
+"Suppose that you are organizing housing accommodations for a group of four hundred university students. Space is limited and only one hundred of the students will receive places in the dormitory. 
+To complicate matters, the Dean has provided you with a list of pairs of incompatible students, and requested that no pair from this list appears in your final choice (seems to be odd to demand 
+that if student x gets a place, then student y doesn’t get a place, but this kind of condition is a very easy one). This is an example of what computer scientists call an \textbf{NP-problem}, 
+since it is easy to check if a given choice of one hundred students proposed by a coworker is satisfactory, however the task of generating such a list from scratch seems to be so hard as to be 
+completely impractical. Indeed, the total number of ways of choosing one hundred students from the four hundred applicants is greater than the number of atoms in the known universe!"
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Binary Decision Diagram}
 \label{sec:Binary Decision Diagram}
-\begin{defi}\label{def:bdd} \textbf{A Binary Decision Diagram (BDD)} is a data structure that is used to represent a boolean function. 
-On a more abstract level, BDDs can be considered as a compressed representation of sets or relations. 
-The basic idea from which the data structure was created is the \href{https://en.wikipedia.org/wiki/Boole%27s_expansion_theorem}{Shannon expansion}. A switching function is split into two sub-functions (cofactors) by assigning one variable. 
+
+\begin{defi}\label{def:bdd} 
+      \textbf{A Binary Decision Diagram (BDD)} is a data structure that is used to represent a boolean function. 
+      On a more abstract level, BDDs can be considered as a compressed representation of sets or relations. 
+      The basic idea from which the data structure was created is the \href{https://en.wikipedia.org/wiki/Boole%27s_expansion_theorem}{Shannon expansion}. 
+	  A switching function is split into two sub-functions (cofactors) by assigning one variable. 
 \end{defi} 
 \begin{examp}\label{exp:bdd}
-As an BDD, consider the boolean function $f(v_1,v_2,v_3) := v_1 \implies (v_2 \iff v_3)$, with the truth table given in Fig \ref{fig:BooleanFunctionDTExampTT}, may be represented by either of the BDD shown in Fig \ref{fig:BooleanFunctionDTExampDT1} or Fig \ref{fig:BooleanFunctionDTExampDT2}. 
-$$f(v_1,v_2,v_3) = \{ \{ \overline{v_1},\overline{v_2}, v_3 \}, \{ \overline{v_1}, v_2, \overline{v_3}\} \}$$
-\begin{figure}[h]
-  \centering
-  \begin{tabular}{|c|c|c|c|} 
-    \hline
-    $v_1$ & $v_2$ & $v_3$ & $v_1 \implies (v_2 \iff v_3)$ \\ \hline
-     0 & 0 & 0 & 1 \\ \hline
-     0 & 0 & 1 & 1 \\ \hline
-     0 & 1 & 0 & 1 \\ \hline
-     0 & 1 & 1 & 1 \\ \hline
-     1 & 0 & 0 & 1 \\ \hline
-     1 & 0 & 1 & 0 \\ \hline
-     1 & 1 & 0 & 0 \\ \hline
-     1 & 1 & 1 & 1 \\ \hline
-     \end{tabular}
-  \caption{Truth table for boolean function $f$.}
-  \label{fig:BooleanFunctionDTExampTT}
-\end{figure}
-\begin{figure}[h]
-  \centering
-  \begin{displaymath}
-    \xygraph{
-      []{v_1} ( 
-        - [dll]{1}_0 (),
-        - [drr]{v_2}^1 (
-          - [dll]{v_3}_0 (
-            - [dl]{1}_0 (),
-            - [dr]{0}^1 ()
-          ),
-          -[drr]{v_3}^1 (
-            - [dl]{0}_0 (),
-            - [dr]{1}^1 ()
-          )
-          )
-        )
-      }
-  \end{displaymath}
-  \caption{A BDD representation of $f$.}
-  \label{fig:BooleanFunctionDTExampDT1}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \begin{displaymath}
-    \xygraph{
-      []{v_2} ( 
-        - [dlll]{v_3}_0 (
-          - [dl]{1}_0 (),
-          - [dr]{v_1}^1 (
-            - [dl]{1}_0 (),
-            - [dr]{0}_1 ()
-          )
-        ),
-        - [drrr]{v_3}^1 (
-          - [dl]{v_1}_0 (
-            - [dl]{1}_0 (),
-            - [dr]{0}^1 ()
-          ),
-          -[dr]{1}^1 ()
-          )
-        )
-      }
-  \end{displaymath}
-  \caption{Another BDD representation of $f$.}
-  \label{fig:BooleanFunctionDTExampDT2}
-\end{figure}
+      As an BDD, consider the boolean function $f(v_1,v_2,v_3) := v_1 \implies (v_2 \iff v_3)$, with the truth table given in Fig \ref{fig:BooleanFunctionDTExampTT}, 
+	  may be represented by either of the BDD shown in Fig \ref{fig:BooleanFunctionDTExampDT1} or Fig \ref{fig:BooleanFunctionDTExampDT2}. 
+      $$f(v_1,v_2,v_3) = \{ \{ \overline{v_1},\overline{v_2}, v_3 \}, \{ \overline{v_1}, v_2, \overline{v_3}\} \}$$
+      \begin{figure}[h]
+            \centering
+            \begin{tabular}{|c|c|c|c|} 
+                  \hline
+                  $v_1$ & $v_2$ & $v_3$ & $v_1 \implies (v_2 \iff v_3)$ \\ \hline
+                  0 & 0 & 0 & 1 \\ \hline
+                  0 & 0 & 1 & 1 \\ \hline
+                  0 & 1 & 0 & 1 \\ \hline
+                  0 & 1 & 1 & 1 \\ \hline
+                  1 & 0 & 0 & 1 \\ \hline
+                  1 & 0 & 1 & 0 \\ \hline
+                  1 & 1 & 0 & 0 \\ \hline
+                  1 & 1 & 1 & 1 \\ \hline
+            \end{tabular}
+            \caption{Truth table for boolean function $f$.}
+            \label{fig:BooleanFunctionDTExampTT}
+      \end{figure}
+      \begin{figure}[h]
+            \centering
+            \begin{displaymath}
+                  \xygraph{
+                  []{v_1} ( 
+                  - [dll]{1}_0 (),
+                  - [drr]{v_2}^1 (
+                  - [dll]{v_3}_0 (
+                  - [dl]{1}_0 (),
+                  - [dr]{0}^1 ()
+                  ),
+                  -[drr]{v_3}^1 (
+                  - [dl]{0}_0 (),
+                  - [dr]{1}^1 ()
+                  )
+                  )
+                  )
+                  }
+            \end{displaymath}
+            \caption{A BDD representation of $f$.}
+            \label{fig:BooleanFunctionDTExampDT1}
+      \end{figure}
+      \begin{figure}[h]
+            \centering
+            \begin{displaymath}
+                  \xygraph{
+                 []{v_2} ( 
+                 - [dlll]{v_3}_0 (
+                 - [dl]{1}_0 (),
+                 - [dr]{v_1}^1 (
+                 - [dl]{1}_0 (),
+                 - [dr]{0}_1 ()
+                 )
+                 ),
+                 - [drrr]{v_3}^1 (
+                 - [dl]{v_1}_0 (
+                 - [dl]{1}_0 (),
+                 - [dr]{0}^1 ()
+                 ),
+                 -[dr]{1}^1 ()
+                 )
+                 )
+                 }
+            \end{displaymath}
+           \caption{Another BDD representation of $f$.}
+           \label{fig:BooleanFunctionDTExampDT2}
+      \end{figure}
 \end{examp}
-%\begin{figure}
-  % % \begin{center}
-	%\centering
-   %    \includegraphics[scale =0.7]{p4.png}
-   %    \caption{Examples of BDD.}
-  %\end{figure}
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 \section{The SAT Problem}
 \label{sec:The SAT Problem}
 
 \begin{defi}\label{def:sat} Basically, the meaning of \textbf{the SAT problem} is that for a conjunctive normal form $F$, decide whether $F$ is satisfiable or not.
-The SAT problem is one of the most versatile NP-complete problems. On the theoretical side, due to its expressiveness and flexibility it 
-serves as a tool for many results in complexity theory. On the practical side, NP-completeness of SAT is used “positively”, and many problems 
-are translated into  the “universal language” SAT and solved via SAT solvers. 
+      The SAT problem is one of the most versatile NP-complete problems. On the theoretical side, due to its expressiveness and flexibility it 
+      serves as a tool for many results in complexity theory. On the practical side, NP-completeness of SAT is used “positively”, and many problems 
+      are translated into  the “universal language” SAT and solved via SAT solvers. 
 \end{defi}
-%--------------------------------------------------------------------------------------------------------------------------------------
-\section{Resolution}
-\label{sec:Resolution}
 
-%--------------------------------------------------------------------------------------------------------------------------------------
-\section{Unit Resolution}
-\label{sec:Unit Resolution}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Backtracking for SAT}
 \label{sec:Backtracking for SAT}
+
 \begin{defi}\label{def:bsat} \textbf{Backtracking} is a general algorithm for finding all (or some) solutions to constraint satisfaction problems, 
-that incrementally builds candidates to the solutions, and abandons each partial candidate $c$ ("backtracks") as soon as it determines that c cannot 
-possibly be completed to a valid solution. 
+      that incrementally builds candidates to the solutions, and abandons each partial candidate $c$ ("backtracks") as soon as it determines that c cannot 
+      possibly be completed to a valid solution. 
 
-In general, a backtracking solver can be described as the following recursive procedure on input $F$:
-\begin{enumerate}
-\item First we try to simplify $F$ (using for example unit clause elimination as often as we can).
-\item Then, using simple criterions, we check whether we immediately see, whether $F$ is satisfiable or
-unsatisfiable, in which case we return "satisfiable" resp. "unsatisfiable".
-\item Otherwise some "branching variable" v in $F$ is chosen, and it is determined which truth value $\epsilon \in \{ 0, 1\}$ to consider first.
-\item Compute $\langle v \to \epsilon \rangle * F$, the result of setting variable v to value $\epsilon$, and apply the procedure recursively to
-$\langle v \to \epsilon \rangle * F$. If the result is "satisfiable" then we return "satisfiable".
-\item Otherwise, the second branch $\langle v \to \overline{\epsilon} \rangle * F$ has to be considered: If the result is “satisfiable” then
-“satisfiable” is returned, otherwise “unsatisfiable”.
-\end{enumerate}
+      In general, a backtracking solver can be described as the following recursive procedure on input $F$:
+      \begin{enumerate}
+            \item First we try to simplify $F$ (using for example unit clause elimination as often as we can).
+            \item Then, using simple criterions, we check whether we immediately see, whether $F$ is satisfiable or
+            unsatisfiable, in which case we return "satisfiable" resp. "unsatisfiable".
+            \item Otherwise some "branching variable" v in $F$ is chosen, and it is determined which truth value $\epsilon \in \{ 0, 1\}$ to consider first.
+            \item Compute $\langle v \to \epsilon \rangle * F$, the result of setting variable v to value $\epsilon$, and apply the procedure recursively to
+            $\langle v \to \epsilon \rangle * F$. If the result is "satisfiable" then we return "satisfiable".
+            \item Otherwise, the second branch $\langle v \to \overline{\epsilon} \rangle * F$ has to be considered: If the result is “satisfiable” then
+            “satisfiable” is returned, otherwise “unsatisfiable”.
+      \end{enumerate}
 \end{defi}
-
 \begin{examp}\label{exp:bdd}
-If the number of variables in CNF $F$ is $n$, then we have $2^n$ assignments in order to find out whether $F$ is satisfiable or not.
-If $n$ is a large number, it would be very difficult to consider all the assignments and we need something more clever.
-The basic idea is to make case distinctions on variables, and to exploit simplifications enabled by these case distinctions.
-Here, we explain this idea using a simple example. Consider the $F = \{ \{c,b\}, \{\overline{c},b,a\}, \{\overline{b},c\}, \{\overline{b},c,a\}, \{{\overline{a},b}\} \}$. 
-%We have 3 variables and $2^3 = 8$ assignments in order to find out whether $F$ is satisfiable or not. If the number of variables is larger, 
-For the first case distinction, we consider $\langle a \to 0 \rangle$:
-$$ F_1 := \langle a \to 0 \rangle * F = \{ \{c,b\}, \{\overline{c},b\}, \{\overline{b},c\}, \{\overline{b},c\} \}$$
-Then, we split on $b$ and:
-$$ F_2 := \langle b \to 0 \rangle * F = \{ \{c\}, \{\overline{c}\} \}$$
-which is $\Usat$. So, we have to backtrack to the last case and consider $\langle b \to 1 \rangle$. We have:
-$$ F_3 := \langle b \to 1 \rangle * F = \{ \{c\}, \{\overline{c}\} \}$$
-which is again $\Usat$. So, we have to backtrack to the higher level, that is, we have to consider $\langle a \to 1 \rangle$:
-$$ F_4 := \langle a \to 1 * F = \{ \{b\} \}.$$
-And  now, if we consider $\langle b \to 1 \rangle$ the result is $\Sat$. It is obvious that this example was simple. But, if we have more variables, 
-sometimes we need to backtrack to the 2-higher level or more to investigate the satisfiablity of $F$.
+      If the number of variables in CNF $F$ is $n$, then we have $2^n$ assignments in order to find out whether $F$ is satisfiable or not.
+      If $n$ is a large number, it would be very difficult to consider all the assignments and we need something more clever.
+      The basic idea is to make case distinctions on variables, and to exploit simplifications enabled by these case distinctions.
+      Here, we explain this idea using a simple example. Consider the $F = \{ \{c,b\}, \{\overline{c},b,a\}, \{\overline{b},c\}, \{\overline{b},c,a\}, \{{\overline{a},b}\} \}$. 
+      %We have 3 variables and $2^3 = 8$ assignments in order to find out whether $F$ is satisfiable or not. If the number of variables is larger, 
+      For the first case distinction, we consider $\langle a \to 0 \rangle$:
+      $$ F_1 := \langle a \to 0 \rangle * F = \{ \{c,b\}, \{\overline{c},b\}, \{\overline{b},c\}, \{\overline{b},c\} \}$$
+      Then, we split on $b$ and:
+      $$ F_2 := \langle b \to 0 \rangle * F = \{ \{c\}, \{\overline{c}\} \}$$
+      which is $\Usat$. So, we have to backtrack to the last case and consider $\langle b \to 1 \rangle$. We have:
+      $$ F_3 := \langle b \to 1 \rangle * F = \{ \{c\}, \{\overline{c}\} \}$$
+      which is again $\Usat$. So, we have to backtrack to the higher level, that is, we have to consider $\langle a \to 1 \rangle$:
+      $$ F_4 := \langle a \to 1 * F = \{ \{b\} \}.$$
+      And  now, if we consider $\langle b \to 1 \rangle$ the result is $\Sat$. It is obvious that this example was simple. But, if we have more variables, 
+      sometimes we need to backtrack to the 2-higher level or more to investigate the satisfiablity of $F$.
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Methods to Address SAT}
@@ -956,17 +882,62 @@ sometimes we need to backtrack to the 2-higher level or more to investigate the 
 
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
-
 \chapter{Hardness Measures}
 \label{cha:Hardness Measures}
+
+\section{Implication-relation}
+\label{sec:Implication-relation}
+
+\begin{defi}\label{def:imp1}
+      For $F, F' \in \Cls$ the \textbf{implication-relation} is defined as: 
+      $F \models F' : \Leftrightarrow  \forall \varphi \in \Pass : \varphi * F = \top \Rightarrow \varphi * F' = \top$. 
+      We write $F \models C$ for $F \models \{ C \}$ \cite{h5}.
+\end{defi}
+\begin{defi}\label{def:imp2}
+      A clause $C$ with $F \models C$ is an \textbf{implicate} of $F$, while a \textbf{prime implicate}
+      is an implicate $C$ such that no $C' \subset C$ is also an implicate; $\bmm{prc_0(F)}$ is the set of prime implicates of $F$ \cite{h5}.
+\end{defi}
+\begin{defi}\label{def:imp3}
+      A boolean function $f$ is \textbf{monotone} iff flipping any input variable from 0 to 1 never flips the output from 1 to 0.
+	  A boolean function $f$(or its corresponding CNF-clause-set $F$) is monotone iff f has only positive prime implicates \cite{h8}.
+\end{defi}
+\begin{examp}\label{exp:imp3}
+      For $F = \{ \{a\}, \{ \overline a, b \}, \{ \overline a, \overline b, c \} \}$ we have:
+      $$ prc_0(F) = \{ \{a\}, \{ b \}, \{ c \} \} $$
+\end{examp}
+\begin{examp}\label{exp:imp3}
+      For the $F= \{ \{ \overline a, \overline b \}, \{ a, b \}, \{ a, c \}, \{ \overline b, c\}, \{ b, d \}, \{ c, d \}\}$ 
+      ????????
+	  %we have two $prc_0(F)$ as below:
+      %$$ prc_0(F)=\{ \{ \overline a\}, \{ b\}, \{ c\} \} , $$
+      %$$ prc_0(F)=\{ \{ a\}, \{ \overline b \}, \{ d\} \}$$
+\end{examp}
+\begin{examp}\label{exp:imp3}
+      For the boolean function $ a \vee b$ we have $prc_0(a \vee b) = \{ \{a, b \} \}$, while for the boolean function 
+	  $a \wedge b$ we have $prc_0(a \wedge b) = \{ \{ a \}, \{b\}\}$.
+\end{examp}
+
+Remarks:
+\begin{enumerate}
+      \item Some properties of prime implicates:
+      \begin{enumerate}
+	        \item $prc_0(0^V) = \{ \bot \}$ and $prc_0(1^V) = \top$.
+			\item A clause-set $F \in \Cls$ is unsatisfiable iff $prc_0(F) = \{ \bot \}$, while for satisfiable $F$ a literal 
+			$x$ is forced iff $\{ x \} \in prc_0(F)$.
+			\item 
+	  \end{enumerate}	 
+      \item 
+\end{enumerate}
+
 %--------------------------------------------------------------------------------------------------------------------------------------
-\section{Preliminaries}
-\label{sec:Preliminaries}
+\section{Resolution}
+\label{sec:Resolution}
 
 \begin{defi}\label{def:Resolution}
- Two clauses $C,D$ are resolvable if $\mid C \cap \overline D \mid = 1$ , i.e., they clash in exactly one variable:
+ Two clauses $C,D$ are \textbf{resolvable} if $\mid C \cap \overline D \mid = 1$ , i.e., they clash in exactly one variable:
 \begin{itemize}
- \item For two resolvable clauses $C$ and $D$ the \textbf{resolvent} $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $ for $C \cap \overline D = \{ x \}$ is the union of the two clauses minus the resolution literals.
+ \item For two resolvable clauses $C$ and $D$ the \textbf{resolvent} $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $ for $C \cap \overline D = \{ x \}$ 
+ is the union of the two clauses minus the resolution literals.
  \item x is called the \textbf{resolution literal}, while var(x) is the \textbf{resolution variable}.
  \end{itemize}
  \end{defi}
@@ -981,34 +952,90 @@ sometimes we need to backtrack to the 2-higher level or more to investigate the 
 
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
-
 \chapter{Autarkies}
 \label{cha:Autarkies}
 %--------------------------------------------------------------------------------------------------------------------------------------
-
 \section{Autarkies}
 \label{sec:Autarkies}
 
-\begin{defi}\label{def:autarky}
-  Let $F$ be a clause-set. An \textbf{autarky} for $F$ is a partial assignment $\vp$ such that: $\fa C \in F : \var(\vp) \cap \var(C) \neq \es \Ra \vp * \set{C} = \top$ where $\vp * \set{C}$ is given by $\top$ when $\vp$ satisfies $\set{C}$, while otherwise $\vp * \set{C} = \set{D}$, where $D$ is given by taking out all literals from $C$ whose variable is in the domain of $\vp$.
+\begin{defi}\label{def:autarky1}
+      A partial assignment $\vp \in \Pass$ is called an \textbf{autarky} for $F \in \Cls$ if $\fa\, C \in F : \vp * \set{C} \in \set{\set{C}, \top}$.
 \end{defi}
+
+Let $F$ be a clause-set. An autarky for $F$ is a partial assignment $\vp$ such that: $\fa C \in F : \var(\vp) \cap \var(C) \neq \es \Ra \vp * \set{C} = \top$ where $\vp * \set{C}$ is given by $\top$ when $\vp$ 
+satisfies $\set{C}$, while otherwise $\vp * \set{C} = \set{C}$. 
 Namely, whenever a clause is touched by a partial assignment $\vp$, then $\vp$ satisfies it.
 
 \begin{defi}\label{def:week autarky}
-A \textbf{week autarky} ????????
+      A \textbf{week autarky} ????????
 \end{defi} 
 \begin{lem}\label{lem:compaut}
-  If $\vp, \psi$ are autarkies for $F$, then also the composition $\vp \circ \psi$ is an autarky for $F$.
+      If $\vp, \psi$ are autarkies for $F$, then also the composition $\vp \circ \psi$ is an autarky for $F$.
 \end{lem}
 \pr If $\vp \circ \psi$ touches a clause $C \in F$ then either:
 \begin{enumerate}
-\item $\psi$ touches $C$. Now, since $\psi$ is an autarky for $F, C$ is satisfied by $\vp \circ \psi$ since the assignments to variables in var($\psi$) do not  change and still exist in $\vp \circ \psi$.
-\item $\psi$ does not touch $C$ and $\vp$ therefore does touch C. Now, since $\vp$ is an autarky for $F$, C is satisfied by $\vp \circ \psi$ since the assignments to variables in $var(\vp) \cap var(C)$ for $\vp$ do not change in $\vp \circ \psi$. 
+      \item $\psi$ touches $C$. Now, since $\psi$ is an autarky for $F, C$ is satisfied by $\vp \circ \psi$ since the assignments to variables in var($\psi$) 
+	  do not  change and still exist in $\vp \circ \psi$. \item $\psi$ does not touch $C$ and $\vp$ therefore does touch C. Now, since $\vp$ is an autarky 
+	  for $F$, C is satisfied by $\vp \circ \psi$ since the assignments to variables in $var(\vp) \cap var(C)$ for $\vp$ do not change in $\vp \circ \psi$. 
 \end{enumerate}
-
+Remarks:
+\begin{enumerate}
+      \item The empty partial assignment $\epa$ is an autarky for every $F \in \Cls$ (no clause is touched), and more generally all $\varphi \in \Pass$ with $\var(\varphi) \cap \var(F) = \emptyset$
+      are autarkies for $F$, the textbf{trivial autarkies}. On the other end of the spectrum every satisfying assignment for $F$ (i.e., $\varphi * F = \top $) is an autarky for $F$ 
+	  (every clause is satisfied). A literal $x \in \Lit$ is a pure literal for $F$ iff $\langle x \rightarrow 1 \rangle $ is an autarky for $F$ \cite{h9}.
+\end{enumerate}
 \begin{examp}\label{exp:bdd} ??????????????
 \end{exam}
+%----------------------------------------------------------------------------------------------------------------------
+\section{Hitting clause-sets}
+\label{sec:hitting}
 
+\begin{defi}\label{def:hitting}
+      A \textbf{hitting clause-set} is an $F \in \Cls$ such that all $C, D \in F$, $C \ne D$, have a clash, i.e, $C \cap \ol{D} \ne \es$ holds; 
+	  the set of all hitting clause-sets is denoted by $\bmm{\Clash} \subset \Cls$, while $\bmm{\Uclash} := \Clash \cap \Usat$.
+\end{defi}
+Remarks:
+\begin{enumerate}
+      \item For $C, D \in \Cl$ the following properties are equivalent (recall Lemma \ref{lem:comcomp}):
+      \begin{enumerate}
+            \item $C, D$ clash, that is, there are clashing literals $x \in C$, $y \in D$.
+            \item $C \cap \ol{D} \ne \es$.
+            \item $\ol{C} \cap D \ne \es$.
+            \item $C \cup D \ne \Cl$.
+      \end{enumerate}
+      \item $F \in \Cls$ is hitting iff every $C \in F$, as partial assignment, is a satisfying assignment for $F \sm \set{C}$.
+\end{enumerate}
+\begin{examp}\label{exp:hit1} 
+      We have e.g. $\{1, 2,-3 \} \in \Cl$, while $\{-1, 1\} \not \in \Cl$. The only clause-set in $\Clash$ containing the empty clause is $\{ \bot \} \in \Clash$ . 
+	  An example of a non-hitting clause-set is $\{ \{ 1, 2\}, \{-1, 2\}, \{3 \} \} \in \Cls \setminus \Clash$ , where we obtain an element of $\Clash$ if we add 
+	  literal $-2$ to the third clause \cite{h9}.
+\end{exam}
+
+\begin{defi}\label{def:nearlyhitting}
+      A \textbf{nearly-hitting clause-set} is an $F \in \Cls$, such that for all $C, D \in F$, $C \ne D$ either $\var(C) \cap \var(D) = \es$ holds or $C, D$ 
+	  have a clash; the set of all nearly-hitting clause-sets is denoted by $\bmm{\Nclash} \subset \Cls$.
+\end{defi}
+Remarks:
+\begin{enumerate}
+      \item $F \in \Cls$ is nearly-hitting iff every $C \in F$, as partial assignment, is an autarky for $F \sm \set{C}$.
+\end{enumerate}
+
+\begin{quest}\label{que:decisionnearlyhitting}
+      The complexity of SAT-decision for nearly-hitting clause-sets is open (also in the boolean case).
+\end{quest}
+%----------------------------------------------------------------------------------------------------------------------
+\section{Minimally Unsatisfiable}
+\label{sec:minsat}
+
+\begin{defi}\label{def:minsat1}
+      An unsatisfiable clause-set F is called \textbf{minimally unsatisfiable}, if for every clause $C \in F$ the clause-set $F \setminus \{C\}$ 
+	  is satisfiable, and the set of minimally unsatisfiable clause-sets is denoted by $\bmm{\Musat} \subset \Usat$ . A clause-set $F \in \Musat$ is called
+	  \textbf{saturated}, if replacing any $C \in F$ by any super-clause $C' \supset C$ yields a satisfiable clause-set, and the set of saturated 
+	  minimally unsatisfiable clause-sets is denoted by $\Smusat \subset \Musat$.
+\end{defi}
+%\begin{examp}\label{exp:minsat1} 
+%      The simplest element of $\Usat \setminus \Musat$ is $\{ \bot, \{ 1\} \}$, while the simplest element of $\Musat \setminus \Smusat$ is $\{ \{1, 2\}, \{-1\}, \{-2\} \}$ \cite{h9}.
+%\end{exam}	  
 %--------------------------------------------------------------------------------------------------------------------------------------
 \newpage
 \bibliography{my_references}
