@@ -60,9 +60,11 @@ Urelements can be compared by equality, where this relation is atomic (given).
 
 Remarks:
 \begin{enumerate}
+      \item For any set $x$, we define the \textbf{complement} of $x$, denoted by $x'$, to be the set $x' = \{ z : z \not \in x \}$.
       \item So $x = y$ iff $x \sse y$ and $y \sse x$.
       \item And $x \subset y$ iff for all elements $z \in x$ holds $z \in y$, while there is a $z' \in y$ with $z' \notin x$.
-      \item \cite{h2} uses ``$\subset$'' instead of ``$\sse$''.
+      \item A set $x$ is called a \textbf{proper subset} of a set $y$ if $x \subset y$ but $x \not = y$ \cite{h3}. 
+	  \item \cite{h2} uses ``$\subset$'' instead of ``$\sse$''.
 \end{enumerate}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Set Formation}
@@ -97,7 +99,12 @@ Remarks:
       \end{enumerate}
       \item Two sets are said to be \bmm{disjoint} if they have no member in common; in symbols \cite{h1},
       $$ x \cap y = \emptyset .$$
-      \item If $x, y $ are subset of $z$ , we have the following properties:
+      \item  For sets $x, y$ the \textbf{De Morgan's Laws} are:
+	  \begin{enumerate}
+	        \item $ ( x \cup y)' = x' \cap y' $;
+			\item $ ( x \cap y)' = x' \cup y' $.
+	  \end{enumerate}
+	  \item If $x, y $ are subset of $z$ , we have the following properties:
       \begin{enumerate}
 	        \item $z - ( z - x ) = x$;
 	        \item $(x \subseteq y) \leftrightarrow [(z - y) \subseteq (z - x)]}$;
@@ -129,6 +136,18 @@ Remarks:
 \begin{defi}\label{def:projpairs}
       For a pair $x$ we define the object \bmm{\proj_1(x)}, \bmm{\proj_2(x)} as those unique objects with $x = (\proj_1(x), \proj_2(x))$ (``projections'').
 \end{defi}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Binary Operation}
+\label{sec:Binary Operation}
+
+\begin{defi}\label{def:bop}
+      The \textbf{binary operation $P$} or \textbf{law of composition} on a set $x$ is the set 
+	  $$ \{ (a,b) \mid a \in x \wedge b \in x \wedge P(x,y) \}.$$
+\end{defi}
+In other words, the binary operation on set $x$ is a rule which for every two elements of $x$ gives another element of $x$.
+For example, addition is a binary operation on $\RR$, because given any two real numbers, their sum is a real number.
+If $R$ is a binary relation on a set $x$, we write $ \bmm{R(a,b)}$ or $\bmm{(aRb)}$ \cite{h1}.
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Product of Sets}
 \label{sec:productsets}
@@ -179,6 +198,9 @@ Remarks:
 	  $\bmm{R(X)}:= \set{y \in \proj_2(R) \mb \ex\, x \in X : (x,y) \in R}$ (the ``image'' of $X$ under $R$).
 \end{defi}
 
+\begin{defi}\label{def:reli2}
+      A relation is \textbf{well-defined} if each element in the domain is assigned to a unique element in the range.
+\end{defi}	  
 Remarks:
 \begin{enumerate}
       \item Instead of ``second projection'' one might also use ``range''. However for the first projection to use ``domain'' is misleading, since 
@@ -187,6 +209,19 @@ Remarks:
       The notations $\proj_i(R)$ for $i \in \tb{1,2}$ can be understood as a special case of the notation ``$R(X)$'', but where $R$ is not a set.
       \item $\es$ is a relation, and for all sets $X$ holds $\es(X) = \es$.
 \end{enumerate}
+
+\begin{defi}\label{def:binop}
+      For any binary relation on a set $x$ we say:
+	  \begin{itemize}
+	        \item $R$ is \textbf{reflective} if $ (\forall a \in x) \ ( aRb)$;
+			\item $R$ is \textbf{symmetric} if $ (\forall a,b \in x) \ ( aRb \rightarrow bRa)$;
+			\item $R$ is \textbf{antisymmetric} if $ (\forall a,b \in x) [ ( aRb \wedge a \not = b)\rightarrow \neg (bRa)]$;
+			\item $R$ is \textbf{connected} if $ (\forall a,b \in x) [(a \not = b) \rightarrow (aRb \vee bRa)]$;
+			\item $R$ is \textbf{transisive} if $ (\forall a,b,c \in x) [ ( aRb \wedge bRc) \rightarrow (aRc)]$ \cite{h1}.
+	  \end{itemize}
+\end{defi}
+
+A binary relation on a set is said to be an \textbf{equivalence relation} just in the case it is reflexive, symmetric and transisive \cite{h1}.
 
 \begin{defi}\label{def:map}
       A \textbf{map} is a relation $f$ such that for all $x \in \proj_1(f)$ there is exactly one $y \in \proj_2(F)$ with $(x,y) \in f$, where then 
@@ -203,11 +238,11 @@ Remarks:
 \label{sec:Specialmaps}
 
 \begin{defi}\label{def:inj}
-      A map $f$ is called an \textbf{injection} (``is injective'') if for all $x, x' \in \dom(f)$ holds $f(x) = f(x') \Ra x = x'$.
+      A map $f$ is called an \textbf{injection} (is ``injective'' or ``one-to-one'') if for all $x, x' \in \dom(f)$ holds $f(x) = f(x') \Ra x = x'$.
 \end{defi}
 \begin{defi}\label{def:surj}
       For a map $f$ holds the statement \bmm{f:X \ra Y} if $X, Y$ are sets with $X = \dom(f)$ and $\rg(f) \sse Y$. Such a statement attaches to 
-	  \textbf{codomian} (or ``target set'') $Y$ to the map $f$. Given such a codomain $Y$, $f$ is called \textbf{surjective} if $\rg(F) = Y$.
+	  \textbf{codomian} (or ``target set'') $Y$ to the map $f$. Given such a codomain $Y$, $f$ is called \textbf{surjective} or ``onto'' if $\rg(F) = Y$.
 \end{defi}
 \begin{defi}\label{def:bij}
       A map $f$ with codomain $Y$ is called \textbf{bijective} (``is a bijection'') if $f$ is injective and surjective.
@@ -289,8 +324,14 @@ Remarks:
 	  \begin{defi}\label{def:successor}
       In general, we can define the \textbf{successor} of a set $x$ as $\bmm{x'} := \set{x} \cup x$. So $1 = 0'$, $2 = 1'$, $3 = 2'$, and so on.
 \end{defi}
-      An important axiom of set theory is the \textbf{axiom of infinity}, which can be stated as the statement, that there is a set $X$ with $\es \in X$ 
-	  and $\fa\, x \in X : x' \in X$.
+Remarks:
+\begin{enumerate}
+      \item An important axiom of set theory is the \textbf{axiom of infinity}, which can be stated as the statement, that there is a set $X$ with
+	  $\es \in X$ and $\fa\, x \in X : x' \in X$.
+	  \item A nonempty subset $S$ of $\ZZ$ is  \textbf{well-ordered} if $S$ contains a least element. The set $\ZZ$ is not well-ordered since it does not 
+	  contain a smallest element. However, the natural numbers are well-ordered.
+	  \item \textbf{Principle of Well-Ordering}: Every nonempty subset of the natural numbers is well-ordered.
+\end{enumerate}
 
 \begin{lem}\label{lem:omega}
       There exists a smallest set $\omega$ with $\es \in \omega$ and $\fa\, x \in \omega : x \in \omega \Ra x' \in \omega$, that is, $\omega$ is 
@@ -327,6 +368,125 @@ Remarks:
 	        \item $\abs{A \cup B} = \abs{A} + \abs{B} - \abs{A \cap B}$.
       \end{enumerate} 
 \end{enumerate}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Brief Introduction to Abstract Algebra}
+\label{sec:Abstract Algebra}
+%--------------------------------------------------------------------------------------------------------------------------------------
+%\subsection{Matrix}
+%\label{sec:Matrix}
+
+%??????????????????????
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Group}
+\label{sec:Group}
+
+\begin{defi}\label{def:group1}
+      A \textbf{group} is a pair $(G,\circ)$ where $G$ is a set and $\circ$ is a binary operation on $G$, such that the following four properties hold
+	  \begin{enumerate}
+	        \item (\textbf{closure}) for all $a, b \in G, a \circ b \in G$;
+			\item (\textbf{associativity}) for all $a, b, c \in G, a \circ (b \circ c) = (a \circ b) \circ c$;
+			\item (\textbf{existence of the identity element}) there is an element $e \in G$ such that for all $a \in G, a \circ e = e \circ a = a$;
+			\item (\textbf{existence of inverses}) for every $a \in G$, there is an element $b \in G$ (called the inverse of $a$) such that
+            $a \circ b = b \circ a = e$.
+	  \end{enumerate}
+\end{defi}
+
+\begin{examp}\label{exp:group1}
+      $(\RR,+)$ is a group. We know already that addition is a binary operation on $\RR$, so ‘closure’ holds. We know addition of real numbers
+       is associative. We want an element $e \in \RR$ so that $a + e = e + a = a$ for all $a \in \RR$. It is clear that $e = 0$ works and 
+	   is the only possible choice. Moreover, the (additive) inverse of $a$ is $-a : a +(-a) = (-a) + a = 0$.
+\end{examp}
+
+\begin{examp}\label{exp:group2}
+      $(\RR^2,+)$ is a group. Since the  elements of $\RR^2$ are pairs $(a_1,a_2)$ where $a_1, a_2$ are real numbers. Addition is defined
+      by 
+      $$(a_1,a_2)+(b_1,b_2) = (a_1+b_1,a_2+b_2).$$
+      Note that the entries $a_1 + b_1$ and $a_2 + b_2$ are real numbers, and so $(a_1 + b_1,a_2 +b_2)$ is a pair of real numbers. Hence 
+	  $(a_1 + b_2,a_2 + b_2)$ is in $\RR^2$ (closure). It can be proved that other laws (associativity, existence of the identity element 
+	  and exictence of inverse) are satisfied.
+\end{examp}
+
+\begin{defi}\label{def:group2}
+      A group $(G,\circ)$ is called \textbf{abelian} if it satisfies (\textbf{commutativity}) for all $a, b \in G, a \circ b = b \circ a$.
+\end{defi}
+
+\begin{examp}\label{exp:group3}
+      These are some examples of abelian groups: 
+	  $$(\RR,+), (\CC,+), (\QQ,+), (\RR^n,+).$$
+\end{examp}
+\begin{defi}\label{def:group3}
+      Let $(G,\circ)$ be a group. Let $H$ be a subset of $G$ and suppose that $(H,\circ)$ is also a group. Then we say that $H$ is a 
+	  \textbf{subgroup} of $G$ (or more formally $(H,\circ)$ is a subgroup of $(G,\circ)$). 
+	  %This means that $H$ must satisfies the following three conditions:
+	  %\begin{enumerate}
+	  %      \item $1 \in H$,
+		%	\item if $a, b \in H$ then $ab \in G$,
+		%	\item if $a \in H$ then $a^-^1 \in H$.
+	 % \end{enumerate}
+\end{defi}
+For $H$ to be a subgroup of $G$, we want $H$ to a group with respect to the same binary operation that makes $G$ a group.
+
+\begin{examp}\label{exp:group4}
+      $\ZZ$ is a subgroup of $\RR$ (or more formally, $(\ZZ,+)$ is a subgroup of $(\RR,+)$); because Z is a subset of $R$ and both are
+	  groups with respect to the same binary operation which is addition.
+\end{examp}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Ring}
+\label{sec:Ring}
+
+\begin{defi}\label{def:ring1}
+      A ring is a triple $(R,+, \cdot)$, where $R$ is a set and $+, \cdot$ are binary operations on $R$ such that the following properties hold
+      \begin{enumerate}
+	         \item (closure) for all $a, b \in R, a + b \in R$ and $a \cdot b \in R$;
+			 \item (associativity of addition) for all $a, b, c \in R, (a+b) +c = a +(b+c)$;
+			 \item (existence of an additive identity element) there is an element $0 \in R$ such that for all $a \in R, a + 0 = 0 + a = a$.
+			 \item (existence of additive inverses) for all $a \in R$, there an element, denoted by $-a$, such that $a +(-a) = (-a)+ a = 0$;
+			 \item (commutativity of addition) for all $a, b \in R, a + b = b +a$;
+			 \item (associativity of multiplication) for all $a, b, c \in R, a \cdot (b \cdot c) = (a \cdot b) \cdot c$;
+			 \item (distributivity) for all $a, b, c \in R, a \cdot (b + c) = a \cdotb + a \cdot c; \ (b + c) \cdot a = b \cdot a + c \cdot a$;
+			 \item (existence of a multiplicative identity) there is an element $1 \in R$ such that $1 \not = 0$ and for all $a \in R, 1 \cdot a = a \cdot 1 = a$.
+	  \end{enumerate}
+\end{defi}
+
+Moreover, a ring $(R,+, \cdot)$ is said to be \textbf{commutative}, if it satisfies the following additional property (commutativity of multiplication):
+$$ \forall a, b \in R, a \cdot b = b \cdot a.$$
+
+\begin{examp}\label{exp:ring1}
+      We know lots of examples of rings: $\ZZ, \QQ, \RR, \CC$,  etc.
+      All these examples are also commutative rings.
+\end{examp}
+
+\begin{defi}\label{def:ring2}
+      Let $(R,+, \cdot)$ be a ring. Let $S$ be a subset of $R$ and suppose that $(S,+, \cdot)$ is also a ring. Then, we say that $S$ is a subring of $R$ 
+	  (or more formally $(S,+, \cdot)$ is a subring of $(R,+, \cdot)$).
+\end{defi}
+For $S$ to be a subring of $R$, we want $S$ to a ring with respect to the same two binary operations that makes R a ring.
+
+\begin{examp}\label{exp:ring2}
+            $\ZZ$ is a subring of $\RR$; $\QQ$ is a subring of $\RR$; $\ZZ$ is a subring of $\QQ$;
+\end{examp}
+
+\begin{defi}\label{def:rrr}
+      Let $R$ be a ring. An element $u$ is called a \textbf{unit} if there is some element $v \in R$ such that $uv = vu = 1$. In other words, 
+	  an element $u$ of $R$ is a unit if it has a multiplicative inverse that belongs to $R$.
+\end{defi}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Field}
+\label{sec:Field}
+
+\begin{defi}\label{def:field}
+      A \textbf{field} $(F,+,\cdot)$ is a commutative ring such that every non-zero element is a unit. Thus a commutative ring $F$ is a field 
+	  if and only if its unit group is
+	  $$F^*= \{a \in F : a \not = 0 \}.$$
+\end{defi}
+\begin{examp}\label{exp:field1}
+      $\RR, \CC, \QQ$ are fields.
+\end{examp} 
+\begin{examp}\label{exp:field2}
+      $\ZZ$ is not a field, since for example $2 \in \ZZ$ is non-zero but not a unit.
+\end{examp}
+
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
 \chapter{From Variables to Clause-sets}
@@ -728,6 +888,11 @@ A partial assignment $\varphi \in \Pass$ with $\varphi(F) = 1$ is called a \text
       and satisfying assignment:
       $$\langle x\to & 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top.$$
 \end{examp}
+??????????????????????????????????
+\begin{defi}\label{def:hypergraphs}
+  A \textbf{hypergraph} is a pair $(V,E)$, where $V$ is a set (the set of ``vertices''), while $E \sse \pote(V)$ is a set of finite subsets of $V$ (the ``hyperedges''). We use for a hypergraph $G = (V,E)$ the notations $\bmm{V(G)} := V$ and $\bmm{E(G)} := E$.
+\end{defi}
+
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
 \chapter{The SAT Problem and SAT Solvers}
@@ -838,6 +1003,19 @@ completely impractical. Indeed, the total number of ways of choosing one hundred
       serves as a tool for many results in complexity theory. On the practical side, NP-completeness of SAT is used “positively”, and many problems 
       are translated into  the “universal language” SAT and solved via SAT solvers. 
 \end{defi}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Deficiency}
+\label{sec:Deficiency}
+
+A very interesting measure for the complexity of formulas is $CNF$ is the so-called "deficiency" which indicates the difference 
+between the number of clauses and the number of variables.
+\begin{defi}\label{def:df1}
+      Let $F$ be a formula in $CNF$ with $n$ clauses and $k$ variables. Then, the \textbf{deficiency} of $F$ is defined as $\delta (F) = n - k$. 
+	  Further, we define the maximal deficiency as $\delta ^*(F) = max \{ \delta (G) \mid G \subseteq F \}$ \cite{h6}.
+\end{defi} 
+Let $k-CNF$ be the set of $CNF$-formulas with deficiency (exactly) $k$. Then, the satisfiability problem for $k-CNF$ is NP-complete. 
+Similarly, let $CNF ^* (k)$ be the set of formulas with maximal deficiency $k$, i.e. 
+$\{F \in CNF : \delta ^*(F) = k \}$. It can been shown that the satisfiability problem for these classes is solvable in polynomial time \cite{h6}.
 
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Backtracking for SAT}
@@ -941,6 +1119,9 @@ Remarks:
  \item x is called the \textbf{resolution literal}, while var(x) is the \textbf{resolution variable}.
  \end{itemize}
  \end{defi}
+ 
+ ??????
+ It is guaranteed to derive the empty clause if the given CNF is unsatisfiable.
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
 
