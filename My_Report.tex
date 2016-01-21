@@ -375,7 +375,6 @@ Remarks:
 %\subsection{Matrix}
 %\label{sec:Matrix}
 
-%??????????????????????
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Group}
 \label{sec:Group}
@@ -417,13 +416,7 @@ Remarks:
 \begin{defi}\label{def:group3}
       Let $(G,\circ)$ be a group. Let $H$ be a subset of $G$ and suppose that $(H,\circ)$ is also a group. Then we say that $H$ is a 
 	  \textbf{subgroup} of $G$ (or more formally $(H,\circ)$ is a subgroup of $(G,\circ)$). 
-	  %This means that $H$ must satisfies the following three conditions:
-	  %\begin{enumerate}
-	  %      \item $1 \in H$,
-		%	\item if $a, b \in H$ then $ab \in G$,
-		%	\item if $a \in H$ then $a^-^1 \in H$.
-	 % \end{enumerate}
-\end{defi}
+\end{defi}	  
 For $H$ to be a subgroup of $G$, we want $H$ to a group with respect to the same binary operation that makes $G$ a group.
 
 \begin{examp}\label{exp:group4}
@@ -431,12 +424,36 @@ For $H$ to be a subgroup of $G$, we want $H$ to a group with respect to the same
 	  groups with respect to the same binary operation which is addition.
 \end{examp}
 
+\begin{examp}\label{exp:group5}
+      The set $V = \{(a,a) : a \in \RR \}$ is the line $y = x$. It contains the identity element $(0, 0)$, is closed under addition
+      and negation. Therefore it is a subgroup of $\RR^2$.
+\end{examp}
+
+\begin{examp}\label{exp:group6}
+      The ray $W = \{(a,a) : a \in \RR, a \geq 0 \}$ is not a subgroup of $\RR^2$. It contains the identity element $(0,0)$ and
+      is closed under addition. The problem is with the existence of additive inverses; e.g. $(1,1)$ is in $W$ but its inverse
+      $(-1,-1)$ is not in $W$.
+\end{examp}
+
+\begin{lem}\label{lem:sizefiniteset}
+      Let $G$ be a group. A subset $H$ of $G$ is a subgroup if and only if it satisfies the following three conditions:
+      \begin{enumerate}
+	        \item $1 \in H$,
+		 	\item if $a, b \in H$ then $ab \in G$,
+		 	\item if $a \in H$ then $a^-^1 \in H$.
+	   \end{enumerate}
+\end{lem}
+	 
+\begin{defi}\label{def:group4}
+      The \textbf{order} of an element $a$ in a group $G$ is the smallest positive integer $n$ such that $a^n =1$. If there is no 
+	  such positive integer $n$, we say a has \textbf{infinite order}.
+\end{defi}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Ring}
 \label{sec:Ring}
 
 \begin{defi}\label{def:ring1}
-      A ring is a triple $(R,+, \cdot)$, where $R$ is a set and $+, \cdot$ are binary operations on $R$ such that the following properties hold
+      A \textbf{ring} is a triple $(R,+, \cdot)$, where $R$ is a set and $+, \cdot$ are binary operations on $R$ such that the following properties hold:
       \begin{enumerate}
 	         \item (closure) for all $a, b \in R, a + b \in R$ and $a \cdot b \in R$;
 			 \item (associativity of addition) for all $a, b, c \in R, (a+b) +c = a +(b+c)$;
@@ -458,7 +475,7 @@ $$ \forall a, b \in R, a \cdot b = b \cdot a.$$
 \end{examp}
 
 \begin{defi}\label{def:ring2}
-      Let $(R,+, \cdot)$ be a ring. Let $S$ be a subset of $R$ and suppose that $(S,+, \cdot)$ is also a ring. Then, we say that $S$ is a subring of $R$ 
+      Let $(R,+, \cdot)$ be a ring. Let $S$ be a subset of $R$ and suppose that $(S,+, \cdot)$ is also a ring. Then, we say that $S$ is a \textbf{subring} of $R$ 
 	  (or more formally $(S,+, \cdot)$ is a subring of $(R,+, \cdot)$).
 \end{defi}
 For $S$ to be a subring of $R$, we want $S$ to a ring with respect to the same two binary operations that makes R a ring.
@@ -467,10 +484,47 @@ For $S$ to be a subring of $R$, we want $S$ to a ring with respect to the same t
             $\ZZ$ is a subring of $\RR$; $\QQ$ is a subring of $\RR$; $\ZZ$ is a subring of $\QQ$;
 \end{examp}
 
+\begin{defi}\label{def:ring3}
+      Let $R$ be a ring. A subset $S$ of $R$ is a subring if and only if it satisfies the following conditions:
+      \begin{enumerate}
+	         \item $0, 1 \in S$ (that is $S$ contains the additive and multiplicative identity elements of $R$);
+			 \item if $a, b \in S$ then $a + b \in S$;
+			 \item if $a \in S$ then $-a \in S$;
+			 \item if $a, b \in S$ then $ab \in S$. 
+	  \end{enumerate}
+\end{defi}
+
+Remarks:
+\begin{enumerate}
+      \item The easiest way to show that a set is a ring is to show that it is subring of a known ring. If we do this, 
+      we only have four properties to check (1),(2),(3),(4).
+\end{enumerate}
 \begin{defi}\label{def:rrr}
       Let $R$ be a ring. An element $u$ is called a \textbf{unit} if there is some element $v \in R$ such that $uv = vu = 1$. In other words, 
 	  an element $u$ of $R$ is a unit if it has a multiplicative inverse that belongs to $R$.
 \end{defi}
+
+\begin{examp}\label{exp:ring3}
+      In any ring, $0$ is a non-unit.     
+\end{examp}
+\begin{examp}\label{exp:ring4}
+      In $\RR$, $\QQ$, $\CC$, every non-zero element has a multiplicative inverse. So the units are the non-zero elements.     
+\end{examp}
+\begin{examp}\label{exp:ring5}
+      The only integers $u$ such that $1/u$ is also an integer are $\pm 1$. So the units in $\ZZ$ are $\pm 1$.    
+\end{examp}
+
+\begin{defi}\label{def:ring4}
+      Let $R$ be a ring. We define the \textbf{unit group} of $R$ to be the set
+	  $R^* = \{a \in R : a$ is  a unit in $R \}.$
+\end{defi}
+\begin{lem}\label{lem::ring5}
+      Let $(R,+, \circ)$ be a ring and let $R^*$ be the subset defined in \ref{def:ring4}. Then $(R^*, \circ)$ is a group.
+\end{lem}
+
+\begin{examp}\label{exp:ring6}
+      The units of $\ZZ$ are $\pm 1$. Therefore the unit group of $\ZZ$ is $\ZZ ^* = \{1,-1 \}$.  
+\end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Field}
 \label{sec:Field}
@@ -485,6 +539,119 @@ For $S$ to be a subring of $R$, we want $S$ to a ring with respect to the same t
 \end{examp} 
 \begin{examp}\label{exp:field2}
       $\ZZ$ is not a field, since for example $2 \in \ZZ$ is non-zero but not a unit.
+\end{examp}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Vector Space}
+\label{sec:Vector Space}
+
+A vector space is a set $V$ with two operations: addition of vectors and scalar multiplication. These operations satisfy certain properties. 
+The scalars are taken from a field $F$, where for the remainder of these notes $F$ stands either for the real numbers $\RR$ or the complex 
+numbers $\CC$. The real and complex numbers are examples of fields. Vector addition can be thought of as a map $+ : V \times V \rightarrow V $, 
+mapping two vectors $u, v \in V$ to their sum $u+ v \in V$ . Scalar multiplication can be described as a map $F \times V \rightarrow V$ , which 
+assigns to a scalar $a \in F$ and a vector $v \in V $a new vector $av$.
+
+\begin{defi}\label{def:vcs}
+      A \textbf{vector space} over $F$ is a set $V$ together with the operations of addition $V \times V \rightarrow V $ and scalar multiplication 
+	  $F \times V \rightarrow V$ satisfying the following properties:
+	  \begin{enumerate}
+	        \item Commutativity: $u + v = v + u$ for all $u, v \in V$ ;
+			\item Associativity: $(u + v) + w = u + (v + w)$ and $(ab)v = a(bv)$ for all $u, v,w \in V$ and $a, b \in F$;
+			\item Additive identity: There exists an element $0 \in V$ such that $0 + v = v$ for all $v \in V$ ;
+			\item Additive inverse: For every $v \in V$, there exists an element $w \in V$ such that $v+w = 0$;
+			\item Multiplicative identity: $1v = v$ for all $v \in V$ ;
+			\item Distributivity: $a(u + v) = au + av$ and $(a + b)u = au + bu$ for all $u, v \in V$ and $a, b \in F$.
+      \end{enumerate}
+\end{defi}
+Usually, a vector space over $\RR$ is called a \textbf{real vector space} and a vector space over $\CC$ is called a \textbf{complex vector space}. 
+The elemens $v \in V$ of a vector space are called \textbf{vectors}.
+
+Remarks:
+\begin{enumerate}
+	  \item Simple properties of vector spaces:
+	        \begin{enumerate}
+			      \item Every vector space has a unique additive identity.
+				  \item Every $v \in V$ has a unique additive inverse
+				  \item $0v = 0$ for all $v \in V$.
+				  \item $a0 = 0$ for every $a \in F$.
+				  \item $(−1)v = −v$ for every $v \in V$
+		    \end{enumerate}
+\end{enumerate}
+
+\begin{examp}\label{exp:vs12}
+      Consider the set $F^n$ of all $n$-tuples with elements in $F$. This is a vector space. Addition and scalar multiplication are
+	  defined componentwise. That is, for $u = (u_1, u_2, ... , u_n)$, $v = (v_1, v_2, . . . , v_n) \in F^n$ and $a \in F$, we define
+	  $$u + v = (u_1 + v_1, u_2 + v_2, . . . , u_n + v_n),$$
+	  $$au = (au_1, au_2, . . . , au_n).$$      
+\end{examp}
+
+\begin{examp}\label{exp:vs2}
+      Let $\beta {(F)}$ be the set of all polynomials $p : F \rightarrow F$ with coefficients in $F$. More precisely, $p(z)$ is a polynomial if 
+	  there exist $a_0, a_1, . . . , a_n \in F$ such that
+      $$p(z) = a_n z^n + a_{n-1} z^{n-1} + ... + a_1z + a_0.$$
+      Addition and scalar multiplication are defined as:
+      $$(p + q)(z) = p(z) + q(z),$$
+      $$(ap)(z) = ap(z),$$
+      where $p, q \in \beta (F)$ and $a \in F$. For example, if $p(z) = 5z + 1$ and $q(z) = 2z^2 + z + 1$, then $(p + q)(z) = 2z^2 + 6z + 2$ 
+	  and $(2p)(z) = 10z + 2$. 
+	  
+      Again, it can be easily verified that $\beta(F)$ forms a vector space over $F$. The additive identity in this 
+	  case is the zero polynomial, for which all coefficients are equal to zero. The additive inverse of $p(z)= a_n z^n + a_{n-1} z^{n-1} + ... + a_1z + a_0$  
+	  is $-p(z) = -a_n z^n - a_{n-1}z^{n-1} - ... - a_1 z - a_0.
+\end{examp}
+
+\begin{defi}\label{def:vcs_2}	
+      A subset $U \subset V$ of a vector space $V$ over $F$ is a \textbf{subspace} of $V$ if $U$ itself is a vector space over $F$.
+\end{defi}	
+
+To check that a subset $U \subset V$ is a subspace, it suffices to check only a couple of the conditions of a vector space.		  
+\begin{lem}\label{lem::vcs}
+      Let $U \subset V$ be a subset of a vector space $V$ over $F$. Then $U$ is a subspace of $V$ if and only if:
+	  \begin{enumerate}
+	       \item additive identity: $0 \in U$;
+		   \item closure under addition: $u, v \in U$ implies $u + v \in U$;
+		   \item closure under scalar multiplication: $a \in F$, $u \in U$ implies that $au \in U$.
+	  \end{enumerate}
+\end{lem}
+
+\begin{examp}\label{exp:subv1}
+      In every vector space $V$ , the subsets $\{ 0 \}$ and $V$ are trivial subspaces.      
+\end{examp}
+\begin{examp}\label{exp:subv2}
+      $\{ (x_1, 0) \mid x_1 \in \RR \}$ is a subspace of $\RR^ 2$.      
+\end{examp}
+\begin{examp}\label{exp:subv3}
+      $U = \{ (x_1, x_2, x_3) \in F^3 \mid x_1 + 2x_2 = 0 \}$ is a subspace of $F^3$.      
+\end{examp}
+
+\begin{defi}\label{def:vcs_3}
+      Let $U_1, U_2 \subset V$ be subspaces of $V$. We define the \textbf{sum} of $U_1$ and $U_2$ as:
+      $$ U_1 + U_2 = \{u_1 + u_2 \mid u_1 \in U_1, u_2 \in U_2 \}.$$
+	  In fact, $U_1 + U_2$ is the smallest subspace of $V$ that contains both $U_1$ and $U_2$.
+\end{defi}
+
+\begin{examp}\label{exp:subv4}
+      Let 
+      $$U_1 = \{(x, 0, 0) \in F^3 \mid x \in F \},$$
+      $$U_2 = \{(0, y, 0) \in F^3 \mid y \in F \}.$$
+      Then
+      $$U_1 + U_2 = {(x, y, 0) \in F^3 \mid x, y \in F}. (2)$$
+      If alternatively $U2 = \{(y, y, 0) \in F^3 \mid y \in F \}$ then the above sum still holds.    
+\end{examp}
+
+\begin{defi}\label{def:vcs_4}
+      Suppose every $u \in U$ can be uniquely written as $u = u_1 +u_2$ for $u_1 \in U_1$ and $u_2 \in U_2$. 
+	  Then
+      $$U = U_1 \oplus U_2$$
+      is the \textbf{direct sum} of $U_1$ and $U_2$.
+\end{defi}
+\begin{examp}\label{exp:subv5}
+      Let
+      $$U_1 = \{(x, y, 0) \in R^3 \mid x, y \in \RR \},$$
+      $$U_2 = \{(0, 0, z) \in R^3 \mid z \in \RR \}.$$
+      Then $R^3 = U_1 \oplus U_2$. However, if instead
+      $$U_2 = \{(0,w, z) \mid w, z \in \RR \},$$
+      then $R^3 = U_1 + U_2$, but it is not the direct sum of $U_1$ and $U_2$.
 \end{examp}
 
 %***************************************************************************************************************************************************************
