@@ -6,6 +6,11 @@
 \usepackage{a4}
 \usepackage[graph]{xy}
 \usepackage{graphicx}
+\usepackage{tikz-qtree}
+\usepackage{latexsym}
+\usepackage{amssymb,forest}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
 \input Latex_macros/Definitionen.tex
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -249,29 +254,43 @@ Remarks:
 \end{defi}
 Remarks:
 \begin{enumerate}
-      \item If sets $A , B$ are injective and infinite, then we have $\abs{A} \leq \abs{B}$
+      \item If sets $A , B$ are injective and infinite, then $\abs{A} \leq \abs{B}$
 \end{enumerate}
-\begin{examp}\label{exp:Specialmaps}
+\begin{examp}\label{exp:Specialmaps1}
       For map $f: \NN \to \NN$ and $f=2x$, the codomain is $\NN$ but the range is even numbers.
 \end{examp}
-\begin{examp}\label{exp:Specialmaps}
-      The map $F(x) = 3 x + 7$ is injective but the map $G(x) = x^4 - x$ is not. Fig \ref{fig:injct} showes another examples.
+
+\begin{examp}\label{exp:Specialmaps2}
+      The map $F(x) = 3 x + 7$ is injective but the map $G(x) = x^4 - x$ is not.
 \end{examp}
 
-\begin{figure}
+\begin{examp}\label{exp:Specialmaps3}
+      Fig \ref{fig:injct} showes an examples of injective and non-injective maps. 
+	  Fig \ref{fig:bijct} showes an examples of bijective and non-bijective maps.
+	  \begin{figure}
       \begin{center}
 	  %\centering
       \includegraphics[scale =0.8]{p11.png}
       \caption{Examples of injective and non-injective maps.}
 	  \label{fig:injct}
-\end{center}
-	
-\end{figure}
-\begin{examp}\label{exp:Specialmaps}
+      \end{center}
+      \end{figure}
+	  %----------
+	  \begin{figure}
+      \begin{center}
+	  %\centering
+      \includegraphics[scale =0.8]{p5.png}
+      \caption{Examples of bijective and non-bijective maps.}
+	  \label{fig:bijct}
+      \end{center}
+      \end{figure}
+\end{examp}
+
+\begin{examp}\label{exp:Specialmaps4}
       The map $F(x) = 2 x $ from natural numbers to the set of non-negative even numbers is surjective but from the set of natural numbers 
 	  to natural numbers is non-surjective.
 \end{examp}
-\begin{examp}\label{exp:Specialmaps}
+\begin{examp}\label{exp:Specialmaps5}
       The map $F(x) = x^2$ from the set of positive numbers to positive real numbers is injective and surjective. Therefore, it is bijective.
 \end{examp}
 %\begin{figure}
@@ -300,6 +319,11 @@ Remarks:
       $$ \{ \{\}, \{2, 3\}\}$$
       $$ \{ \{1, 2\}, \{2, 3\}\}$$
       $$ \{ \{1\}, \{2\}\}$$
+\end{examp}
+
+\begin{examp}\label{exp:partition}
+      $\ZZ$ can be partitioned into three disjoint subset as follows:
+	  $$ \{3k \mid k \in \ZZ\}, \{3k+1 \mid k \in \ZZ\}, \{3k+2 \mid k \in \ZZ\}$$
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Finite Sets}
@@ -369,14 +393,18 @@ Remarks:
       \end{enumerate} 
 \end{enumerate}
 %--------------------------------------------------------------------------------------------------------------------------------------
-\section{Brief Introduction to Abstract Algebra}
-\label{sec:Abstract Algebra}
+%***************************************************************************************************************************************
+%***************************************************************************************************************************************
+
+\chapter{Brief Introduction to Abstract Algebra}
+\label{cha:Abstract Algebra}
+
 %--------------------------------------------------------------------------------------------------------------------------------------
 %\subsection{Matrix}
 %\label{sec:Matrix}
 
 %--------------------------------------------------------------------------------------------------------------------------------------
-\subsection{Group}
+\section{Group}
 \label{sec:Group}
 
 \begin{defi}\label{def:group1}
@@ -449,7 +477,7 @@ For $H$ to be a subgroup of $G$, we want $H$ to a group with respect to the same
 	  such positive integer $n$, we say a has \textbf{infinite order}.
 \end{defi}
 %--------------------------------------------------------------------------------------------------------------------------------------
-\subsection{Ring}
+\section{Ring}
 \label{sec:Ring}
 
 \begin{defi}\label{def:ring1}
@@ -526,7 +554,7 @@ Remarks:
       The units of $\ZZ$ are $\pm 1$. Therefore the unit group of $\ZZ$ is $\ZZ ^* = \{1,-1 \}$.  
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
-\subsection{Field}
+\section{Field}
 \label{sec:Field}
 
 \begin{defi}\label{def:field}
@@ -542,7 +570,7 @@ Remarks:
 \end{examp}
 
 %--------------------------------------------------------------------------------------------------------------------------------------
-\subsection{Vector Space}
+\section{Vector Space}
 \label{sec:Vector Space}
 
 A vector space is a set $V$ with two operations: addition of vectors and scalar multiplication. These operations satisfy certain properties. 
@@ -985,7 +1013,7 @@ Remarks:
 
 \begin{defi}\label{def:CNF}
       An important special case of propositional formulas are \textbf{propositional formulas in conjunctive normal form (CNF),} which are
-      conjunctions of disjunctions of \textbf{literals,}  where a ``literal'' is a variable or a negated variable.  
+      conjunctions of disjunctions of literals.  
 \end{defi}
 \begin{defi}\label{def:CNF-2}
       A CNF formula where each clause contains exactly $k$ literals is called \textbf{k-CNF}.
@@ -1018,7 +1046,7 @@ A propositional logic formula can be transformed to a logically equivalent CNF f
 	  \item $ a . b \Longleftrightarrow a \wedge b$.
 \end{enumerate}
 \begin{examp}\label{exp:tocnf}
-      Here is the example of transforming AND gate to CNF.
+      Here is an example of transforming AND gate to CNF.
       $$ z = x . y$$
       $$ z  \leftrightarrow x . y$$
       $$(z \rightarrow x . y) . (x . y \rightarrow z)$$
@@ -1055,10 +1083,6 @@ A partial assignment $\varphi \in \Pass$ with $\varphi(F) = 1$ is called a \text
       and satisfying assignment:
       $$\langle x\to & 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top.$$
 \end{examp}
-??????????????????????????????????
-\begin{defi}\label{def:hypergraphs}
-  A \textbf{hypergraph} is a pair $(V,E)$, where $V$ is a set (the set of ``vertices''), while $E \sse \pote(V)$ is a set of finite subsets of $V$ (the ``hyperedges''). We use for a hypergraph $G = (V,E)$ the notations $\bmm{V(G)} := V$ and $\bmm{E(G)} := E$.
-\end{defi}
 
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
@@ -1081,6 +1105,46 @@ To complicate matters, the Dean has provided you with a list of pairs of incompa
 that if student x gets a place, then student y doesn’t get a place, but this kind of condition is a very easy one). This is an example of what computer scientists call an \textbf{NP-problem}, 
 since it is easy to check if a given choice of one hundred students proposed by a coworker is satisfactory, however the task of generating such a list from scratch seems to be so hard as to be 
 completely impractical. Indeed, the total number of ways of choosing one hundred students from the four hundred applicants is greater than the number of atoms in the known universe!"
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Tseitin Transformation}
+\label{sec:tts}
+
+\begin{defi}\label{def:tseitin}
+      \textbf{Tseitin encodings} work by adding new variables to the $CNF$ formula, one for every subformula of the original formula, along
+	  with clauses to capture the relationships between these new variables and the subformulae \cite{h6}.
+\end{defi}
+\href{https://en.wikipedia.org/wiki/Tseytin_transformation}{Tseitin transformation} takes as input an arbitrary combinatorial logic circuit 
+and produces a boolean formula in conjunctive normal form (CNF), which can be solved by a SAT solver. The length of the formula is linear in 
+the size of the circuit. Input vectors that make the circuit output "true" are in 1-to-1 correspondence with assignments that satisfy the formula.
+\begin{examp}\label{exp:tseitin1}
+      Listed in Fig \ref{fig:tss1} is some of the possible sub-expressions that can be created for various logic gates. In an operation expression, C acts as an output; 
+	  in a CNF sub-expression, C acts as a new Boolean variable.
+	  \begin{figure}[h]
+            \centering
+            \begin{tabular}{|c|c|c|c|} 
+                  \hline
+                  Operation & $CNF$ sub-expression \\ \hline
+                  $c=a \cdot b$ & $(\overline{a}  \vee \overline{b}  \vee c) \wedge(a \vee \overline{c} ) \wedge (b \vee  \overline{c}) $  \\ \hline
+                  $c= a + b$ & $(a \vee b  \vee \overline{c}) \wedge(\overline{a} \vee c) \wedge (\overline{b} \vee  c)$  \\ \hline
+                  $c= \overline{a} $ & $(\overline{a}  \vee \overline{c}) \wedge (a \vee c)$  \\ \hline
+                  $c=a \oplus b$ & $(\overline{a}  \vee \overline{b}  \vee \overline{c} ) \wedge(a \vee b  \vee \overline{c} ) \wedge (a \vee \overline{b}  \vee c ) \wedge (\overline{a}  \vee b  \vee c )$  \\ \hline
+
+            \end{tabular}
+            \caption{Tseitin transformation for some operations.}
+            \label{fig:tss1}
+      \end{figure}
+\end{examp}
+
+\begin{examp}\label{exp:tseitin2}
+      Fig \ref{fig:tss2} showes an example of  combinatorial logic circuit and producing the corresponding CNF using Tseitin transformation.
+	  \begin{figure}
+      \begin{center}
+      \includegraphics[scale =0.5]{tseitin1.png}
+      \caption{Tseitin transformation of a circuit to $CNF$.}
+	  \label{fig:tss2}
+      \end{center}
+      \end{figure}
+\end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Binary Decision Diagram}
 \label{sec:Binary Decision Diagram}
@@ -1170,19 +1234,6 @@ completely impractical. Indeed, the total number of ways of choosing one hundred
       serves as a tool for many results in complexity theory. On the practical side, NP-completeness of SAT is used “positively”, and many problems 
       are translated into  the “universal language” SAT and solved via SAT solvers. 
 \end{defi}
-%--------------------------------------------------------------------------------------------------------------------------------------
-\section{Deficiency}
-\label{sec:Deficiency}
-
-A very interesting measure for the complexity of formulas is $CNF$ is the so-called "deficiency" which indicates the difference 
-between the number of clauses and the number of variables.
-\begin{defi}\label{def:df1}
-      Let $F$ be a formula in $CNF$ with $n$ clauses and $k$ variables. Then, the \textbf{deficiency} of $F$ is defined as $\delta (F) = n - k$. 
-	  Further, we define the maximal deficiency as $\delta ^*(F) = max \{ \delta (G) \mid G \subseteq F \}$ \cite{h6}.
-\end{defi} 
-Let $k-CNF$ be the set of $CNF$-formulas with deficiency (exactly) $k$. Then, the satisfiability problem for $k-CNF$ is NP-complete. 
-Similarly, let $CNF ^* (k)$ be the set of formulas with maximal deficiency $k$, i.e. 
-$\{F \in CNF : \delta ^*(F) = k \}$. It can been shown that the satisfiability problem for these classes is solvable in polynomial time \cite{h6}.
 
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Backtracking for SAT}
@@ -1225,6 +1276,16 @@ $\{F \in CNF : \delta ^*(F) = k \}$. It can been shown that the satisfiability p
 \section{Methods to Address SAT}
 \label{sec:Methods to Address SAT}
 
+?????????????\\
+Complete (systematic) Methods: DP, DPLL\\
+-Explore the space of all possible assignments systematically \\
+-If there is a satisfying assignment, it will be found \\
+-If no satisfying assignment is found, the formula is unsatisfiable \\
+
+Incomplete (Stochastic) Methods: GSAT, WALKSAT\\
+-Stochastic moves in the space of all possible assignments\\
+-If there is a satisfying assignment, it may be found\\
+-If no satisfying assignment is found, the formula may or may not be unsatisfiable\\
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
 \chapter{Hardness Measures}
@@ -1233,47 +1294,77 @@ $\{F \in CNF : \delta ^*(F) = k \}$. It can been shown that the satisfiability p
 \section{Implication-relation}
 \label{sec:Implication-relation}
 
-\begin{defi}\label{def:imp1}
-      For $F, F' \in \Cls$ the \textbf{implication-relation} is defined as: 
-      $F \models F' : \Leftrightarrow  \forall \varphi \in \Pass : \varphi * F = \top \Rightarrow \varphi * F' = \top$. 
-      We write $F \models C$ for $F \models \{ C \}$ \cite{h5}.
+\begin{defi}\label{def:models}
+  For $F, G \in \Cls$ the \textbf{implication-relation} is defined as: \bmm{F \models G} if $\fa\, \vp \in \Pass : \vp * F = \top \Ra \vp * G = \top$. For $C \in \Cl$ we write \bmm{F \models C} if $F \models \set{C}$.
 \end{defi}
-\begin{defi}\label{def:imp2}
-      A clause $C$ with $F \models C$ is an \textbf{implicate} of $F$, while a \textbf{prime implicate}
-      is an implicate $C$ such that no $C' \subset C$ is also an implicate; $\bmm{prc_0(F)}$ is the set of prime implicates of $F$ \cite{h5}.
+Remarks:
+\begin{enumerate}
+\item $F \in \Usat$ iff $F \models \bot$.
+\item If $F \models C$ and $C \sse C'$, then $F \models C'$.
+\item The logical-implication-relation (or ``entailment relation'') is a quasi-order on $\Cls$ (is reflexive and transitive).
+\item $F \models C$ iff $C * F \in \Usat$.
+\item $F \models G$ iff $\fa\, D \in G : F \models D$ iff $\fa\, D \in G : D * F \in \Usat$.
+\end{enumerate}
+
+\begin{defi}\label{def:primec}
+  An \textbf{implicate} of $F \in \Cls$ is a clause $C \in \Cl$ with $C* F \in \Usat$ (a falsifying assignment, as a partial assignment), while a \textbf{prime implicate} is a minimal implicate (regarding the subset-relation); the set of all prime implicates is denoted by $\bmm{\primec_0(F)} \in \Cls$.
+
+  An \textbf{implicant} of $F \in \Cls$ is a clause $C \in \Cl$ with $C * F = \top$ (a satisfying assignment, as a partial assignment), while a \textbf{prime implicant} is a minimal implicant; the set of all prime implicants is denoted by $\bmm{\primec_1(F)} \in \Cls$.
 \end{defi}
-\begin{defi}\label{def:imp3}
-      A boolean function $f$ is \textbf{monotone} iff flipping any input variable from 0 to 1 never flips the output from 1 to 0.
-	  A boolean function $f$(or its corresponding CNF-clause-set $F$) is monotone iff f has only positive prime implicates \cite{h8}.
-\end{defi}
-\begin{examp}\label{exp:imp3}
+Remarks:
+\begin{enumerate}
+\item A clause $C \in \Cl$ is an implicate of $F \in \Cls$ iff $F \models C$.
+\item While $C$ is an implicant of $F$ iff $\set{\set{x} :x \in C} \models F$.
+\item $F \in \Usat$ iff $\primec_0(F) = \set{\bot}$, and $F \in \Sat$ iff $\bot \notin \primec_0(F)$.
+\item $F \in \Sat$ iff $\primec_1(F) \ne \top$, and $F \in \Usat$ iff $\primec_1(F) = \top$.
+\item $\primec_0(\primec_0(F)) = \primec_0(F) = \primec_1(\primec_1(F))$.
+\item $\primec_1(\primec_0(F)) = \primec_1(F) = \primec_0(\primec_1(F))$.
+\end{enumerate}
+
+\begin{examp}\label{exp:aaa}
       For $F = \{ \{a\}, \{ \overline a, b \}, \{ \overline a, \overline b, c \} \}$ we have:
       $$ prc_0(F) = \{ \{a\}, \{ b \}, \{ c \} \} $$
 \end{examp}
-\begin{examp}\label{exp:imp3}
-      For the $F= \{ \{ \overline a, \overline b \}, \{ a, b \}, \{ a, c \}, \{ \overline b, c\}, \{ b, d \}, \{ c, d \}\}$ 
-      ????????
-	  %we have two $prc_0(F)$ as below:
-      %$$ prc_0(F)=\{ \{ \overline a\}, \{ b\}, \{ c\} \} , $$
-      %$$ prc_0(F)=\{ \{ a\}, \{ \overline b \}, \{ d\} \}$$
-\end{examp}
+
 \begin{examp}\label{exp:imp3}
       For the boolean function $ a \vee b$ we have $prc_0(a \vee b) = \{ \{a, b \} \}$, while for the boolean function 
 	  $a \wedge b$ we have $prc_0(a \wedge b) = \{ \{ a \}, \{b\}\}$.
 \end{examp}
 
+\begin{examp}\label{exp:bbb}
+      Here, some of other examples are presented:
+	  \begin{enumerate}
+	        \item For $F = \{\{x, y\} , \{x,\neg y\}\}, prc_0(F) = \{\{x\}\}$.
+			\item For $F = \{\{ \neg x, y\} , \{ \neg y, z\}\}, prc_0(F) = \{\{\neg x, y\} , \{\neg y, z\} , \{\neg x, z\}\}$.
+			\item For $F = \{\{z, x, y\} , \{z, x, \neg y\} , \{z, \neg x, y\} , \{z,\neg x, \neg y\}\}, prc_0(F) = \{\{z\}\}.$.
+      \end{enumerate}
+\end{examp}
+
+\begin{defi}\label{def:logequiv}
+  Clause-sets $F, G \in \Cls$ are \textbf{logically equivalent} if $F \models G$ and $G \models F$.
+\end{defi}
 Remarks:
 \begin{enumerate}
-      \item Some properties of prime implicates:
-      \begin{enumerate}
-	        \item $prc_0(0^V) = \{ \bot \}$ and $prc_0(1^V) = \top$.
-			\item A clause-set $F \in \Cls$ is unsatisfiable iff $prc_0(F) = \{ \bot \}$, while for satisfiable $F$ a literal 
-			$x$ is forced iff $\{ x \} \in prc_0(F)$.
-			\item 
-	  \end{enumerate}	 
-      \item 
+\item Logical equivalence is an equivalence relation on $\Cls$.
+\item $\primec_0(F)$ is logically equivalent to $F$.
 \end{enumerate}
 
+\begin{lem}\label{lem:logequiv}
+  For $F, G \in \Cls$ the following properties are equivalent:
+  \begin{enumerate}
+  \item $F, G$ are logically equivalent.
+  \item $\primec_0(F) = \primec_0(G)$.
+  \item $\primec_1(F) = \primec_1(G)$.
+  \end{enumerate}
+\end{lem}
+
+\begin{defi}\label{def:forced1}
+      A literal $x$ is \textbf{forced} for a boolean function $F$ if $F \models x$.
+\end{defi}
+\begin{defi}\label{def:imp3}
+      A boolean function $f$ is \textbf{monotone} iff flipping any input variable from 0 to 1 never flips the output from 1 to 0.
+	  A boolean function $f$(or its corresponding CNF-clause-set $F$) is monotone iff f has only positive prime implicates \cite{h8}.
+\end{defi}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Resolution}
 \label{sec:Resolution}
@@ -1287,8 +1378,705 @@ Remarks:
  \end{itemize}
  \end{defi}
  
- ??????
- It is guaranteed to derive the empty clause if the given CNF is unsatisfiable.
+ Remarks:
+\begin{enumerate}
+\item The closure of $F \in \Cls$ under resolution is a clause-set with $\primec_0(F)$ as its subsumption-minimal elements.
+\item For $F \in \Pcls{2}$ the closure of $F$ under resolution is in $\Pcls{2}$.
+\end{enumerate}
+
+\begin{examp}\label{exp:resolution1}
+       For $C,D,X,Y \in \Cl$, let $C=\{a,b, \neg c\}$ and $D=\{\neg a, \neg d\}$. The resolvent of $C,D$ is $\{b, \neg c, \neg d\}$.
+	   But for $X=\{a,b, \neg c\}$ and $Y=\{\neg a, \neg b, d\}$, they are nor resolvable since $\mid X \cap \overline Y \mid \not = 1$.
+\end{examp}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Trees}
+\label{sec:Trees}
+
+The definition of resolution trees are presented in section \ref{sec:Resolution-tree} but they are closely related to "splitting" or "brancing" trees , full binary trees labelled with clause-sets and corresponding 
+to the backtracking tree of the simplest recursive SAT solver on unsatisfiable inputs. It seems that this connection breaks when it comes 
+to full resolution, but this is actually only partially so: regarding the number of different clauses in a resolution tree, it is known 
+that regularisation can indeed exponentially increase the number of different clauses, however when it comes to width, symmetric or 
+asymmetric, then there are no difficulties, since the process of regularisation, implicit in the correspondences between resolution
+trees and branching trees, does never increase clause-sizes.
+Formally, the branching trees for a clause-set $F \in \Usat$ are the full binary trees obtained as follows:
+\begin{enumerate}
+\item If $\bot \in F$, then only branching tree for F is the one-node tree labelled with $F$.
+\item Otherwise, the branching trees for $F$ are obtained by choosing a variable $v \in \Va$, labelling the root with $F$, and choosing 
+a branching tree for $\langle v \rightarrow 0 \rangle * F$ as left subtree and a branching tree for $\langle v \rightarrow 1 \rangle * F$ as right subtree \cite{h5}.
+\end{enumerate}
+
+%"Binary Decision Diagram"mentioned in definition \ref{def:bdd}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Resolution-tree}
+\label{sec:Resolution-tree}
+
+\begin{defi}\label{def:restree}
+  A \textbf{resolution tree} is a pair $(T,C)$ with:
+  \begin{itemize}
+  \item $T$ is an ordered rooted tree, where every inner node has exactly two children, and where the set of nodes is denoted 
+  by $\nds(T)$, the root by $\rt(T) \in \nds(T)$, and the set of leaves by $\lvs(T) \sse \nds(T)$.
+  \item While $C: \nds(T) \ra \Cls$ labels every node with a clause such that the label of an inner node is the resolvent of the labels of its two parents.
+  \item We use $\bmm{F(T)} := \set{C(w) : w \in \lvs(T)}$ for the ``axioms'' (or ``premisses'') of $T$ and $\bmm{C(T)} := C(\rt(T))$ as the ``conclusion''.
+  \end{itemize}
+\end{defi}
+\begin{defi}\label{def:resproof}
+  A \textbf{resolution proof} $R$ of a clause $C$ from a clause-set $F$, denoted by \bmm{R: F \vdash C}, is a resolution tree $R = (T,C)$ such that
+  \begin{itemize}
+  \item $F(T) \sse F$,
+  \item $C(T) = C$.
+  \end{itemize}
+  We use \bmm{F \vdash C} if there exists a resolution proof $R$ of some $C' \sse C$ from $F$ (i.e., $R: F \vdash C'$). 
+  \begin{itemize}
+  \item The \textbf{tree-resolution complexity} $\bmm{\comptr(R)} \in \NN$ is the number of nodes in $R$, that is, $comptr(R) := \nnds(R) = \abs{\nds(T)}$.
+  \item The \textbf{resolution complexity} $\bmm{\compr(R)} \in \NN$ is the number of \emph{distinct} clauses in $R$, that is $\compr(R) := c(F(R))$.
+  \end{itemize}
+  Finally, for $F \in \Usat$ we set
+  \begin{itemize}
+  \item $\bmm{\comptr(F)} := \min \set{\comptr(R) \mb R : F \vdash \bot} \in \NN$
+  \item $\bmm{\compr(F)} := \min \set{\comptr(R) \mb R : F \vdash \bot} \in \NN$.
+  \end{itemize}
+\end{defi}
+
+ \begin{examp}\label{exp:resproof1}
+      Fig \ref{fig:proof1} showes a resolution proof for  $R: F \vdash C$, $C=\{d\}$ and $F = \{\{a,b,c\},\{\neg b,d\},\{\neg a, d\},\{\neg c, d\}\}$. 
+	   \begin{figure}
+	   \centering  
+       \begin{tikzpicture}[grow'=up]				
+				\Tree [.${\{d\}}$ [.${\{c,d \}}$ [.${\{a,c,d\}}$ ${\{a,b,c\}}$ ${\{ \neg b,d\}}$ ]
+                           [.${\{ \neg a, d\}}$ ] ]
+                           [ .${\{ \neg c, d\}}$  ] ]
+       \end{tikzpicture}
+	   \caption{A resolution proof for eample  \ref{exp:resproof1}.}
+	   \label{fig:proof1}
+       \end{figure}
+\end{examp}
+
+\begin{defi}\label{def:resrefutation}
+  A \textbf{resolution refutation} of a clause-set $F$ is a resolution proof deriving $\bot$ from $F$. 
+\end{defi}
+  
+Remarks:
+\begin{enumerate}
+      \item Typically we identify $R$ with $T$, while suppressing $C$.
+	  \item Resolution is sound but is incomplete in the sense that it is not guaranteed to derive every clause that is implied by the given $F \in \Cls$. 
+	  However, resolution is refutation complete on $\Cls$, i.e., it is guaranteed to derive the empty clause if the given $F$ is unsatisfiable. 
+	  This result is the basis for using resolution as a complete algorithm for testing satisfiability: we keep applying resolution until either 
+	  the empty clause is derived (unsatisfiable $F$) or until no more applications of resolution are possible (satisfiable $F$) \cite{h6}.
+\end{enumerate}
+
+ \begin{examp}\label{exp:res1}
+      A resolution tree for $F = \{\{a,b\},\{\neg a,b\},\{a, \neg b\},\{\neg a, \neg b\}\}$ is as Fig \ref{fig:resol1}. Since the empty clause 
+	  is driven, it is called resolution refutation.
+	   \begin{figure}
+	   \centering  
+       \begin{tikzpicture}[grow'=up]
+       \Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\neg a,b\}}$ ]
+                           [.${\{ \neg b\}}$ ${\{a, \neg b\}}$ ${\{\neg a, \neg b\}}$ ] ]
+       \end{tikzpicture}
+	   \caption{A resolution tree for eample  \ref{exp:res1}.}
+	   \label{fig:resol1}
+       \end{figure}
+\end{examp}
+
+\begin{examp}\label{exp:res2}
+      A resolution tree for $F = \{\{a\},\{\neg a,b\},\{\neg a, \neg b\}\}$ is as Fig \ref{fig:resol2}. Since the empty clause 
+	  is driven, it is called resolution refutation.
+	  \begin{figure}[h]
+       \centering
+       \begin{tikzpicture}[grow'=up]
+       \Tree [.$\bot$  [.${\{a\}}$  ]
+                           [.${\{ \neg a\}}$ ${\{\neg a, b\}}$ ${\{\neg a, \neg b\}}$ ] ]
+
+       \end{tikzpicture}
+	   \caption{A resolution tree for eample  \ref{exp:res2}.}
+	   \label{fig:resol2}
+       \end{figure}
+\end{examp}
+ 
+\begin{examp}\label{exp:res3}
+      A resolution tree for $F = \{\{\neg a, \neg b\},\{\neg a,b,\neg c, \neg d\},\{a, \neg d\},\{c, \neg d\}, \{d\}\}$ is as 
+	  Fig \ref{fig:resol3}. Since the empty clause is driven, it is called resolution refutation.
+	\begin{figure}[h]
+    \centering
+    \begin{forest}
+    for tree={
+    grow'=90,
+    parent anchor=north,
+    child anchor=south,
+    math content,
+    inner xsep=0pt,
+    anchor=west,
+    before typesetting nodes={
+      if level=0{}{
+        if content={}{
+          shape=coordinate
+        }{
+          content/.wrap value={\{#1\}},
+        },
+      },
+    },
+    if level=0{
+      before drawing tree={x=+.5em},
+      for children={
+        if n=1{
+          calign with current,
+          edge path={
+            \noexpand\path [draw, \forestoption{edge}] (!u.north west) +(.5em,0) coordinate (a) -- (a |- .child anchor)\forestoption{edge label};
+          }
+        }{
+          edge path={
+            \noexpand\path [draw, \forestoption{edge}] (!u.north west) +(.5em,0) -- (.child anchor)\forestoption{edge label};
+          }
+        },
+      }
+    }{
+      for descendants={
+        for parent={
+          for children={
+            if n=1{
+              calign with current,
+              edge path={
+                \noexpand\path [draw, \forestoption{edge}] (!u.north west) +(1em,0) coordinate (a) -- (a |- .child anchor)\forestoption{edge label};
+              }
+            }{
+              edge path={
+                \noexpand\path [draw, \forestoption{edge}] (!u.north west) +(1em,0) -- (.child anchor)\forestoption{edge label};
+              }
+            },
+          }
+        }
+      }
+    },
+    if n children=0{tier=terminus}{}
+  }
+  [\bot, tikz={\draw ([xshift=.5em].north west) -- (q.south);}
+    [{\neg a}
+      [{\neg a, \neg b}]
+      [b
+        [{b, \neg c}
+          [{b, \neg a, \neg c}, tikz={\draw ([xshift=1em].north west) -- (s.south);}
+            [{b, \neg a, \neg c, \neg d}]
+          ]
+          [a, tier=t, name=q, tikz={\draw ([xshift=1em].north west) -- (s.south);}
+            [{a, \neg d}]
+          ]
+        ]
+        [c, tier=t
+          [{c, \neg d}]
+          [d, name=s]
+        ]
+      ]
+    ]
+  ]
+  \end{forest}
+  \caption{A resolution tree for eample  \ref{exp:res3}.}
+  \label{fig:resol3}
+  \end{figure}
+\end{examp}
+
+\begin{defi}\label{def:regres}
+  A resolution tree($(T,C)$ (see Definition \ref{def:resproof}) is \textbf{regular} if along every path from the root to some leaf no resolution variable occurs more than once.
+\end{defi}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Reduction}
+\label{sec:Reduction}
+\begin{defi}\label{def:red}
+   A \textbf{reduction} is a map $r: \Cls \ra \Cls$ such that for all $F, F' \in \Cls$ we have
+  \begin{enumerate}
+  \item $r(F)$ is satisfiability-equivalent to $F$;
+  \item if $\bot \in r(F)$ and for all $C \in F$ there is $C' \in  F'$ with $C' \sse C$, then $\bot \in r(F')$.
+  \end{enumerate}
+  A reduction $r$ \textbf{discovers} unsatisfiability of $F$ if $\bot \in r(F)$ \cite{h10}.
+\end{defi}
+
+\begin{defi}\label{def:implication}
+  Consider a reduction $r$. The relation $\bmm{F \models_r C}$ holds for a clause-set $F$ and a clause $C$, and we say \textbf{$C$ is deducible from $F$ via $r$}, if $r$ 
+  discovers unsatisfiability of $\vp_C * F$ (that is, $\bot \in r(\vp_C * F)$ for $\vp_C = \pab{x \mapsto 0 : x \in C}$).
+\end{defi}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Generalised unit-clause-propagation}
+\label{sec:rkred}
+
+An important special case of resolution is called \textbf{unit resolution (unit propagation)}. Unit resolution is a resolution strategy 
+which requires that at least one of the resolved clauses has only one literal. Such clause is call a \textbf{unit clause}. Unit resolution 
+is not refutation complete, which means that it may not derive the empty clause from an unsatisfiable $CNF$ formula. Yet one can apply all 
+possible unit resolution steps in time linear in the size of given CNF. Because of its efficiency, unit resolution is a key technique 
+employed by a number of algorithms \cite{h6}.
+
+The unit resolution technique (or unit propagation) is quite simple: first, we close the CNF under unit resolution and collect all unit 
+clauses in the $CNF$. We then assume that variables are set to satisfy these unit clauses. That is, if the unit clause $\{x\}$ appears 
+in the $CNF$, we set $x$ to true. And if the unit clause $\{\neg x\}$ appears in the $CNF$, we set $x$ to false. We then simplify the 
+$CNF$ given these settings and check for either success (all clauses are subsumed) or failure (the empty clause is derived)\cite{h6}.
+
+\begin{examp}\label{exp:unit1}
+      Let $F=\{ \{a\}, \{a, b\}, \{\neg a, c\}, \{\neg c, d\}\}$. By unit propagation (because $F$ contains the unit clause $\{a\}$), 
+	  we obtain $\varphi_a * F=\langle a \rightarrow 1 \rangle * F= \{ \{c\}, \{\neg c, d\}\}$. If $\bot \in \varphi_a * F$, then $F$ is 
+	  satisfiability-equivalent to $\varphi_a * F$ and we eliminated one variable. Otherwise, we know that all clauses in $\varphi_a * F$ 
+	  must have length at least 2. So, in this case $F$ is also satisfiability equivalent to $\varphi_a * F$, and again at least one 
+	  variable has been eliminated.
+\end{examp}
+
+\begin{defi}\label{def:rk}
+  The maps $\bmm{\rk_k}: \Cls \ra \Cls$ for $k \in \NNZ$ are defined as follows (for $F \in \Cls$):
+  \begin{eqnarray*}
+    \rk_0(F) & := &
+    \begin{cases}
+      \set{\bot} & \text{if } \bot \in F\\
+      F & \text{otherwise}
+    \end{cases}\\
+    \rk_{k+1}(F) & := &
+    \begin{cases}
+      \rk_{k+1}(\pao x1 * F) & \text{if } \ex\, x \in \lit(F) : \rk_k(\pao x0 * F) = \set{\bot}\\
+      F & \text{otherwise}
+    \end{cases}.
+  \end{eqnarray*}
+\end{defi}
+Remarks:
+\begin{enumerate}
+\item $\rk_1$ is unit-clause propagation, $\rk_2$ is (full) failed literal elimination.
+\item In general we can call $\rk_k$ \textbf{$k$-propagation-reduction} or \textbf{generalised unit-clause-propagation of level $k$}.
+\end{enumerate}
+
+\begin{examp}\label{exp:rk}
+  Computing some $\rk_k(F)$, using literals $x,y,x_1,\dots,x_n$ ($n \in \NNZ$) with distinct underlying variables:
+  \begin{enumerate}
+  \item $\rk_k(\set{\bot}) = \set{\bot}$ for $k \ge 0$.
+  \item $\rk_k(\top) = \top$ for $k \ge 0$.
+  \item For $F := \set{\set{x_1},\dots,\set{x_n}}$: $\rk_0(F) = F$, $\rk_k(F) = \top$ for $k \ge 1$.
+  \item For $F' := F \cup \set{\set{x,y}}$: $\rk_0(F') = F'$, $\rk_k(F') = \set{\set{x,y}}$ for $k \ge 1$ (note that $\set{\set{x,y}}$ has no forced assignments).
+  \item For $F := \set{\set{x,y},\set{x,\ol{y}}}$: $\rk_k(F) = F$ for $k \le 1$, $\rk_k(F) = \top$ for $k \ge 2$.
+  \item For $F := \set{\set{x,y},\set{x,\ol{y}}, \set{\ol{x},y},\set{\ol{x},\ol{y}}}$: $\rk_k(F) = F$ for $k \le 1$, $\rk_k(F) = \set{\bot}$ for $k \ge 2$.
+  \end{enumerate}
+\end{examp}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Horton-Strahler Number}
+\label{sec:hs}
+\begin{defi}\label{def:hdtree}
+  Consider a resolution tree $T$ (recall Definition \ref{def:resproof}). The \textbf{Horton-Strahler} number $\bmm{\hts(T)} \in \NNZ$ is defined as $\hts(T) := 0$, if $T$ is trivial (consists only of one node), while otherwise we have two subtrees $T_1, T_2$, and we set $\hts(T) := \max(\hts(T_1),\hts(T_2))$ if $\hts(T_1) \not= \hts(T_2)$, while in case of $\hts(T_1) = \hts(T_2)$ we set $\hts(T) := \max(\hts(T_1),\hts(T_2)) + 1$.
+\end{defi}
+
+\begin{examp}\label{exp:hortonstrahler}
+  Fig \ref{fig:hst} showes some examples of trees with their Horton-Strahler numbers. We denote by $T_1$ and $T_2$ in each example the left and right sub-trees of the root.
+ \begin{figure}[h] 
+  \begin{center}
+  %\centring
+    \begin{tabular}{|>{\centering\arraybackslash}m{10em}|>{\centering\arraybackslash}m{3em}|>{\centering\arraybackslash}m{7em}|}
+      \hline
+      \textbf{Tree $T$} & \bmm{\hts(T)} & \textbf{Explanation} \\\hline\hline
+      $\displaystyle
+      \xygraph{
+        []{\cdot} ( )
+      }$ & 0 & trivial tree \\ \hline
+      $\displaystyle
+      \xygraph{
+        !{0;/r3ex/:}
+        []{\cdot} (
+          - [dl]{\cdot} (),
+          - [dr]{\cdot} ()
+        )
+      }$ & 1 & $\hts(T_1) = 0$, $\hts(T_2) = 0$. \\ \hline
+      $\xygraph{
+        !{0;/r3ex/:}
+        []{\cdot} (
+        - [dl]{\cdot} (),
+        - [dr]{\cdot} (
+          -[dl]{\cdot} (),
+          -[dr]{\cdot} ()
+        )
+        )
+      }$ & 1 & $\hts(T_1) = 0$, $\hts(T_2) = 1$.  \\ \hline
+      $\xygraph{
+        !{0;/r3ex/:}
+        []{\cdot} (
+          - [dl]{\cdot} (),
+          - [dr]{\cdot} (
+            -[dl]{\cdot} (),
+            - [dr]{\cdot} (
+              -[dl]{\cdot} (),
+              -[dr]{\cdot} ()
+            )
+          )
+        )
+      }$ & 1 & $\hts(T_1) = 0$, $\hts(T_2) = 1$.  \\ \hline
+      $\xygraph{
+        !{0;/r3ex/:}
+        []{\cdot} (
+        - [dll]{\cdot} (
+          -[dl]{\cdot} (),
+          -[dr]{\cdot} ()
+        ),
+        - [drr]{\cdot} (
+          -[dl]{\cdot} (),
+          -[dr]{\cdot} ()
+        )
+        )
+      }$ & 2 & $\hts(T_1) = 1$, $\hts(T_2) = 1$.  \\ \hline
+      $\xygraph{
+        !{0;/r3ex/:}
+        []{\cdot} (
+        - [dll]{\cdot} (
+          -[dl]{\cdot} (),
+          -[dr]{\cdot} ()
+        ),
+        - [drr]{\cdot} (
+          -[dll]{\cdot} (
+            -[dl]{\cdot} (),
+            -[dr]{\cdot} ()
+          ),
+          -[dr]{\cdot} (
+            -[dl]{\cdot} (),
+            -[dr]{\cdot} ()
+          )
+        )
+        )
+      }$ & 2 & $\hts(T_1) = 1$, $\hts(T_2) = 2$.  \\ \hline
+    \end{tabular}
+  \end{center}
+  \caption{Horton-Strahler numbers of some trees.}
+  \label{fig:hst}
+  \end{figure}
+\end{examp}
+
+\begin{defi}\label{def:geninpres}
+      For a clause-set $F$ and a clause $C$ the relation \bmm{F \vdash_k C} ($C$ can be derived from $F$ by \textbf{$k$-times nested input resolution}) if there exists a resolution tree $T$ and $C' \sse C$ with $T : F \vdash C'$ and $\hts(T) \le k$.
+\end{defi}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Hardness}
+\label{sec:Hardness}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Hardness of Unsatisfiable Clause-sets}
+\label{sec:Hardnessunsat}
+Hardness $\hardness :\Cls \rightarrow \NNZ$ is a measure for SAT representation "complexity". The basic idea is to start with some measurement
+$ h : \Usat \rightarrow \NNZ$ of the complexity of unsatisfiable $F$. This measure is extended to arbitrary $F \in \Cls$ by maximising 
+over all "sub-instances" of $F$, that is, over all unsatisfiable $\varphi * F$ for (arbitrary) partial assignments $\varphi$.
+
+However, there are various equivalent descriptions for hardness. It seems that this concept was reinvented in the literature several times. 
+Intuitively, the hardness measures the height of the biggest full binary tree which can be embedded into each tree-like resolution 
+refutation of the formula. This is also known as the Horton-Strahler number of a tree. There is another equivalent description, 
+which uses generalised unit-clause propagation $r_k$ to measue hardness. Following, these two description are presented.
+
+\begin{defi}\label{def:hardness1}
+      For $F \in \Usat$ let \textbf{hardness} $\hardness(F) \in \NNZ$ be the minimal $k \in \NNZ$ such that a resolution tree $T : F \vdash \bot$ 
+	  exists, where the Horton-Strahler number of $T$ is at most $k$. For $k \in \NNZ$ let $\Urefc_k  := \{F \in \Cls : \hardness(F) \leq k\}$.
+\end{defi}
+
+\begin{defi}\label{def:hardness2}
+  The \textbf{hardness} $\hardness(F)$ of an unsatisfiable $F \in \Cls$ is the minimal $k \in \NNZ$ such that $\rk_k(F) = \set{\bot}$.
+\end{defi}
+
+\begin{examp}\label{exp:hardness1}
+      For $\set{\set{x,y},\set{x,\ol{y}},\set{\ol{x},y},\set{\ol{x},\ol{y}}}$ we have $r_1(F)=F, r_2(F)=r_2( \langle a \rightarrow 1 \rangle * F) = \{ \bot \}$
+	  (since $r_1( \langle a \rightarrow 0 \rangle * F)=r_1 (\{\{ b \}, \{ \neg b \}\}) = \{ \bot \}$). Thus, $\hardness(F) = 2$.
+\end{examp}
+
+\begin{examp}\label{exp:harducls}
+  Here are some basic determinations of $\hardness(F)$ for unsatisfiable clause-sets $F$, using literals $x,y,z$ with distinct underlying variables:
+  \begin{enumerate}
+  \item $\hardness(F) = 0$ iff $\bot \in F$.
+  \item $\hardness(\set{\set{x},\set{\ol{x}}}) = 1$.
+  \item $\hardness(\set{\set{x},\set{\ol{x},y}, \set{\ol{y},z}, \set{\ol{z}}}) = 1$.
+  \item $\hardness(\set{\set{x,\ol{y}},\set{\ol{x},y},\set{y,\ol{z}},\set{\ol{y},z},\set{x,y,z},\set{\ol{x},\ol{y},\ol{z}}}) = 2$.
+  \end{enumerate}
+\end{examp}
+
+\begin{defi}\label{def:hardness2}
+      For $F \in \Usat$ let $\textbf{dep(F)} \in \NN_0$ be the minimal height of a resolution tree $T : F \vdash \bot$.
+\end{defi}
+
+Remarks:
+\begin{enumerate}
+  \item Since the Horton-Strahler number of a tree is at most the height, we get $\hardness(F) \leq dep(F)$ for all $F \in \Cls$.
+\end{enumerate}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Extension of hardness to satisfiable clause-sets}
+\label{sec:extension_Hardness}
+
+It is important to extend measures of hardness for unsatisfiable clause-set to arbitrary clause-set(both satisfiable and unsatisfiable).????
+\begin{defi}\label{def:ex-hardness}
+The hardness $\hardness : \Cls \rightarrow \NNZ$ is defined for $F \in \Cls$ as follows:
+\begin{enumerate}
+  \item If $F \in \Usat$ , then $\hardness(F)$ is the minimum hs(T ) for $T : F \vdash \bot$.
+  \item If $F = \top$, then $\hardness(F) := 0$.
+  \item If $F \in \Sat \ \{ \top \}$, then $\hardness(F) := max\{ \hardness(\varphi * F) : \varphi * F \in \Usat \}$ \cite{h11}.
+  \end{enumerate}
+\end{defi}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Width-hardness}
+\label{sec:whd}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Width-hardness of Unsatisfiable Clause-sets}
+\label{sec:whdd}
+
+The standard resolution-width of an unsatisfiable clause-set $F$ is the minimal $k$ such that a resolution refutation of $F$ using only 
+clauses of length at most $k$ exists \cite{h5}.
+
+\begin{defi}\label{def:whd1}
+     For  $F \in \Usat$ the \textbf{symmetric width wid(F)} $\in \NNZ$ is the smallest $k \in \NNZ$ such that there is
+	 $T : F \vdash \bot$ with $\widehat{F}(T) \in k-\Cls$.
+\end{defi}
+\begin{defi}\label{def:whd2}
+      For a resolution tree $T$ its \textbf{(asymmetric) width whd(T)}$\in \NNZ$ is defined as $0$ if $T$ is trivial (i.e., $\mid nds(T) \mid = 1$), 
+	  while otherwise for left and right children $w_1,w_2$ with subtrees $T_1, T_2$ we define
+	  $$ whd(T) := max (whd(T_1),whd(T_2), min(\mid C(w_1)\mid, \mid C(w_2)\mid))$$
+	  We write $R : F \vdash^k C$ if $R : F \vdash C$ and $whd(R) \leq k$. Now for $F \in \Usat$ we define $whd(F) := min\{whd(T ) \mid T : F \vdash \bot \} \in \NNZ$ \cite{h5}. 
+	  %For $k \in \NNZ$ let $\Wc_k := \{F \in \Cls : whd(F) \leq k\}$.
+\end{defi}
+Remarks:
+	    \begin{enumerate}
+              \item For all $F \in \Cls $ holds whd(F)$ \leq \hardness(F)$.
+		\end{enumerate}
+\begin{examp}\label{exp:whd1}
+      Some examples for $wid(F)$ and $whd(F)$ are as below:
+	    \begin{enumerate}
+              \item $wid(\{\bot \}) = whd(\{\bot \}) = 0$.
+			  \item More generally for $C \in \Cl$ holds $wid(\{C\}) = whd(\{C\}) = 0$.
+			  \item In general we have $wid(F) = 0 \Leftrightarrow whd(F) = 0$ for all $F \in \Cls$.
+			  \item For a Horn clause-set $F$ holds $whd(F) \leq 1$ (since unit-clause propagation is sufficient to derive unsatisfiability), 
+			  while $wid(F)$ is unbounded (if $F$ is minimally unsatisfiable, then $wid(F)$ equals the maximal clause-length of $F$).
+			  \item For general minimally unsatisfiable $F$, the maximal clause-length is a lower bound for $wid(F)$, but is unrelated to 
+			  $whd(F)$.
+      	\end{enumerate}		  
+\end{examp}
+
+\begin{examp}\label{exp:whd2}
+      For $F := \{\{a\}, \{a, b\}, \{a, b\}\}$ there are two possible trees as $T_1$ in Fig \ref{fig:whd2} and $T_2$ in Fig \ref{fig:resol2}.   
+	  Using definition \ref{def:whd2}, we have $whd(T_1) = 1$ and $whd(T_2) = 2$ and finally $whd(F) = 1$. $wid(F) = 2$ is also 
+	  obtained by definition \ref{def:whd1}.
+	  \begin{figure}
+      \begin{center}
+	  %\centering
+      \includegraphics[scale =0.6]{whd1.png}
+      \caption{The esolution tree $T_1$ in \ref{exp:whd2}.}
+	  \label{fig:whd2}
+      \end{center}
+      \end{figure}
+\end{examp}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Extension of Width-hardness to satisfiable clause-sets}
+\label{sec:extensionWidth-hardness}
+
+\begin{defi}\label{def:ex-whd}  
+      The \textbf{width-hardness} $whd : \Cls \rightarrow \NNZ$  is defined for $F \in \Cls$ as follows:
+	  \begin{enumerate}
+              \item If $F \in \Usat$ , then $whd(F)$ is the minimum $k \in \NNZ$ such that k-resolution refutes $F$, that is, such that
+			  $T : F \vdash \bot$ exists where for each resolution step $R = C  \diamond D$ in $T$ we have $ \mid C \mid \leq k$ or $\mid D \mid \leq k$.
+			  \item If $F = \top$, then $whd(F) := 0$.
+			  \item If $F \in \Sat \ \{ \top \}$, then $whd(F) := max \{whd(\varphi * F) : \varphi * F \in \Usat\}$.
+      \end{enumerate}
+\end{defi}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Hypergraph}
+\label{sec:Hypergraph}
+
+\begin{defi}\label{def:hypergraphs}
+  A \textbf{hypergraph} is a pair $G=(V,E)$, where $V$ is a set (the set of ``vertices''), while $E \sse \pote(V)$ is a set of finite subsets of $V$ (the ``hyperedges''). 
+  We use for a hypergraph $G = (V,E)$ the notations $\bmm{V(G)} := V$ and $\bmm{E(G)} := E$. A general hypergraph is a triple $(V,E,e)$ where $V, E$ are sets and $e:E \rightarrow \pot_f(V)$ 
+  where $\pot_f(V)$ for a set $X$ is the set of finite subsets of $X$: one writes $e(G)=e$ \cite{h5}. 
+\end{defi}
+
+\begin{examp}\label{exp:hypergraph1}
+      Fig \ref{fig:tss1} showes an example of hypergraph with $V=\{ v_1, v_2, v_3, v_4, v_5, v_6, v_7 \}$ and $E=\{ e_1, e_2, e_3, e_4\} = \{ \{ v_1, v_2, v_3\}, \{v_2, v_3\}, \{ v_3, v_5, v_6\}, \{ v_4 \}\}$.
+	   
+	\begin{figure}[h]
+    \centering  
+	\begin{tikzpicture}
+    \node (v1) at (0,2) {};
+    \node (v2) at (1.5,3) {};
+    \node (v3) at (4,2.5) {};
+    \node (v4) at (0,0) {};
+    \node (v5) at (2,0.5) {};
+    \node (v6) at (3.5,0) {};
+    \node (v7) at (2.5,-1) {};
+
+    \begin{scope}[fill opacity=0.8]
+    \filldraw[fill=yellow!70] ($(v1)+(-0.5,0)$) 
+        to[out=90,in=180] ($(v2) + (0,0.5)$) 
+        to[out=0,in=90] ($(v3) + (1,0)$)
+        to[out=270,in=0] ($(v2) + (1,-0.8)$)
+        to[out=180,in=270] ($(v1)+(-0.5,0)$);
+    \filldraw[fill=blue!70] ($(v4)+(-0.5,0.2)$)
+        to[out=90,in=180] ($(v4)+(0,1)$)
+        to[out=0,in=90] ($(v4)+(0.6,0.3)$)
+        to[out=270,in=0] ($(v4)+(0,-0.6)$)
+        to[out=180,in=270] ($(v4)+(-0.5,0.2)$);
+    \filldraw[fill=green!80] ($(v5)+(-0.5,0)$)
+        to[out=90,in=225] ($(v3)+(-0.5,-1)$)
+        to[out=45,in=270] ($(v3)+(-0.7,0)$)
+        to[out=90,in=180] ($(v3)+(0,0.5)$)
+        to[out=0,in=90] ($(v3)+(0.7,0)$)
+        to[out=270,in=90] ($(v3)+(-0.3,-1.8)$)
+        to[out=270,in=90] ($(v6)+(0.5,-0.3)$)
+        to[out=270,in=270] ($(v5)+(-0.5,0)$);
+    \filldraw[fill=red!70] ($(v2)+(-0.5,-0.2)$) 
+        to[out=90,in=180] ($(v2) + (0.2,0.4)$) 
+        to[out=0,in=180] ($(v3) + (0,0.3)$)
+        to[out=0,in=90] ($(v3) + (0.3,-0.1)$)
+        to[out=270,in=0] ($(v3) + (0,-0.3)$)
+        to[out=180,in=0] ($(v3) + (-1.3,0)$)
+        to[out=180,in=270] ($(v2)+(-0.5,-0.2)$);
+    \end{scope}
+
+    \foreach \v in {1,2,...,7} {
+        \fill (v\v) circle (0.1);
+    }
+
+    \fill (v1) circle (0.1) node [right] {$v_1$};
+    \fill (v2) circle (0.1) node [below left] {$v_2$};
+    \fill (v3) circle (0.1) node [left] {$v_3$};
+    \fill (v4) circle (0.1) node [below] {$v_4$};
+    \fill (v5) circle (0.1) node [below right] {$v_5$};
+    \fill (v6) circle (0.1) node [below left] {$v_6$};
+    \fill (v7) circle (0.1) node [below right] {$v_7$};
+
+    \node at (0.2,2.8) {$e_1$};
+    \node at (2.3,3) {$e_2$};
+    \node at (3,0.8) {$e_3$};
+    \node at (0.1,0.7) {$e_4$};
+    \end{tikzpicture}
+    \caption{An example of hypergraph.}
+    \label{fig:hypergraph1}
+    \end{figure}
+\end{examp}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Tseitin Clause-sets}
+\label{sec:Tseitin Clause-sets}	  
+
+??????????
+
+A full Tseitin graph is a dual system of XOR-constraints $(G, ρ)$, where $G$ is a connected irreflexive general graph with 
+$\oplus_{w \in V(G)} \rho(w) = 1$, where irreflexive general graphs says $\forall v \in E(G) : \mid e(G)(v)\mid = 2$. Note 
+that additionally to ordinary (full) Tseitin graphs we allow parallel edges, but still loops are disallowed (a loop at a
+vertex in effect deactivates the corresponding equation).
+The variables $v \in var(F)$ are the edges of $G$:
+\begin{enumerate}
+            \item If $G′ := G − v$ is still connected, then $hv → 0i ∗ F$ and $hv → 1i ∗ F$ are both isomorphic to
+			$X_0(G')$. Note that $G′$ is still a Tseitin graph.
+			\item Otherwise let $G',G''$ be the connected components of $G$ (both again Tseitin graphs). Now $hv → 0i ∗ F$ 
+			and $hv → 1i ∗ F$ are isomorphic, in some order, to $X0(G'),X0(G'')$.
+			\end{enumerate}
+The endpoint of splitting is reached when $G$ is the one-point graph (which can not have edges, since loops are not allowed).
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Hardness Game}
+\label{sec:Hardness Game}	  
+
+????????????
+\begin{lem}\label{lem:game1}
+      Let $G$ be a Tseitin graph. Then $hd(X_0(G))$ is characterised by the following game:
+	  \begin{enumerate}
+	  \item An atomic move for the current non-trivial Tseitin graph $G$ replaces $G$ with a sub-graph $G'$ of $G$, obtained by choosing 
+	  some $e \in E(G)$ and choosing a connected component of $G - e$.
+	  \item The two players play in turns, and delayer starts with $G$.
+	  \item A move of delayer is to apply a sequence of atomic moves (possibly zero).
+	  \item A move of prover is to apply one atomic move.
+	  \item The games ends when $G$ becomes trivial, in which case delayer gets as many points as there have been moves by prover.
+	  \end{enumerate}
+\end{lem}
+
+
+
+\begin{examp}\label{exp:hd1}
+       Fig \ref{fig:game1} showes the atomic moves of hardness game for garph $G1$ in Fig \ref{fig:hd1}. Delayer starts the game and two 
+	   players play in turn. Finally, $hd(G1)=2$.
+	   
+	   \begin{figure}[h]
+       \centering
+       \begin{tabular}{|c|c|} 
+                  \hline
+                  Delayer & Prover \\ \hline
+                  choosing 1 & choosing 3  \\ \hline
+                  nothing & choosing 2  \\ \hline
+       \end{tabular}
+       \caption{The atomic moves for \ref{fig:game1} and hd(F)=2.}
+       \label{fig:game1}
+      \end{figure}
+	   %----------------------
+	  \begin{figure}
+      \begin{center}
+	  %\centering
+      \includegraphics[scale =0.6]{g1.png}
+      \caption{The hardness game for G1.}
+	  \label{fig:hd1}
+      \end{center}
+      \end{figure}
+\end{examp}
+
+\begin{examp}\label{exp:hd2}
+       Fig \ref{fig:game2} showes the atomic moves of hardness game for garph $G1$ in Fig \ref{fig:hd2}. Delayer starts the game and two 
+	   players play in turn. Finally, $hd(G1)=4$.
+	  \begin{figure}[h]
+      \centering
+      \begin{tabular}{|c|c|} 
+      \hline
+                  Delayer & Prover \\ \hline
+                  choosing 2 & choosing 1  \\ \hline
+                  choosing 6 & choosing 4  \\ \hline
+                  nothing & choosing 5  \\ \hline
+                  nothing & choosing 3 \\ \hline
+      \end{tabular}
+      \caption{The atomic moves for \ref{fig:game2} and hd(F)=4.}
+      \label{fig:game2}
+      \end{figure}
+	  %---
+	  \begin{figure}
+      \begin{center}
+	  %\centering
+      \includegraphics[scale =0.6]{g2.png}
+      \caption{The hardness game for G2}
+	  \label{fig:hd2}
+      \end{center}
+      \end{figure}
+	   
+\end{examp}
+
+\begin{examp}\label{exp:hd3}
+       Fig \ref{fig:game3} showes the atomic moves of hardness game for garph $G1$ in Fig \ref{fig:hd3}. Delayer starts the game and two 
+	   players play in turn. Finally, $hd(G1)=3$.
+	   \begin{figure}[h]
+      \centering
+      \begin{tabular}{|c|c|} 
+      \hline
+                  Delayer & Prover \\ \hline
+                  choosing 9 & choosing 2  \\ \hline
+                  choosing 5 & choosing 1  \\ \hline
+                  choosing 7 & choosing 6  \\ \hline
+      \end{tabular}
+      \caption{The atomic moves for \ref{fig:game2} and hd(F)=4.}
+      \label{fig:game3}
+      \end{figure}
+	   %-----------------
+	  \begin{figure}
+      \begin{center}
+	  %\centering
+      \includegraphics[scale =0.5]{g3.png}
+      \caption{The hardness game for G3}
+	  \label{fig:hd3}
+      \end{center}
+      \end{figure}
+\end{examp}
+
+\begin{lem}\label{lem:game1}
+      Let $G$ be a Tseitin graph. Then $whd(X_0(G))$ is characterised by the following game:
+	  \begin{enumerate}
+	  \item An atomic move for the current non-trivial Tseitin graph $G$ replaces $G$ with a sub-graph $G'$ of $G$, obtained by choosing 
+	  some $e \in E(G)$ and choosing a connected component of $G - e$.
+	  \item The two players play in turns, and delayer starts with $G$.
+	  \item A move of delayer is to apply a sequence of atomic moves (possibly zero).
+	  \item A mover of prover is to replace the current global sequence of atomic moves by another sequence, which is consistent with 
+	  the old sequence, and handles exactly one new edge.
+	  \item Here "consistent" means that in case removal of an edge splits the graph into two connected components, where this edge 
+	  occurs also in the original sequence, then the same “side” of the graph is chosen.
+	  \item The games ends when $G$ becomes trivial, in which case delayer gets as many points as the maximum length of a sequence 
+	  used in a replacement by prover.
+	  \end{enumerate}
+\end{lem}
+
+\begin{examp}\label{exp:bbb}
+      ????????????
+\end{examp}
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
 
@@ -1298,6 +2086,12 @@ Remarks:
 \section{Definitions}
 \label{sec:Definitions}
 
+??????????????
+
+\begin{defi}\label{def:dag}
+      A \textbf{directed graph} (``dg'') is a pair $(V,E)$, where $V$ is a set (vertices), and $E \sse (V \times V) \sm \id_V$ 
+	  (directed edges, not allowing loops). A \textbf{directed acyclic graph} (``dag'') is a dg $(V,E)$ without (directed) cycles.
+\end{defi}
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
 \chapter{Autarkies}
@@ -1332,7 +2126,12 @@ Remarks:
       are autarkies for $F$, the textbf{trivial autarkies}. On the other end of the spectrum every satisfying assignment for $F$ (i.e., $\varphi * F = \top $) is an autarky for $F$ 
 	  (every clause is satisfied). A literal $x \in \Lit$ is a pure literal for $F$ iff $\langle x \rightarrow 1 \rangle $ is an autarky for $F$ \cite{h9}.
 \end{enumerate}
-\begin{examp}\label{exp:bdd} ??????????????
+\begin{examp}\label{exp:autarky1} 
+      For $F \in \Cls$ and $F=\{ \{a,b\}, \{ \neg a, c\}\}$ the two partial assignments $\langle b \rightarrow 1 \rangle$ and 
+	  $\langle c \rightarrow 1 \rangle$ are autarkies. Also, $\langle a \rightarrow 1, c \rightarrow 1  \rangle$, 
+	  $\langle a \rightarrow 0, b \rightarrow 1  \rangle$ and $\langle b \rightarrow 1, c \rightarrow 1  \rangle$ are autarkies 
+	  for $F$. But, $\langle b \rightarrow 0 \rangle$, $\langle c \rightarrow 0 \rangle$ and $\langle a \rightarrow 1 \rangle$ 
+	  are not autarkies for $F$.
 \end{exam}
 %----------------------------------------------------------------------------------------------------------------------
 \section{Hitting clause-sets}
@@ -1371,6 +2170,21 @@ Remarks:
 \begin{quest}\label{que:decisionnearlyhitting}
       The complexity of SAT-decision for nearly-hitting clause-sets is open (also in the boolean case).
 \end{quest}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Deficiency}
+\label{sec:Deficiency}
+
+A very interesting measure for the complexity of formulas is $CNF$ is the so-called "deficiency" which indicates the difference 
+between the number of clauses and the number of variables.
+\begin{defi}\label{def:df1}
+      Let $F$ be a formula in $CNF$ with $n$ clauses and $k$ variables. Then, the \textbf{deficiency} of $F$ is defined as $\delta (F) = n - k$. 
+	  Further, we define the maximal deficiency as $\delta ^*(F) = max \{ \delta (G) \mid G \subseteq F \}$ \cite{h6}.
+\end{defi} 
+Let $k-CNF$ be the set of $CNF$-formulas with deficiency (exactly) $k$. Then, the satisfiability problem for $k-CNF$ is NP-complete. 
+Similarly, let $CNF ^* (k)$ be the set of formulas with maximal deficiency $k$, i.e. 
+$\{F \in CNF : \delta ^*(F) = k \}$. It can been shown that the satisfiability problem for these classes is solvable in polynomial time \cite{h6}.
+
 %----------------------------------------------------------------------------------------------------------------------
 \section{Minimally Unsatisfiable}
 \label{sec:minsat}
