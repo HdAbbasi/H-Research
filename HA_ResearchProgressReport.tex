@@ -1460,7 +1460,7 @@ a branching tree for $\langle v \rightarrow 0 \rangle * F$ as left subtree and a
   \item $T$ is an ordered rooted tree, where every inner node has exactly two children, and where the set of nodes is denoted 
   by $\nds(T)$, the root by $\rt(T) \in \nds(T)$, and the set of leaves by $\lvs(T) \sse \nds(T)$.
   \item While $C: \nds(T) \ra \Cls$ labels every node with a clause such that the label of an inner node is the resolvent of the labels of its two parents.
-  \item We use $\bmm{F(T)} := \set{C(w) : w \in \lvs(T)}$ for the ``axioms'' (or ``premisses'') of $T$ and $\bmm{C(T)} := C(\rt(T))$ as the ``conclusion''.
+  \item We use $\bmm{F(T)} := \set{C(w) : w \in \lvs(T)}$ for the ``axioms'' (or ``premisses'') of $T$ and $\bmm{C(T)} := C(\rt(T))$ as the ``conclusion'' \cite{h5}.
   \end{itemize}
 \end{defi}
 \begin{defi}\label{def:resproof}
@@ -1477,7 +1477,7 @@ a branching tree for $\langle v \rightarrow 0 \rangle * F$ as left subtree and a
   Finally, for $F \in \Usat$ we set
   \begin{itemize}
   \item $\bmm{\comptr(F)} := \min \set{\comptr(R) \mb R : F \vdash \bot} \in \NN$
-  \item $\bmm{\compr(F)} := \min \set{\comptr(R) \mb R : F \vdash \bot} \in \NN$.
+  \item $\bmm{\compr(F)} := \min \set{\comptr(R) \mb R : F \vdash \bot} \in \NN$ \cite{h5}.
   \end{itemize}
 \end{defi}
 
@@ -1496,7 +1496,7 @@ a branching tree for $\langle v \rightarrow 0 \rangle * F$ as left subtree and a
 \end{examp}
 
 \begin{defi}\label{def:resrefutation}
-  A \textbf{resolution refutation} of a clause-set $F$ is a resolution proof deriving $\bot$ from $F$. 
+  A \textbf{resolution refutation} of a clause-set $F$ is a resolution proof deriving $\bot$ from $F$ \cite{h5}. 
 \end{defi}
   
 Remarks:
@@ -1506,6 +1506,7 @@ Remarks:
 	  However, resolution is refutation complete on $\Cls$, i.e., it is guaranteed to derive the empty clause if the given $F$ is unsatisfiable. 
 	  This result is the basis for using resolution as a complete algorithm for testing satisfiability: we keep applying resolution until either 
 	  the empty clause is derived (unsatisfiable $F$) or until no more applications of resolution are possible (satisfiable $F$) \cite{h6}.
+	  \item The number of resolution tree for $F \vdash \bot$ is infinite since we can use any node many times.
 \end{enumerate}
 
  \begin{examp}\label{exp:res1}
@@ -2044,7 +2045,8 @@ The endpoint of splitting is reached when $G$ is the one-point graph (which can 
 \section{Hardness Game}
 \label{sec:Hardness Game}	  
 
-????????????
+???????
+The hardness game according to \cite{h5} is as lemma \ref{lem:game1}.
 \begin{lem}\label{lem:game1}
       Let $G$ be a Tseitin graph. Then $\hardness(X_0(G))$ is characterised by the following game:
 	  \begin{enumerate}
@@ -2057,7 +2059,50 @@ The endpoint of splitting is reached when $G$ is the one-point graph (which can 
 	  \end{enumerate}
 \end{lem}
 
-
+Remarks:
+      \begin{enumerate}
+	  \item In hardness game, both delayer and prover have specific types of move which can be categorized (and named) as follows:
+	       \begin{enumerate}
+		   \item D-A: The graph is symmetric and there is no bridge. So, delayer prefers to take no action.
+		   \item D-B: There is a bridge in graph. Delayer removes the bridge and divides the graph into two components. 
+		   Then, it chooses the biger component and discards the smaller one.
+		   \item D-C: Delayer has to do nothing since if it removes any edge, the game will finish.
+		   \item D-D: (In complete graphs) The graph is not symmetric but there is no bridge. If delayer removes any edge, 
+		   it might help prover to finish game earlier. Therefore, delayer prefers to take no action.		   
+		   \item P-A: The graph is symmetric and prover removes a random edge.
+		   \item P-B: There is at least one node with one connected edge. Prover removes the edge and divides the graph into two components: 
+		   one isolated node and the rest of graph. Then, it chooses the isolated node and discards the rest of graph and the game finishes.
+		   \item P-C: (In complete graphs) The number of connected edges to nodes are not equal and prover chooses the node with smallest
+		   connected edges and removes on of them. 
+           \end{enumerate}		   
+	  \item During the game, if we obtain a complete garph $K_n, n \in \NN$, the hardness would be the sum of prover's points (untill that step) 
+	  and $\hardness(K_n).
+	  \end{enumerate}
+\begin{conj}\label{con:hd_game1}
+      For a complete graph $K_n, n \in \NN$, $\hardness(K_n)= (n-1)-1+\hardness(K_{n-1}) $. 
+	  
+	  Proof: In a complete graph, there are $n-1$ connected edges to each node. 	  Prover chooses a node and removes a connected edge of 
+	  that node in each step. Then, when there is only one connected edge to that node(a bridge) delayer removes the bridge and chooses the 
+	  $K_{n-1}$ graph. So, $\hardness(K_n)= (n-1)-1+\hardness(K_{n-1}) $.
+	  Table \ref{fig:table1} showes $\hardness(K_n)$ for some $n$.
+	  \begin{figure}[h]
+       \centering
+       \begin{tabular}{|c|c|} 
+                  \hline
+                  $n$ & $\hardness(K_n)$ \\ \hline
+                 % 0 & 0  \\ \hline
+                  %1 & 0  \\ \hline
+				  2 & 1  \\ \hline
+				  3 & $1+ \hardness(K_2)=2$ \\ \hline
+			      4 & $2+ \hardness(K_3)=4$  \\ \hline
+				  5 & $3+ \hardness(K_4)=7$  \\ \hline
+				  6 & $4+ \hardness(K_5)=11$  \\ \hline
+				  7 & $5+ \hardness(K_6)=16$  \\ \hline
+       \end{tabular}
+       \caption{The hardness for complete graph $K_n$.}
+       \label{fig:table1}
+      \end{figure}
+\end{conj}
 
 \begin{examp}\label{exp:hd1}
        Fig \ref{fig:game1} showes the atomic moves of hardness game for garph $G1$ (which is called $K_3$) in Fig \ref{fig:hd1}. Delayer starts the game and two 
