@@ -2474,6 +2474,35 @@ $\{F \in CNF : \delta ^*(F) = k \}$. It can been shown that the satisfiability p
 \section{Community Structure}
 \label{sec:Community Structure}
 
+\begin{defi}\label{def:CommunityStr1}
+      A network or graph is said to have \textbf{community structure}, if the graph can be decomposed into sub-graphs where 
+	  the sub-graphs have more internal edges than outgoing edges. Each such sub-graph is called a \textbf{community} \cite{h16}. 
+\end{defi}
+\begin{defi}\label{def:CommunityStr2} 
+      \textbf{Modularity} is a measure of the quality of the community structure of a graph. The idea behind this measure is 
+	  that graphs with high modularity have dense connections between nodes within sub-graph but have few inter-module connections \cite{h16}.
+\end{defi}
+
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Impact of Community Structure on Solving SAT Problems}
+\label{sec:ImpCommunity}
+
+Industrial SAT instances have a high modularity that is not present in random instances. This property helps SAT solvers to improve their
+performance. In various papers, many techniques are proposed for detecting the (optimal) community structure of SAT instances. In particular, 
+modularity is used to detect these communities. 
+
+It is easy to see informally that maximising modularity is one way to detect the optimal community structure inherent in a graph .
+The quality measure for optimal community structure is often referred to as the $Q$ value \cite{h16}.
+
+According to \cite{h17} for a given a SAT instance, two graphs can be constructed, following two models. First is the Variable Incidence Graph model (VIG), that 
+vertices represent variables, and edges represent the existence of a clause relating two variables. A clause for $n$ variables results 
+into $ n \choose 2$ edges, one for every pair of variables. Second is the Clause-Variable Incidence Graph model (CVIG) that vertices 
+represent either variables or clauses, and edges represent the occurrence of a variable in a clause. In both models modularity can be 
+measured using their proposed formula.
+
+It is obvious that the maximal modularity would be obtained putting all vertices in the same community. To avoid this problem, modularity is defined 
+as the fraction of edges connecting vertices of the same community minus the expected fraction of edges for a random graph with the same 
+number of vertices and same degree \cite{h17}.
 %--------------------------------------------------------------------------------------------------------------------------------------
 \newpage
 \bibliography{HA_ResearchRef}
