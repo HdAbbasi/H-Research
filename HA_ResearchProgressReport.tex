@@ -1357,12 +1357,16 @@ Remarks:
 \end{defi}
 Remarks:
 \begin{enumerate}
-\item A clause $C \in \Cl$ is an implicate of $F \in \Cls$ iff $F \models C$.
-\item While $C$ is an implicant of $F$ iff $\set{\set{x} :x \in C} \models F$.
-\item $F \in \Usat$ iff $\primec_0(F) = \set{\bot}$, and $F \in \Sat$ iff $\bot \notin \primec_0(F)$.
-\item $F \in \Sat$ iff $\primec_1(F) \ne \top$, and $F \in \Usat$ iff $\primec_1(F) = \top$.
-\item $\primec_0(\primec_0(F)) = \primec_0(F) = \primec_1(\primec_1(F))$.
-\item $\primec_1(\primec_0(F)) = \primec_1(F) = \primec_0(\primec_1(F))$.
+      \item A clause $C \in \Cl$ is an implicate of $F \in \Cls$ iff $F \models C$.
+      \item While $C$ is an implicant of $F$ iff $\set{\set{x} :x \in C} \models F$.
+      \item $F \in \Usat$ iff $\primec_0(F) = \set{\bot}$, and $F \in \Sat$ iff $\bot \notin \primec_0(F)$.
+      \item $F \in \Sat$ iff $\primec_1(F) \ne \top$, and $F \in \Usat$ iff $\primec_1(F) = \top$.
+      \item $\primec_0(\primec_0(F)) = \primec_0(F) = \primec_1(\primec_1(F))$.
+      \item $\primec_1(\primec_0(F)) = \primec_1(F) = \primec_0(\primec_1(F))$.
+      \item  The term ``implicate'' refers to the implicit interpretation of $F$ as a conjunctive normal form (CNF). Considering clauses as combinatorial objects 
+	  one can speak of ``prime clauses'', and the ``$0$'' in our notation reminds of ``unsatisfiability'', which is characteristic for CNF.  
+	  The set of \emph{prime implicants} of a clause-set $F \in \Cls$ is the set of all clauses $C \in \Cl$ such that for all $D \in F$ we have $C \cap D \not= \es$, while this holds 
+	  for no strict subset of $C$.
 \end{enumerate}
 
 \begin{examp}\label{exp:aaa}
@@ -1463,6 +1467,8 @@ a branching tree for $\langle v \rightarrow 0 \rangle * F$ as left subtree and a
   \item We use $\bmm{F(T)} := \set{C(w) : w \in \lvs(T)}$ for the ``axioms'' (or ``premisses'') of $T$ and $\bmm{C(T)} := C(\rt(T))$ as the ``conclusion'' \cite{h5}.
   \end{itemize}
 \end{defi}
+In another word, a resolution tree is a full binary tree formed by the resolution operation. We write \bmm{T : F \vdash C} if $T$ is a 
+resolution tree with axioms (the clauses at the leaves) all in $F$ and with derived clause (at the root) $C$. 
 \begin{defi}\label{def:resproof}
   A \textbf{resolution proof} $R$ of a clause $C$ from a clause-set $F$, denoted by \bmm{R: F \vdash C}, is a resolution tree $R = (T,C)$ such that
   \begin{itemize}
@@ -1480,7 +1486,10 @@ a branching tree for $\langle v \rightarrow 0 \rangle * F$ as left subtree and a
   \item $\bmm{\compr(F)} := \min \set{\comptr(R) \mb R : F \vdash \bot} \in \NN$ \cite{h5}.
   \end{itemize}
 \end{defi}
-
+\begin{defi}\label{def:treg_ree}
+   A resolution tree $T : F \vdash C$ is \textbf{regular} iff along each path from the root of $T$ to a leaf 
+   no resolution-variable is used more than once. 
+\end{defi}
  \begin{examp}\label{exp:resproof1}
       Fig \ref{fig:proof1} showes a resolution proof for  $R: F \vdash C$, $C=\{d\}$ and $F = \{\{a,b,c\},\{\neg b,d\},\{\neg a, d\},\{\neg c, d\}\}$. 
 	   \begin{figure}
@@ -1507,6 +1516,9 @@ Remarks:
 	  This result is the basis for using resolution as a complete algorithm for testing satisfiability: we keep applying resolution until either 
 	  the empty clause is derived (unsatisfiable $F$) or until no more applications of resolution are possible (satisfiable $F$) \cite{h6}.
 	  \item The number of resolution tree for $F \vdash \bot$ is infinite since we can use any node many times.
+	  \item An other definition for \emph{prime implicate} of $F \in \Cls$ is a clause $C$ such that a resolution tree 
+	  $T$ with $T: F \vdash C$ exists, but no $T'$ exists for some $C' \subset C$ with $T': F \vdash C'$.
+
 \end{enumerate}
 
  \begin{examp}\label{exp:res1}
@@ -2032,21 +2044,28 @@ An important abstraction is obtained by the insight, that $X_0(G,\rho)$ and $X_0
 can obtain the former from the latter. So we consider plain connected irreflexive general graph with at least one vertex as \textbf{Tseitin graphs}, 
 considering implicitly the set of all possible vertex-labellings (with elements from $\set{0,1}$, so that the (XOR-)sum is $1$).
 
-To understand $\hardness(X_0(G))$ and $\whardness(X_0(G))$, we need to understand what splitting does with $G$. The variables $v \in \var(F)$ of 
-$F := X_0(G)$ are the edges of $G$:
+To understand $\hardness(X_0(G))$ and $\whardness(X_0(G))$, we need to understand what splitting does with $G$ in lemma \ref{lem:tgraph_2}. 
+\begin{lem}\label{lem:tgraph_2}
+The variables $v \in \var(F)$ of $F := X_0(G)$ are the edges of $G$:
 \begin{itemize}
 \item If $G' := G - v$ is still connected, then $\pao v0 * F$ and $\pao v1 * F$ are both isomorphic to $X_0(G')$. Note that $G'$ is still a Tseitin graph.
 \item Otherwise let $G', G''$ be the connected components of $G$ (both again Tseitin graphs). Now $\pao v0 * F$ and $\pao v1 * F$ are isomorphic, in some 
 order, to $X_0(G'), X_0(G'')$.
 \end{itemize}
 The endpoint of splitting is reached when $G$ is the one-point graph (which can not have edges, since loops are not allowed) \cite{h5}. 
+\end{lem}
 
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Hardness Game}
 \label{sec:Hardness Game}	  
 
-???????
-The hardness game according to \cite{h5} is as lemma \ref{lem:game1}.
+In this section another measure to obtain hardness of a clause-set is presented in lemma \ref{lem:game1} using hardness game according to \cite{h5}.
+
+\begin{defi}\label{def:bridge}
+      In graph theory, a \textbf{bridge} is an edge of a graph whose deletion increases its number of connected components. Equivalently, 
+	  an edge is a bridge if and only if it is not contained in any cycle \cite{h15}.  
+\end{defi}
+
 \begin{lem}\label{lem:game1}
       Let $G$ be a Tseitin graph. Then $\hardness(X_0(G))$ is characterised by the following game:
 	  \begin{enumerate}
@@ -2057,31 +2076,87 @@ The hardness game according to \cite{h5} is as lemma \ref{lem:game1}.
 	  \item A move of prover is to apply one atomic move.
 	  \item The games ends when $G$ becomes trivial, in which case delayer gets as many points as there have been moves by prover.
 	  \end{enumerate}
+\end{lem} 
+\begin{lem}\label{lem:game2}
+      The hardness game has finitely many moves since the edges of a Tseitin graph are variables of $F$ based on lemma \ref{lem:tgraph_2} and 
+	  the number of variables in a clause-set is finite according to definition \ref{def:cls}.
 \end{lem}
+\begin{lem}\label{lem:game3}
+      The optimal value for hardness game of a graph would be in the case that both players play optimally. The optimal move for delayer 
+	  is the one which maximises the hardness and the optimal move for prover is the one which minimises the hardness (or decreases $\hardness$ by one unit).
+\end{lem}
+\begin{lem}\label{lem:game6}
+      If both player play optimally, there are two possible situations for prover; If there is no bridge in the graph then the optimal move for 
+	  prover is not clear but based on lemma \ref{lem:game1} it should remove an edge. If there is only one bridge, then according to lemma 
+	  \ref{lem:game3}, the optimal move for prover is to remove the bridge and choose the smaller component. In both cases, the hardness is 
+	  decreased by one unit. 
+\end{lem}
+\begin{lem}\label{lem:game4}
+      Based on lemma \ref{lem:game3}, we are not interested in prover plays optimally if delayer has already made a mistake.
+\end{lem}
+
+
+\begin{lem}\label{lem:game7}
+      The optimal move for delayer if there is no bridge is to do nothing based on lemma \ref{lem:game3}. If there is only one bridge 
+	  which divides the graph into two componnents with $\hardness_1$ and $\hardness_2$, two cases may happen. If $\hardness_1= \hardness_2$, 
+	  then it does not change the result whether delayer removes the bridge  and discards one of components or it chooses to do nothing and 
+	  prover removes the bridge in next move and discards one of components (both moves are optimal). If $ \abs {\hardness_1- \hardness_2 } \geq 1$, 
+	  then the optimal move is to remove the bridge and discard the smaller component based on lemma \ref{lem:game3}. Finally, if there are 
+	  more than one bridge in the graph, delayer removes all of them and chooses the component with biggest $\hardness$ and discards rest of 
+	  components. If all components have the same hardness, delayer removes all bridges and keep one of components.
+	  
+\end{lem}
+
+\begin{lem}\label{lem:game5}
+      If prover can get two or more points by one move, then delayer has made a mistake before and based on lemma \ref{lem:game4} the game can 
+	  not be continued this way. The reason is that prover can get more than one point iff there is at least a bridge that divides the graph 
+	  into two components with $ \abs {\hardness_1- \hardness_2 } > 1$ and according to lemma \ref{lem:game7} delayer must already remove
+	  all bridges and choose the component with biggest $\hardness$ and discard rest of components.
+	  
+\end{lem}
+
 
 Remarks:
       \begin{enumerate}
-	  \item In hardness game, both delayer and prover have specific types of move which can be categorized (and named) as follows:
+	  \item According to previous lemmas, both delayer and prover have specific types of move which can be categorized (and named) as follows:
 	       \begin{enumerate}
-		   \item D-A: The graph is symmetric and there is no bridge. So, delayer prefers to take no action.
-		   \item D-B: There is a bridge in graph. Delayer removes the bridge and divides the graph into two components. 
-		   Then, it chooses the biger component and discards the smaller one.
-		   \item D-C: Delayer has to do nothing since if it removes any edge, the game will finish.
-		   \item D-D: (In complete graphs) The graph is not symmetric but there is no bridge. If delayer removes any edge, 
-		   it might help prover to finish game earlier. Therefore, delayer prefers to take no action.		   
-		   \item P-A: The graph is symmetric and prover removes a random edge.
-		   \item P-B: There is at least one node with one connected edge. Prover removes the edge and divides the graph into two components: 
-		   one isolated node and the rest of graph. Then, it chooses the isolated node and discards the rest of graph and the game finishes.
-		   \item P-C: (In complete graphs) The number of connected edges to nodes are not equal and prover chooses the node with smallest
-		   connected edges and removes on of them. 
+		   \item D-A: The graph has no bridge. So, according to lemma \ref{lem:game7} delayer chooses to take no action.
+		   \item D-B: There is only one bridge in graph. So, according to lemma \ref{lem:game7} delayer removes the bridge and divides the graph into two components. 
+		   Then, it chooses the bigger component and discards the smaller one.
+		   \item D-C: If there are more than one bridge in the graph. So, based on lemma \ref{lem:game7} delayer removes all of them and chooses 
+		   the component with biggest $\hardness$ and discards rest of components.
+		   %\item D-D: (In complete graphs) The graph is not symmetric but there is no bridge. If delayer removes any edge, 
+		   %it might help prover to finish game earlier. Therefore, delayer prefers to take no action.		   
+		   \item P-A: The graph has no bridge. So, according to lemma \ref{lem:game6} prover must remove an edge.
+		   %\item P-B: There is at least one node with one connected edge. Prover removes the edge and divides the graph into two components: 
+		   %one isolated node and the rest of graph. Then, it chooses the isolated node and discards the rest of graph and the game finishes.
+		   \item P-B: The graph has one bridge and according to lemma \ref{lem:game6} prover removes the bridge and chooses the smaller component
            \end{enumerate}		   
 	  \item During the game, if we obtain a complete garph $K_n, n \in \NN$, the hardness would be the sum of prover's points (untill that step) 
 	  and $\hardness(K_n).
 	  \end{enumerate}
-\begin{conj}\label{con:hd_game1}
-      For a complete graph $K_n, n \in \NN$, $\hardness(K_n)= (n-1)-1+\hardness(K_{n-1}) $. 
+
+\begin{conj}\label{con:hd1}
+     If there is a bridge in a Tseitin graph which connects two components with $\hardness_1$ and $\hardness_2$, then two cases may happen for 
+	 $\hardness_{total}$. If $\hardness_1= \hardness_2$, then $\hardness_{total}= \hardness_1= \hardness_2$. Else, $ \abs {\hardness_1- \hardness_2 } \geq 1$
+	 and if $ \hardness_1 > \hardness_2 $  then $\hardness_{total}= \hardness_1$.
+	 
+	 Explanation: Delayer starts the game and according to lemma \ref{lem:game7} if $\hardness_1= \hardness_2$, then it does not change the result 
+	 whether delayer removes the bridge or it chooses to do nothing and prover removes the bridge in next move. In both cases $\hardness_{total}$ 
+	 would be equal to the hardness of the selected component. Otherwise, if $ \hardness_1 > \hardness_2 $ based on \ref{lem:game7} delayer 
+	 removes the bridge and discards the smaller component. Untill now, prover has not done any thing and therefore, has not got any points.
+	 In the next step, prover continues the game and  $\hardness_{total}= \hardness_1$.
+\end{conj}
+
+\begin{conj}\label{con:hd2}
+           If the graph has no bridge and the number of connected edges to nodes are not equal then prover chooses the node with smallest
+		   connected edges and removes one of them.
+\end{conj}
 	  
-	  Proof: In a complete graph, there are $n-1$ connected edges to each node. 	  Prover chooses a node and removes a connected edge of 
+\begin{conj}\label{con:hd_game1}
+      For a complete graph $K_n, n \in \NN$, $\hardness(K_n)= (n-1)-1+\hardness(K_{n-1})$. 
+	  
+	  Explanation: In a complete graph, there are $n-1$ connected edges to each node. 	  Prover chooses a node and removes a connected edge of 
 	  that node in each step. Then, when there is only one connected edge to that node(a bridge) delayer removes the bridge and chooses the 
 	  $K_{n-1}$ graph. So, $\hardness(K_n)= (n-1)-1+\hardness(K_{n-1}) $.
 	  Table \ref{fig:table1} showes $\hardness(K_n)$ for some $n$.
@@ -2104,13 +2179,34 @@ Remarks:
       \end{figure}
 \end{conj}
 
+\begin{conj}\label{con:hd_game2}
+     If a Tseitin graph does not have any parallel edges then for a graph with $n$ vertices, graph $K_n$ has the worst case 
+	 of hardness (the maximum of $\hardness$).
+	 
+	 Explanation:???????????
+\end{conj}
+
+\begin{examp}\label{exp:gg1}
+      ???????????
+	  Each edge in this graph showes an atomic move according to lemma \ref{lem:game1}. $\varepsilon $ showes empty move and $\bot$ 
+	  showes the end of game.
+	  \begin{figure}
+      \begin{center}
+	  %\centering
+      \includegraphics[scale =0.6]{gg1.png}
+      \caption{??????? for $K_3$.}
+	  \label{fig:gg1}
+      \end{center}
+      \end{figure}
+
+\end{examp}
 \begin{examp}\label{exp:hd1}
-       Fig \ref{fig:game1} showes the atomic moves of hardness game for garph $G1$ (which is called $K_3$) in Fig \ref{fig:hd1}. Delayer starts the game and two 
+       Fig \ref{fig:game1} showes the atomic moves of hardness game for garph $K_3$ in Fig \ref{fig:hd1}. Delayer starts the game and two 
 	   players play in turn. 
 	   
 	   In first move, the graph is symmetric (no bridge) and delayer chooses to do nothing. Then, prover chooses an edge (in this case, it can remove any edge). 
 	   In third move, delayer has to do nothing since removing any edge will lead to ending game. Finally, prover chooses an edge and graph is divided to two components: 
-	   one seprate vertex and one edge. So, prover chooses the vertex to finish the game. The hardness of the graph ( which is the number of moves done by prover) is $\hardness(G1)=2$.
+	   one seprate vertex and one edge. So, prover chooses the vertex to finish the game. The hardness of the graph ( which is the number of moves done by prover) is $\hardness(K_3)=2$.
 	   
 	   \begin{figure}[h]
        \centering
@@ -2128,20 +2224,20 @@ Remarks:
       \begin{center}
 	  %\centering
       \includegraphics[scale =0.6]{g1.png}
-      \caption{The hardness game for G1.}
+      \caption{The hardness game for $K_3$.}
 	  \label{fig:hd1}
       \end{center}
       \end{figure}
 \end{examp}
 
 \begin{examp}\label{exp:hd2}
-       Fig \ref{fig:game2} showes the atomic moves of hardness game for garph $G2$ in Fig \ref{fig:hd2}. Delayer starts the game and two 
+       Fig \ref{fig:game2} showes the atomic moves of hardness game for garph $K_4$ in Fig \ref{fig:hd2}. Delayer starts the game and two 
 	   players play in turn. 
 	   
 	   In first move, the graph is symmetric (no bridge) and delayer chooses to do nothing. Then, prover chooses an edge (in this case, it can remove any edge). 
 	   In third move, delayer chooses to do nothing since there is no bridge. Then, prover can choose edges 1 or 4 (in this case we continue with removing edge 1) since in each case 
 	   the result will be the same. In fifth move, delayer has to remove edge 6 (the bridge) and the graph is devided to two components: 
-	   one seprate vertex and the $K_3$ graph. Delayer chooses biger component ( $K_3$ graph) and the rest of the game would be the same as exqample \ref{exp:hd1} and $\hardness(G2)=4$.
+	   one seprate vertex and the $K_3$ graph. Delayer chooses biger component ( $K_3$ graph) and the rest of the game would be the same as exqample \ref{exp:hd1} and $\hardness(K_4)=4$.
 	 
 	 \begin{figure}[h]
       \centering
@@ -2161,7 +2257,7 @@ Remarks:
       \begin{center}
 	  %\centering
       \includegraphics[scale =0.6]{g2.png}
-      \caption{The hardness game for G2}
+      \caption{The hardness game for $K_4$}
 	  \label{fig:hd2}
       \end{center}
       \end{figure}
@@ -2169,14 +2265,14 @@ Remarks:
 \end{examp}
 
 \begin{examp}\label{exp:hd3}
-       Fig \ref{fig:game3} showes the atomic moves of hardness game for garph $G3$ in Fig \ref{fig:hd3}. Delayer starts the game and two 
+       Fig \ref{fig:game3} showes the atomic moves of hardness game for garph $K_5$ in Fig \ref{fig:hd3}. Delayer starts the game and two 
 	   players play in turn. 
 	   
 	   In first move, the graph is symmetric (no bridge) and delayer chooses to do nothing. Then, prover chooses an edge (in this case, it can remove any edge). 
 	   In third move, delayer chooses to do nothing since there is no bridge. Then, prover chooses edge 5. Then, the delayer again chooses to do nothing since 
 	   there is no bridge. In the next move, the prover chooses edge 10. Therefore delayer has to remove edge 7 (the bridge) and the graph is devided to two components: 
 	   one seprate vertex and the $K_4$ graph. 
-	   Delayer chooses biger component ( $K_4$ graph) and the rest of the game would be the same as exqample \ref{exp:hd2} and $\hardness(G3)=7$.
+	   Delayer chooses biger component ( $K_4$ graph) and the rest of the game would be the same as exqample \ref{exp:hd2} and $\hardness(K_5)=7$.
 	 
 	   \begin{figure}[h]
       \centering
@@ -2199,11 +2295,12 @@ Remarks:
       \begin{center}
 	  %\centering
       \includegraphics[scale =0.6]{g3.png}
-      \caption{The hardness game for G3}
+      \caption{The hardness game for $K_5$}
 	  \label{fig:hd3}
       \end{center}
       \end{figure}
 \end{examp}
+
 
 %***************************************************************************************************************************************************************
 %***************************************************************************************************************************************************************
@@ -2367,6 +2464,16 @@ $\{F \in CNF : \delta ^*(F) = k \}$. It can been shown that the satisfiability p
 %\begin{examp}\label{exp:minsat1} 
 %      The simplest element of $\Usat \setminus \Musat$ is $\{ \bot, \{ 1\} \}$, while the simplest element of $\Musat \setminus \Smusat$ is $\{ \{1, 2\}, \{-1\}, \{-2\} \}$ \cite{h9}.
 %\end{exam}	  
+
+
+%***************************************************************************************************************************************************************
+%***************************************************************************************************************************************************************
+\chapter{The Community Structure of SAT Problems}
+\label{cha:CommunityStr}
+%--------------------------------------------------------------------------------------------------------------------------------------
+\section{Community Structure}
+\label{sec:Community Structure}
+
 %--------------------------------------------------------------------------------------------------------------------------------------
 \newpage
 \bibliography{HA_ResearchRef}
