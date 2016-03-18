@@ -1,14 +1,13 @@
 %--------------------------- Hoda Abbasi ----------------------------
 %----------------------- 16 March 2016 ------------------------
 
-\documentclass[12pt]{book}
+\documentclass[]{book}
 \input Latex_macros/Definitionen.tex
 \usepackage{a4}
-\usepackage[graph]{xy}
 \usepackage{graphicx}
 \usepackage{tikz-qtree}
 \usepackage{latexsym}
-\usepackage{amssymb,forest}
+\usepackage{amssymb}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \setcounter{tocdepth}{4}
@@ -16,13 +15,13 @@
 \usepackage{enumerate}
 \usepackage[active]{srcltx}
 \usepackage[all]{xy}
-\usepackage{xspace}
-\usepackage{multicol}
-\usepackage{multirow}
-\usepackage{caption}
-\usepackage{Latex_styles/slashbox}
-\usepackage{bussproofs}
-\usepackage{xr}
+%\usepackage{xspace}
+%\usepackage{multicol}
+%\usepackage{multirow}
+%\usepackage{caption}
+%\usepackage{Latex_styles/slashbox}
+%\usepackage{bussproofs}
+%\usepackage{xr}
 \usepackage{todonotes}
 \usepackage{etex}
 \usepackage{mathtools} % For \mathmakebox
@@ -36,9 +35,9 @@
 \DMO{\twidth}{tw}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \begin{document}
-\title{\bf \Huge Hardness measures of clause-sets}
+\title{Hardness measures of clause-sets}
 
-\author{ \bf Hoda Abbasi\\
+\author{Hoda Abbasi\\
              PhD Candidate\\
              Computer Science Department\\
              Swansea University\\}
@@ -112,7 +111,7 @@ Remarks:
 \end{defi}
 Remarks:
 \begin{enumerate}
-      \item For variables $v_1, \ldots, v_n \in \mva, \; n\in \mathbb{N}_0$ with $v_i \neq v_j$ for $i\neq j$, and truth values $\varepsilon_1, \ldots, \varepsilon_n \in \{0,1\}$ we write
+      \item For variables $v_1, \ldots, v_n \in \Va, \; n\in \mathbb{N}_0$ with $v_i \neq v_j$ for $i\neq j$, and truth values $\varepsilon_1, \ldots, \varepsilon_n \in \{0,1\}$ we write
       \begin{displaymath}
             \pmb{\langle v_1 \to \varepsilon_1, \ldots, v_n \to \varepsilon_n\rangle}
       \end{displaymath}
@@ -152,7 +151,7 @@ Remarks:
             \item $({}^{\overline{~~}}): \Lit \to  \Lit.$
             \item $\overline{(v, \varepsilon)}: = (v, 1-\varepsilon).$
             \item For a literal $x$ we call $\overline{{\bm x}}$ the \textbf{complement} of $x$ and we have
-            $$\forall x \in \mlit: \overline{\overline{x}} = x.$$
+            $$\forall x \in \Lit: \overline{\overline{x}} = x.$$
       \end{enumerate}
 \end{enumerate}
 \begin{examp}\label{}
@@ -190,7 +189,7 @@ Remarks:
             \item $\fa\, x \in \Lit : \abs{\lit(\set{x}) \cap L} \le 1$.
             \item $\abs{L} = \abs{\var(L)}$.
       \end{enumerate}
-      \item If $L$ is a set of boolean variables, then $\lit(L)} = L \cup \ol{L}$.
+      \item If $L$ is a set of boolean variables, then $\lit(L) = L \cup \ol{L}$.
       \item If $L$ is a set of non-boolean variables, then $\ol{L} = \emptyset$.
 \end{enumerate}
 \begin{examp}\label{exp:lit1}
@@ -229,7 +228,7 @@ Remarks:
 \end{defi}
 \begin{defi}\label{def:cls2}
       The clause-set $F \in \Cls$ where each clause contains at most $k$ literals (has width at most $k$) is called \textbf{k-}$\Cls$.
-      This means that $\abs {C} \leq k$ \cite{h5}.
+      This means that $\abs {C} \le k$ \cite{h5}.
 \end{defi}
 \begin{defi}\label{def:cls3}
       A literal $x$ is called \textbf{pure} for $F$ if \ $\overline{x} \not \in \bigcup F$ 
@@ -332,9 +331,9 @@ Remarks:
       $$\varphi_{\{a,\overline{b},c\}} = \langle a, \overline{b}, c\to 0\rangle = \langle a\to 0, b\to 1, c\to 0 \rangle $$
       $$C_{\langle x\to 0, y\to 1, z\to 0 \rangle} = \{x, \overline{y}, z\}$$
       $$\langle a\to 1 \rangle * \left\{\{a,b,c\}, \{\overline{a}, \overline{c}\}, \{\overline{b}, \overline{c}\} \right\} = \left\{\{\overline{c}\}, \{\overline{b}, c\} \right\}$$
-      $$\langle a\to & 0, b\to 1, c\to 0 \rangle * \left\{\{a,b,x\}, \{a,\overline{b},c\}, \{\overline{x}, \overline{y}\}, \{a,c,x\} \right\} = \left\{\bot, \{\overline{x}, \overline{y}\}, \{x\}\right\}$$
+      $$\langle a\to 0, b\to 1, c\to 0 \rangle * \left\{\{a,b,x\}, \{a,\overline{b},c\}, \{\overline{x}, \overline{y}\}, \{a,c,x\} \right\} = \left\{\bot, \{\overline{x}, \overline{y}\}, \{x\}\right\}$$
       (a falsifying assignment)
-      $$\langle x\to & 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top$$
+      $$\langle x\to 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top$$
       (a satisfying assignment)
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
@@ -375,9 +374,9 @@ Remarks:
       Consider variables $a,b,c,d \in \Va$. By the term $\langle a\to 0, b\to 1 \rangle$ the partial assignment $\varphi$ with domain 
 	  $\var(\varphi) = \{a, b\}$ and $\varphi(a) = 0$ and $\varphi(b) = 1$ is denoted.
       Examples for the defining relations are:
-      $$\langle a\to 0 \rangle \circ \langle a\to 1 \rangle & = \langle a\to 1 \rangle $$
-      $$\langle b\to 1 \rangle \circ \langle b\to 1 \rangle & = \langle b\to 1 \rangle $$
-      $$\langle c\to 1 \rangle \circ \langle c\to 0 \rangle & = \langle c\to 0 \rangle$$
+      $$\langle a\to 0 \rangle \circ \langle a\to 1 \rangle = \langle a\to 1 \rangle $$
+      $$\langle b\to 1 \rangle \circ \langle b\to 1 \rangle = \langle b\to 1 \rangle $$
+      $$\langle c\to 1 \rangle \circ \langle c\to 0 \rangle = \langle c\to 0 \rangle$$
       and
       $$ \langle a\to 0 \rangle \circ \langle d\to 1 \rangle = \langle d\to 1 \rangle \circ \langle a\to 0 \rangle$$
       $$\langle b\to 1 \rangle \circ \langle c\to 1 \rangle = \langle c\to 1 \rangle \circ \langle b\to 1 \rangle$$
@@ -386,7 +385,7 @@ Remarks:
       Every partial assignments is a composition of elementary partial assignments, for example:
       $$\langle a\to 0, b\to 1, c\to 0 \rangle = \langle a\to 0 \rangle \circ \langle b\to 1 \rangle \circ \langle c\to 0 \rangle. $$
       And an example for a composition of two non-elementary partial assignments is:
-      $$\langle a\to 0, b\to 1, c\to 0 \rangle & \circ \langle a\to 1, b\to 1, d\to 0 \rangle = $$
+      $$\langle a\to 0, b\to 1, c\to 0 \rangle \circ \langle a\to 1, b\to 1, d\to 0 \rangle = $$
       $$ \langle a\to 1, b\to 1, c\to 0, d\to 0 \rangle.$$
 \end{examp}
 %--------------------------------------------------------------------------------------------------------------------------------------
@@ -416,9 +415,9 @@ A partial assignment $\varphi \in \Pass$ with $\varphi(F) = 1$ is called a \text
 \begin{examp}\label{exp:sat2}
       Some examples of satisfying assignment and  falsifying assignment are as folow.
       Falsifying assignment:
-      $$\langle a\to & 0, b\to 1, c\to 0 \rangle * \left\{\{a,b,x\}, \{a,\overline{b},c\}, \{\overline{x}, \overline{y}\}, \{a,c,x\} \right\} = \left\{\bot, \{\overline{x}, \overline{y}\}, \{x\}\right\}$$
+      $$\langle a\to 0, b\to 1, c\to 0 \rangle * \left\{\{a,b,x\}, \{a,\overline{b},c\}, \{\overline{x}, \overline{y}\}, \{a,c,x\} \right\} = \left\{\bot, \{\overline{x}, \overline{y}\}, \{x\}\right\}$$
       and satisfying assignment:
-      $$\langle x\to & 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top.$$
+      $$\langle x\to 1, y\to 0, z\to 1 \rangle * \left\{\{x,y,\overline{z}\}, \{x,\overline{y},z\}, \{\overline{x}, \overline{y}\}, \{x,y\} \right\} = \top.$$
 \end{examp}
 \section{Implication-relation}
 \label{sec:Implication-relation}
@@ -960,7 +959,7 @@ which uses generalised unit-clause propagation $r_k$ to measure hardness. Follow
 
 \begin{defi}\label{def:hardness1}
       \cite{h5} For $F \in \Usat$ let \textbf{hardness} $\bmm{\hardness(F)} \in \NNZ$ be the minimal $k \in \NNZ$ such that a resolution tree $T : F \vdash \bot$ 
-	  exists, where the Horton-Strahler number of $T$ is at most $k$. For $k \in \NNZ$ let $\Urefc_k  := \{F \in \Cls : \hardness(F) \leq k\}$ .
+	  exists, where the Horton-Strahler number of $T$ is at most $k$. For $k \in \NNZ$ let $\Urefc_k  := \{F \in \Cls : \hardness(F) \le k\}$ .
 \end{defi}
 And another description which uses generalised unit-clause propagation $r_k$ to measure hardness is:
 \begin{defi}\label{def:hardness2}
@@ -988,7 +987,7 @@ There is also a simple measure for hardness called depth.
 
 Remarks:
 \begin{enumerate}
-  \item Since the Horton-Strahler number of a tree is at most the height, we get $\hardness(F) \leq dep(F)$ for all $F \in \Cls$.
+  \item Since the Horton-Strahler number of a tree is at most the height, we get $\hardness(F) \le dep(F)$ for all $F \in \Cls$.
 \end{enumerate}
 %--------------------------------------------------------------------------------------------------------------------------------------
 \section{Extension of tree-hardness to satisfiable clause-sets}
@@ -1029,7 +1028,7 @@ unsatisfiable clause-set $F$ is the minimal $k$ such that a resolution refutatio
 \end{defi}
 Remarks:
 	    \begin{enumerate}
-              \item For all $F \in \Cls $ holds \whardness(F)$ \leq \hardness(F)$.
+              \item For all $F \in \Cls $ holds $\whardness(F)$ \le \hardness(F)$.
 		\end{enumerate}
 \begin{examp}\label{exp:whd1}
       \cite{h5} Some examples for $\wid(F)$ and $\whardness(F)$ are as below:
@@ -1037,7 +1036,7 @@ Remarks:
               \item $\wid(\set{\bot}) = \whardness(\set{\bot}) = 0$.
 			  \item More generally for $C \in \Cl$ holds $wid(\{C\}) = \whardness(\{C\}) = 0$.
 			  \item In general we have $\wid(F) = 0 \Leftrightarrow \whardness(F) = 0$ for all $F \in \Cls$.
-			  \item For a Horn clause-set $F$ holds $\whardness(F) \leq 1$ (since unit-clause propagation is sufficient to derive unsatisfiability), 
+			  \item For a Horn clause-set $F$ holds $\whardness(F) \le 1$ (since unit-clause propagation is sufficient to derive unsatisfiability), 
 			  while $\wid(F)$ is unbounded (if $F$ is minimally unsatisfiable, then $\wid(F)$ equals the maximal clause-length of $F$).
 			  \item For general minimally unsatisfiable $F$, the maximal clause-length is a lower bound for $\wid(F)$, but is unrelated to 
 			  $\whardness(F)$.
@@ -1066,7 +1065,7 @@ Here, the width-hardness measure is extended to arbitrary clause-set (both satis
       \cite{h11} The \textbf{width-hardness} $\whardness : \Cls \rightarrow \NNZ$  is defined for $F \in \Cls$ as follows:
 	  \begin{enumerate}
               \item If $F \in \Usat$ , then $\whardness(F)$ is the minimum $k \in \NNZ$ such that k-resolution refutes $F$, that is, such that
-			  $T : F \vdash \bot$ exists where for each resolution step $R = C  \diamond D$ in $T$ we have $ \abs{C } \leq k$ or $\abs{D } \leq k$.
+			  $T : F \vdash \bot$ exists where for each resolution step $R = C  \diamond D$ in $T$ we have $ \abs{C } \le k$ or $\abs{D } \le k$.
 			  \item If $F = \top$, then $\whardness(F) := 0$.
 			  \item If $F \in \Sat \ \{ \top \}$, then $\whardness(F) := \max \{\whardness(\varphi * F) : \varphi * F \in \Usat\}$.
       \end{enumerate}
@@ -1644,7 +1643,7 @@ Remarks:
 		   the game. If we suppose that delayer does not remove all bridges in first move, there will be at least a bridge which 
 		   connects two components with different $\hardness$ in the next move. So, prover will remove the bridge and choose the
 		   component with smaller $\hardness$. If $ \abs {\hardness_1- \hardness_2 } > 1$, prover gets more than one point in one move
-		   which according to Lemma \ref{lem:game5} showes that delayer has made a mistake. If {\hardness_1- \hardness_2 } = 1$, then
+		   which according to Lemma \ref{lem:game5} showes that delayer has made a mistake. If $\hardness_1- \hardness_2  = 1$, then
 		   prover gets one point by removing the bridge and discarding the bigger component. So, the result might be correct but 
 		   delayer might already discard the biggest component. In that case, prover might get more points during the game which leads 
 		   to bigger $\hardness$! Therefore, delayer has not played optimally.
