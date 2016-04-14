@@ -93,6 +93,9 @@ Another case of the reduction is generalised unit-clause propagation introduced 
 
 \begin{defi}\label{def:rk}
 \cite{h10} The maps $\rk_k: \Cls \ra \Cls$ for $k \in \NNZ$ are defined as follows (for $F \in \Cls$):
+ % \begin{enumerate}
+ % \item If $\bot \in F$, then $\rk_k(F) := \set{\bot}$ for all $k$.
+%  \item 
   \begin{eqnarray*}
   \rk_0(F) & := &
   \begin{cases}
@@ -117,7 +120,7 @@ Using literals $a,b,c,d$, $\rk_k(F)$ for some examples is computated as follows:
 \section{Horton-Strahler number}
 \label{sec:hs}
 
-The Horton-Strahler number is a measure of branching complexity for trees. Here, the Horton-Strahler number is defined for a resolution tree $T$ and denoted by $\hts(T) \in \NNZ$. To obtain $\hts(T)$, we start with leaves (axioms) whose Horton-Strahler number are defined as $\hts(T) := 0$. Then, for each inner node with two children $T_1, T_2$, we have two cases. If $\hts(T_1)= \hts(T_2)$, then $\hts(T) := \hts(T_1)+ 1$. Otherwise, $\hts(T) := \max(\hts(T_1),\hts(T_2))$. This means that $\hts$ for each node is the shortest distance to the leaves.
+The Horton-Strahler number is a measure of branching complexity for trees. Here, the Horton-Strahler number is defined for a resolution tree $T$ and denoted by $\hts(T) \in \NNZ$. To obtain $\hts(T)$, we start with leaves (axioms) whose Horton-Strahler number are defined as $\hts(T) := 0$. Then, for each inner node with two children $T_1, T_2$, we have two cases. If $\hts(T_1)= \hts(T_2)$, then $\hts(T) := \hts(T_1)+ 1$. Otherwise, $\hts(T) := \max(\hts(T_1),\hts(T_2))$. This means that the Horton-Strahler number for each node is the shortest distance from that node to the leaves.
 
 %\section{Hypergraph}
 %\label{sec:hpg}
@@ -128,26 +131,31 @@ The Horton-Strahler number is a measure of branching complexity for trees. Here,
 \chapter{Hardness measures}
 \label{cha:Hardness Measures}
 
-The hardness is defined as a measure of complexity for a clause-set in SAT solving. Various hardness measures have been investigated in the literature and the relation between these measures is studied in \cite{h5},\cite{h18}. In this report, two measures of the hardness are investigated. The first one is tree-hardness which is related to the size of resolution proofs. Width-hardness is the second measure and is related to the width of clauses in resolution proofs. We start with defining these measures for unsatisfiable clause-sets and then, we extend the definitions to the satisfiable clause-sets.
+The hardness is defined as a measure of complexity for a representation of a boolean function in SAT solving. Various hardness measures have been investigated in the literature and the relation between these measures is studied in \cite{h5},\cite{h18}. In this report, two measures of the hardness are investigated. The first one is the tree-hardness which is related to the size of resolution proofs. The width-hardness is the second measure and is related to the width of clauses in resolution proofs. We start with defining these measures for unsatisfiable clause-sets and then, we extend the definitions to the satisfiable clause-sets. 
 
 \section{Tree-hardness of clause-sets}
 \label{sec:Hardnessunsat}
 
-The tree-hardness (or just hardness)
- 
+For an unsatisfiable clause-set $F$ there are many resolution trees as $T : F \vdash C$ with the Horton-Strahler number $\hts(T)$. The tree-hardness (or just hardness) for $F \in \Usat$ is defined as the minimum of $\hts(T)$ of those trees and denoted by $\hardness(F)$. This means that the hardness is the height of the biggest full binary tree which can be embedded into each tree-like resolution refutation of the formula. From computational point of view, it is not practical to obtain the hardness using the minimum of $\hts(T)$. Thus, another definition is defined using the generalised unit-clause propagation $\rk_k$ which is the minimum of $k \in \NNZ$ such that $\rk_k(F)$ yields $\bot$. This definition is not applicable to all $F \in \Usat$ since $\rk_k(F)$ can yield $\bot$ if all clauses in $F$ have size at least $K+1$.
+
 \begin{examp}\label{exp:harducls}
   For $\set{\set{x,y},\set{x,\ol{y}},\set{\ol{x},y},\set{\ol{x},\ol{y}}}$ we have $r_1(F)=F, r_2(F)=r_2( \langle a \rightarrow 1 \rangle * F) = \{ \bot \}$(since $r_1( \langle a \rightarrow 0 \rangle * F)=r_1 (\{\{ b \}, \{ \neg b \}\}) = \{ \bot \}$). Thus, $\hardness(F) = 2$. In general, the hardness of full clause-sets are as $\hardness(A_n)=n$.
   
   Following, $\hardness(F)$ for some more examples of unsatisfiable clause-sets $(F)$ are computated:
   \begin{enumerate}
-  \item $\hardness(F) = 0$ iff $\bot \in F$.
+  \item $\hardness(F) = 0$ if $\bot \in F$.
   \item $\hardness(\set{\set{a},\set{\ol{a}}}) = 1$.
   \item $\hardness(\set{\set{a},\set{\ol{a},b}, \set{\ol{b},c}, \set{\ol{c}}}) = 1$.
   \item $\hardness(\set{\set{a,\ol{b}},\set{\ol{a},b},\set{b,\ol{c}},\set{\ol{b},c},\set{a,b,c},\set{\ol{a},\ol{b},\ol{c}}}) = 2$.
   \end{enumerate}
 \end{examp}
 
-Each satisfiable clause-set $F \in \Cls \sm \top$ can be converted to an unsatisfiable clause-set by applying a partial assignment $\vp$. For extending the hardness measure $\hardness(F)$ for a satisfiable clause-set, we should consider the worst case value of $\hardness$ for the extended $F$ which is the maximum of $\hardness(\vp * F)$. ????????????????
+Each satisfiable clause-set $F \in \Cls \sm \set{\top}$ can be converted to an unsatisfiable clause-set by applying a partial assignment $\vp$. For extending the hardness measure to a satisfiable clause-set, we should consider the worst case value of $\hardness$ for $\vp * F \in \Usat$ which is the maximum of $\hardness(\vp * F)$. The reason is that one can easily find a $\vp$ such that $\bot \in \vp * F$ and $\hardness(\vp * F)=0$. And for $\vp$ we need to consider the minimal partial assignment since the application of a partial assignment on $F$ do not increase the hardness and for $F \in \Cls, \hardness(\vp * F) \leq \hardness(F)$. For $F = \top$, since it is not convertable to an unsatisfiable clause-set, we assign the minimum of the hardness which is zero.
+
+\begin{defi}\label{def:hd-extended}
+The hardness is a map that assigns a natural number for a representation of a boolean function $f$ as a clause-set $F \in \Cls$ and is denoted by $\hardness : \Cls \rightarrow \NNZ$. To obtain the hardness of  $F$, there are three cases: if $F = \top$, then $\hardness(F) := 0$. Else if $F \in \Usat$, then $\hardness(F) := \min \set{k \in \NNZ : \rk_k(F)=\set{\bot}}$. Otherwise, $F \in \Sat \sm \set{\top}$, and $\hardness(F) := \max \set{ \hardness(\vp * F) : \vp * F \in \Usat }$.
+\end{defi}
+
 
 \section{Width-hardness of clause-sets}
 \label{sec:whdd}
@@ -155,6 +163,7 @@ Each satisfiable clause-set $F \in \Cls \sm \top$ can be converted to an unsatis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{XOR representation}
 \label{cha:XOR-representation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{The hardness game}
