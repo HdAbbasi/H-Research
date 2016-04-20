@@ -38,7 +38,7 @@
 
 The infinite set of variables is denoted by $\Va$. A partial assignment $\vp$ is a map which assigns a unique value in $\set{0,1}$ to some elements of a finite set of variables. The domain of this map is a set of variables denoted by $\var(\vp)$. The set of all partial assignments is indicated by $\Pass$ and for $V \in \pote(\Va)$, $\Tass(V)$ is the set of total assignments over $V$. The empty partial assignment is denoted by $\epa:= \es \in \Pass$. For a partial assignment $\vp \in \Pass$, the number of variables is defined as $n(\vp):=\abs{\var(\vp)}$. For two partial assignments $\vp, \psi \in \Pass$, the composition operation is defined as $\vp \circ \psi := \psi \cup (\vp \sm \var(\psi)) \in \Pass$ which is the union of their variables if they do not conflict. In the case of conflicting variables, the second assignment is considered. This operation has associative property and it is commutative if $\vp, \psi$ do not clash.
 
-A literal is a pair $(v,\ve)$ with $\var((v,\ve)):=v \in \Va$ (the underlying variable) and $\val((v,\ve)):=\ve \in \set{0,1}$. The set of all literals is $\Lit$. Two literals $x, y \in \Lit$ clash if they have a same variable but different values. For a set $L \sse \Lit$ we define $\var(L) := \set{\var(x) : x \in L}$, $\lit(L):= \set{x \in \Lit : \var(x) \in \var(L)}$ and $\ol{L} := \lit(L) \sm L$. A clause is defined as a finite and clash-free set of literals. The set of all clauses is denoted by $\Cl$ and $\bot := \es \in \Cl$ is the empty clause. 
+A literal is a pair $(v,\ve)$ with $\var((v,\ve)):=v \in \Va$ (the underlying variable) and $\val((v,\ve)):=\ve \in \set{0,1}$. The set of all literals is $\Lit$. Two literals $x, y \in \Lit$ clash if they have a same variable but different values. For a set $L \sse \Lit$ we define $\var(L) := \set{\var(x) : x \in L}$, $\lit(L):= \set{x \in \Lit : \var(x) \in \var(L)}$ and $\ol{L} := \lit(L) \sm L$. A clause is defined as a finite and clash-free set of literals. The set of all clauses is denoted by $\Cl$ and $\bot := \es \in \Cl$ is the empty clause. The length (width) of a clause $C$ is the number of variables in $C$.
 
 A clause-set is a finite set of clauses and $\Cls$ is the set of all clause-sets. The empty clause-set is indicated by $\top := \es \in \Cls$. For $F \in \Cls$ we define $\var(F) := \bc_{C \in F} \var(C) \in \pote(\Va)$ and $\lit(F) := \var(F) \cup \ol{\var(F)}$. The number of variables in $F$ is denoted by $n(F) := \abs{\var(F)} \in \NNZ$ and the number of clauses is $c(F) := \abs{F} \in \NNZ$. The number of literal occurrences in $F$ is also denoted by $\ell(F) := \sum_{C \in F} \abs{C} \in \NNZ$. If the union of literals occurring in $F$ is indicated by $\bigcup F \subset \Lit$, then a pure literal for $F \in \Cls$ is defined as $x \in \bigcup F$ and $\ol{x} \not \in \bigcup F$. A clause-set $F$ is called $k-\Cls$ if every clause in $F$ has length (width) at most $k$. A full clause $C$  for a clause-set $F$ is defined as $C \in F$ and $\var(C) = \var(F)$, and a clause-set $F$ is called full if every clause of $F$ is full. The full clause-set for a finite set of variables $V$ is denoted by $A(V)$. 
 
@@ -58,7 +58,7 @@ The implication-relation for two clause-sets $F, F'$ is defined as $F \models F'
 A literal $x$ is called forced literal for a clause-set $F$ if $F \models x$ and $\pab{x \ra 1}$ is the forced assignment for $F$. $\pab{x \ra 1} * F$ is satisfiability-equivalent to $F$. A clause $C$ is called an implicate of a clause-set $F$ if $F \models C$ and it is called a prime implicate if there no $ C' \sse C$ as an implicate of $F$. The set of all prime implicates of $F$ is denoted by $\primec_0(F) \in \Cls$. A clause $C$ is called an implicant of a clause-set $F$ if $C$ as a partial assignment is a satisfying assignment for $F$. In other words, $C$ must fulfill $C * F=\top$. A prime implicant is a minimal implicant and the set of all prime implicants is indicated by $\primec_1(F) \in \Cls$. For example, for $F \in \Usat$ we have $\primec_0(F) = \set{\bot}$ and $\primec_1(F) = \top$.
 
 \begin{examp}\label{exp:bbb}
-For $F = \{\{ \neg x, y\} , \{ \neg y, z\}\}, prc_0(F) = \{\{\neg x, y\} , \{\neg y, z\} , \{\neg x, z\}\}$. Also for $F = \set{\set{x, y} , \set{x,\neg y}}, prc_0(F) = \set{\set{x}}$.
+For $F = \{\{ \ol x, y\} , \{ \ol y, z\}\}, prc_0(F) = \{\{\ol x, y\} , \{\ol y, z\} , \{\ol x, z\}\}$. Also for $F = \set{\set{x, y} , \set{x,\ol y}}, prc_0(F) = \set{\set{x}}$.
 \end{examp}
 
 Two clause-sets $F, G$ are called logically equivalent if $F \models G$ and $G \models F$. In this case, we have $\primec_0(F) = \primec_0(G)$ and $\primec_1(F) = \primec_1(G)$.
@@ -68,24 +68,28 @@ Two clause-sets $F, G$ are called logically equivalent if $F \models G$ and $G \
 
 The resolution is an operation applied to two clauses $C,D$ which clash in exactly one variable and produces a new clause. The result of the resolution for $C \cap \overline D = \{ x \}$ (which is called resolvent) is defined as $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $. $C,D$ are called resolvable clauses and $x$ is the resolution literal.
 
-Using the resolution operation, a resolution tree $T$ is produced for a clause-set $F$. The tree is indicated by $T : F \vdash C$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. The number of nodes in $T$ is called tree-resolution complexity and denoted by $\comptr(R) \in \NN$. A resolution proof of a clause $C$ from a clause-set $F$ is a resolution tree $T : F \vdash C$. If a resolution refutation drives $\bot$, it is called a resolution proof and $F$ is unsatisfiable.
+A full binary tree is a tree that each node (except leaves) has exactly two children (or parents). Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the resolution tree. The tree is indicated by $T : F \vdash C$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. The number of nodes in $T$ is called tree-resolution complexity and denoted by $\comptr(R) \in \NN$. A resolution proof of a clause $C$ from a clause-set $F$ is a resolution tree $T : F \vdash C$. If a resolution proof drives $\bot$, it is called a resolution refutation and $F$ is unsatisfiable.
+
+If a clause $C$ is an implicate of a clause-set $F$, then there is a resolution tree $T : F \vdash C$. A clause $C$ is a prime implicate for $F$ iff there is no tree $T': F \vdash C'$ for some $C \sst C'$.
 
 \begin{examp}\label{exp:res1}
-A resolution tree for $F = \set{\set{a,b},\set{\neg a,b},\set{a, \neg b},\set{\neg a, \neg b}}$ is as Fig \ref{fig:resol1}. Since the empty clause is driven, it is called resolution refutation.
+A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol a, \ol b}}$ is as Fig \ref{fig:resol1}. Since the empty clause is driven, it is called resolution refutation.
 	   \begin{figure}
 	   \centering  
        \begin{tikzpicture}[grow'=up]
-       \Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\neg a,b\}}$ ] [.${\{ \neg b\}}$ ${\{a, \neg b\}}$ ${\{\neg a, \neg b\}}$ ] ]
+       \Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\ol a,b\}}$ ] [.${\{ \ol b\}}$ ${\{a, \ol b\}}$ ${\{\ol a, \ol b\}}$ ] ]
        \end{tikzpicture}
 	   \caption{A resolution tree for Example \ref{exp:res1}.}
 	   \label{fig:resol1}
        \end{figure}
 \end{examp}
 
+For a resolution proof $T: F \vdash C$ consider that each node (resolvent) in $T$ have at least one parent with length at most $k$. In this case, the resolvent is called $k$-resolvent. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $k$-resolution and denoted by $F \vdash^k C$.
+
 \section{Generalised unit-clause propagation}
 \label{sec:rkred}
 
-A reduction is considered as a map $r: \Cls \ra \Cls$ such that for all $F \in \Cls$, $r(F)$ is satisfiability-equivalent to $F$. Using the reduction technique, unsatisfiability is resulted if $\bot \in r(F)$. An example of the reduction is unit resolution (or unit propagation) which is applied to a clause-set $F$ with at least one unit-clause (a clause with one literal). This technique is performed by setting the literal in unit-clause to its satisfying assignment. For example for clause $\set{x}$, we set the literal $x$ to true. If the reduction yields $\bot$, then $F$ is unsatisfiable. Else, if there are more unit-clauses, this step is continued untill no unit-clause is left.
+A reduction is considered as a map $r: \Cls \ra \Cls$ such that for all $F \in \Cls$, $r(F)$ is satisfiability-equivalent to $F$. Using the reduction technique, unsatisfiability is resulted if $\bot \in r(F)$. An example of the reduction is unit resolution (or unit propagation) which is applied to a clause-set $F$ with at least one unit-clause (a clause with one literal). This technique is performed by setting the literal in unit-clause to its satisfying assignment. For example for clause $\set{x}$, we set the literal $x$ to true. If the reduction yields $\bot$, then $F$ is unsatisfiable. Else, if there are more unit-clauses, this step is continued until no unit-clause is left.
 
 Another case of the reduction is generalised unit-clause propagation introduced in \cite{h10} and denoted by $\rk_k$. This technique removes some forced literals using forced assignments and discovers unsatisfiability if $\bot \in \rk_k(F)$. If $\bot \not \in F$, it starts from $k=1$ and increases $k$ in each step. For $k=1$, the generalised unit-clause propagation eliminates all unit-clauses with assigning their satisfying assignment. Thus, $\rk_1$ is the unit-clause propagation and two cases may happen:  $\rk_1 \in \set{\set{\bot},\top}$ or all clauses in $\rk_1$ must have length at least $2$. In the second case, the next step is to obtain $\rk_2$ which is called failed literal elimination since all unit-clauses have already been removed. In each step $k$, if $\rk_k$ yields $\bot$ then the original clause-set $F$ is unsatisfiable while $F$ is satisfiable if $\top$ is obtained. In the latter case, the sequence of forced assignments eliminated until that level is a satisfying assignment for $F$.
 
@@ -133,18 +137,17 @@ The hardness is defined as a measure of complexity (the amount of effort needed 
 \section{Tree-hardness of clause-sets}
 \label{sec:Hardnessunsat}
 
-For an unsatisfiable clause-set $F$ there are many resolution trees as $T : F \vdash C$ with various Horton-Strahler number $\hts(T)$. The tree-hardness (or just hardness) for $F \in \Usat$ is defined as the minimum of $\hts(T)$ of those trees and denoted by $\hardness(F)$.
-%This means that the hardness is the height of the biggest full splitting tree which can be embedded into each tree-like resolution refutation of the formula.
-From computational point of view, it is not practical to obtain the hardness using the minimum of $\hts(T)$. Thus, another definition is defined using the generalised unit-clause propagation $\rk_k$ which is the minimum of $k \in \NNZ$ such that $\rk_k(F)$ yields $\bot$. This definition is not applicable to all $F \in \Usat$ since $\rk_k$ can not yield $\set{\bot}$ if all clauses in $F$ have length at least $K+1$.
+For an unsatisfiable clause-set $F$ there exist a resolution refutation $T:F \vdash \bot$ with the Horton-Strahler number $\hts(T)$. The tree-hardness (or just hardness) for $F \in \Usat$ is defined as the minimum of $\hts(T)$ of all  $T:F \vdash \bot$ and denoted by $\hardness(F)$. This means that the hardness of $F$ is the $\hts(T)$ of the biggest full binary tree which can be embedded into each $T : F \vdash \bot$. From computational point of view, it is not a practical method to obtain the hardness. Thus, another definition is defined using the generalised unit-clause propagation $\rk_k$ which is the minimum of $k \in \NNZ$ such that $\rk_k(F)$ yields $\bot$. It should be noted that $\rk_k$ can not yield $\set{\bot}$ if all clauses in $F$ have length at least $K+1$.
 
 \begin{examp}\label{exp:harducls}
-For $\set{\set{x,y},\set{x,\ol{y}},\set{\ol{x},y},\set{\ol{x},\ol{y}}}$ we have $r_1(F)=F, r_2(F)=r_2( \langle a \rightarrow 1 \rangle * F) = \{ \bot \}$(since $r_1( \langle a \rightarrow 0 \rangle * F)=r_1 (\{\{ b \}, \{ \neg b \}\}) = \{ \bot \}$). Thus, $\hardness(F) = 2$. In general, the hardness of full clause-sets are as $\hardness(A_n)=n$.
+For $\set{\set{x,y},\set{x,\ol{y}},\set{\ol{x},y},\set{\ol{x},\ol{y}}}$ we have $r_1(F)=F, r_2(F)=r_2( \langle a \rightarrow 1 \rangle * F) = \{ \bot \}$(since $r_1( \langle a \rightarrow 0 \rangle * F)=r_1 (\{\{ b \}, \{ \ol b \}\}) = \{ \bot \}$). Thus, $\hardness(F) = 2$. In general, the hardness of full clause-sets are as $\hardness(A_n)=n$.
   
 Following, $\hardness(F)$ for some more examples of unsatisfiable clause-sets $(F)$ are computed:
   \begin{enumerate}
   \item $\hardness(F) = 0$ if $\bot \in F$.
   \item $\hardness(\set{\set{a},\set{\ol{a}}}) = 1$.
-  \item $\hardness(\set{\set{a},\set{\ol{a},b}, \set{\ol{b},c}, \set{\ol{c}}}) = 1$.
+  \item $\hardness(\set{\set{a},\set{\ol{a},b}, \set{\ol{b},c}, \set{\ol{c}}}) = 1$. 
+  %In general, Horn clause-sets (whose clauses have at most one positive literal) have hardness one.
   \item $\hardness(\set{\set{a,\ol{b}},\set{\ol{a},b},\set{b,\ol{c}},\set{\ol{b},c},\set{a,b,c},\set{\ol{a},\ol{b},\ol{c}}}) = 2$.
   \end{enumerate}
 \end{examp}
@@ -152,20 +155,34 @@ Following, $\hardness(F)$ for some more examples of unsatisfiable clause-sets $(
 Each satisfiable clause-set $F \in \Cls \sm \set{\top}$ can be converted to an unsatisfiable clause-set by applying a partial assignment $\vp$. For extending the hardness measure to a satisfiable clause-set, we should consider the worst case value of $\hardness$ for $\vp * F \in \Usat$ which is the maximum of $\hardness(\vp * F)$. The reason is that $\hardness(\vp * F) \leq \hardness(F)$ (the application of a partial assignment on $F$ do not increase the hardness) and one can easily find a $\vp$ such that $\bot \in \vp * F$ and $\hardness(\vp * F)=0$. For $\vp$ we only need to consider the minimal partial assignment which is $\vp_C : C \in \primec_0(F)$. For $F = \top$, since it is not convertible to an unsatisfiable clause-set, we assign the minimum of the hardness which is zero.
 
 \begin{defi}\label{def:hd-extended}
-The hardness is a map that assigns a natural number for a representation of a boolean function $f$ as a clause-set $F \in \Cls$ and is denoted by $\hardness : \Cls \rightarrow \NNZ$. To obtain the hardness of  $F$, there are three cases: if $F = \top$, then $\hardness(F) := 0$. Else if $F \in \Usat$, then $\hardness(F) := \min \set{k \in \NNZ : \rk_k(F)=\set{\bot}}$. Otherwise, $F \in \Sat \sm \set{\top}$, and $\hardness(F) := \max \set{ \hardness(\vp * F) : \vp * F \in \Usat }$.
+The hardness is a map that assigns a natural number for a representation of a boolean function $f$ as a clause-set $F \in \Cls$ and is denoted by $\hardness : \Cls \rightarrow \NNZ$. To obtain the hardness of  $F$, there are three cases: if $F = \top$, then $\hardness(F) := 0$. Else if $F \in \Usat$, then $\hardness(F) := \min \set{k \in \NNZ : \rk_k(F)=\set{\bot}}$. Otherwise, $F \in \Sat \sm \set{\top}$ and $\hardness(F) := \max \set{ \hardness(\vp * F) : \vp * F \in \Usat }$.
 \end{defi}
 
 \begin{examp}\label{exp:hd-extd}
-For $F = \set{\set{x, y} , \set{x,\neg y}} \in \Sat$ with $\primec_0(F) = \set{\set{x}}$,  $\hardness(F)= \max \set{ \hardness(\vp * F) : \vp =\pab{x \ra 0} }=\hardness(\set{\set{y},\set{\neg y}})=1$.
+For $F = \set{\set{x, y} , \set{x,\ol y}} \in \Sat$ with $\primec_0(F) = \set{\set{x}}$,  $\hardness(F)= \max \set{ \hardness(\vp * F) : \vp =\pab{x \ra 0} }=\hardness(\set{\set{y},\set{\ol y}})=1$.
 \end{examp}
 
 \section{Width-hardness of clause-sets}
 \label{sec:whdd}
 
-??????????
+Another measure for complexity of an unsatisfiable clause-set $F$ is the width-hardness (or asymmetric width) and indicated by $\whardness(F)$. For each $F \in \Usat$ there exist a resolution refutation $T:F \vdash \bot$. If each node of $T$ is a $k$-resolvent, then the tree is a $k$-resolution tree. The width-hardness of $F$ is the minimum of $k$ for all $k$-resolution tree $T:F \vdash \bot$. This definition is extended for a satisfiable clause-set $F$ by considering the worst case (maximum) of the width-hardness for the extended $F$ (that is $ \vp * F \in \Usat$) and $\whardness(\top):=0$.
 
-\section{Width-hardness of clause-sets}
-\label{sec:pdg}
+\begin{defi}\label{def:whd-extended}
+The width-hardness is a map denoted by $\whardness : \Cls \rightarrow \NNZ$ for a representation of a boolean function $f$ as a clause-set $F \in \Cls$. To obtain the width-hardness of  $F$, there are three cases: if $F = \top$, then $\whardness(F) := 0$. Else if $F \in \Usat$, then $\whardness(F) := \min \set{k \in \NNZ : F \vdash^k \bot}$. Otherwise, $F \in \Sat \sm \set{\top}$, and $\whardness(F) := \max \set{ \whardness(\vp * F) : \vp * F \in \Usat }$.
+\end{defi}
+
+\section{Game characterisations of hardness measures}
+\label{sec:game-pd}
+
+In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called Prover-Delayer game (or the hardness game). The game is performed between two payers, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp$ (initially empty) for $F$ that is extended in each turn by assigning one variable. Therefore, in each turn a new clause-set $F'$ is obtained with $\hardness(F')$ (or $\whardness(F')$).
+
+First, we consider the game for  $\hardness(F)$. In this case, Delayer claims to know a partial assignment $\vp$ such that ?????
+The game is continued until all variables in $F$ are assigned and one of $\vp * F = \top$ or $ \bot \in \vp * F$ is achieved. 
+
+\begin{defi}\label{def:atomic-move}
+The atomic move in the delayer-prover 
+\end{defi}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\chapter{XOR representation}
 %\label{cha:XOR-representation}
@@ -175,6 +192,9 @@ For $F = \set{\set{x, y} , \set{x,\neg y}} \in \Sat$ with $\primec_0(F) = \set{\
 \chapter{The hardness game}
 \label{cha:hdgame}
 
+??????????
+
+For each unsatisfiable clause-set $F$ there exist a unique tree called game-tree such that shows all possible atomic moves for prover and delayer. In each node of the game-tree there is a clause-set whose variable is one unit less that the upper nodes. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\chapter{Conclusion and open problems}
 %\label{cha:concl}
