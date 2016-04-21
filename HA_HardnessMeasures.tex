@@ -84,7 +84,8 @@ A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol 
        \end{figure}
 \end{examp}
 
-For a resolution proof $T: F \vdash C$ consider that each node (resolvent) in $T$ have at least one parent with length at most $k$. In this case, the resolvent is called $k$-resolvent. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $k$-resolution and denoted by $F \vdash^k C$.
+For a resolution proof $T: F \vdash C$ consider that each node (resolvent) in $T$ have at least one parent with length at most $k$. In this case, the resolvent is called $k$-resolvent. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $k$-resolution and denoted by $F \vdash^k C$. For example, 1-resolution is the unit resolution.
+%If a $k$-resolution refutation exists then the unsatisfiability can be proved by the unit-preference strategy within k levels and vice versa \cite{h19}.
 
 \section{Generalised unit-clause propagation}
 \label{sec:rkred}
@@ -121,7 +122,7 @@ Using literals $a,b,c,d$, $\rk_k(F)$ for some examples is computed as follows:
 \section{Horton-Strahler number}
 \label{sec:hs}
 
-The Horton-Strahler number is a measure of branching complexity for trees. Here, the Horton-Strahler number is defined for a resolution tree $T$ and denoted by $\hts(T) \in \NNZ$. To obtain $\hts(T)$, we start with leaves (axioms) whose Horton-Strahler number are defined as $\hts(T) := 0$. Then, for each inner node with two children $T_1, T_2$, we have two cases. If $\hts(T_1)= \hts(T_2)$, then $\hts(T) := \hts(T_1)+ 1$. Otherwise, $\hts(T) := \max(\hts(T_1),\hts(T_2))$. This means that the Horton-Strahler number for each node is the shortest distance from that node to the leaves.
+The Horton-Strahler number is a measure of branching complexity for trees. Here, the Horton-Strahler number is defined for a resolution tree $T$ and denoted by $\hts(T) \in \NNZ$. To obtain $\hts(T)$, we start with leaves (axioms) whose Horton-Strahler number are defined as $\hts(T) := 0$. Then, for each inner node with two children $T_1, T_2$, we have two cases. If $\hts(T_1)= \hts(T_2)$, then $\hts(T) := \hts(T_1)+ 1$. Otherwise, $\hts(T) := \max(\hts(T_1),\hts(T_2))$. This means that the Horton-Strahler number for each node is the shortest distance from that node to the leaves. For example, for all resolution trees $T:F \vdash \bot$ with $\hts(T) \leq 1$, every node is a leaf or has a leaf as a child.
 
 %\section{Hypergraph}
 %\label{sec:hpg}
@@ -165,36 +166,76 @@ For $F = \set{\set{x, y} , \set{x,\ol y}} \in \Sat$ with $\primec_0(F) = \set{\s
 \section{Width-hardness of clause-sets}
 \label{sec:whdd}
 
-Another measure for complexity of an unsatisfiable clause-set $F$ is the width-hardness (or asymmetric width) and indicated by $\whardness(F)$. For each $F \in \Usat$ there exist a resolution refutation $T:F \vdash \bot$. If each node of $T$ is a $k$-resolvent, then the tree is a $k$-resolution tree. The width-hardness of $F$ is the minimum of $k$ for all $k$-resolution tree $T:F \vdash \bot$. This definition is extended for a satisfiable clause-set $F$ by considering the worst case (maximum) of the width-hardness for the extended $F$ (that is $ \vp * F \in \Usat$) and $\whardness(\top):=0$.
+Another measure for complexity of an unsatisfiable clause-set $F$ is the width-hardness (or asymmetric width) and indicated by $\whardness(F)$. For each $F \in \Usat$ there exist a resolution refutation $T:F \vdash \bot$. If each node of $T$ is a $k$-resolvent, then the tree is a $k$-resolution tree. The width-hardness of $F$ is the minimum of $k$ for all $k$-resolution trees $T:F \vdash \bot$. This definition is extended for a satisfiable clause-set $F$ by considering the worst case (maximum) of the width-hardness for the extended $F$ (that is $ \vp * F \in \Usat$) and $\whardness(\top):=0$.
 
 \begin{defi}\label{def:whd-extended}
 The width-hardness is a map denoted by $\whardness : \Cls \rightarrow \NNZ$ for a representation of a boolean function $f$ as a clause-set $F \in \Cls$. To obtain the width-hardness of  $F$, there are three cases: if $F = \top$, then $\whardness(F) := 0$. Else if $F \in \Usat$, then $\whardness(F) := \min \set{k \in \NNZ : F \vdash^k \bot}$. Otherwise, $F \in \Sat \sm \set{\top}$, and $\whardness(F) := \max \set{ \whardness(\vp * F) : \vp * F \in \Usat }$.
 \end{defi}
 
+For example if $\bot \in F$, then $F \vdash^0 \bot$ and $\whardness(F)=0$. Also if $\rk_1(F)=\set{\bot}$, then it is 1-resolution (unit resolution) and  $\whardness(F)=1$.
+
 \section{Game characterisations of hardness measures}
 \label{sec:game-pd}
 
-In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called Prover-Delayer game (or the hardness game). The game is performed between two payers, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp$ (initially empty) for $F$ that is extended in each turn by assigning one variable. Therefore, in each turn a new clause-set $F'$ is obtained with $\hardness(F')$ (or $\whardness(F')$).
+In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called Prover-Delayer game (or the hardness game). The game is performed between two payers, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp: \var(\vp) \in F$ (initially empty) that is extended in each turn by the two players. Therefore, in each turn a new clause-set $F'$ is obtained by assigning at most one variable in $\vp$ with $\hardness(F')$ (or $\whardness(F')$). The game ends when ????????
 
-First, we consider the game for  $\hardness(F)$. In this case, Delayer claims to know a partial assignment $\vp$ such that ?????
-The game is continued until all variables in $F$ are assigned and one of $\vp * F = \top$ or $ \bot \in \vp * F$ is achieved. 
+First, we consider the game for $\hardness(F)$. In this case, Delayer claims to know a partial assignment $\vp$ such that ?????
+The game is continued until all variables in $F$ are assigned and one of $\vp * F = \top$ or $ \bot \in \vp * F$ is achieved. ????????
+
+Prover must decrease exactly one unit of $\hardness(F)$. ????????????
+
+\begin{lem}\label{lem:game1}
+The game is well-defined since it does not depend on choices.
+\end{lem}
 
 \begin{defi}\label{def:atomic-move}
-The atomic move in the delayer-prover 
+The atomic move in the delayer-prover game is the extension of the partial assignment $\vp$ for the clause-set $F$. In the case of Delayer, the atomic move is???
+In the case of Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ (which is extending $\vp$ with exactly one assignment).
 \end{defi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\chapter{XOR representation}
-%\label{cha:XOR-representation}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{The hardness game}
+\chapter{The hardness measures for Tseitin graph}
 \label{cha:hdgame}
 
+\section{XOR representation}
+\label{sec:XOR representation}
 ??????????
 
-For each unsatisfiable clause-set $F$ there exist a unique tree called game-tree such that shows all possible atomic moves for prover and delayer. In each node of the game-tree there is a clause-set whose variable is one unit less that the upper nodes. 
+\section{Tseitin clause-sets}
+\label{sec:Tseitin cls}
+??????????
+
+\section{Tseitin graph}
+\label{sec:Tseitin graph}
+??????????
+
+\section{Game characterisations for Tseitin graph}
+\label{sec:hd-game-graph}
+??????????
+\section{Game-tree}
+\label{sec:Game-tree}
+
+For each unsatisfiable clause-set $F$ corresponding to a Tseitin graph, there exist a unique tree called game-tree such that shows all possible atomic moves for Prover and Delayer. The tree is upside down with even number of levels and the root of the tree is $F$. Each node of the game-tree (except leaves) corresponds to a clause-set $F'$ ($ \bot \not \in F'$) whose variable is at most one unit less that the upper-level nodes. The children of each node are the all possible atomic moves in that round. Each path from root must end in a leaf since the edges of graph (which correspond to the maximum of atomic moves of Prover) are finite and the leaves correspond to $\bot$. ????????The hardness of $F$ is achieved by assigning a number to each node (starting from leaves) and obtaining the number of the root.
+
+To obtain the harness, first we assign a number to each leaf that corresponds to the scores of Prover (the number of Prover's atomic moves) through the path to that leaf. Since the last round of game is always played by Prover, we assign the minimum number of leaves to their parents (upper-level nodes). Then, we consider the upper level which is played by Delayer and therefore, we assign the maximum number of nodes for their parents. This process is continued until we get the root and and we assign the maximum number of root's children to the root (since the first round is played by delayer). Finally, the hardness of $F$ corresponds to the number of the root.
+
+\begin{lem}\label{lem:game2}
+For each arbitrary clause-set $F \in \Usat$, the game-tree is unique.
+\end{lem}
+%\begin{proof}
+proof ???????????
+%\end{proof}
+\begin{examp}\label{exp:gg1}
+Fig \ref{fig:gg1} shows the game-tree for graph $K_3$. The children of each node are all possible moves (whether the move is optimal or not) in hardness game for $K_3$. Here, $\varepsilon $ shows the empty move (or when delayer decides to do nothing) and $\bot$ shows the end of game. We start from leaves by counting the number of prover's moves until that leaf and assign this number to that leaf. 
+\begin{figure}
+\begin{center}
+\includegraphics[scale =0.45]{gg1.png}
+ \caption{The game-tree for $K_3$.}
+\label{fig:gg1}
+\end{center}
+\end{figure}
+\end{examp}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\chapter{Conclusion and open problems}
 %\label{cha:concl}
