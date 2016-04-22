@@ -124,11 +124,6 @@ Using literals $a,b,c,d$, $\rk_k(F)$ for some examples is computed as follows:
 
 The Horton-Strahler number is a measure of branching complexity for trees. Here, the Horton-Strahler number is defined for a resolution tree $T$ and denoted by $\hts(T) \in \NNZ$. To obtain $\hts(T)$, we start with leaves (axioms) whose Horton-Strahler number are defined as $\hts(T) := 0$. Then, for each inner node with two children $T_1, T_2$, we have two cases. If $\hts(T_1)= \hts(T_2)$, then $\hts(T) := \hts(T_1)+ 1$. Otherwise, $\hts(T) := \max(\hts(T_1),\hts(T_2))$. This means that the Horton-Strahler number for each node is the shortest distance from that node to the leaves. For example, for all resolution trees $T:F \vdash \bot$ with $\hts(T) \leq 1$, every node is a leaf or has a leaf as a child.
 
-%\section{Hypergraph}
-%\label{sec:hpg}
-
-%A hypergraph is a pair $G=(V,E)$, where $V$ is a set and $E$ is a set of finite subsets of $V$. The set $V$ is called vetices and the set $E$ is called hyperedges. For example, $V=\{ v_1, v_2, v_3 \}$ with $E=\{ e_1, e_2, e_3\} = \{ \{ v_1\}, \{v_2, v_3\}, \{ v_1, v_2, v_3\}\}$ is a hypergraph.
-%In the case that loops and parallel edges are considered, a general graph is indicated by $(V,E,\eta)$ which $\eta$ is a map defined as $\eta : E \ra \set{ e \sse V : 1 \leq \abs{e} \leq 2}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Hardness measures}
 \label{cha:Hardness Measures}
@@ -163,6 +158,13 @@ The hardness is a map that assigns a natural number for a representation of a bo
 For $F = \set{\set{x, y} , \set{x,\ol y}} \in \Sat$ with $\primec_0(F) = \set{\set{x}}$,  $\hardness(F)= \max \set{ \hardness(\vp * F) : \vp =\pab{x \ra 0} }=\hardness(\set{\set{y},\set{\ol y}})=1$.
 \end{examp}
 
+\begin{lem}\label{lem:hd-dec}
+
+\end{lem}
+\begin{prf}
+The existence of $v$ and $\ve$
+\end{prf}
+
 \section{Width-hardness of clause-sets}
 \label{sec:whdd}
 
@@ -184,29 +186,71 @@ The game is continued until all variables in $F$ are assigned and one of $\vp * 
 
 Prover must decrease exactly one unit of $\hardness(F)$. ????????????
 
+
+
 \begin{lem}\label{lem:game1}
 The game is well-defined since it does not depend on choices.
 \end{lem}
 
 \begin{defi}\label{def:atomic-move}
 The atomic move in the delayer-prover game is the extension of the partial assignment $\vp$ for the clause-set $F$. In the case of Delayer, the atomic move is???
-In the case of Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ (which is extending $\vp$ with exactly one assignment).
+
+In the case of Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ (which is extending $\vp$ with exactly one assignment) and decreasing hd??????????????
 \end{defi}
 
+Delayer wants to maximize the hardness. Since the operation of a partial assignment does not increase the hardness, the optimal move for Delayer is ???????????
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{The hardness measures for Tseitin graph}
 \label{cha:hdgame}
 
 \section{XOR representation}
 \label{sec:XOR representation}
-??????????
+For representing a boolean function $f$ we defined CNF-clause-sets in Section \ref{sec:Clause-sets}. Here, another representation of $f$ is introduced (called XOR-representation) which is used for extending the hardness game for graphs. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. 
 
-\section{Tseitin clause-sets}
-\label{sec:Tseitin cls}
-??????????
+\begin{defi}\label{def:xor-const} 
+An XOR-constraint (or parity constraint) is a boolean function $f$ in the form of $x_1 \oplus \dots \oplus x_n = \ve$ that $x_1, \dots, x_n \in \Lit$ and $\ve \in \set{0,1}$. Two XOR-constraints $f_1, f_2$ are equivalent iff $\var(f_1) = \var(f_2)$ and both have the same parity for literals.
+\end{defi}
+Remarks:
+\begin{enumerate}
+      \item $x_1 \oplus \dots \oplus x_n = y$ is equivalent to $x_1 \oplus \dots \oplus x_n \oplus y = 0$
+      \item $x \oplus x = 0$, $x \oplus \ol{x} = 1$, $0 \oplus x = x$, $1 \oplus x = \ol{x}$.
+\end{enumerate}
+
+\begin{defi}\label{def:xor-cls}
+An XOR-clause-set is a clause-sets $F \in \Cls$ whose clauses $C$ are interpreted as an XOR-clauses. An XOR-clause $C \in \Cl$ is an XOR-constraint with $\oplus_{x \in C} = 0$. Thus, two XOR-clauses $C, D$ are equivalent iff $\var(C) = \var(D)$ and both with the same parity. 
+
+In an XOR-clause, there is no repetitive literals since $x \oplus x = 0$. In the case of clashing literals, we remove them using $x \oplus \ol{x} = 1$ and $1 \oplus y = \ol{y}$ (since according the definition, clashing literals are not allowed in clauses).
+\end{defi} 
+
+The operation of a partial assignment $\vp \in \Pass$ to XOR-clause-sets is defined as the same definition for CNF-clause-sets. An XOR-clause-set $F$ is satisfiable if there exist a partial assignment $\vp$ such that $\var(\vp) \supseteq \var(F)$ and for every $C \in F$ the number of $x \in C$ with $\vp(x) = 1$ is even (that satisfies the equation  $\oplus_{x \in C} = 0$). 
+
+The satisfiability of a CNF-clause-set is investigated using the resolution operation. Here, for investigating whether an XOR-clause-set is satisfiable or not, an operation is defined which is called XOR-sum over clauses of $F$ and denoted by $\oplus F \in \Cl$. This operation is applied to two clauses and produces a new clause or the result is inconsistent. The operation proceeds as follows. If there are four literals as $x,\ol{x},y,\ol{y}$ for $x \ne y$, the XOR-sum of them is as $x \oplus \ol{x} = 1$ and $y \oplus \ol{y} = 1$. Thus, $1 \oplus 1 = 0$ and they are removed. If no clash remains, then the result is obtained as a clause $E \in \Cl$. Else if just two literals $x, \ol{x}$ remains with at least one other literal $y$, then $x \oplus \ol{x} = 1$ and $1 \oplus y=\ol{y}$ and a new clause $E \in \Cl$ is obtained. Otherwise, if there is just two literals $x, \ol{x}$, then $\oplus F$ is called inconsistent. An XOR-clause-set $F \in \Cls$ is unsatisfiable if and only if there is $F' \sse F$ such that $\oplus F'$ is inconsistent.
+
+\begin{examp}\label{exp:xorcls}
+The satisfiability of the following XOR-clause-sets $F$ are investigated using the XOR-sum over clauses of $F$.
+  \begin{enumerate}
+  \item For $F=\top$, $ \oplus(F)= \oplus(\set{\bot})=\bot$ and $F$ is satisfiable.
+  \item For $F=\set{\set{a,b},\set{b,c,\ol d}}$, $ \oplus(F) = \set{a,c,\ol d}$ and $F$ is satisfiable.
+  \item For $F=\set{\set{a,b,c},\set{a, \ol b, \ol c}}$, $ \oplus(F) = \bot$ and $F$ is satisfiable.  
+  \item  For $F=\set{\set{a,b},\set{a, \ol b},\set{c,d}}$, $\oplus (F)$ is inconsistent and $F$is unsatisfiable.
+  \end{enumerate}
+\end{examp}
+
+For each XOR-clause-set $F$ there is a unique equivalent CNF-clause-set $F'$. To obtain this equivalent CNF-clause-set, a translation is defined and indicated by $X_0(F)$. This translation, converts each clause of $F$ to a set of full clause-sets in CNF-representation and then $F'$ is the union of these clause-sets. If $F$ has long clauses, then obtaining $X_0(F)$ is not practical.
+
+\begin{defi}\label{def:x0tr}
+The $X_0$ translation is a map $X_0: \Cls \ra \Cls$ where the input is an XOR-clause-set and the output is a  CNF-clause-set. Consider an XOR-clause $C \in F$, the $X_0$ translation of this clause is defined as the set of prime implicates of the boolean function for $C$ and indicated by $X_0(C)=\primec_0(x_1 \oplus \dots \oplus x_n = 0)$. The translation $X_0(C)$ contains all the full clauses over the set of variables in $C$ whose parity are different from the parity of $C$. Thus, $\abs{X_0(C)}=2^{\var(C)-1}$. Finally, the CNF-clause-set is obtained by $X_0(F) := \bc_{C \in F} X_0(C)$.
+\end{defi} 
+
+\begin{examp}\label{exp:X0}
+   For $F=\set{\set{a,\ol b}}$, $X_0(F)= \set{\set{a,b},\set{\ol a,\ol b}}$ and for $F=\set{\set{a},\set{b,c}}$, $X_0(F)=\set{\set{\ol a},\set{\ol a, b}, \set{a, \ol b}}$.
+\end{examp}
 
 \section{Tseitin graph}
 \label{sec:Tseitin graph}
+
+A graph is a pair $G = (V,E)$ where $V$ is the set of vertices and $E$ is the set of edges. If we consider the graph as a triple $G = (V,E,\eta)$ such that $V$ is the set of vertices, $E$ is the set of edge-labels and $\eta: E \ra \set{e \sse V : 1 \le \abs{e} \le 2}$, we can have parallel edges and loops. Now, if we assign a charge to each vertex indicated by $\rho: V \ra \set{0,1}$, we obtain a unique XOR-clause-set correspond to a graph $G$. In this case, each vertex $w \in V(G)$ yields an XOR-clause $C \in \Cl$ and is defined as $\oplus_{x \in E(G), w \in \eta(x)} \; x = \rho(w)$. Then, the XOR-clause-set for $G$ is obtained by $T_0(G,\rho) := \set{C_w : w \in V(G)} \in \Cls$. The graph $G$ is called Tseitin graph. $T_0(G,\rho)$ is unsatisfiable if $G$ has no loops and $\oplus_{w \in V(G)} \rho(w) = 1$.The reason is that $\oplus_{w \in V(G)} \oplus_{x \in E(G) and w \in \eta(x)} x = 0$. Finally the equivalent CNF-clause-set of $G$ is obtained by $X_0$ translation which is called Tseitin clause-set of $G$ and indicated by $T(G,\rho) := X_0(T_0(G,\rho))$.
+
 ??????????
 
 \section{Game characterisations for Tseitin graph}
@@ -222,11 +266,11 @@ To obtain the harness, first we assign a number to each leaf that corresponds to
 \begin{lem}\label{lem:game2}
 For each arbitrary clause-set $F \in \Usat$, the game-tree is unique.
 \end{lem}
-%\begin{proof}
-proof ???????????
-%\end{proof}
+\begin{prf}
+??????????
+\end{prf}
 \begin{examp}\label{exp:gg1}
-Fig \ref{fig:gg1} shows the game-tree for graph $K_3$. The children of each node are all possible moves (whether the move is optimal or not) in hardness game for $K_3$. Here, $\varepsilon $ shows the empty move (or when delayer decides to do nothing) and $\bot$ shows the end of game. We start from leaves by counting the number of prover's moves until that leaf and assign this number to that leaf. 
+Fig \ref{fig:gg1} shows the game-tree for graph $K_3$. The children of each node are all possible moves (whether the move is optimal or not) in hardness game for $K_3$. Here, $\ve $ shows the empty move (or when delayer decides to do nothing) and $\bot$ shows the end of game. We start from leaves by counting the number of prover's moves until that leaf and assign this number to that leaf. 
 \begin{figure}
 \begin{center}
 \includegraphics[scale =0.45]{gg1.png}
