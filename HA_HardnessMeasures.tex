@@ -1,7 +1,7 @@
 % Hoda Abbasi
 % 16 March 2016
 
-\documentclass[]{book}
+\documentclass{report}
 \input Latex_macros/Definitionen.tex
 \usepackage{a4}
 \usepackage{graphicx}
@@ -9,10 +9,6 @@
 \usepackage[active]{srcltx}
 \usepackage[all]{xy}
 \usepackage{enumerate}
-
-\setcounter{tocdepth}{4}
-\setcounter{secnumdepth}{4}
-\newcommand{\Schrift}{report}
 
 \begin{document}
 \title{Hardness measures of clause-sets}
@@ -23,12 +19,18 @@
         Swansea University\\}
 \maketitle
 
-\tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Introduction}
-\label{cha:Introduction}
+%\chapter{Introduction}
+%\label{cha:Introduction}
+\begin{abstract}
 
-??????????????
+There are various measures for representing the complexity of SAT problems called hardness measures. The goal of this report is to review two of these hardness measures (tree-hardness and width-hardness) and explaining a game charactrisation for them. Then, we extend this game for obtaining the hardness of some graphs that represent an XOR-clause-set. 
+
+The first chapter is dedicated to explain basic concepts and preliminaries regarding hardness. In chapter two, two measures for hardness of clause-sets are introduced. Then, these hardness measures are characterised by a game. Chapter three explains the XOR-representation of a clause-set and Tseitin clause-set (which is obtained from the Tseitin graph). Then, the game is extended to a Tseitin graph to obtain the hardness of its corresponding clause-set.
+
+\end{abstract}
+
+\tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Preliminaries}
 \label{cha:Preliminaries}
@@ -38,12 +40,12 @@
 
 The infinite set of variables is denoted by $\Va$. A partial assignment $\vp$ is a map which assigns a unique value in $\set{0,1}$ to some elements of a finite set of variables. The domain of this map is a set of variables denoted by $\var(\vp)$. The set of all partial assignments is indicated by $\Pass$ and for $V \in \pote(\Va)$, $\Tass(V)$ is the set of total assignments over $V$. The empty partial assignment is denoted by $\epa:= \es \in \Pass$. For a partial assignment $\vp \in \Pass$, the number of variables is defined as $n(\vp):=\abs{\var(\vp)}$. For two partial assignments $\vp, \psi \in \Pass$, the composition operation is defined as $\vp \circ \psi := \psi \cup (\vp \sm \var(\psi)) \in \Pass$ which is the union of their variables if they do not conflict. In the case of conflicting variables, the second assignment is considered. This operation has associative property and it is commutative if $\vp, \psi$ do not clash.
 
-A literal is a pair $(v,\ve)$ with $\var((v,\ve)):=v \in \Va$ (the underlying variable) and $\val((v,\ve)):=\ve \in \set{0,1}$. The set of all literals is $\Lit$. Two literals $x, y \in \Lit$ clash if they have a same variable but different values. For a set $L \sse \Lit$ we define $\var(L) := \set{\var(x) : x \in L}$, $\lit(L):= \set{x \in \Lit : \var(x) \in \var(L)}$ and $\ol{L} := \lit(L) \sm L$. A clause is defined as a finite and clash-free set of literals. The set of all clauses is denoted by $\Cl$ and $\bot := \es \in \Cl$ is the empty clause. The length (width) of a clause $C$ is the number of variables in $C$.
+A literal is a pair $(v,\ve)$ with $\var((v,\ve)):=v \in \Va$ (the underlying variable) and $\val((v,\ve)):=\ve \in \set{0,1}$. The set of all literals is $\Lit$. Two literals $x, y \in \Lit$ clash if they have a same variable but different values. For a set $L \sse \Lit$ we define $\var(L) := \set{\var(x) :x \in L}$, $\lit(L):= \set{x \in \Lit : \var(x) \in \var(L)}$ and $\ol{L} := \lit(L) \sm L$. A clause is defined as a finite and clash-free set of literals. The set of all clauses is denoted by $\Cl$ and $\bot := \es \in \Cl$ is the empty clause. The length (width) of a clause $C$ is the number of variables in $C$.
 
 A clause-set is a finite set of clauses and $\Cls$ is the set of all clause-sets. The empty clause-set is indicated by $\top := \es \in \Cls$. For $F \in \Cls$ we define $\var(F) := \bc_{C \in F} \var(C) \in \pote(\Va)$ and $\lit(F) := \var(F) \cup \ol{\var(F)}$. The number of variables in $F$ is denoted by $n(F) := \abs{\var(F)} \in \NNZ$ and the number of clauses is $c(F) := \abs{F} \in \NNZ$. The number of literal occurrences in $F$ is also denoted by $\ell(F) := \sum_{C \in F} \abs{C} \in \NNZ$. If the union of literals occurring in $F$ is indicated by $\bigcup F \subset \Lit$, then a pure literal for $F \in \Cls$ is defined as $x \in \bigcup F$ and $\ol{x} \not \in \bigcup F$. A clause-set $F$ is called $k-\Cls$ if every clause in $F$ has length (width) at most $k$. A full clause $C$  for a clause-set $F$ is defined as $C \in F$ and $\var(C) = \var(F)$, and a clause-set $F$ is called full if every clause of $F$ is full. The full clause-set for a finite set of variables $V$ is denoted by $A(V)$. 
 
 \begin{examp}\label{exp:An}
-  If $A(V)$ for $V=\set{1,..., n}$ is indicated by $A_n$ then $A_0 = \set{\bot}$, $A_1 = \set{\set{1},\set{-1}}$ and $A_2 = \set{\set{-1,-2},\set{-1,2},\set{1,-2},\set{1,2}}$.
+If $A(V)$ for $V=\set{1,..., n}$ is indicated by $A_n$ then $A_0 = \set{\bot}$, $A_1 = \set{\set{1},\set{-1}}$ and $A_2 = \set{\set{-1,-2},\set{-1,2},\set{1,-2},\set{1,2}}$.
 \end{examp}
 
 Partial assignments are extended from variables to literals using $\vp(\ol{v})=\ol{\vp(v)}$. The operation of a partial assignment on a clause-set is defined as $\vp * F := \set{C \sm \vp : C \in F \wedge C \cap \ol{\vp} = \es} \in \Cls$. This means removing all clauses having at least one literal with $\vp (x)=1$ and then, removing from all clauses the literals with $\vp (x)=0$. For a clause $C$, the partial assignment $\vp_C$ sets precisely the literals in $C$ to 0. A clause-set $F$ is called satisfiable if there exists a partial assignment $\vp$ such that $\vp * F = \top$. Another definition for a satisfiable clause-set $F$ is that there exists a clause which clashes with all clauses of $F$. The set of all satisfiable clause-sets is indicated by $\Sat := \set{F \in \Cls \mb \ex\, \vp \in \Pass : \vp * F = \top}$ while $\Usat := \Cls \sm \Sat$. If $\vp * F = \top$ then the partial assignment is called a satisfying assignment for $F$.
@@ -74,14 +76,14 @@ If a clause $C$ is an implicate of a clause-set $F$, then there is a resolution 
 
 \begin{examp}\label{exp:res1}
 A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol a, \ol b}}$ is as Fig \ref{fig:resol1}. Since the empty clause is driven, it is called resolution refutation.
-	   \begin{figure}
-	   \centering  
-       \begin{tikzpicture}[grow'=up]
-       \Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\ol a,b\}}$ ] [.${\{ \ol b\}}$ ${\{a, \ol b\}}$ ${\{\ol a, \ol b\}}$ ] ]
-       \end{tikzpicture}
-	   \caption{A resolution tree for Example \ref{exp:res1}.}
-	   \label{fig:resol1}
-       \end{figure}
+   \begin{figure}
+   \centering  
+   \begin{tikzpicture}[grow'=up]
+   \Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\ol a,b\}}$ ] [.${\{ \ol b\}}$ ${\{a, \ol b\}}$ ${\{\ol a, \ol b\}}$ ] ]
+   \end{tikzpicture}
+   \caption{A resolution tree for Example \ref{exp:res1}.}
+   \label{fig:resol1}
+   \end{figure}
 \end{examp}
 
 For a resolution proof $T: F \vdash C$ consider that each node (resolvent) in $T$ have at least one parent with length at most $k$. In this case, the resolvent is called $k$-resolvent. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $k$-resolution and denoted by $F \vdash^k C$. For example, 1-resolution is the unit resolution.
@@ -158,13 +160,6 @@ The hardness is a map that assigns a natural number for a representation of a bo
 For $F = \set{\set{x, y} , \set{x,\ol y}} \in \Sat$ with $\primec_0(F) = \set{\set{x}}$,  $\hardness(F)= \max \set{ \hardness(\vp * F) : \vp =\pab{x \ra 0} }=\hardness(\set{\set{y},\set{\ol y}})=1$.
 \end{examp}
 
-\begin{lem}\label{lem:hd-dec}
-
-\end{lem}
-\begin{prf}
-The existence of $v$ and $\ve$
-\end{prf}
-
 \section{Width-hardness of clause-sets}
 \label{sec:whdd}
 
@@ -179,26 +174,45 @@ For example if $\bot \in F$, then $F \vdash^0 \bot$ and $\whardness(F)=0$. Also 
 \section{Game characterisations of hardness measures}
 \label{sec:game-pd}
 
-In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called Prover-Delayer game (or the hardness game). The game is performed between two payers, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp: \var(\vp) \in F$ (initially empty) that is extended in each turn by the two players. Therefore, in each turn a new clause-set $F'$ is obtained by assigning at most one variable in $\vp$ with $\hardness(F')$ (or $\whardness(F')$). The game ends when ????????
+In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called Prover-Delayer game (or just the hardness game). The game is performed between two players, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended in each turn by the two players. Therefore, in each round $k$ a new clause-set $F_k$ is obtained by assigning at most one variable in $\vp$ with $\hardness(F_k)$ (or $\whardness(F_k)$). The game ends if we reach certain conditions (for $\hardness(F)$ or $\whardness(F)$). First, we consider the game for $\hardness(F)$ and then we explain the game for $\whardness(F)$.
 
-First, we consider the game for $\hardness(F)$. In this case, Delayer claims to know a partial assignment $\vp$ such that ?????
-The game is continued until all variables in $F$ are assigned and one of $\vp * F = \top$ or $ \bot \in \vp * F$ is achieved. ????????
+In the case of $\hardness(F)$, the goal is to set a strategy for both players in the Prover-Delayer game such that $\hardness(F)$ is achieved. Thus, we need to know that how $\hardness(F)$ is changed by extending $\vp$. 
 
-Prover must decrease exactly one unit of $\hardness(F)$. ????????????
+\begin{lem}\label{lem:hd-var}
+Consider a clause-set $F \in \Cls$ and $\hardness(F)$. If we assign a value $\ve \in \set{0,1}$ to a variable $v \in \var(F)$, then there are exactly two cases that can happen for $\hardness(F)$. The first case is $\hardness(\pab{x \ra \ve}*F)=\hardness(F)$ and $\hardness(\pab{x \ra \ol \ve}*F) \leq \hardness(F)$ and the second case is  $\hardness(\pab{x \ra \ve}*F)=\hardness(\pab{x \ra \ol \ve}*F)=\hardness(F)-1$. Thus, for all cases  $\hardness(\pab{x \ra \ve}*F) \leq \hardness(F)$.
+\end{lem}
+\begin{prf}
+?????
+\end{prf}
 
+Delayer wants to maximize the $\hardness(F)$ and show that $F$ is unsatisfiable. But since according to Lemma \ref{lem:hd-var} assigning one variable for $F$ (which yields $F'$) does not increase the hardness ($\hardness(F') \leq \hardness(F)$). Thus, Delayer must keep ($\hardness(F')$ unchanged. The game ends when we reach $\bot \in \vp * F $ (if $F$ is unsatisfiable) or $\vp * F=\top$ (if $F$ is satisfiable). In both cases, if $k$ rounds is played then $\hardness(F_k)=0$.
 
+Delayer must prevent Prover to obtain more than one point. Prover must decrease exactly one unit of $\hardness(F)$. ?????
+%The optimal move for Delayer is to keep hd not changed and the worst case for Delayer is when it can not prevent prover from achieving two points or more. thus, in each round hd remains unchanged or decreased exactly one unit.  
+
+\begin{defi}\label{def:atomic-move}
+For the clause-set $F$, the atomic move in the Prover-Delayer game for $\hardness(F)$ is the extension of the partial assignment $\vp$ for $F$ that is choosing a variable and assigning a value to that. 
+In the case of Delayer, the atomic move is???
+
+In the case of Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ (which is extending $\vp$ with exactly one assignment) and decreasing hd??????
+\end{defi}
+
+\begin{lem}\label{lem:game1}
+The result of the hardness game in ???? for a clause-set $F$ is exactly $\hardness(F)$.
+\end{lem}
 
 \begin{lem}\label{lem:game1}
 The game is well-defined since it does not depend on choices.
 \end{lem}
 
+The for  $\whardness(F)$???
+
 \begin{defi}\label{def:atomic-move}
-The atomic move in the delayer-prover game is the extension of the partial assignment $\vp$ for the clause-set $F$. In the case of Delayer, the atomic move is???
+For the clause-set $F$, the atomic move in the Prover-Delayer game for $\whardness(F)$ is ???????????
+In the case of Delayer, the atomic move is???
 
-In the case of Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ (which is extending $\vp$ with exactly one assignment) and decreasing hd??????????????
+In the case of Prover, the atomic move is ????
 \end{defi}
-
-Delayer wants to maximize the hardness. Since the operation of a partial assignment does not increase the hardness, the optimal move for Delayer is ???????????
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{The hardness measures for Tseitin graph}
 \label{cha:hdgame}
@@ -207,22 +221,20 @@ Delayer wants to maximize the hardness. Since the operation of a partial assignm
 \label{sec:XOR representation}
 For representing a boolean function $f$ we defined CNF-clause-sets in Section \ref{sec:Clause-sets}. Here, another representation of $f$ is introduced (called XOR-representation) which is used for extending the hardness game for graphs. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. 
 
-
 \begin{defi}\label{def:xor-const} 
 An XOR-constraint (or parity constraint) is a boolean function (parity function) $f$ in the form of $x_1 \oplus \dots \oplus x_n = \ve$ that $x_1, \dots, x_n \in \Lit$ and $\ve \in \set{0,1}$. Two XOR-constraints $f_1, f_2$ are equivalent iff $\var(f_1) = \var(f_2)$ and both have the same parity for literals.
 \end{defi}
+
 Remarks:
 \begin{enumerate}
-      \item $x_1 \oplus \dots \oplus x_n = y$ is equivalent to $x_1 \oplus \dots \oplus x_n \oplus y = 0$
-      \item $x \oplus x = 0$, $x \oplus \ol{x} = 1$, $0 \oplus x = x$, $1 \oplus x = \ol{x}$.
+    \item $x_1 \oplus \dots \oplus x_n = y$ is equivalent to $x_1 \oplus \dots \oplus x_n \oplus y = 0$
+    \item $x \oplus x = 0$, $x \oplus \ol{x} = 1$, $0 \oplus x = x$, $1 \oplus x = \ol{x}$.
 \end{enumerate}
 
 \begin{defi}\label{def:xor-cls}
 An XOR-clause $C \in \Cl$ with literal $x \in \Lit$ is an XOR-constraint with $\oplus_{x \in C} = 0$. Thus, two XOR-clauses $C, D$ are equivalent iff $\var(C) = \var(D)$ and both with the same parity. In an XOR-clause, there is no repetitive literals since $x \oplus x = 0$. In the case of clashing literals, we remove them using the laws $x \oplus \ol{x} = 1$ and $1 \oplus y = \ol{y}$ (since according to the definition, clashing literals are not allowed in clauses).
 
 An XOR-clause-set is a clause-set $F \in \Cls$ whose clauses $C$ are interpreted as an XOR-clause.  
-
-
 \end{defi} 
 
 The operation of a partial assignment $\vp \in \Pass$ to XOR-clause-sets is defined as the same definition for CNF-clause-sets. An XOR-clause-set $F$ is satisfiable if there exist a partial assignment $\vp$ such that $\var(\vp) \supseteq \var(F)$ and for every $C \in F$ the number of $x \in C$ with $\vp(x) = 1$ is even (that satisfies the equation  $\oplus_{x \in C} = 0$). 
@@ -246,7 +258,7 @@ The $X_0$ translation is a map $X_0: \Cls \ra \Cls$ where the input is an XOR-cl
 \end{defi} 
 
 \begin{examp}\label{exp:X0}
-   For $F=\set{\set{a,\ol b}}$, $X_0(F)= \set{\set{a,b},\set{\ol a,\ol b}}$ and for $F=\set{\set{a},\set{b,c}}$, $X_0(F)=\set{\set{\ol a},\set{\ol a, b}, \set{a, \ol b}}$.
+For $F=\set{\set{a,\ol b}}$, $X_0(F)= \set{\set{a,b},\set{\ol a,\ol b}}$ and for $F=\set{\set{a},\set{b,c}}$, $X_0(F)=\set{\set{\ol a},\set{\ol a, b}, \set{a, \ol b}}$.
 \end{examp}
 
 \section{Tseitin graph}
@@ -280,23 +292,29 @@ For each arbitrary clause-set $F \in \Usat$, the game-tree is unique.
 \begin{prf}
 ??????????
 \end{prf}
+
 \begin{examp}\label{exp:gg1}
 Fig \ref{fig:gg1} shows the game-tree for graph $K_3$. The children of each node are all possible moves (whether the move is optimal or not) in hardness game for $K_3$. Here, $\ve $ shows the empty move (or when delayer decides to do nothing) and $\bot$ shows the end of game. We start from leaves by counting the number of prover's moves until that leaf and assign this number to that leaf. 
-\begin{figure}
-\begin{center}
-\includegraphics[scale =0.45]{gg1.png}
- \caption{The game-tree for $K_3$.}
-\label{fig:gg1}
-\end{center}
-\end{figure}
+   \begin{figure}
+   \begin{center}
+   \includegraphics[scale =0.45]{gg1.png}
+   \caption{The game-tree for $K_3$.}
+   \label{fig:gg1}
+   \end{center}
+   \end{figure}
 \end{examp}
 
 \section{Game characterisations for Tseitin graph}
 \label{sec:hd-game-graph}
 
-Consider an unsatisfiable Tseitin clause-set $T(G,\rho)$.
+Consider an unsatisfiable Tseitin clause-set $T(G,\rho)$. ??????????
 
-%lemma yyy  if we remove an edge, then \rho(w) of endpoints will change?????? proof: we know that f is unsatisfiable thus $\ve=1$ for $\Phi$. thus based on lemma xxx, too keep $\ve=1$ unchanged, if we remove any edge by assigning a value, then the equation of endpoints must be changed
+\begin{lem}\label{lem:game3}
+In a Tseitin graph $G$ if we remove an edge ??, then $\rho(w)$ of endpoints will change. 
+\end{lem}
+\begin{prf}
+According to the definition of a Tseitin graph $G$, the XOR-clause-set $T_0(G,\rho)$ is unsatisfiable since $\ve=1$ for $\Phi$. Thus based on lemma xxx, too keep $\ve=1$ unchanged, if we remove any edge by assigning a value, then the equation of endpoints must be changed
+\end{prf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\chapter{Conclusion and open problems}
