@@ -11,7 +11,7 @@
 \usepackage{enumerate}
 
 \begin{document}
-\title{Hardness measures of clause-sets}
+\title{Hardness measures for Tseitin graph}
 
 \author{Hoda Abbasi\\
         PhD Candidate\\
@@ -65,14 +65,12 @@ For $F = \{\{ \ol x, y\} , \{ \ol y, z\}\}, prc_0(F) = \{\{\ol x, y\} , \{\ol y,
 
 Two clause-sets $F, G$ are called logically equivalent if $F \models G$ and $G \models F$. In this case, we have $\primec_0(F) = \primec_0(G)$ and $\primec_1(F) = \primec_1(G)$.
 
-\section{Resolution}
-\label{sec:Resolution}
+\section{Decision tree and resolution tree}
+\label{sec:trees}
 
-The resolution is an operation applied to two clauses $C,D$ which clash in exactly one variable and produces a new clause. The result of the resolution for $C \cap \overline D = \{ x \}$ (which is called resolvent) is defined as $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $. $C,D$ are called resolvable clauses and $x$ is the resolution literal.
+A full binary tree is a tree that each node except leaves has exactly two children (or parents). A decision tree (or splitting tree) is a binary tree such that its nodes are labeled by a clause-set $F$ and the two children of each node are obtained by assigning the two possible value for a literal in $F$. The leaves are labeled by either $\set{\bot}$ or $\top$ and the path to each leaf is either a satisfying assignment or a falsifying assignment. In this report, we just consider decision trees for unsatisfiable clause-sets $F$ where leaves are $\bot$.
 
-A full binary tree is a tree that each node (except leaves) has exactly two children (or parents). Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the resolution tree. The tree is indicated by $T : F \vdash C$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. The number of nodes in $T$ is called tree-resolution complexity and denoted by $\comptr(R) \in \NN$. A resolution proof of a clause $C$ from a clause-set $F$ is a resolution tree $T : F \vdash C$. If a resolution proof drives $\bot$, it is called a resolution refutation and $F$ is unsatisfiable.
-
-If a clause $C$ is an implicate of a clause-set $F$, then there is a resolution tree $T : F \vdash C$. A clause $C$ is a prime implicate for $F$ iff there is no tree $T': F \vdash C'$ for some $C \sst C'$.
+The resolution is an operation applied to two clauses $C,D$ which clash in exactly one variable and produces a new clause. The result of the resolution for $C \cap \overline D = \{ x \}$ (which is called resolvent) is defined as $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $. $C,D$ are called resolvable clauses and $x$ is the resolution literal. Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the resolution tree. The tree is indicated by $T : F \vdash C$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. The number of nodes in $T$ is called tree-resolution complexity and denoted by $\comptr(R) \in \NN$. A resolution proof of a clause $C$ from a clause-set $F$ is a resolution tree $T : F \vdash C$. If a resolution proof drives $\bot$, it is called a resolution refutation and $F$ is unsatisfiable.
 
 \begin{examp}\label{exp:res1}
 A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol a, \ol b}}$ is as Fig \ref{fig:resol1}. Since the empty clause is driven, it is called resolution refutation.
@@ -86,9 +84,13 @@ A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol 
    \end{figure}
 \end{examp}
 
+If a clause $C$ is an implicate of a clause-set $F$, then there is a resolution tree $T : F \vdash C$. A clause $C$ is a prime implicate for $F$ iff there is no tree $T': F \vdash C'$ for some $C \sst C'$.
+
 For a resolution proof $T: F \vdash C$ consider that each node (resolvent) in $T$ have at least one parent with length at most $k$. In this case, the resolvent is called $k$-resolvent. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $k$-resolution and denoted by $F \vdash^k C$. For example, 1-resolution is the unit resolution.
 %If a $k$-resolution refutation exists then the unsatisfiability can be proved by the unit-preference strategy within k levels and vice versa \cite{h19}.
 
+For an unsatisfiable $F$, it is proved that there is a relation between resolution refutations and decision trees. If $T : F \vdash \bot$ is a resolution refutation for $F \in \Usat$, then there is a decision tree $R$ for $F$ with the same structure of $T$.
+ 
 \section{Generalised unit-clause propagation}
 \label{sec:rkred}
 
@@ -174,36 +176,72 @@ For example if $\bot \in F$, then $F \vdash^0 \bot$ and $\whardness(F)=0$. Also 
 \section{Game characterisations of hardness measures}
 \label{sec:game-pd}
 
-In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called Prover-Delayer game (or just the hardness game). The game is performed between two players, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended in each turn by the two players. Therefore, in each round $k$ a new clause-set $F_k$ is obtained by assigning at most one variable in $\vp$ with $\hardness(F_k)$ (or $\whardness(F_k)$). The game ends if we reach certain conditions (for $\hardness(F)$ or $\whardness(F)$). First, we consider the game for $\hardness(F)$ and then we explain the game for $\whardness(F)$.
+In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called Prover-Delayer game (or just the hardness game). The game is performed between two players, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ in each round by the two players. Therefore, in each round $k$ a new clause-set $F_k$ is obtained with $\hardness(F_k)$ (or $\whardness(F_k)$). The game ends once we reach certain conditions (for $\hardness(F)$ or $\whardness(F)$). First, we consider the game for $\hardness(F)$ and then we explain the game for $\whardness(F)$.
 
-In the case of $\hardness(F)$, the goal is to set a strategy for both players in the Prover-Delayer game such that $\hardness(F)$ is achieved. Thus, we need to know that how $\hardness(F)$ is changed by extending $\vp$. 
+In the case of $\hardness(F)$, the goal is to set a strategy for both players in the Prover-Delayer game such that $\hardness(F)$ is achieved. Thus, we need to know that how $\hardness(F)$ is changed by extending $\vp$ with some variables $v \in \var(F)$. 
 
 \begin{lem}\label{lem:hd-var}
 Consider a clause-set $F \in \Cls$ and $\hardness(F)$. If we assign a value $\ve \in \set{0,1}$ to a variable $v \in \var(F)$, then there are exactly two cases that can happen for $\hardness(F)$. The first case is $\hardness(\pab{x \ra \ve}*F)=\hardness(F)$ and $\hardness(\pab{x \ra \ol \ve}*F) \leq \hardness(F)$ and the second case is  $\hardness(\pab{x \ra \ve}*F)=\hardness(\pab{x \ra \ol \ve}*F)=\hardness(F)-1$. Thus, for all cases  $\hardness(\pab{x \ra \ve}*F) \leq \hardness(F)$.
 \end{lem}
 \begin{prf}
-?????
+???
 \end{prf}
 
-Delayer wants to maximize the $\hardness(F)$ and show that $F$ is unsatisfiable. But since according to Lemma \ref{lem:hd-var} assigning one variable for $F$ (which yields $F'$) does not increase the hardness ($\hardness(F') \leq \hardness(F)$). Thus, Delayer must keep ($\hardness(F')$ unchanged. The game ends when we reach $\bot \in \vp * F $ (if $F$ is unsatisfiable) or $\vp * F=\top$ (if $F$ is satisfiable). In both cases, if $k$ rounds is played then $\hardness(F_k)=0$.
+In this game, Delayer wants to maximize the $\hardness(F)$ for an unsatisfiable $F$. But since according to Lemma \ref{lem:hd-var} assigning one variable for $F$ (which yields $F'$) does not increase the hardness ($\hardness(F') \leq \hardness(F)$), Delayer must keep ($\hardness(F')$ unchanged. This is achieved by taking no action or just assigning those variables $x \in var(F): \hardness(\pab{x \ra \ve}*F)=\hardness(\pab{x \ra \ol \ve}*F = \hardness(F)$ (we call them as ineffective variables). 
 
-Delayer must prevent Prover to obtain more than one point. Prover must decrease exactly one unit of $\hardness(F)$. ?????
-%The optimal move for Delayer is to keep hd not changed and the worst case for Delayer is when it can not prevent prover from achieving two points or more. thus, in each round hd remains unchanged or decreased exactly one unit.  
 
-\begin{defi}\label{def:atomic-move}
-For the clause-set $F$, the atomic move in the Prover-Delayer game for $\hardness(F)$ is the extension of the partial assignment $\vp$ for $F$ that is choosing a variable and assigning a value to that. 
-In the case of Delayer, the atomic move is???
+On the other hand, Prover wants to minimize  $\hardness(F)$ and in each round, tries to choose a variable $x$ whose assigning reduces the hardness at most (like two or more points). Therefore, Delayer must prevent the case that Prover decreases the hardness more that one unit. This is achieved by assigning the other value for those variables. We call these variables $x \in var(F): \hardness(\pab{x \ra \ve}*F)=\hardness(F)$ and $\hardness(F)- \hardness(\pab{x \ra \ol \ve}*F) \geq 2$ as trouble makers. If Delayer succeeds in removing all trouble makers in each round, then Prover must decrease $\hardness(F)$ exactly one unit.
+  
+The game ends when we reach $\bot \in \vp * F $ (if $F$ is unsatisfiable) or $\vp * F=\top$ (if $F$ is satisfiable). In both cases, if $k$ rounds is played then $\hardness(F_k)=0$.
 
-In the case of Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ (which is extending $\vp$ with exactly one assignment) and decreasing hd??????
+\begin{defi}\label{def:atomicmove}
+For the clause-set $F$, the atomic move in the Prover-Delayer game for $\hardness(F)$ is the extension of the partial assignment  $\vp \in \Pass: \var(\vp) \sse \var(F)$.
+
+In the case of Delayer, the atomic move is removing all trouble makers (by assigning a variable $v \in \var(F)$ such that the hardness remains unchanged) and then (when no trouble maker is left) assigning ineffective variables. In the case of Prover, the atomic move is assigning a variable $v \in \var(F)$ such that the hardness decreases exactly one unit.
 \end{defi}
 
-\begin{lem}\label{lem:game1}
-The result of the hardness game in ???? for a clause-set $F$ is exactly $\hardness(F)$.
+\begin{quest}
+For  $x \in var(F): \hardness(\pab{x \ra \ve}*F)=\hardness(F)$ and $\hardness(F)- \hardness(\pab{x \ra \ol \ve}*F) =1$ in the case of Delayer, what is the optimal move?
+
+Also, is the result of the game still the hardness of $F$ if Delayer does not assign all of ineffective variables in each round?
+\end{quest}
+
+\begin{lem}\label{lem:hdchg}
+For $F \in \Usat$ by considering the strategy of both players based on Definition \ref{def:atomicmove}, $\hardness(F)$ in each round $k$ is as follows:
+  \begin{eqnarray*}
+  \hardness(F_k) & = &
+  \begin{cases}
+  \hardness(F_{k-1}) & \text{Delayer's turn }\\ \hardness(F_{k-1})-1 & \text{Prover's turn}
+  \end{cases}
+  \end{eqnarray*}
 \end{lem}
+\begin{prf}
+XXX
+\end{prf}
+
+\begin{lem}\label{lem:gameres1}
+Consider the Prover-Delayer game for an unsatisfiable clause-set $F$ with the goal of obtaining $\hardness(F)$. The hardness $\hardness(F)$ is exactly the number of rounds played by the Prover (or we can say that Prover gets a point in by performing an atomic move and the hardness of $F$ is equal to the Prover's points).
+
+It should be mentioned that by considering performing exactly one atomic move in each round, the number of rounds $k$ is an even number. Thus, saying that the hardness equals to $k / 2$ is equivalent to the above statement.
+\end{lem}
+\begin{prf}
+For $F \in \Usat$, the game ends once we get $\bot \in \vp * F $. Thus if the game is played in $n$ rounds, then $\hardness(F_n)=0$. On the other hand, according to Lemma \ref{lem:hdchg} we know that in each round played by Prover the $\hardness(F)$ is decreased exactly by one unit and in the other rounds, it remains unchanged. Therefore, $\hardness(F)$ is the number of rounds played by the Prover.
+\end{prf}
+
+\begin{lem}\label{lem:gameres2}
+Consider the Prover-Delayer game for an arbitrary clause-set $F \in \Cls$ with the goal of obtaining $\hardness(F)$. If $F \in \Usat$, then the hardness $\hardness(F)$ is exactly the number of Prover's atomic moves. Else, $F \in \Sat$ and $\hardness(F)=0$.
+\end{lem}
+\begin{prf}
+For $F \in \Usat$, see Lemma \ref{lem:gameres1}. For $F \in \Sat$, the game ends when we reach $\vp * F=\top$. Thus $\vp$ is a satisfying assignment for $F$ and $\hardness(F)=0$
+\end{prf}
 
 \begin{lem}\label{lem:game1}
-The game is well-defined since it does not depend on choices.
+The game is well-defined (it does not depend on choices).
 \end{lem}
+\begin{prf}
+According to Definition \ref{def:atomicmove} the Delayer first assigns all variables that are trouble maker to prevent the case that the hardness reduction is more than one units. Then it assigns all ineffective variables in each round. Thus, the order of choosing variables by Delayer in each case does not affect the result. For Prover, it chooses one of the variables (that assigning them reduces the hardness exactly one unit) in each round and chooses the rest of them in next rounds (since Delayer would not assign them). Thus, the order of choosing variables by Prover does not affect the result of game.
+\end{prf}
+%------------------------------
 
 The for  $\whardness(F)$???
 
@@ -214,7 +252,7 @@ In the case of Delayer, the atomic move is???
 In the case of Prover, the atomic move is ????
 \end{defi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{The hardness measures for Tseitin graph}
+\chapter{Application of game characterisation for hardness measures of Tseitin graph}
 \label{cha:hdgame}
 
 \section{XOR representation}
@@ -316,6 +354,12 @@ In a Tseitin graph $G$ if we remove an edge ??, then $\rho(w)$ of endpoints will
 According to the definition of a Tseitin graph $G$, the XOR-clause-set $T_0(G,\rho)$ is unsatisfiable since $\ve=1$ for $\Phi$. Thus based on lemma xxx, too keep $\ve=1$ unchanged, if we remove any edge by assigning a value, then the equation of endpoints must be changed
 \end{prf}
 
+\begin{lem}\label{lem:Tseitingame1}
+The game is well-defined (it does not depend on choices). 
+\end{lem}
+\begin{prf}
+According to \ref{} the Delayer assigns all variables that are trouble maker (the variables that Prover can assign a value to them such that the hardness decreases more that one units) to prevent the case that the hardness reduction is more than one units. Thus, the result of the game does not depend to the order of choosing variables in each round
+\end{prf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\chapter{Conclusion and open problems}
 %\label{cha:concl}
