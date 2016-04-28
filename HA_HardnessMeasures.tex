@@ -70,10 +70,10 @@ Two clause-sets $F, G$ are called logically equivalent if $F \models G$ and $G \
 
 A full binary tree is a tree that each node except leaves has exactly two children (or parents). A decision tree (or splitting tree) is a binary tree such that its nodes are labeled by a clause-set $F$ and the two children of each node are obtained by assigning the two possible value for a literal in $F$. The leaves are labeled by either $\set{\bot}$ or $\top$ and the path to each leaf is either a satisfying assignment or a falsifying assignment. In this report, we just consider decision trees for unsatisfiable clause-sets $F$ where leaves are $\bot$.
 
-The resolution is an operation applied to two clauses $C,D$ which clash in exactly one variable and produces a new clause. The result of the resolution for $C \cap \overline D = \{ x \}$ (which is called resolvent) is defined as $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $. $C,D$ are called resolvable clauses and $x$ is the resolution literal. Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the resolution tree. The tree is indicated by $T : F \vdash C$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. The number of nodes in $T$ is called tree-resolution complexity and denoted by $\comptr(R) \in \NN$. A resolution proof of a clause $C$ from a clause-set $F$ is a resolution tree $T : F \vdash C$. If a resolution proof drives $\bot$, it is called a resolution refutation and $F$ is unsatisfiable.
+The resolution is an operation applied to two clauses $C,D$ which clash in exactly one variable and produces a new clause. The result of the resolution for $C \cap \overline D = \{ x \}$ (which is called a resolvent) is defined as $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $. $C,D$ are called resolvable clauses and $x$ is the resolution literal. Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the resolution tree. The tree is indicated by $T : F \vdash C$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. The number of nodes in $T$ is called tree-resolution complexity and denoted by $\comptr(R) \in \NN$. A resolution proof of a clause $C$ from a clause-set $F$ is a resolution tree $T : F \vdash C$. If a resolution proof drives $\bot$, it is called a resolution refutation and $F$ is unsatisfiable.
 
 \begin{examp}\label{exp:res1}
-A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol a, \ol b}}$ is as Fig \ref{fig:resol1}. Since the empty clause is driven, it is called resolution refutation.
+A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol a, \ol b}}$ is as Fig \ref{fig:resol1}. Since the empty clause is driven, it is called the resolution refutation.
    \begin{figure}
    \centering  
    \begin{tikzpicture}[grow'=up]
@@ -155,7 +155,7 @@ Following, $\hardness(F)$ for some more examples of unsatisfiable clause-sets $(
 Each satisfiable clause-set $F \in \Cls \sm \set{\top}$ can be converted to an unsatisfiable clause-set by applying a partial assignment $\vp$. For extending the hardness measure to a satisfiable clause-set, we should consider the worst case value of $\hardness$ for $\vp * F \in \Usat$ which is the maximum of $\hardness(\vp * F)$. The reason is that $\hardness(\vp * F) \leq \hardness(F)$ (the application of a partial assignment on $F$ do not increase the hardness) and one can easily find a $\vp$ such that $\bot \in \vp * F$ and $\hardness(\vp * F)=0$. For $\vp$ we only need to consider the minimal partial assignment which is $\vp_C : C \in \primec_0(F)$. For $F = \top$, since it is not convertible to an unsatisfiable clause-set, we assign the minimum of the hardness which is zero.
 
 \begin{defi}\label{def:hd-extended}
-The hardness is a map that assigns a natural number for a representation of a boolean function $f$ as a clause-set $F \in \Cls$ and is denoted by $\hardness : \Cls \rightarrow \NNZ$. To obtain the hardness of  $F$, there are three cases: if $F = \top$, then $\hardness(F) := 0$. Else if $F \in \Usat$, then $\hardness(F) := \min \set{k \in \NNZ : \rk_k(F)=\set{\bot}}$. Otherwise, $F \in \Sat \sm \set{\top}$ and $\hardness(F) := \max \set{ \hardness(\vp * F) : \vp * F \in \Usat }$.
+The hardness is a map that assigns a natural (and finite) number for a representation of a boolean function $f$ as a clause-set $F \in \Cls$ and is denoted by $\hardness : \Cls \rightarrow \NNZ$. To obtain the hardness of  $F$, there are three cases: if $F = \top$, then $\hardness(F) := 0$. Else if $F \in \Usat$, then $\hardness(F) := \min \set{k \in \NNZ : \rk_k(F)=\set{\bot}}$. Otherwise, $F \in \Sat \sm \set{\top}$ and $\hardness(F) := \max \set{ \hardness(\vp * F) : \vp * F \in \Usat }$.
 \end{defi}
 
 \begin{examp}\label{exp:hd-extd}
@@ -176,7 +176,7 @@ For example if $\bot \in F$, then $F \vdash^0 \bot$ and $\whardness(F)=0$. Also 
 \section{Game characterisations of hardness measures}
 \label{sec:game-pd}
 
-In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called Prover-Delayer game (or just the hardness game). The game is performed between two players, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ in each round by the two players. Therefore, in each round $k$ a new clause-set $F_k$ is obtained with $\hardness(F_k)$ (or $\whardness(F_k)$). The game ends once we reach certain conditions (for $\hardness(F)$ or $\whardness(F)$). First, we consider the game for $\hardness(F)$ and then we explain the game for $\whardness(F)$.
+In \cite{h18}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called the Prover-Delayer game (or just the hardness game). The game is performed between two players, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ in each round by the two players. Therefore, in each round $k$ a new clause-set $F_k$ is obtained with $\hardness(F_k)$ (or $\whardness(F_k)$). The game ends once we reach certain conditions (for $\hardness(F)$ or $\whardness(F)$). First, we consider the game for $\hardness(F)$ and then we explain the game for $\whardness(F)$.
 
 In the case of $\hardness(F)$, the goal is to set a strategy for both players in the Prover-Delayer game such that $\hardness(F)$ is achieved. Thus, we need to know that how $\hardness(F)$ is changed by extending $\vp$ with some variables $v \in \var(F)$. 
 
@@ -187,12 +187,12 @@ Consider a clause-set $F \in \Cls$ and $\hardness(F)$. If we assign a value $\ve
 ???
 \end{prf}
 
-In this game, Delayer wants to maximize the $\hardness(F)$ for an unsatisfiable $F$. But since according to Lemma \ref{lem:hd-var} assigning one variable for $F$ (which yields $F'$) does not increase the hardness ($\hardness(F') \leq \hardness(F)$), Delayer must keep ($\hardness(F')$ unchanged. This is achieved by taking no action or just assigning those variables $x \in var(F): \hardness(\pab{x \ra \ve}*F)=\hardness(\pab{x \ra \ol \ve}*F = \hardness(F)$ (we call them as ineffective variables). 
+In this game, Delayer wants to maximize the $\hardness(F)$ for an unsatisfiable clause-set $F$. But since according to Lemma \ref{lem:hd-var} assigning one variable for $F$ (which yields $F'$) does not increase the hardness ($\hardness(F') \leq \hardness(F)$), Delayer must keep ($\hardness(F')$ unchanged. This is achieved by taking no action or just assigning those variables $x \in var(F): \hardness(\pab{x \ra \ve}*F)=\hardness(\pab{x \ra \ol \ve}*F = \hardness(F)$ (we call them as ineffective variables). 
 
 
 On the other hand, Prover wants to minimize  $\hardness(F)$ and in each round, tries to choose a variable $x$ whose assigning reduces the hardness at most (like two or more points). Therefore, Delayer must prevent the case that Prover decreases the hardness more that one unit. This is achieved by assigning the other value for those variables. We call these variables $x \in var(F): \hardness(\pab{x \ra \ve}*F)=\hardness(F)$ and $\hardness(F)- \hardness(\pab{x \ra \ol \ve}*F) \geq 2$ as trouble makers. If Delayer succeeds in removing all trouble makers in each round, then Prover must decrease $\hardness(F)$ exactly one unit.
   
-The game ends when we reach $\bot \in \vp * F $ (if $F$ is unsatisfiable) or $\vp * F=\top$ (if $F$ is satisfiable). In both cases, if $k$ rounds is played then $\hardness(F_k)=0$.
+Since there is a finite number of variables in a clause-set, the game has a finite number of rounds (and therefore finite hardness for the clause-set). The game ends when we reach $\bot \in \vp * F $ (if $F$ is unsatisfiable) or $\vp * F=\top$ (if $F$ is satisfiable). In both cases, if $k$ rounds is played then $\hardness(F_k)=0$.
 
 \begin{defi}\label{def:atomicmove}
 For the clause-set $F$, the atomic move in the Prover-Delayer game for $\hardness(F)$ is the extension of the partial assignment  $\vp \in \Pass: \var(\vp) \sse \var(F)$.
@@ -241,9 +241,15 @@ The game is well-defined (it does not depend on choices).
 \begin{prf}
 According to Definition \ref{def:atomicmove} the Delayer first assigns all variables that are trouble maker to prevent the case that the hardness reduction is more than one units. Then it assigns all ineffective variables in each round. Thus, the order of choosing variables by Delayer in each case does not affect the result. For Prover, it chooses one of the variables (that assigning them reduces the hardness exactly one unit) in each round and chooses the rest of them in next rounds (since Delayer would not assign them). Thus, the order of choosing variables by Prover does not affect the result of game.
 \end{prf}
+
+\begin{examp}\label{exp:gamehd}
+Consider a clause-set $F=\set{\set{a,b},\set{\ol a,b},\set{a,\ol b},\set{\ol a,\ol b},\set{c},\set{\ol c}} \in \Usat$. Then, ?????
+
+And for $F=\set{\set{a,\ol{b}},\set{\ol{a},b},\set{b,\ol{c}},\set{\ol{b},c},\set{a,b,c},\set{\ol{a},\ol{b},\ol{c}}} \in \Usat$, ???
+\end{examp}
 %------------------------------
 
-The for  $\whardness(F)$???
+The for $\whardness(F)$???
 
 \begin{defi}\label{def:atomic-move}
 For the clause-set $F$, the atomic move in the Prover-Delayer game for $\whardness(F)$ is ???????????
@@ -277,7 +283,7 @@ An XOR-clause-set is a clause-set $F \in \Cls$ whose clauses $C$ are interpreted
 
 The operation of a partial assignment $\vp \in \Pass$ to XOR-clause-sets is defined as the same definition for CNF-clause-sets. An XOR-clause-set $F$ is satisfiable if there exist a partial assignment $\vp$ such that $\var(\vp) \supseteq \var(F)$ and for every $C \in F$ the number of $x \in C$ with $\vp(x) = 1$ is even (that satisfies the equation  $\oplus_{x \in C} = 0$). 
 
-The satisfiability of a CNF-clause-set is investigated using the resolution operation. Here, for investigating whether an XOR-clause-set is satisfiable or not, an operation is defined which is called XOR-sum over clauses of $F$ and denoted by $\oplus F \in \Cl$. This operation is applied to two XOR-clauses and produces a new clause or the result is inconsistent. The operation is performed as follows. If there are four literals as $x,\ol{x},y,\ol{y}$ for $x \ne y$, the XOR-sum of them is as $x \oplus \ol{x} = 1$ and $y \oplus \ol{y} = 1$. Thus, $1 \oplus 1 = 0$ and they are removed. If no clash remains, then the result is obtained as a clause $E \in \Cl$. Else if there is just one clash for literals $x, \ol{x}$ with at least one other literal $y$, then $x \oplus \ol{x} = 1$ and $1 \oplus y=\ol{y}$ and a new clause $E \in \Cl$ is obtained. Otherwise, if two literals $x, \ol{x}$ remains, then $\oplus F$ is called inconsistent. An XOR-clause-set $F \in \Cls$ is unsatisfiable if and only if there is $F' \sse F$ such that $\oplus F'$ is inconsistent.
+The satisfiability of a CNF-clause-set is investigated using the resolution operation. Here, for investigating whether an XOR-clause-set is satisfiable or not, an operation is defined which is called an XOR-sum over clauses of $F$ and denoted by $\oplus F \in \Cl$. This operation is applied to two XOR-clauses and produces a new clause or the result is inconsistent. The operation is performed as follows. If there are four literals as $x,\ol{x},y,\ol{y}$ for $x \ne y$, the XOR-sum of them is as $x \oplus \ol{x} = 1$ and $y \oplus \ol{y} = 1$. Thus, $1 \oplus 1 = 0$ and they are removed. If no clash remains, then the result is obtained as a clause $E \in \Cl$. Else if there is just one clash for literals $x, \ol{x}$ with at least one other literal $y$, then $x \oplus \ol{x} = 1$ and $1 \oplus y=\ol{y}$ and a new clause $E \in \Cl$ is obtained. Otherwise, if two literals $x, \ol{x}$ remains, then $\oplus F$ is called inconsistent. An XOR-clause-set $F \in \Cls$ is unsatisfiable if and only if there is $F' \sse F$ such that $\oplus F'$ is inconsistent.
 
 \begin{examp}\label{exp:xorcls}
 The satisfiability of the following XOR-clause-sets $F$ are investigated using the XOR-sum over clauses of $F$.
@@ -307,16 +313,16 @@ For extending the hardness game for graphs, first we need to describe Tseitin gr
 Consider a connected graph $G=(V,E,\eta)$ without loop. First, we label each edge with a distinct literal $x \in E$. Then, if we assign a charge $\rho$ to each vertex such that $\rho: V \ra \set{0,1}$, we obtain a unique XOR-clause-set corresponded to $G$. In this case, each vertex $w \in V$ is specified as an XOR-clause $C \in \Cl$ such that $\oplus_{x \in E, w \in \eta(x)} \; x = \rho(w)$. Then, the XOR-clause-set for $G$ is obtained by $T_0(G,\rho) := \set{C_w : w \in V} \in \Cls$. 
 
 \begin{lem}\label{lem:chgvar}
-Suppose that $T_0(G,\rho)$ is an XOR-clause-set for a graph $G=(V,E,\eta)$ without loop. We define $\Phi$ as an XOR-constraint for charges of vertices that is $\oplus_{w \in V} \rho(w) = \ve$ and $\ve \in \set{0,1}$. By assigning a value to all edges $x \in E$, we obtain $\rho(w)$ of all vertices and then, the value of $\ve$ in $\Phi$. In this case, if we change the value of an edge $x$, then $\rho(w)$ for each endpoint of $x$ must be changed to remain $\Phi$ unchanged.
+Suppose that $T_0(G,\rho)$ is an XOR-clause-set for a graph $G=(V,E,\eta)$ without loop. We define $\Phi$ as an XOR-constraint for charges of vertices that is $\oplus_{w \in V} \rho(w) = \ve$ and $\ve \in \set{0,1}$. By assigning a value to all edges $x \in E$, we obtain $\rho(w)$ of all vertices and then, the value of $\ve$ in $\Phi$. In this case, if we change the value of an edge $x$, then $\rho(w)$ for each endpoint of $x$ must be changed to keep $\Phi$ unchanged.
 \end{lem}
 \begin{prf}
 According to the definition, each vertex $w$ of $G$ is an XOR-clause with $\rho(w)$ such that  $\oplus_{x \in E, w \in \eta(x)} \; x = \rho(w)$ ($\rho$ is the parity). Since each literal corresponds to an edge connected to two vertices $w_1, w_2$, changing the value of a literal $x$ will change the parity $\rho(w)$ for equation of $w_1, w_2$. XXX
 \end{prf}
 
-For a graph such as Lemma \ref{lem:chgvar} with $\Phi$, if $\ve=0$ then we need to investigate the satisfiability of each XOR-clause to determine whether $T_0(G,\rho)$ is satisfiable or not. Else if $\ve=1$, $T_0(G,\rho)$ is unsatisfiable. The reason is as follows. If $\ve=1$ in $\Phi$, there is at least one vertex $w$ (XOR-clause $C$) with $ \rho(w) =1$ and according to the definitions in Section \ref{sec:XOR representation}, an XOR-clause $C$ is satisfiable if $\oplus_{x \in C} = 0$. Thus, $\oplus_{x \in C} = \rho(w) \not =0$ and $T_0(G,\rho)$ is unsatisfiable.
+For a graph such as Lemma \ref{lem:chgvar} with $\Phi$, if $\ve=0$ then we need to investigate the satisfiability of each XOR-clause to determine whether $T_0(G,\rho)$ is satisfiable or not. Else if $\ve=1$, then $T_0(G,\rho)$ is unsatisfiable. The reason is as follows. If $\ve=1$ in $\Phi$, there is at least one vertex $w$ (XOR-clause $C$) with $ \rho(w) =1$ and according to the definitions in Section \ref{sec:XOR representation}, an XOR-clause $C$ is satisfiable if $\oplus_{x \in C} = 0$. Thus, $\oplus_{x \in C} = \rho(w) \not =0$ and $T_0(G,\rho)$ is unsatisfiable.
 
-A graph $G$ as explained in Lemma \ref{lem:chgvar} with $\ve=1$ in $\Phi$, is called Tseitin graph. The equivalent CNF-clause-set of $G$ is obtained by $X_0$ translation of $T_0(G,\rho)$ and indicated by $T(G,\rho) := X_0(T_0(G,\rho))$. The clause-set $T(G,\rho) \in \Usat$ is called Tseitin clause-set of $G$.
-
+A graph $G$ as explained in Lemma \ref{lem:chgvar} with $\ve=1$ in $\Phi$, is called a Tseitin graph. The equivalent CNF-clause-set of $G$ is obtained by $X_0$ translation of $T_0(G,\rho)$ and indicated by $T(G,\rho) := X_0(T_0(G,\rho))$. The clause-set $T(G,\rho) \in \Usat$ is called the Tseitin clause-set of $G$.
+%----------------------------------------------
 \section{Game-tree}
 \label{sec:Game-tree}
 
@@ -341,18 +347,31 @@ Fig \ref{fig:gg1} shows the game-tree for graph $K_3$. The children of each node
    \end{center}
    \end{figure}
 \end{examp}
-
+%----------------------------------------------
 \section{Game characterisations for Tseitin graph}
 \label{sec:hd-game-graph}
+
+Here, ???
+
+\begin{defi}\label{def:bridge}
+Consider a Tseitin graph $G$ as explained in Section \ref{sec:Tseitin graph}. If there is an edge $e \in E$ whose deletion increases the number of connected components of $G$, then $e$ is called a bridge.
+\end{defi} 
 
 Consider an unsatisfiable Tseitin clause-set $T(G,\rho)$. ??????????
 
 \begin{lem}\label{lem:game3}
-In a Tseitin graph $G$ if we remove an edge ??, then $\rho(w)$ of endpoints will change. 
+In a Tseitin graph $G$ if we remove an edge $e \in E$, then $\rho(w)$ of endpoints will change. 
 \end{lem}
 \begin{prf}
 According to the definition of a Tseitin graph $G$, the XOR-clause-set $T_0(G,\rho)$ is unsatisfiable since $\ve=1$ for $\Phi$. Thus based on lemma xxx, too keep $\ve=1$ unchanged, if we remove any edge by assigning a value, then the equation of endpoints must be changed
 \end{prf}
+
+\begin{defi}\label{def:atomicmovegraph}
+For ?????????, the atomic move in the Prover-Delayer game for $\hardness(F)$ is ??????????
+
+In the case of Delayer, the atomic move is removing ????????
+In the case of Prover, the atomic move is ?????????????
+\end{defi}
 
 \begin{lem}\label{lem:Tseitingame1}
 The game is well-defined (it does not depend on choices). 
