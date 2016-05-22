@@ -10,6 +10,9 @@
 \usepackage[all]{xy}
 \usepackage{enumerate}
 
+\nc{\Dt}[1]{\mc{F}_{#1}} 
+\DMO{\saturate}{S}
+
 \begin{document}
 \title{Thesis Proposal: 
        }
@@ -130,7 +133,7 @@ An example of the reduction is unit resolution (or unit propagation) which is ap
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item If two clauses $C,D \in F$ have more that one clashes, by performing the DP-reduction on one of clashing variables both clauses are removed and we get nothing .
+  \item If two clauses $C,D \in F$ have more than one clashes, by performing the DP-reduction on one of clashing variables both clauses are removed and we get nothing .
    \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Hardness measures}
@@ -458,10 +461,10 @@ According to ???????? the Delayer assigns all variables that are trouble maker (
 \chapter{Minimally unsatisfiable clause-sets}
 \label{cha:mucls}
 
-\section{Basic definitions}
+\section{Background}
 \label{sec:basicdef}
 
-One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which is referred as the building block for understanding unsatisfiability in \cite{h9}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. A comprehensive overview of these clause-sets are presented in \cite{h9, h25}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency. In this section we use this measure for classification of minimally unsatisfiable clause-sets which is already investigated in \cite{h9, h25,h26,h24, h27}.
+One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which is referred as the building block for understanding unsatisfiability in \cite{h9}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{h9, h25,h29}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency. In this section we use this measure for classification of minimally unsatisfiable clause-sets which is already investigated in \cite{h9, h25,h26,h24, h27}.
 
 \begin{defi}\label{def:mu}
 A clause-set $F \in \Usat$ is minimally unsatisfiable if by removing any arbitrary clause $C \in F$, the clause-set $F \sm \set{C}$ becomes satisfiable. The set of all minimally unsatisfiable clause-sets is indicated by $\Musat \in \Usat$.
@@ -504,7 +507,7 @@ Consider DP-reduction in Definition \ref{def:dpredc}. If the DP-reduction is per
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item Base on Lemma 5.3 in \cite{h9}, if a clause-set $F$ is minimally unsatisfiable then after performing the singular DP-reduction, the result clause-set $F'$ is also minimally unsatisfiable. Also, the singular DP-reduction does not change the deficiency of $F$.
+  \item Base on Lemma 5.3 in \cite{h9}, if a clause-set $F$ is minimally unsatisfiable then after performing the singular DP-reduction, the result clause-set $F'$ is also minimally unsatisfiable. Also, the singular DP-reduction does not change the deficiency of $F$ (an overview of DP-reduction for minimally unsatisfiable clause-sets is presented in \cite{h29}).
   \item For $F \in \Musat$, the application of $sDP$ for $\delta=1$ and $\delta=2$ are investigated in Sections \ref{} and \ref{}. ?????????
   \item For a clause-set $F \in \Musati{\delta=k}$ with $k \ge 2$, the iterated application of singular DP-reduction leads to a clause-set in $\Musatnsi{\delta=k}$ (see Lemma 1 in \cite{h24}).
   \end{enumerate}
@@ -535,45 +538,114 @@ Remarks:
   \item All satisfying assignment for $F$ are autarky.
   \item The empty partial assignment $\epa$ is an autarky for every $F \in \Cls$ and more generally all $\varphi \in \Pass$ with $\var(\varphi) \cap \var(F) = \emptyset$ are autarkies for $F$. 
   \item An autarky $\vp$ for $F$ is called trivial if $\var(f) \cap \var(\vp) = \es$. Else, it is called non-trivial autarky.
-  \item A clause-set with no non-trivial autarky is called a lean clause-set. The set of all lean clause-sets are denoted by $\Lean \subset \Usat \addcup \set{\top}$. An overview on autarkies and lean clause-sets are given in \cite{h28, h25}. 
+  \item A clause-set with no non-trivial autarky is called a lean clause-set. The set of all lean clause-sets is denoted by $\Lean \subset \Usat \addcup \set{\top}$. An overview on autarkies and lean clause-sets are given in \cite{h28, h25}. 
   \end{enumerate}
   
 \begin{defi}\label{def:autarky-redc}
-If $\vp \in \Pass$ is a non-trivial autarky for a clause-set $F$, then $\vp *F$ is called autarky reduction for $F$.
+If $\vp \in \Pass$ is a non-trivial autarky for a clause-set $F$, then $\vp *F$ is called autarky reduction for $F$ (and is sat-equivalent to $F$).
 \end{defi} 
 Remarks:
   \begin{enumerate}
-  \item If we apply all possible autarky reduction for a clause-set $F$, then we get lean kenrel of $F$ (see Section 11.8.3 in \cite{25} for more details of lean kernel).
+  \item If we apply all possible autarky reduction for a clause-set $F$, then we get lean kenrel of $F$ (see Section 11.8.3 in \cite{h25} for more details of lean kernel). The lean kernel is the largest lean sub-clause-set of $F$.
+  \item Another equivalent description for lean clause-sets according to \cite{h28} is that if $F \in \Lean \sm \top$ then every clause $C \in F$ is used in at least one resolution refutation for $F$. Thus, the lean kernel of $F$ is the set of all clauses from $F$ that can be used in at least one resolution refutation for $F$ (see Theorem 11.8.1 in \cite{h25}).
   \end{enumerate}
 
 \section{Hitting clause-sets}
 \label{sec:hit}
-\begin{defi}\label{def:ney}
 
+\begin{defi}\label{def:hit-cls}
+A clause-set $F \in \Cls $ is called a hitting clause-set iff all clauses $C,D \in F$, $C \not = D$ have at least one clash. The set of all hitting clause-sets is indicated by $\Clash \in \Cls$.
+\end{defi}
+Remarks:
+  \begin{enumerate}
+  \item The set of all unsatisfiable hitting clause-sets is indicated by $\Uclash := \Usat \cap \Clash$. The set of all nonsingular unsatisfiable hitting clause-sets is denoted by $\Uclash'$ ($\Uclash' \subset \Uclash$).
+  \item If $F \in \Uclash$, then every clause $C \in F$ is a satisfying assignment (as a partial assignment) for $F \sm \set{C}$.
+  \item If $F \in \Musat$ then removing any clause $C \in F$ make $F \sm \set{C}$ satisfiable. On the other hand, if $F \in \Uclash$ then every $C \in F$ is a satisfying assignment for $F \sm \set{C}$. Thus, $\Uclash \subset \Musat$. \cite{h26} gives overview of unsatisfiable hitting clause-set.
+  \item For all full clauses $A_n$ we have $A_n \in \Uclash$.
+  \end{enumerate}
+
+ \begin{defi}\label{def:nhit-cls}
+A clause-set $F \in \Cls $ is called a nearly-hitting clause-set iff for all clauses $C,D \in F$, $C \not = D$ either $\var(C) \cap \var(D) = \es$ or $C,D$ have at least one clash. The set of all nearly-hitting clause-sets is denoted by $\Nclash \subset \Cls$.
+\end{defi}
+Remarks:
+  \begin{enumerate}
+  \item If $F \in \Nclash$ then every $C \in F$, as partial assignment, is an autarky for $F \sm \set{C}$.
+  \end{enumerate}
+
+\begin{defi}\label{def:cl-factor}
+\cite {h26} a clause factor??????
 \end{defi}
 Remarks:
   \begin{enumerate}
   \item 
-  \end{enumerate}
-  
-\section{Saturated minimally clause-sets}
+  \end{enumerate}    
+               
+\section{Saturated minimally unsatisfiable clause-sets}
 \label{sec:smu}
-\begin{defi}\label{def:ha}
 
+\begin{defi}\label{def:smu}
+\cite{h9} A clause set $F \in \Cls$ is called saturated minimally unsatisfiable iff $f \in \Musat $ and by replacing any $C \in F$ by any super-clause $C' \supset C$, the result clause-set is satisfiable. The set of all saturated minimally unsatisfiable clause-sets is denoted $\Smusat \subset \Musat$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item 
+  \item The set of all nonsingular saturated minimally unsatisfiable clause-sets is indicated by $\Smusatns \subset \Smusat$.
+  \item For all clause-sets $F \in \Cls$, if $F \in \Uclash$ then $ F \in \Smusat$ ,i.e. $\Uclash \subset \Smusat$ (see Lemma 2 in \cite{h29}). 
+  \item The properties of clause-set in $\Smusatnsi{\delta=1}, \Smusatnsi{\delta=2}$ are investigated in Sections \ref{} , \ref{}.
+  \item For every $F \in \Musat$ there is a saturation $F' \in \Smusat$. A saturated clause-set  $F'$ for $F$ is obtained using an operation defined in Definition \ref{}.
   \end{enumerate}
+
+\begin{defi}\label{def:smu-opr}
+\cite{h29} For every $F \in \Musat$ a saturation $F' \in \Smusat$ is obtained by iterated application of the operation $\saturate(F,C,x)$ as follows where $C \in F$, $x \in \lit(F)$ and $\var(x) \not \in \var(C)$:
+  \begin{displaymath}
+    \saturate(F,C,x) := (F \sm \set{C}) \cup (C \addcup \set{x}) \in \Cls
+  \end{displaymath}
+If in iteration $m$ there is no literal in $F$ fulfilling the condition $\var(x) \not \in \var(C)$ for all clauses of $F$, then $F' =\saturate(F_m,C_m,x_m) \in \Smusat$. 
+\end{defi}
+Remarks:
+  \begin{enumerate}
+  \item If $F' \in \Smusat$ is a saturation for $F \in \Musat$, then we have $n(F')=n(F)$, $c(F')=c(F)$ and $\delta(F')=\delta(F)$.
+  \item If $C \in F$ and $\var(C) = \var(F)$ then no literal can be added to $C$ to make $F$ saturated and all full clauses $A_n$ are in $\Smusat$.
+  \end{enumerate} 
+  
+\begin{examp}\label{exp:smu-exp}
+  For $F = \set{\set{a,b},\set{\ol{a}},\set{\ol{b}}} \in \Musat \sm \Smusat$ using the Definition \ref{def:smu-opr} we can have $F'=\set{\set{a,b},\set{\ol{a},b},\set{\ol{b}}} \in \Smusat$ or $F'=\set{\set{a,b},\set{\ol{a}},\set{a,\ol{b}}} \in \Smusat$.
+\end{examp}
+
 \section{Classification of minimally unsatisfiable clause-sets}
 \label{sec:c-mucls}
 
+???????
 
+Remarks:
+  \begin{enumerate}
+  \item there is exactly one full element of $\Musati{\delta=2}$, namely $A_2$.
+  \item If $F$ is saturated/hitting, then so is $F'$.
+  \item Lemma???  $F' \in \Smusat$ iff for all $v \in \var(F)$, $\langle v \ra 1 \rangle*F \in \Musat$.
+  \end{enumerate} 
+  
 \section{Structure of MU(1)}
 \label{sec:smu1}
 
+?????????????
+  \begin{enumerate}
+  \item $\Musatnsi{\delta=1} = \Smusatnsi{\delta=1} = \Uclashnsi{\delta=1} = \set{\set{\bot}}$ 
+  \item $\Musati{\delta=1} \supset \Smusati{\delta=1} = \Uclashi{\delta=1}$
+  \item $F \in \Musati{\delta=1}$ with $n(F) > 0$ holds $\minvdeg(F) = 2$.
+  \item the elements of $\Uclashnsi{\delta=2}$ are $\Dt{2}, \Dt{3}$, with $\Dt{2} = A_2$
+  \end{enumerate} 
+
 \section{Structure of MU(2)}
 \label{sec:smu2}
+
+????????
+  \begin{enumerate}
+  \item for the elements of $\Musatnsi{\delta=2}$, they are saturated ($\Musatnsi{\delta=2} = \Smusatnsi{\delta=2}$) and $\minvdeg(\Dt{n}) = 4$
+  \item 
+  \end{enumerate}
+
+
+\section{Structure of MU(3)}
+\label{sec:smu3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Conclusion and open problems}
 \label{cha:concl}
