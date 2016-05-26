@@ -86,7 +86,7 @@ For $F = \{\{ \ol x, y\} , \{ \ol y, z\}\}, prc_0(F) = \{\{\ol x, y\} , \{\ol y,
 \section{Decision tree and resolution tree}
 \label{sec:trees}
 
-A ``full binary tree'' is a tree that each node except leaves has exactly two children (or parents). 
+A ``full binary tree'' is a tree that every node except leaves has exactly two children (or parents). 
 \begin{defi}\label{def:decs-tree}
 A ``decision tree'' (or splitting tree) is a binary tree such that its nodes are labeled by a clause-set $F$ and the two children of each node are obtained by assigning the two possible value for a literal in $F$. The leaves are labeled by either $\set{\bot}$ or $\top$ and the path to each leaf is either a satisfying assignment or a falsifying assignment.
 \end{defi}
@@ -526,9 +526,9 @@ Consider a variable $v \in \var(F)$. Splitting of $F$ on $v$ is the process of o
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item A clause-set $F$ in $\Musati{\delta=k}$, splitting may leads to produce two minimally unsatisfiable clause-sets $F_0,F_1$ but generally we can not say this for sure unless more information are provided (see Section \ref{???}). 
+  \item A clause-set $F$ in $\Musati{\delta=k}$, splitting may leads to produce two minimally unsatisfiable clause-sets $F_0,F_1$ but generally we can not say this for sure unless more information are provided. 
   \item If a clause-set $F$ is in $\Musatnsi{\delta=k}$ and also after splitting on a variable the clause-sets $F_0,F_1$ are minimally unsatisfiable with deficiency $k_0, k_1$, then we have $k_0, k_1 < k$ (by Theorem 2 in \cite{h24}).
-  \item For $F \in \Musat$, the application of splitting for $\delta=1$ and $\delta=2$ are investigated in Sections \ref{} and \ref{}. ?????????
+  \item For $F \in \Musat$, the application of splitting for $\delta=2$ are investigated in Sections \ref{sec:smu2}.
   \end{enumerate}
 %-----------------------------------------------------------------------------
 \section{Autarkies}
@@ -645,7 +645,7 @@ Remarks:
   \begin{enumerate}
   \item Base on Lemma 5.3 in \cite{h9}, if a clause-set $F$ is minimally unsatisfiable then after performing the singular DP-reduction, the result clause-set $F'$ is also minimally unsatisfiable. This is also true when $F$ is in $\Smusat$ or $\Uclash$.   Further more, the singular DP-reduction does not change the deficiency of $F$ since $c(F)$ and $n(F)$ both decreased by one (an overview of DP-reduction for minimally unsatisfiable clause-sets is presented in \cite{h29}).
   \item If $F \not \in \Musat$, then after singular DP-reduction the result is also not minimally unsatisfiable.
-  \item For $F \in \Musat$, the application of $sDP$ for $\delta=1$ and $\delta=2$ are investigated in Sections \ref{} and \ref{}. ?????????
+  \item For $F \in \Musat$, the application of $sDP$ for $\delta=1$ and $\delta=2$ are investigated in Sections \ref{sec:smu1} and \ref{sec:smu2}.
   \end{enumerate}
   
 \begin{lem}\label{lem:sDP-infl}
@@ -657,15 +657,14 @@ For a clause-set $F \in \Musati{\delta=k}$:
 \end{lem} 
 
 \begin{defi}\label{def:singularextn}
-By \cite{h9} for a clause-set $F \in\Cls$ and a variable $v \not \in \var(F)$, the singular extension is defined as the reverse direction of singular DP-reduction. Also, a singular m-extension of $F$ to $F'$ with $v$ is as follows:
+By \cite{h9} for a clause-set $F \in\Cls$ and a variable $v \not \in \var(F)$, the singular extension is defined as the reverse direction of singular DP-reduction. Thus, for obtaining a singular m-extension $F' $of $F$ with $v$, first we choose $m$ different clauses $D_i:D_1, \dots, D_m \in F$. Then, we consider a clause  $C: C \sse \bca_{i=1}^m D_i$. In the next step, for every $D_i$ we consider a clause $D_i':(D_i \sm C) \sse D_i' \sse D_i$. Finally, we obtain $C' := C \addcup \set{x}$, and $D_i'' := D_i' \addcup \set{\ol{x}}$ for $i \in \tb 1m$. Then, we have:
   \begin{displaymath}
     F' := (F \sm \set{D_1,\dots,D_m}) \addcup \set{C', D_1'',\dots,D_m''}.
   \end{displaymath}
-where $\var(x)=v$, $D_1, \dots, D_m \in F$ are different clauses, $C \sse \bca_{i=1}^m D_i$ and $D_i' \in \Cl$ for $i \in \tb 1m$ with $(D_i \sm C) \sse D_i' \sse D_i$. Also, $C' := C \addcup \set{x}$, and $D_i'' := D_i' \addcup \set{\ol{x}}$ for $i \in \tb 1m$. Then, $F'$ is obtained from $F$ by adding $C'$ and replacing the $D_i$ with $D_i''$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item Consider an $m$-extension $F'$ of $F$. Then, $F \in \Musat \Lra G \in \Musat$ (by Lemma 5.9 in \cite{h9}).
+  \item Consider an $m$-extension $F'$ of $F$. Then, $F \in \Musat \Lra F' \in \Musat$ (by Lemma 5.9 in \cite{h9}).
   \item The singular m-extension of $F$ does not change the deficiency of $F$. But, number of clauses (and variables) is increased by one.
   \end{enumerate}
   
@@ -679,11 +678,15 @@ Remarks:
 %-----------------------------------------------------------------------------
 \subsection{Full subsumption resolution/ extension}
 \label{sec:fsr-e}  
-    
+
+\begin{defi}\label{def:sres}
+The subsumption resolution is a reduction of a clause-set $F \in \Cls$ to $F'$ by removing a literal $x : \var{x} \in \var{F}$ from a clause $C:C \in F$ when there is a clause $D \in F: \ol x \in D$ and also $D \sm \set{\ol x} \sse C$. This means that the resolution of $C,D$ subsumes $C$. Note that $D$ is still in $F'$.
+\end{defi}
+
 \begin{defi}\label{def:fsr}
 \cite{h9} The strict full subsumption resolution is the reduction of $F \in \Cls$ to $F'$ as follows and indicated by $F \tsubres F'$. To obtain $F'$, consider a clause $R \in F'$ (the resolvent) and a literal $x \in \var(F'):\var(x) \notin R$ ($x, \ol{x}$ the resolution literals). Then if $C := R \addcup \set{x}$ and $D := R \addcup \set{\ol{x}}$ (the parent clauses), then we have $F = (F' \sm \set{R}) \addcup \set{C,D}$.
 
-$F \tsubresk{k} F'$ for $k \in \NNZ$ shows application of exactly $k$ steps of strict full subsumption resolution. If the resolution variable is allowed to vanish, then it is called Full subsumption resolution.
+$F \tsubresk{k} F'$ for $k \in \NNZ$ shows application of exactly $k$ steps of strict full subsumption resolution. 
 \end{defi}
    
 \begin{defi}\label{def:fse}
@@ -691,7 +694,8 @@ Based on \cite{h9} the strict full subsumption extension in the reverse directio
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item If $F \in \Musat $ then $ F' \in \Musat$ and also if $F \in \Smusat$ we have $ F' \in \Smusat$ while if $ F' \in \Smusat$ then $F \in \Musat $ ( by Lemma 6.5 in \cite{h9}). 
+  \item If  $F \tsubres F'$ and $F \in \Musat $ then $ F' \in \Musat$ and also if $F \in \Smusat$ we have $ F' \in \Smusat$ while if $ F' \in \Smusat$ then $F \in \Musat $ ( by Lemma 6.5 in \cite{h9}). 
+  \item For the full subsumption resolution/ extension for variable $v$, if the resolution variable $V$ is occurred in other clauses the it is called "strict" but if the variable is vanished it is called "non-strict".
   \end{enumerate}
 %-----------------------------------------------------------------------------
 \section{Classification of minimally unsatisfiable clause-sets}
@@ -699,15 +703,9 @@ Remarks:
 
 Considering definitions and tools given in previous sections, minimally unsatisfiable clause-sets can be classified based on their deficiencies. So far, the structure of clause-sets in $\Musati{\delta=1}$ is well-known and an overview of them is given in \cite{h9,h27,h24,h32}. For clause-sets in $\Musati{\delta=2}$, \cite{h24} gives a formula which is isomorphism for each $F' \in \Smusati{\delta=2}$ and further investigation on these clause-sets is presented in \cite{h9, h24, h29}. The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{h26} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{h9} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in this subclass is an open research question.
 
-Remarks:
-  \begin{enumerate}
-  \item If $F$ is saturated/hitting, then so is $F'$.
-  \end{enumerate} 
-
 \begin{lem}\label{lem:mu-refu-tree}
 Based on \cite{h24} if $F \in \Musati{\delta=k}$ then an iterated application of singular DP-reduction and the splitting leads to a splitting tree, where the leafs are labeled with clause-sets in $\Musati{\delta=1}$. Also, the number of leafs of the splitting tree is bound by $2^{k-1}$.
 \end{lem}
-
 %-----------------------------------------------------------------------------  
 \subsection{Structure of $\Musati{\delta=1}$}
 \label{sec:smu1}
@@ -737,25 +735,43 @@ Remarks:
   \item In all clause-sets $F \in \Smusati{\delta=1} = \Uclashi{\delta=1}$, there is exactly one full variable (variable occurring in all clauses) which is the variable corresponding to the edges leading to the root of $T:F \vdash \bot$.
   \end{enumerate} 
 \end{lem}
-
+%The structure of resolution trees for $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $ and  $F \in \Musati{\delta=1}$ first was investigated in \cite{h26}.
 \begin{lem}\label{lem:mu1-build}
-The tree resolution structure of $F \in \Smusati{\delta=1}$ and  $F \in \Musati{\delta=1}$?????????
-\end{lem}
-
-\begin{lem}\label{lem:smu1tomu1}
-For a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $, we can obtain $F' \in  \Musati{\delta=1}$ by literal elimination???????? .
-\end{lem}
-
-\begin{lem}\label{lem:mu1-build}
-All $F \in  \Smusati{\delta=1} = \Uclashi{\delta=1} \subset \Musati{\delta=1}$ can be obtained by singular extension of $\set{\bot}$.?????????
+Based of \cite{h26}, the structure of resolution trees  for $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $ and  $F \in \Musati{\delta=1}$ are as follows:
+  \begin{enumerate}
+  \item For $F \in \Smusati{\delta=1}$, there exist a resolution tree $T$ such that each inner node is labeled by a distinct variable $v \in \var(F)$ and the left edge of this node is labeled by $x: \var(x)=\var(v)$ and also the right edge is labeled by $\ol x: \var(x)=\var(v)$. The set of all clauses in leaves is $F$. Also, there is a variable occurring in all clauses. 
+  \item Consider the resolution tree in part 1. If we remove a literal $x$ from one of leaves $C$ such that removing that literal does not produce any pure literal (subsumption resolution in Definition \ref{def:sres}), then the new clause-set $F'$ is in $ \Musati{\delta=1}$. If we repeat this process
+  For $F \in \Musati{\delta=1}$, there exist a 
+  \end{enumerate}
 \end{lem}
 \begin{prf}
-By Definition \ref{def:singularextn} and Lemmas \ref{lem:mu1-refu-tree} and \ref{lem:mu1-sma-uhit}.
+For the first part, by considering the two criteria of the tree (each inner node labeled by a distinct variable $v \in \var(F)$ and the left/right edge of this node labeled by $x$/ $\ol x$) we can get $\set{\bot}$ by only iterated application of singular DP-reduction. Thus, based on Lemma \ref{lem:mu1-sdp} we have $F(T) \in  \Musati{\delta=1}$. Furthermore, based on those two criteria any two different clauses $C,D$ in leaves clash and also any clauses in leaves contains at least one literal occurring exactly one in $F$ (as singular variable). Thus, $F$ is a hitting clause set and we have $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $.
+
+For the proof of the second part, if we remove any literal from a clause, then there exist at least two clauses $C,D \in F'$ that does not clash. Thus, $F'$ is not a hitting clause-set any more (and also not saturated). But, since there is no pure literal and $\minvdeg(F) = 2$ we can obtain $\set{\bot}$ by only application of singular DP-reduction. Thus based on Lemma \ref{lem:mu1-sdp}, we have $F \in \Musati{\delta=1}$. If we perform ??????????
 \end{prf}
 
-\begin{lem}\label{lem:smu1-uhit1}
-Since $\Smusati{\delta=1} = \Uclashi{\delta=1}$ in \cite{h9}, a clause-set $F \in \Cls$ can be reduced by a series of non-strict full subsumption resolutions to $\set{\bot}$ iff $F \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. proof????????
+\begin{lem}\label{lem:smu1tomu1}
+For a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $, we can obtain any $F' \in  \Musati{\delta=1}$ by iterated application of subsumption resolution.
 \end{lem}
+\begin{prf}
+For the reason of using subsumption resolution see \ref{lem:mu1-build}. We can perform this operation for $F \in \Smusati{\delta=1}$ if no pure literal is produced which is exactly the condition of subsumption resolution in Definition \ref{def:sres} (that is there must be a clause $D \in F: D \sm \set{\ol x} \sse C$).
+\end{prf}
+%*******************************
+\begin{lem}\label{lem:smu1-uhit1}
+All clause-sets $F \in  \Smusati{\delta=1} = \Uclashi{\delta=1} \subset \Musati{\delta=1}$ can be obtained by any on the following methods:
+  \begin{enumerate}
+  \item By the binary tree (resolution tree) mentioned in part 1 of Lemma \ref{lem:mu1-build}.
+  \item By non-strict full subsumption extension of $\set{\bot}$.
+  \item By singular DP-extension of $\set{\bot}$.
+  \end{enumerate} 
+\end{lem}
+\begin{prf}
+  \begin{enumerate}
+  \item The first part is proved in Lemma \ref{lem:mu1-build}.          
+  \item By Section \ref{sec:fsr-e}, we know that for non-strict full subsumption extension $F'$ of $F$ we have $F \in  \Musati{\delta=1} \Ra F' \in \Musati{\delta=1}$. For  $F=\set{\bot}$, we get $F'=\set{\set{v},\set{\ol v}} \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. If we perform another step of strict full subsumption extension for $F'$, one of its clauses $R$ is chosen and replaced it by $C := R \addcup \set{x}$ and $D := R \addcup \set{\ol{x}}$. We can see that $C$ and $D$ clash and  they also clash with the other clause of $F$. Thus, $F' \in \Uclashi{\delta=1}$. If we continue this process by using a non-full clause $R \in F$ and a variable $v \in \var(F) \sm \var(R)$, and replacing $R$ by the two clauses $R \addcup \set{v}, R \addcup \set{\ol{v}}$, where none of them is already exist, we can get a clause-set $F" \in \Uclashi{\delta=1}=\Smusati{\delta=1}$.    
+  \item From Section \ref{sec:sing-re}, we know that for singular $m$-DP-extension $F'$ of $F$ , $F \in \Musati{\delta=1} \Lra F' \in \Musati{\delta=1}$. Then, by applying a singular DP-extension of $F=\set{\bot}$ for a variable $v$, we get $F'=\set{\set{v},\set{\ol v}} \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. For performing another  singular $m$-DP-extension, we can choose only one of clauses $D$ ($m$ can not be 2 since $\set{v} \cap \set{\ol v}=\bot $) and a new variable $w \not = v$. Now, we have either $F_i"=\set{\set{v},\set{\ol v, w},\set{\ol v,\ol w}}$ or $F_j"=\set{\set{\ol v},\set{ v, w},\set{ v,\ol w}}$. Since in both cases all clauses clash we have $F" \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. In general, in each step we know that all clauses already clash and if we add new variable base on Definition \ref{def:singularextn}, every new clause also clash with other clauses since the new variable does not affect the clashing variables. Thus, the obtained clause-set is in $\Smusati{\delta=1} = \Uclashi{\delta=1}$.
+  \end{enumerate}
+\end{prf}
 
 \begin{lem}\label{lem:mu1-strc}
 We can obtain an special group of $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$ can be obtained by iterated application of full singular unit-extension for $\set{\bot}$.
@@ -771,17 +787,17 @@ For clause-sets $F \in \Smusati{\delta=1}$, there is no unique isomorphic form.
 Consider a resolution tree $T$ where all leaves have a same depth $d \in \NN$. Thus, $F(T) \in \Smusati{\delta=1}$ and $\hts(T) =d$. While in Lemma \ref{lem:mu1-strc} we obtain some clause-sets $F(T) \in \Smusati{\delta=1}$ with $\hts(F) \le 1$. Thus, for $\hts(F) > 1$ they are not isomorphic.
       
 \end{prf}
-Remarks: 
+Some general remarks: 
   \begin{enumerate}
   \item There are exactly two full clause-sets of $\Musati{\delta=1}$, namely $A_0$ and $A_1$.
   \item If a Horn clause-set $F$ (a clause-set with at most one positive literal in each clause) is minimally unsatisfiable, then $F \in \Musati{\delta=1}$.
   \end{enumerate} 
   
 \begin{lem}\label{lem:hitnum}
-For a non-trivial binary tree $T$ and $F(T) \in \Uclashi{\delta=1}$, the number of 1-singular variables in $F(T)$ is equal $2^{\hts(T)-1}$ 
+For a non-trivial binary tree $T$ and $F(T) \in \Smusati{\delta=1}=\Uclashi{\delta=1}$, the number of 1-singular variables in $F(T)$ is equal $2^{\hts(T)-1}$.
 \end{lem}
 \begin{prf}
-???????
+%The number of variables of $F$ is the number of inner node of $T(F)$. Based on Lemma \ref{}, the 1-singular variables of  $F(T) \in \Smusati{\delta=1}$ are those nodes having distance one to leaves in right/left path. Also, from Definition \ref{}, $\hts(T)$ is the shortest path from leaves to the root of tree.
 \end{prf}
 %-----------------------------------------------------------------------------
 \subsection{Structure of $\Musati{\delta=2}$}
@@ -831,101 +847,59 @@ As it can be seen, $F_1$ is a Horn clause-set. Also, if we consider literals $y_
 \end{prf}
 
 \begin{lem}\label{lem:mu2-build}
-All $F \in \Musati{\delta=2}$ can be obtained from $\Dt{n}$ by singular expansion of  $\Dt{n}$ (We also can obtain $F' \in \Musati{\delta=2}$ from a clause-set $F \in \Musati{\delta=2}$ via singular expansion).??????
+All $F \in \Musati{\delta=2}$ can be obtained from $\Dt{n}$ by singular expansion of  $\Dt{n}$ .We also can obtain $F' \in \Musati{\delta=2}$ from a clause-set $F \in \Musati{\delta=2}$ via singular expansion.
 \end{lem}
 \begin{prf}
-?????????????
+?????
 \end{prf}
-
-\begin{lem}\label{lem:mu2-mu2}
-how $\Musati{\delta=2}$ is obtained from $\Musati{\delta=2}$ via singular expansion???????
-\end{lem}
-
+Remarks:
+  \begin{enumerate}
+  \item There is exactly one full element of $\Musati{\delta=2}$, namely $A_2$.
+  \item For $\Dt{n} \in \Smusatnsi{\delta=2}$ and each $v \in \var(\Dt{n})$, $\ve \in \set{0,1}$, holds $\pao v{\ve} * \Dt{n} \in \Musati{\delta=1}$.example 8.3 in \cite{h9}.
+  \item Based on Section \ref{sec:sing-re}, an iterated application of singular DP-reduction for $F \in \Musati{\delta=2}$ produces a clause-set $F' \in \Musati{\delta=2}$ that each variable in $F'$ is occurred at least twice positively and twice negatively ($F' \in  \Musatnsi{\delta=2}$).
+  \item For $\delta(F) = 2$ all elements of $sDP(F)$ are pairwise isomorphic.
+  \end{enumerate}
+  
 \begin{quest}\label{que:mu-2-ism}
-extension of cycle ????????
-
+If we extend some of clause-sets in $\Dt{n}$ with different $n$ using Lemma \ref{lem:mu2-build}, is it possible to obtain isomorphic clause-sets with different $n$?
 \end{quest}
 
 \begin{quest}\label{que:mu2-from-mu1}
 Is every element of $\Musati{\delta=2}$ obtained from some $\Dt{n}$, by expanding every clause via variable-disjoint elements from $\Musati{\delta=1}$ ?
 \end{quest}
-    
-\begin{lem}\label{lem:mu2-refu-tree}
-??????????????? refuted in $n$ resolution steps. how to get to mu(1)?????????
-\end{lem}
-
-  \begin{enumerate}
-  \item Application of $\Musati{\delta=2}$ in \cite{h29}.
-  \item there is exactly one full element of $\Musati{\delta=2}$, namely $A_2$.
-  \end{enumerate}
-
-
-\begin{lem}\label{lem:mu2-strc}
-The structure of all clause-sets in $ \Smusati{\delta=2} =  \Musatnsi{\delta=2}$ are as follows:???????????
-base on ??????
-  \begin{enumerate}
-  \item Based on Section \ref{sec:sing-re}, an iterated application of singular DP-reduction for $F \in \Musati{\delta=2}$ produces a clause-set $F' \in \Musati{\delta=2}$ that each variable in $F'$ is occurred at least twice positively and twice negatively ($F' \in  \Musatnsi{\delta=2}$).
-  \item For $\delta(F) = 2$ all elements of $sDP(F)$ are pairwise isomorphic.
-  \item For $\Dt{n} \in \Smusatnsi{\delta=2}$ and each $v \in \var(\Dt{n})$, $\ve \in \set{0,1}$, holds $\pao v{\ve} * \Dt{n} \in \Musati{\delta=1}$.example 8.3 in \cite{h9}
-\end{enumerate}
-\end{lem}
 
 \begin{lem}\label{lem:mu2-sing}
 [Lemma 5.13 in \cite{h9}]  Consider $F \in \Musati{\delta=2}$ with $\minvdeg(F) \ge 4$. Then $F$ is singular if and only if $F$ contains a unit-clause.
 \end{lem}
-
 %-----------------------------------------------------------------------------
 \subsection{Structure of $\Musat$ with $\delta \ge 3$}
 \label{sec:smu3}
 
-So far, we discussed the structure of $\Musati{\delta=1}$ in Section \ref{sec:smu1}. Also, for $\Musati{\delta=2}$ in Section \ref{sec:smu2} we showed that by applying singular DP-reduction we get $F \in \Musatnsi{\delta=2}$ (which is in the form of $\Dt{n} $) and then, by splitting we get the elements of $\Musati{\delta=1}$ (which are well-known). In this section, ??????
-
-Remarks:
-  \begin{enumerate}
-  \item For $\delta(F) \ge 2$ 3 in general there are non-isomorphic elements in $sDP(F)$.
-  \end{enumerate}
-
-
-\begin{conj}\label{con:mudelta}
-By Conjecture 15.6 in \cite{h9} for every deficiency $k \in \NN$ there are finitely many ``patterns'' which explain the elements of $\Musatnsi{\delta=k}$, as well as the saturated and hitting cases amongst them.
-\end{conj}
+So far, we discussed the structure of $\Musati{\delta=1}$ in Section \ref{sec:smu1}. Also, for $\Musati{\delta=2}$ in Section \ref{sec:smu2} we showed that by applying singular DP-reduction we get $F \in \Musatnsi{\delta=2}$ (which is in the form of $\Dt{n} $) and then, by splitting we get the elements of $\Musati{\delta=1}$ (which are well-known). In this section, we discuss some properties and questions regarding $F \in \Musat$ with $\delta \ge 3$ for future work.
 
 \begin{lem}\label{lem:muk-k}
 By \cite{h27} if $F \in \Musati{\delta=k}$, then there exist a variable with at most $k$ positive and $k$ negative occurrence. %Lemma C2
 \end{lem}
 
 \begin{lem}\label{lem:mu2tomu3}
-The easier way to obtain clause-sets $F' \in \Musati{\delta=3}$ from clause-sets $F \in \Musati{\delta=2}$ is to use full subsumption resolution or full subsumption expansion such that ?????????
+For any non-full $F \in \Musati{\delta=2}$ ($F \not = A_2$), if we perform a strict full subsumption extension, we can obtain an special group of clause-sets $F' \in \Musati{\delta=3}$. Thus, by Definition \ref{def:fse} $F'$ can be obtained by performing a strict full subsumption resolution for $F$.
 \end{lem}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-?????????
-\begin{defi}\label{def:sing-indx}
-\cite{h29} For a clause-set $F \in \Musat$ the singularity index of $F$ is the minimal $n \in \NN_0$ such that a maximal singular tuple of length $n$ exists for $F$ and denoted by $si(F) \in \NN_0$,.
-\end{defi}
+\begin{prf}
+???
+\end{prf}
 Remarks:
-  \begin{enumerate}
-  \item
-  \end{enumerate}
-\begin{defi}\label{def:cl-factor}
-\cite {h26} a clause factor??????
-\end{defi}
-Remarks:
-  \begin{enumerate}
-  \item 
-  \end{enumerate}
-  
-\begin{quest}\label{que:str-3}
-The structure of $\Musati{\delta=3}$? Is there any isomorphism type????????
-\end{quest}
-  
-Tasks:
 \begin{enumerate}
-    \item Describing the subclasses $\Uclashi{\delta=2}$ and $\Smusati{\delta=2}$.
-    \item Determining the clause-irreducible elements of $\Musati{\delta=2}$, extending \cite[Lemma 41]{}. A relevant question here is how far \cite[Lemma 36]{} can be generalised; especially whether for $F \in \Musati{\delta=2}$ holds, that clause-irreducibility implies non-singularity?!
-    \item Which elements of $\Musati{\delta=1}$ have full clauses?
-    \item Investigate the special elements of $\Musati{\delta=1}$ obtained via splitting, with two characterisations: Horn clause-sets, and the underlying tree $T$ has Horton-Strahler number $\hts(T) \le 1$.
-   \item Understand how $\Musati{\delta=2}$ is obtained from $\Musatnsi{\delta=2}$ via singular expansion.
-    \end{enumerate}
+\item If $F$ is saturated/hitting, then so is $F'$. It shouldn't matter which clause of $\Dt{n}$ is chosen for the extension, and thus we obtain here one family $(\Dt{n}')_{n \in \NN, n \ge 3}$ of nonsingular and also saturated elements.
+\item If $F$ is nonsingular, so is $F'$, but possibly also for singular $F$ we obtain nonsingular $F'$ (analysis is needed); this yields further examples (also via singular DP-reduction).
+\end{enumerate}
+
+\begin{conj}\label{con:mudelta}
+By Conjecture 15.6 in \cite{h9} for every deficiency $k \in \NN$ there are finitely many ``patterns'' which explain the elements of $\Musatnsi{\delta=k}$, as well as the saturated and hitting cases amongst them.
+\end{conj}
+ 
+\begin{quest}\label{que:str-3}
+The structure of $\Musati{\delta=3}$? Is there any isomorphic form?
+\end{quest}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Conclusion and open problems}
 \label{cha:concl}
