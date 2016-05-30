@@ -43,13 +43,13 @@ The second part????????
 
 ?????????
 
-The hardness is defined as a measure of complexity (the amount of effort needed to discover unsatisfiability) for a representation $F$ of a boolean function $f$ in SAT solving. Various hardness measures have been investigated in the literature and the relation between these measures is studied in \cite{BeyersdorffGwynneKullmann2013PHPER,DBLP:conf/sat/BeyersdorffK14,GwynneKullmann2013GoodRepresentationsIIex}. In this proposal, two measures of the hardness are investigated. The first one is the tree-hardness which is related to the size of resolution proofs. The width-hardness is the second measure and is related to the width of clauses in resolution proofs. We start with defining these measures for unsatisfiable clause-sets and then, we extend the definitions to the satisfiable clause-sets. An overview of these two measure is given in \cite{BeyersdorffGwynneKullmann2013PHPER,DBLP:conf/sat/BeyersdorffK14,?? }.
+The hardness is defined as a measure of complexity (the amount of effort needed to discover unsatisfiability) for a representation $F$ of a boolean function $f$ in SAT solving. Various hardness measures have been investigated in the literature and the relation between these measures is studied in \cite{BeyersdorffGwynneKullmann2013PHPER,BeyersdorffKullmann2014PHP,GwynneKullmann2013GoodRepresentationsIIex}. In this proposal, two measures of the hardness are investigated. The first one is the tree-hardness which is related to the size of resolution proofs. The width-hardness is the second measure and is related to the width of clauses in resolution proofs. We start with defining these measures for unsatisfiable clause-sets and then, we extend the definitions to the satisfiable clause-sets. An overview of these two measure is given in \cite{BeyersdorffGwynneKullmann2013PHPER,BeyersdorffKullmann2014PHP,?? }.
 
-For representing a boolean function $f$ we defined CNF-clause-sets in Section \ref{sec:Clause-sets}. Here, another representation of $f$ is introduced (called XOR-representation) which is used for extending the hardness game for graphs based on \cite{GwynneKullmann2013GoodRepresentationsIIex,DBLP:conf/lata/GwynneK14}. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. 
+For representing a boolean function $f$ we defined CNF-clause-sets in Section \ref{sec:Clause-sets}. Here, another representation of $f$ is introduced (called XOR-representation) which is used for extending the hardness game for graphs based on \cite{GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata}. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. 
 ????
 
 
-One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which is referred as the building block for understanding unsatisfiability in \cite{DBLP:journals/corr/KullmannZ14}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{DBLP:journals/corr/KullmannZ14, DBLP:series/faia/BuningK09,DBLP:journals/tcs/KullmannZ13}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency and it is used for classification of minimally unsatisfiable clause-sets. In Section \ref{cha:mucls}, first we give an overview of result regarding clause-sets with small deficiency and then, we discuss open problems and our research themes. So far, the structure of clause-sets in $\Musati{\delta=1}$ is well-known and an overview of them is given in \cite{DBLP:journals/corr/KullmannZ14,DBLP:conf/coco/Kullmann00,KleineBuening2000SubclassesMU,DDK98}. For clause-sets in $\Musati{\delta=2}$, \cite{KleineBuening2000SubclassesMU} gives a formula which is isomorphism for each $F' \in \Smusati{\delta=2}$ and further investigation on these clause-sets is presented in \cite{DBLP:journals/corr/KullmannZ14, KleineBuening2000SubclassesMU, DBLP:journals/tcs/KullmannZ13}. The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{DBLP:journals/corr/KullmannZ16} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{DBLP:journals/corr/KullmannZ14} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in this subclass is an open research question.
+One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which is referred as the building block for understanding unsatisfiability in \cite{KullmannZhao2010Extremal}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{KullmannZhao2010Extremal, Kullmann2007HandbuchMU,KullmannZhao2012ConfluenceJ}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency and it is used for classification of minimally unsatisfiable clause-sets. In Section \ref{cha:mucls}, first we give an overview of result regarding clause-sets with small deficiency and then, we discuss open problems and our research themes. So far, the structure of clause-sets in $\Musati{\delta=1}$ is well-known and an overview of them is given in \cite{KullmannZhao2010Extremal, Ku99dK,KleineBuening2000SubclassesMU,DDK98}. For clause-sets in $\Musati{\delta=2}$, \cite{KleineBuening2000SubclassesMU} gives a formula which is isomorphism for each $F' \in \Smusati{\delta=2}$ and further investigation on these clause-sets is presented in \cite{KullmannZhao2010Extremal, KleineBuening2000SubclassesMU, KullmannZhao2012ConfluenceJ}. The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{KullmannZhao2016UHitSAT} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{KullmannZhao2010Extremal} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in this subclass is an open research question.
 
 Some of first results in this report:
 
@@ -65,24 +65,24 @@ Chapter four explains ?????????
 \chapter{Preliminaries}
 \label{cha:Preliminaries}
 
-In this chapter, we use basic concepts according to \cite{DBLP:GwynneKullmann2013GoodRepresentationsIIex, DBLP:conf/sat/BeyersdorffK14,DBLP:journals/corr/KullmannZ14}. 
+In this chapter, we use basic concepts according to \cite{GwynneKullmann2013GoodRepresentationsIIex, BeyersdorffKullmann2014PHP,KullmannZhao2010Extremal}. 
 
 \section{Clause-sets}
 \label{sec:Clause-sets}
 
-The infinite set of variables is denoted by $\Va$. A partial assignment $\vp$ is a map which assigns a unique value in $\set{0,1}$ to some elements of a finite set of variables. The domain of this map is a set of variables denoted by $\var(\vp)$. The set of all partial assignments is indicated by $\Pass$ and for $V \in \pote(\Va)$, $\Tass(V)$ is the set of total assignments over $V$. The empty partial assignment is denoted by $\epa:= \es \in \Pass$. For a partial assignment $\vp \in \Pass$, the number of variables is defined as $n(\vp):=\abs{\var(\vp)}$. For two partial assignments $\vp, \psi \in \Pass$, the composition operation is defined as $\vp \circ \psi := \psi \cup (\vp \sm \var(\psi)) \in \Pass$ which is the union of their variables if they do not conflict. In the case of conflicting variables, the second assignment is considered. This operation has associative property and it is commutative if $\vp, \psi$ do not clash.
+The infinite set of variables is denoted by $\Va$. A \textbf{partial assignment} $\vp$ is a map which assigns a unique value in $\set{0,1}$ to some elements of a finite set of variables. The domain of this map is a set of variables denoted by $\var(\vp)$. The set of all partial assignments is indicated by $\bmm{\Pass}$ and for $V \in \pote(\Va)$, $\bmm{\Tass(V)}$ is the set of total assignments over $V$. The empty partial assignment is denoted by $\epa:= \es \in \Pass$. For a partial assignment $\vp \in \Pass$, the number of variables is defined as $n(\vp):=\abs{\var(\vp)}$. For two partial assignments $\vp, \psi \in \Pass$, the composition operation is defined as $\bmm{\vp \circ \psi} := \psi \cup (\vp \sm \var(\psi)) \in \Pass$ which is the union of their variables if they do not conflict. In the case of conflicting variables, the second assignment is considered. This operation has associative property and it is commutative if $\vp, \psi$ do not clash.
 
-A literal is a pair $(v,\ve)$ with $\var((v,\ve)):=v \in \Va$ (the underlying variable) and $\val((v,\ve)):=\ve \in \set{0,1}$. The set of all literals is $\Lit$. Two literals $x, y \in \Lit$ clash if they have a same variable but different values. For a set $L \sse \Lit$ we define $\var(L) := \set{\var(x) :x \in L}$, $\lit(L):= \set{x \in \Lit : \var(x) \in \var(L)}$ and $\ol{L} := \lit(L) \sm L$. A clause is defined as a finite and clash-free set of literals. The set of all clauses is denoted by $\Cl$ and $\bot := \es \in \Cl$ is the empty clause. The length (width) of a clause $C$ is the number of variables in $C$.
+A \textbf{literal} is a pair $(v,\ve)$ with $\var((v,\ve)):=v \in \Va$ (the underlying variable) and $\val((v,\ve)):=\ve \in \set{0,1}$. The set of all literals is $\bmm{\Lit}$. Two literals $x, y \in \Lit$ clash if they have a same variable but different values. For a set $L \sse \Lit$ we define $\var(L) := \set{\var(x) :x \in L}$, $\lit(L):= \set{x \in \Lit : \var(x) \in \var(L)}$ and $\ol{L} := \lit(L) \sm L$. A \textbf{clause} is defined as a finite and clash-free set of literals. The set of all clauses is denoted by $\bmm{\Cl}$ and $\bot := \es \in \Cl$ is the empty clause. The length (width) of a clause $C$ is the number of variables in $C$.
 
-A clause-set is a finite set of clauses and $\Cls$ is the set of all clause-sets. The empty clause-set is indicated by $\top := \es \in \Cls$. For $F \in \Cls$ we define $\var(F) := \bc_{C \in F} \var(C) \in \pote(\Va)$ and $\lit(F) := \var(F) \cup \ol{\var(F)}$. The number of variables in $F$ is denoted by $n(F) := \abs{\var(F)} \in \NNZ$ and the number of clauses is $c(F) := \abs{F} \in \NNZ$. The number of literal occurrences in $F$ is also denoted by $\ell(F) := \sum_{C \in F} \abs{C} \in \NNZ$. If the union of literals occurring in $F$ is indicated by $\bigcup F \subset \Lit$, then a ``pure'' literal for $F \in \Cls$ is defined as $x \in \bigcup F$ and $\ol{x} \not \in \bigcup F$. A clause-set $F$ is called $k-\Cls$ if every clause in $F$ has length (width) at most $k$. A full clause $C$  for a clause-set $F$ is defined as $C \in F$ and $\var(C) = \var(F)$, and a clause-set $F$ is called full if every clause of $F$ is full. The full clause-set for a finite set of variables $V$ is denoted by $A(V)$. 
+A \textbf{clause-set} is a finite set of clauses and $\bmm{\Cls}$ is the set of all clause-sets. The empty clause-set is indicated by $\top := \es \in \Cls$. For $F \in \Cls$ we define $\var(F) := \bc_{C \in F} \var(C) \in \pote(\Va)$ and $\lit(F) := \var(F) \cup \ol{\var(F)}$. The number of variables in $F$ is denoted by $n(F) := \abs{\var(F)} \in \NNZ$ and the number of clauses is $c(F) := \abs{F} \in \NNZ$. The number of literal occurrences in $F$ is also denoted by $\ell(F) := \sum_{C \in F} \abs{C} \in \NNZ$. If the union of literals occurring in $F$ is indicated by $\bigcup F \subset \Lit$, then a \textbf{pure literal} for $F \in \Cls$ is defined as $x \in \bigcup F$ and $\ol{x} \not \in \bigcup F$. A clause-set $F$ is called $\bmm{k-\Cls}$ if every clause in $F$ has length (width) at most $k$. A full clause $C$  for a clause-set $F$ is defined as $C \in F$ and $\var(C) = \var(F)$, and a clause-set $F$ is called full if every clause of $F$ is full. The full clause-set for a finite set of variables $V$ is denoted by $A(V)$. 
 
 \begin{examp}\label{exp:An}
 If $A(V)$ for $V=\set{1,..., n}$ is indicated by $A_n$ then $A_0 = \set{\bot}$, $A_1 = \set{\set{1},\set{-1}}$ and $A_2 = \set{\set{-1,-2},\set{-1,2},\set{1,-2},\set{1,2}}$.
 \end{examp}
 
-Partial assignments are extended from variables to literals using $\vp(\ol{v})=\ol{\vp(v)}$. The operation of a partial assignment on a clause-set is defined as $\vp * F := \set{C \sm \vp : C \in F \wedge C \cap \ol{\vp} = \es} \in \Cls$. This means removing all clauses having at least one literal with $\vp (x)=1$ and then, removing from all clauses the literals with $\vp (x)=0$. For a clause $C$, the partial assignment $\vp_C$ sets precisely the literals in $C$ to 0. A clause-set $F$ is called satisfiable if there exists a partial assignment $\vp$ such that $\vp * F = \top$. Another definition for a satisfiable clause-set $F$ is that there exists a clause which clashes with all clauses of $F$. The set of all satisfiable clause-sets is indicated by $\Sat := \set{F \in \Cls \mb \ex\, \vp \in \Pass : \vp * F = \top}$ while $\Usat := \Cls \sm \Sat$. If $\vp * F = \top$ then the partial assignment is called a satisfying assignment for $F$.
+Partial assignments are extended from variables to literals using $\vp(\ol{v})=\ol{\vp(v)}$. The operation of a partial assignment on a clause-set is defined as $\bmm{\vp * F} := \set{C \sm \vp : C \in F \wedge C \cap \ol{\vp} = \es} \in \Cls$. This means removing all clauses having at least one literal with $\vp (x)=1$ and then, removing from all clauses the literals with $\vp (x)=0$. For a clause $C$, the partial assignment $\vp_C$ sets precisely the literals in $C$ to 0. A clause-set $F$ is called \textbf{satisfiable} if there exists a partial assignment $\vp$ such that $\vp * F = \top$. Another definition for a satisfiable clause-set $F$ is that there exists a clause which clashes with all clauses of $F$. The set of all satisfiable clause-sets is indicated by $\bmm{\Sat} := \set{F \in \Cls \mb \ex\, \vp \in \Pass : \vp * F = \top}$ while $\bmm{\Usat} := \Cls \sm \Sat$. If $\vp * F = \top$ then the partial assignment is called a satisfying assignment for $F$.
 
-Two clause-sets $F, G$ are called isomorphic, if we can get $G$ from $F$ by renaming the variables of $F$ (and also flipping the variables is allowed if needed). Thus, we can consider the isomorphism as a bijection $\alpha: \lit(F) \ra \lit(G)$ such that $\alpha(\ol{x}) = \ol{\alpha(x)}$) and the clauses of $F$ are precisely mapped to the clauses of $G$. 
+Two clause-sets $F, G$ are called \textbf{isomorphic}, if we can get $G$ from $F$ by renaming the variables of $F$ (and also flipping the variables is allowed if needed). Thus, we can consider the isomorphism as a bijection $\alpha: \lit(F) \ra \lit(G)$ such that $\alpha(\ol{x}) = \ol{\alpha(x)}$) and the clauses of $F$ are precisely mapped to the clauses of $G$. 
 
 A boolean function is a total assignment $f$ over a finite set of variables $V$ and denoted by $f:  \Tass(V) \ra \set{0,1}$. The Conjunctive Normal Form (or the CNF-representation) is the interpretation of a clause-set $F$ as a boolean function $f$ by considering the $F$ as the conjunction of clauses and a clause $C \in F$ as the disjunction of literals. In general, $F$ is a CNF-representation of $f$ if $\var(F) \spe \var(f)$ and for $\vp \in \Tass(\var(f))$, $(\vp * F) \in \Sat \Lra f(\vp) = 1$. If $v \in \var(f)$ it is called primary variable while $v \in \var(F) \sm \var(f)$ is called auxiliary variable.
 
@@ -90,14 +90,14 @@ A boolean function is a total assignment $f$ over a finite set of variables $V$ 
 \label{sec:imprel}
 
 \begin{defi}\label{def:imp-rel}
-The implication-relation for two clause-sets $F, F'$ is defined as $F \models F'$ if $\fa\, \vp \in \Pass : \vp * F = \top \Ra \vp * F' = \top$. This relation can also be considered between a clause $C$ and a clause-set $F$ if $F \models \set{C}$ (which is indicated as $F \models C$).
+The \textbf{implication-relation} for two clause-sets $F, F'$ is defined as $F \models F'$ if $\fa\, \vp \in \Pass : \vp * F = \top \Ra \vp * F' = \top$. This relation can also be considered between a clause $C$ and a clause-set $F$ if $F \models \set{C}$ (which is indicated as $F \models C$).
 \end{defi}
 Remarks:
   \begin{enumerate}
   \item For  $F \in \Usat$ the only implication-relation is $F \models \bot$.
-  \item A literal $x$ is called a ``forced literal'' for a clause-set $F$ if $F \models x$ and $\pab{x \ra 1}$ is the forced assignment for $F$. Thus,  $\pab{x \ra 1} * F$ is satisfiability-equivalent to $F$.
-  \item A clause $C$ is called an ``implicate'' of a clause-set $F$ if $F \models C$ and it is called a ``prime implicate'' if there no $ C' \sse C$ as an implicate of $F$. The set of all prime implicates of $F$ is denoted by $\primec_0(F) \in \Cls$.
-  \item A clause $C$ is called an ``implicant'' of a clause-set $F$ if $C$ as a partial assignment is a satisfying assignment for $F$. In other words, $C$ must fulfill $C * F=\top$. A ``prime implicant'' is a minimal implicant and the set of all prime implicants is indicated by $\primec_1(F) \in \Cls$. 
+  \item A literal $x$ is called a \textbf{forced literal} for a clause-set $F$ if $F \models x$ and $\pab{x \ra 1}$ is the forced assignment for $F$. Thus,  $\pab{x \ra 1} * F$ is satisfiability-equivalent to $F$.
+  \item A clause $C$ is called an \textbf{implicate} of a clause-set $F$ if $F \models C$ and it is called a \textbf{prime implicate} if there no $ C' \sse C$ as an implicate of $F$. The set of all prime implicates of $F$ is denoted by $\primec_0(F) \in \Cls$.
+  \item A clause $C$ is called an \textbf{implicant} of a clause-set $F$ if $C$ as a partial assignment is a satisfying assignment for $F$. In other words, $C$ must fulfill $C * F=\top$. A \textbf{prime implicant} is a minimal implicant and the set of all prime implicants is indicated by $\primec_1(F) \in \Cls$. 
   \item For $F \in \Usat$ we have $\primec_0(F) = \set{\bot}$ and $\primec_1(F) = \top$.
   \item Two clause-sets $F, G$ are called ``logically equivalent'' if $F \models G$ and $G \models F$. In this case, we have $\primec_0(F) = \primec_0(G)$ and $\primec_1(F) = \primec_1(G)$.
   \end{enumerate}
@@ -109,14 +109,14 @@ For $F = \{\{ \ol x, y\} , \{ \ol y, z\}\}, prc_0(F) = \{\{\ol x, y\} , \{\ol y,
 \section{Decision tree and resolution tree}
 \label{sec:trees}
 
-A ``full binary tree'' is a tree that every node except leaves has exactly two children (or parents). The root of tree $T$ is indicated by $\rt(T)$.
+A \textbf{full binary tree} is a tree that every node except leaves has exactly two children (or parents). The root of tree $T$ is indicated by $\rt(T)$.
 
 \begin{defi}\label{def:isomo-trees}
-Two binary tree $T_1, T_2$ are called isomorphic if there is a bijective map $\alpha$ for the set of vertices $V$ of $T_1, T_2$ such that $\alpha: V(T_1) \ra V(T_2)$ and $\alpha(\rt(T_1))=\rt(T_2)$. Also, for each inner vertex $a$ with right child $b$ and left child $c$, $\alpha(a)$ either has children $\alpha(b)$, $\alpha(c)$ or $\alpha(a)$ has children $\alpha(c)$,$\alpha(b)$.
+Two binary tree $T_1, T_2$ are called \textbf{isomorphic} if there is a bijective map $\alpha$ for the set of vertices $V$ of $T_1, T_2$ such that $\alpha: V(T_1) \ra V(T_2)$ and $\alpha(\rt(T_1))=\rt(T_2)$. Also, for each inner vertex $a$ with right child $b$ and left child $c$, $\alpha(a)$ either has children $\alpha(b)$, $\alpha(c)$ or $\alpha(a)$ has children $\alpha(c)$,$\alpha(b)$.
 \end{defi}
 
 \begin{defi}\label{def:decs-tree}
-A ``decision tree'' (or splitting tree) is a binary tree such that its nodes are labeled by a clause-set $F$ and the two children of each node are obtained by assigning the two possible value for a literal in $F$. The leaves are labeled by either $\set{\bot}$ or $\top$ and the path to each leaf is either a satisfying assignment or a falsifying assignment.
+A \textbf{decision tree} (or splitting tree) is a binary tree such that its nodes are labeled by a clause-set $F$ and the two children of each node are obtained by assigning the two possible value for a literal in $F$. The leaves are labeled by either $\set{\bot}$ or $\top$ and the path to each leaf is either a satisfying assignment or a falsifying assignment.
 \end{defi}
 Remarks:
   \begin{enumerate}
@@ -124,16 +124,16 @@ Remarks:
   \end{enumerate}
 
 \begin{defi}\label{def:resolution}
-The resolution is an operation applied to two clauses $C,D$ which clash in exactly one variable and produces a new clause. The result of the resolution for $C \cap \overline D = \{ x \}$ (which is called a resolvent) is defined as $C \diamond D := (C \cup D) \setminus \{x, \overline x\} $. $C,D$ are called resolvable clauses and $x$ is the resolution literal. 
+The \textbf{resolution} is an operation applied to two clauses $C,D$ which clash in exactly one variable and produces a new clause. The result of the resolution for $C \cap \overline D = \{ x \}$ (which is called a \textbf{resolvent}) is defined as $\bmm{C \diamond D} := (C \cup D) \setminus \{x, \overline x\} $. $C,D$ are called \textbf{resolvable clauses} and $x$ is the \textbf{resolution literal}. 
 \end{defi}
 \begin{defi}\label{def:resolution-tree}
-Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the ``resolution tree''. The tree is indicated by $T : F \vdash C$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. 
+Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the \textbf{resolution tree}. The tree is indicated by $\bmm{T : F \vdash C}$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. 
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item  The number of nodes in $T$ is called tree-resolution complexity and denoted by $\comptr(R) \in \NN$.
-  \item  A resolution proof of a clause $C$ from a clause-set $F$ is a resolution tree $T : F \vdash C$.
-  \item  If a resolution proof drives $\bot$, it is called a resolution refutation and $F$ is unsatisfiable.
+  \item  The number of nodes in $T$ is called \textbf{tree-resolution complexity} and denoted by $\bmm{\comptr(R)} \in \NN$.
+  \item  A \textbf{resolution proof} of a clause $C$ from a clause-set $F$ is a resolution tree $T : F \vdash C$.
+  \item  If a resolution proof drives $\bot$, it is called a \textbf{resolution refutation} and $F$ is unsatisfiable.
   \item If a clause $C$ is an implicate of a clause-set $F$, then there is a resolution tree $T : F \vdash C$. A clause $C$ is a prime implicate for $F$ iff there is no tree $T': F \vdash C'$ for some $C \sst C'$.
   \item For an unsatisfiable $F$, it is proved that there is a relation between resolution refutations and decision trees. If $T : F \vdash \bot$ is a resolution refutation for $F \in \Usat$, then there is a decision tree $R$ for $F$ with the same structure of $T$ (by Lemma 1 in \cite{DBLP:journals/ipl/BeyersdorffGL13}).
   \end{enumerate}
@@ -154,13 +154,13 @@ A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol 
 \label{sec:dpr}
 
 \begin{defi}\label{def:redctn}
-A reduction is considered as a map $r: \Cls \ra \Cls$ such that for all $F \in \Cls$, $r(F)$ is satisfiability-equivalent to $F$. Using the reduction technique, unsatisfiability is resulted if $\bot \in r(F)$.
+A \textbf{reduction} is considered as a map $r: \Cls \ra \Cls$ such that for all $F \in \Cls$, $r(F)$ is satisfiability-equivalent to $F$. Using the reduction technique, unsatisfiability is resulted if $\bot \in r(F)$.
 \end{defi}
 
 An example of the reduction is unit resolution (or unit propagation) which is applied to a clause-set $F$ with at least one unit-clause (a clause with one literal). This technique is performed by setting the literal in unit-clause to its satisfying assignment. For example for clause $\set{x}$, we set the literal $x$ to true. If the reduction yields $\bot$, then $F$ is unsatisfiable. Else, if there are more unit-clauses, this step is continued until no unit-clause is left.
 
 \begin{defi}\label{def:dpredc}
-\cite{DBLP:journals/corr/KullmannZ14} The DP-reduction is the process of removing a variable $v \in \var(F)$ by taking all clauses having $v$ and replacing them by their resolvents that is:
+\cite{KullmannZhao2010Extremal} The \textbf{DP-reduction} is the process of removing a variable $v \in \var(F)$ by taking all clauses having $v$ and replacing them by their resolvents that is:
 \begin{displaymath}
 \bmm{\dpi{v}(F)} := \set{C \in F : v \notin \var(C)} \cup \set{C \res D : C, D \in F \und C \cap \ol{D} = \set{v}} \in \Cls
 \end{displaymath}
@@ -176,15 +176,15 @@ Remarks:
 \section{Hardness measures}
 \label{sec:Hardnessmeasures}
 
-The hardness is defined as a measure of complexity for a representation $F$ of a boolean function $f$ in SAT solving. In this section, two hardness measures are investigated,  the tree-hardness and The width-hardness. The first measure is related to the size of resolution proofs while the second one is related to the width of clauses in resolution proofs. We start with defining these measures for unsatisfiable clause-sets and then, we extend the definitions to the satisfiable clause-sets. 
+The \textbf{hardness} is defined as a measure of complexity for a representation $F \in \Cls$ of a boolean function $f$ in SAT solving. In this section, two hardness measures are investigated,  the tree-hardness (or just the hardness) and the width-hardness. The first measure is related to the size of resolution proofs while the second one is related to the width of clauses in resolution proofs. We start with defining these measures for unsatisfiable clause-sets and then, we extend the definitions to the satisfiable clause-sets. In Section \ref{sec:game-pd}, a game characterization is given for the tree-hardness and then, in Section \ref{sec:appgame} the game is applied for Tseitin graph.
+%-----------------------------------------------------------------------
+\subsection{Tree-hardness of clause-sets}
+\label{sec:Hardnessunsat}
 
-%\subsection{Generalised unit-clause propagation}
-%\label{sec:rkred}
-
-The unit resolution is explained in Section \ref{sec:dpr}. Another case of the reduction is generalised unit-clause propagation introduced in \cite{DBLP:journals/eccc/ECCC-TR99-041} and denoted by $\rk_k$. 
+The unit resolution is explained in Section \ref{sec:dpr}. Another case of the reduction is generalised unit-clause propagation introduced in \cite{Ku99b} and denoted by $\rk_k$. 
 
 \begin{defi}\label{def:rk}
-\cite{DBLP:journals/eccc/ECCC-TR99-041} The maps $\rk_k: \Cls \ra \Cls$ for $k \in \NNZ$ are defined as follows (for $F \in \Cls$):
+By \cite{Ku99b}, for $F \in \Cls$ the maps $\bmm{\rk_k}: \Cls \ra \Cls$ for $k \in \NNZ$ is called the \textbf{generalised unit-clause propagation} and defined as follows:
   \begin{eqnarray*}
   \rk_0(F) & := &
   \begin{cases}
@@ -200,8 +200,8 @@ This technique removes some forced literals using forced assignments and discove
 
 Remarks:
 \begin{enumerate}
-  \item For $k=1$, the generalised unit-clause propagation eliminates all unit-clauses with assigning their satisfying assignment. Thus, $\rk_1$ is the unit-clause propagation.
-  \item $\rk_2$ is called failed literal elimination and all clauses in $\rk_2$ have length at least $2$ (since all unit-clauses have already been removed).
+  \item For $k=1$, the generalised unit-clause propagation eliminates all unit-clauses with assigning their satisfying assignment. Thus, $\rk_1$ is the \textbf{unit-clause propagation}.
+  \item $\rk_2$ is called \textbf{failed literal elimination} and all clauses in $\rk_2$ have length at least $2$ (since all unit-clauses have already been removed).
   \item In each step $k$, if $\rk_k$ yields $\bot$ then the original clause-set $F$ is unsatisfiable while $F$ is satisfiable if $\top$ is obtained. In the latter case, the sequence of forced assignments eliminated until that level is a satisfying assignment for $F$.
   \item The map $\rk_k$ is well-defined since it does not depend on the choices of literals in each step. For example, in the process of obtaining  $\rk_1$ the final result does not change based on the order of choosing the unit literals. 
   \item For all clauses $C \in F$ if $\abs{C} > k$, then $\rk_k(F) = F$. This means that this technique is not complete since $\rk_k(F)$ can not discover the unsatisfiability of a clause-set $F$ if all clauses in $F$ have length at least $K+1$.
@@ -215,14 +215,11 @@ Using literals $a,b,c,d$, $\rk_k(F)$ for some examples is computed as follows:
   \item For $F := \set{\set{a,b},\set{a,\ol{b}}, \set{\ol{a},b},\set{\ol{a},\ol{b}}}$: $\rk_k(F) = F$ for $k \le 1$, $\rk_k(F) = \set{\bot}$ for $k \ge 2$.
   \end{enumerate}
 \end{examp}
-%-----------------------------------------------------------------------
-\subsection{Tree-hardness of clause-sets}
-\label{sec:Hardnessunsat}
 
-The concept of the hardness can be explained from two aspects. The first aspect is related to the complexity of resolution proofs and reviewed in \cite{DBLP:GwynneKullmann2013GoodRepresentationsIIex, DBLP:conf/sat/BeyersdorffK14}. Following, we define the Horton-Strahler number as a measure of branching complexity for trees and we use it for resolution trees $T$.
+The concept of the hardness can be explained from two aspects. The first aspect is related to the complexity of resolution proofs and reviewed in \cite{GwynneKullmann2013GoodRepresentationsIIex, BeyersdorffKullmann2014PHP}. Following, we define the Horton-Strahler number as a measure of branching complexity for trees and we use it for resolution trees $T$.
 
 \begin{defi}\label{def:hsn}
-The Horton-Strahler number $\hts(T) \in \NNZ$ for each node of a resolution tree $T$ is the length of the shortest path from that node to the leaves. For the root of $T$,  $\hts(T)$ is the height of the tree.
+The \textbf{Horton-Strahler number} $\bmm{\hts(T)} \in \NNZ$ for each node of a resolution tree $T$ is the length of the shortest path from that node to the leaves. For the root of $T$,  $\hts(T)$ is the height of the tree.
 \end{defi}
 Remarks:
 \begin{enumerate}
@@ -230,10 +227,10 @@ Remarks:
 \end{enumerate}
 
 \begin{defi}\label{def:hdhs}
-\cite{DBLP:conf/sat/BeyersdorffK14} For an unsatisfiable clause-set $F$ there exist a resolution refutation $T:F \vdash \bot$ with the Horton-Strahler number (height) $\hts(T)$. The tree-hardness (or just hardness) for $F \in \Usat$ is defined as the minimum of $\hts(T)$ of all  $T:F \vdash \bot$ and denoted by $\hardness(F)$.
+\cite{BeyersdorffKullmann2014PHP} For an unsatisfiable clause-set $F$ there exist a resolution refutation $T:F \vdash \bot$ with the Horton-Strahler number (height) $\hts(T)$. The \textbf{tree-hardness} (or just hardness) for $F \in \Usat$ is defined as the minimum of $\hts(T)$ of all  $T:F \vdash \bot$ and denoted by $\bmm{\hardness(F)}$.
 \end{defi}
 
-From computational point of view, Definition \ref{def:hdhs} is not a practical method to obtain the hardness. Thus, there is another description using an algorithmic approach via generalised unit-clause propagation $\rk_k$. According to definition of $\rk_k(F)$ in \ref{def:rk}, the hardness is the minimum of $k \in \NNZ$ such that $\rk_k(F)$ yields $\bot$. This description is extended for satisfiable clause-sets in Definition \ref{def:hd-extended} based on \cite{DBLP:conf/sat/BeyersdorffK14, DBLP:GwynneKullmann2013GoodRepresentationsIIex}.
+From computational point of view, Definition \ref{def:hdhs} is not a practical method to obtain the hardness. Thus, there is another description using an algorithmic approach via generalised unit-clause propagation $\rk_k$. According to definition of $\rk_k(F)$ in \ref{def:rk}, the hardness is the minimum of $k \in \NNZ$ such that $\rk_k(F)$ yields $\bot$. This description is extended for satisfiable clause-sets in Definition \ref{def:hd-extended} based on \cite{BeyersdorffKullmann2014PHP, GwynneKullmann2013GoodRepresentationsIIex}.
 
 \begin{defi}\label{def:hd-extended}
 The hardness is a map that assigns a natural (and finite) number for a representation of a boolean function $f$ as a clause-set $F \in \Cls$ and is denoted by $\hardness : \Cls \rightarrow \NNZ$. To obtain the hardness of  $F$, there are three cases: if $F = \top$, then $\hardness(F) := 0$. Else if $F \in \Usat$, then $\hardness(F) := \min \set{k \in \NNZ : \rk_k(F)=\set{\bot}}$. Otherwise, $F \in \Sat \sm \set{\top}$ and $\hardness(F) := \max \set{ \hardness(\vp * F) : \vp * F \in \Usat }$.
@@ -265,11 +262,11 @@ For $F = \set{\set{x, y} , \set{x,\ol y}} \in \Sat$ with $\primec_0(F) = \set{\s
 \subsection{Width-hardness of clause-sets}
 \label{sec:whdd}
 
-Another measure for complexity of an unsatisfiable clause-set $F$ as in \cite{DBLP:conf/sat/BeyersdorffK14, DBLP:journals/jar/GwynneK14} is the width-hardness (or asymmetric width) and indicated by $\whardness(F)$. 
+Another measure for complexity of an unsatisfiable clause-set $F$ as in \cite{BeyersdorffKullmann2014PHP, GwynneKullmann2012Slur} is the width-hardness (or asymmetric width) and indicated by $\whardness(F)$. 
 
 As introduced in \cite{Kl93}:
 \begin{defi}\label{def:kres}
-Based on \cite{DBLP:journals/tcs/Buning93}, for a resolution proof $T: F \vdash C$ consider that each node (resolvent) in $T$ have at least one parent with length at most $k$. In this case, the resolvent is called $k$-resolvent. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $k$-resolution and denoted by $F \vdash^k C$. For example, 1-resolution is the unit resolution.
+Based on \cite{Kl93}, for a resolution proof $T: F \vdash C$ consider that each node (resolvent) in $T$ have at least one parent with length at most $k$. In this case, the resolvent is called $k$-resolvent. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $k$-resolution and denoted by $F \vdash^k C$. For example, 1-resolution is the unit resolution.
 \end{defi}
 %If a $k$-resolution refutation exists then the unsatisfiability can be proved by the unit-preference strategy within k levels and vice versa \cite{Kl93}.
 
@@ -284,14 +281,14 @@ For example if $\bot \in F$, then $F \vdash^0 \bot$ and $\whardness(F)=0$. Also 
 \section{Game characterisations of hardness measures}
 \label{sec:game-pd}
 
-overview in \cite{DBLP:conf/sat/BeyersdorffK14, DBLP:journals/ipl/BeyersdorffGL13,DBLP:conf/soda/PudlakI00,?????}??????????
+overview in \cite{BeyersdorffKullmann2014PHP,PI2000,?????}??????????
 
-In \cite{DBLP:conf/sat/BeyersdorffK14}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called the Prover-Delayer game (or just the hardness game). The game is performed between two players, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ in each round by the two players. Therefore, in each round $k$ a new clause-set $F_k$ is obtained with $\hardness(F_k)$ (or $\whardness(F_k)$). The game ends once we reach certain conditions (for $\hardness(F)$ or $\whardness(F)$). First, we consider the game for $\hardness(F)$ and then we explain the game for $\whardness(F)$.
+In \cite{BeyersdorffKullmann2014PHP}, a game is characterised to obtain $\hardness(F)$ or $\whardness(F)$ of a clause-set $F \in \Cls$ called the Prover-Delayer game (or just the hardness game). The game is performed between two players, Prover and Delayer. Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ in each round by the two players. Therefore, in each round $k$ a new clause-set $F_k$ is obtained with $\hardness(F_k)$ (or $\whardness(F_k)$). The game ends once we reach certain conditions (for $\hardness(F)$ or $\whardness(F)$). First, we consider the game for $\hardness(F)$ and then we explain the game for $\whardness(F)$.
 
 In the case of $\hardness(F)$, the goal is to set a strategy for both players in the Prover-Delayer game such that $\hardness(F)$ is achieved. Thus, we need to know that how $\hardness(F)$ is changed by extending $\vp$ with some variables $v \in \var(F)$. 
 
 \begin{lem}\label{lem:hd-var}
-\cite{DBLP:conf/sat/BeyersdorffK14} Consider a clause-set $F \in \Cls$ and $\hardness(F)$. If we assign a value $\ve \in \set{0,1}$ to a variable $v \in \var(F)$, then there are exactly two cases that can happen for $\hardness(F)$. The first case is $\hardness(\pab{x \ra \ve}*F)=\hardness(F)$ and $\hardness(\pab{x \ra \ol \ve}*F) \leq \hardness(F)$ and the second case is  $\hardness(\pab{x \ra \ve}*F)=\hardness(\pab{x \ra \ol \ve}*F)=\hardness(F)-1$. Thus, for all cases  $\hardness(\pab{x \ra \ve}*F) \leq \hardness(F)$.
+\cite{BeyersdorffKullmann2014PHP} Consider a clause-set $F \in \Cls$ and $\hardness(F)$. If we assign a value $\ve \in \set{0,1}$ to a variable $v \in \var(F)$, then there are exactly two cases that can happen for $\hardness(F)$. The first case is $\hardness(\pab{x \ra \ve}*F)=\hardness(F)$ and $\hardness(\pab{x \ra \ol \ve}*F) \leq \hardness(F)$ and the second case is  $\hardness(\pab{x \ra \ve}*F)=\hardness(\pab{x \ra \ol \ve}*F)=\hardness(F)-1$. Thus, for all cases  $\hardness(\pab{x \ra \ve}*F) \leq \hardness(F)$.
 \end{lem}
 
 In this game, Delayer wants to maximize the $\hardness(F)$ for an unsatisfiable clause-set $F$. But since according to Lemma \ref{lem:hd-var} assigning one variable for $F$ (which yields $F'$) does not increase the hardness ($\hardness(F') \leq \hardness(F)$), Delayer must keep ($\hardness(F')$ unchanged. This is achieved by taking no action or just assigning those variables $x \in var(F): \hardness(\pab{x \ra \ve}*F)=\hardness(\pab{x \ra \ol \ve}*F = \hardness(F)$ (we call them as ineffective variables). 
@@ -369,7 +366,7 @@ In the case of Prover, the atomic move is ????
 The CNF-clause-sets is defined in Section \ref{sec:Clause-sets}. In this section, XOR-clause-set is explained for extending the hardness game for graphs. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. 
 
 \begin{defi}\label{def:xor-const} 
-An XOR-constraint (or parity constraint) is a boolean function (parity function) $f$ in the form of $x_1 \oplus \dots \oplus x_n = \ve$ that $x_1, \dots, x_n \in \Lit$ and $\ve \in \set{0,1}$.
+An \textbf{XOR-constraint} (or parity constraint) is a boolean function (parity function) $f$ in the form of $x_1 \oplus \dots \oplus x_n = \ve$ that $x_1, \dots, x_n \in \Lit$ and $\ve \in \set{0,1}$.
 \end{defi}
 
 Remarks:
@@ -380,9 +377,9 @@ Remarks:
 \end{enumerate}
 
 \begin{defi}\label{def:xor-cls}
-Based on \cite{DBLP:GwynneKullmann2013GoodRepresentationsIIex}, an XOR-clause $C \in \Cl$ with literal $x \in \Lit$ is an XOR-constraint with $\oplus_{x \in C} = 0$. Thus, two XOR-clauses $C, D$ are equivalent iff $\var(C) = \var(D)$ and both with the same parity. In an XOR-clause, there is no repetitive literals since $x \oplus x = 0$. In the case of clashing literals, we remove them using the laws $x \oplus \ol{x} = 1$ and $1 \oplus y = \ol{y}$ (since according to the definition, clashing literals are not allowed in clauses).
+Based on \cite{GwynneKullmann2013GoodRepresentationsIIex}, an \textbf{XOR-clause} $C \in \Cl$ with literal $x \in \Lit$ is an XOR-constraint with $\oplus_{x \in C} = 0$. Thus, two XOR-clauses $C, D$ are equivalent iff $\var(C) = \var(D)$ and both with the same parity. In an XOR-clause, there is no repetitive literals since $x \oplus x = 0$. In the case of clashing literals, we remove them using the laws $x \oplus \ol{x} = 1$ and $1 \oplus y = \ol{y}$ (since according to the definition, clashing literals are not allowed in clauses).
 
-An XOR-clause-set is a clause-set $F \in \Cls$ whose clauses $C$ are interpreted as an XOR-clause.  
+An \textbf{XOR-clause-set} is a clause-set $F \in \Cls$ whose clauses $C$ are interpreted as an XOR-clause.  
 \end{defi} 
 
 Remarks:
@@ -391,10 +388,12 @@ Remarks:
   \item An XOR-clause-set $F$ is satisfiable if there exist a partial assignment $\vp$ such that $\var(\vp) \supseteq \var(F)$ and for every $C \in F$ the number of $x \in C$ with $\vp(x) = 1$ is even (that satisfies the equation  $\oplus_{x \in C} = 0$).
 \end{enumerate}
 
-The satisfiability of a CNF-clause-set is investigated using the resolution operation. Here, for investigating whether an XOR-clause-set is satisfiable or not, an operation is defined based on \cite{DBLP:GwynneKullmann2013GoodRepresentationsIIex,DBLP:conf/lata/GwynneK14} which is called an XOR-sum over clauses of $F$.
+The satisfiability of a CNF-clause-set is investigated using the resolution operation. Here, for investigating whether an XOR-clause-set is satisfiable or not, an operation is defined based on \cite{GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} which is called an XOR-sum over clauses of $F$.
 
 \begin{defi}\label{def:xor-sum}
-\cite{DBLP:GwynneKullmann2013GoodRepresentationsIIex} The XOR-sum over clauses of $F$ denoted by $\oplus F \in \Cl$ is applied to two XOR-clauses and produces a new clause or the result is inconsistent. The operation is performed as follows. If there are four literals as $x,\ol{x},y,\ol{y}$ for $x \ne y$, the XOR-sum of them is as $x \oplus \ol{x} = 1$ and $y \oplus \ol{y} = 1$. Thus, $1 \oplus 1 = 0$ and they are removed. If no clash remains, then the result is obtained as a clause $E \in \Cl$. Else if there is just one clash for literals $x, \ol{x}$ with at least one other literal $y$, then $x \oplus \ol{x} = 1$ and $1 \oplus y=\ol{y}$ and a new clause $E \in \Cl$ is obtained. Otherwise, if two literals $x, \ol{x}$ remains, then $\oplus F$ is called inconsistent. An XOR-clause-set $F \in \Cls$ is unsatisfiable if and only if there is $F' \sse F$ such that $\oplus F'$ is inconsistent.
+By \cite{GwynneKullmann2013GoodRepresentationsIIex}, the \textbf{XOR-sum} over clauses of $F$ denoted by $\oplus F \in \Cl$ is applied to two XOR-clauses and produces a new clause or the result is inconsistent. The operation is performed as follows. If there are four literals as $x,\ol{x},y,\ol{y}$ for $x \ne y$, the XOR-sum of them is as $x \oplus \ol{x} = 1$ and $y \oplus \ol{y} = 1$. Thus, $1 \oplus 1 = 0$ and they are removed. If no clash remains, then the result is obtained as a clause $E \in \Cl$. Else if there is just one clash for literals $x, \ol{x}$ with at least one other literal $y$, then $x \oplus \ol{x} = 1$ and $1 \oplus y=\ol{y}$ and a new clause $E \in \Cl$ is obtained. Otherwise, if two literals $x, \ol{x}$ remains, then $\oplus F$ is called inconsistent. 
+
+An XOR-clause-set $F \in \Cls$ is unsatisfiable if and only if there is $F' \sse F$ such that $\oplus F'$ is inconsistent.
 \end{defi} 
 
 \begin{examp}\label{exp:xorcls}
@@ -410,7 +409,7 @@ The satisfiability of the following XOR-clause-sets $F$ are investigated using t
 For each XOR-clause-set $F$ there is a unique equivalent CNF-clause-set $F'$ (without auxiliary variables). To obtain this equivalent CNF-clause-set, a translation is defined and indicated by $X_0(F)$. This translation, converts each clause of $F$ to a set of full clauses in CNF-representation and then $F'$ is the union of these sets. If $F$ has long clauses, then obtaining $X_0(F)$ is not practical.
 
 \begin{defi}\label{def:x0tr}
-\cite{DBLP:GwynneKullmann2013GoodRepresentationsIIex} The $X_0$ translation is a map $X_0: \Cls \ra \Cls$ where the input is an XOR-clause-set and the output is a  CNF-clause-set. Consider an XOR-clause $C \in F$, the $X_0$ translation of this clause is defined as the set of prime implicates of the boolean function for $C$ (without auxiliary variables) and indicated by $X_0(C)=\primec_0(x_1 \oplus \dots \oplus x_n = 0)$. The translation $X_0(C)$ contains all the full clauses over the set of variables in $C$ whose parity are different from the parity of $C$. Thus, $\abs{X_0(C)}=2^{\var(C)-1}$. Finally, the CNF-clause-set is obtained by $X_0(F) := \bc_{C \in F} X_0(C)$.
+By \cite{GwynneKullmann2013GoodRepresentationsIIex}, the \textbf{$X_0$ translation} is a map $X_0: \Cls \ra \Cls$ where the input is an XOR-clause-set and the output is a  CNF-clause-set. Consider an XOR-clause $C \in F$, the $X_0$ translation of this clause is defined as the set of prime implicates of the boolean function for $C$ (without auxiliary variables) and indicated by $X_0(C)=\primec_0(x_1 \oplus \dots \oplus x_n = 0)$. The translation $X_0(C)$ contains all the full clauses over the set of variables in $C$ whose parity are different from the parity of $C$. Thus, $\abs{X_0(C)}=2^{\var(C)-1}$. Finally, the CNF-clause-set is obtained by $X_0(F) := \bc_{C \in F} X_0(C)$.
 \end{defi} 
 
 \begin{examp}\label{exp:X0}
@@ -420,14 +419,12 @@ For $F=\set{\set{a,\ol b}}$, $X_0(F)= \set{\set{a,b},\set{\ol a,\ol b}}$ and for
 \subsection{Tseitin graph}
 \label{sec:Tseitin graph}
 
-Based on \cite{Ts68,DBLP:GwynneKullmann2013GoodRepresentationsIIex} ???????
-
-For extending the hardness game for graphs, first we need to describe Tseitin graph and Tseitin clause-set. A simple graph is a pair $G = (V,E)$ where $V$ is the set of vertices and $E$ is the set of edges. If we consider the graph as a triple $G = (V,E,\eta)$ such that $V$ is the set of vertices, $E$ is the set of edge-labels and $\eta: E \ra \set{e \sse V : 1 \le \abs{e} \le 2}$, we can describe parallel edges and loops. 
+For extending the hardness game for graphs, first we need to describe Tseitin graph and Tseitin clause-set. Based on \cite{GwynneKullmann2013GoodRepresentationsIIex}, a simple graph is a pair $G = (V,E)$ where $V$ is the set of vertices and $E$ is the set of edges. If we consider the graph as a triple $G = (V,E,\eta)$ such that $V$ is the set of vertices, $E$ is the set of edge-labels and $\eta: E \ra \set{e \sse V : 1 \le \abs{e} \le 2}$, we can describe parallel edges and loops. 
 
 Consider a connected graph $G=(V,E,\eta)$ without loop. First, we label each edge with a distinct literal $x \in E$. Then, if we assign a charge $\rho$ to each vertex such that $\rho: V \ra \set{0,1}$, we obtain a unique XOR-clause-set corresponded to $G$. In this case, each vertex $w \in V$ is specified as an XOR-clause $C \in \Cl$ such that $\oplus_{x \in E, w \in \eta(x)} \; x = \rho(w)$. Then, the XOR-clause-set for $G$ is obtained by $T_0(G,\rho) := \set{C_w : w \in V} \in \Cls$. 
 
 \begin{lem}\label{lem:chgvar}
-Suppose that $T_0(G,\rho)$ is an XOR-clause-set for a graph $G=(V,E,\eta)$ without loop. We define $\Phi$ as an XOR-constraint for charges of vertices that is $\oplus_{w \in V} \rho(w) = \ve$ and $\ve \in \set{0,1}$. By assigning a value to all edges $x \in E$, we obtain $\rho(w)$ of all vertices and then, the value of $\ve$ in $\Phi$. In this case, if we change the value of an edge $x$, then $\rho(w)$ for each endpoint of $x$ must be changed to keep $\Phi$ unchanged.
+Suppose that $T_0(G,\rho)$ is an XOR-clause-set for a graph $G=(V,E,\eta)$ without loop. Based on \cite{Ts68} Section 2, we define $\Phi$ as an XOR-constraint for charges of vertices that is $\oplus_{w \in V} \rho(w) = \ve$ and $\ve \in \set{0,1}$. By assigning a value to all edges $x \in E$, we obtain $\rho(w)$ of all vertices and then, the value of $\ve$ in $\Phi$. In this case, if we change the value of an edge $x$, then $\rho(w)$ for each endpoint of $x$ must be changed to keep $\Phi$ unchanged.
 \end{lem}
 \begin{prf}
 According to the definition, each vertex $w$ of $G$ is an XOR-clause with $\rho(w)$ such that  $\oplus_{x \in E, w \in \eta(x)} \; x = \rho(w)$ ($\rho$ is the parity). Since each literal corresponds to an edge connected to two vertices $w_1, w_2$, changing the value of a literal $x$ will change the parity $\rho(w)$ for equation of $w_1, w_2$. XXX
@@ -435,7 +432,9 @@ According to the definition, each vertex $w$ of $G$ is an XOR-clause with $\rho(
 
 For a graph such as Lemma \ref{lem:chgvar} with $\Phi$, if $\ve=0$ then we need to investigate the satisfiability of each XOR-clause to determine whether $T_0(G,\rho)$ is satisfiable or not. Else if $\ve=1$, then $T_0(G,\rho)$ is unsatisfiable. The reason is as follows. If $\ve=1$ in $\Phi$, there is at least one vertex $w$ (XOR-clause $C$) with $ \rho(w) =1$ and according to the definitions in Section \ref{sec:XOR representation}, an XOR-clause $C$ is satisfiable if $\oplus_{x \in C} = 0$. Thus, $\oplus_{x \in C} = \rho(w) \not =0$ and $T_0(G,\rho)$ is unsatisfiable.
 
-A graph $G$ as explained in Lemma \ref{lem:chgvar} with $\ve=1$ in $\Phi$, is called a Tseitin graph. The equivalent CNF-clause-set of $G$ is obtained by $X_0$ translation of $T_0(G,\rho)$ and indicated by $T(G,\rho) := X_0(T_0(G,\rho))$. The clause-set $T(G,\rho) \in \Usat$ is called the Tseitin clause-set of $G$.
+\begin{defi}\label{def:tseitindef}
+By \cite{GwynneKullmann2013GoodRepresentationsIIex}, a graph $G$ as explained in Lemma \ref{lem:chgvar} with $\ve=1$ in $\Phi$, is called a \textbf{Tseitin graph}. The equivalent CNF-clause-set of $G$ is obtained by $X_0$ translation of $T_0(G,\rho)$ and indicated by $\bmm{T(G,\rho)} := X_0(T_0(G,\rho))$. The clause-set $T(G,\rho) \in \Usat$ is called the \textbf{Tseitin clause-set} of $G$.
+\end{defi}
 %----------------------------------------------
 \section{Application of game characterisation for hardness of Tseitin graph}
 \label{sec:appgame}
@@ -507,54 +506,54 @@ According to ???????? the Delayer assigns all variables that are trouble maker (
 \section{Background}
 \label{sec:basicdef}
 
-In this section, first an overview of minimally unsatisfiable clause-sets is given. Then, we use the deficiency of clause-sets as a measure for classification of minimally unsatisfiable clause-sets which is already investigated in \cite{DBLP:journals/corr/KullmannZ14, DBLP:series/faia/BuningK09,DBLP:journals/corr/KullmannZ16,KleineBuening2000SubclassesMU, DBLP:conf/coco/Kullmann00}.
-%One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which is referred as the building block for understanding unsatisfiability in \cite{DBLP:journals/corr/KullmannZ14}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{DBLP:journals/corr/KullmannZ14, DBLP:series/faia/BuningK09,DBLP:journals/tcs/KullmannZ13}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency. 
+In this section, an overview of minimally unsatisfiable clause-sets is given at first. Then, special reduction/extension with application for minimally unsatisfiable clause-sets is explained. Finally, the deficiency of clause-sets is used as a measure for classification of minimally unsatisfiable clause-sets which is already investigated in \cite{KullmannZhao2010Extremal, Kullmann2007HandbuchMU, KullmannZhao2016UHitSAT, KleineBuening2000SubclassesMU, Ku99dK} but in this report, more details are discussed.
+%One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which is referred as the building block for understanding unsatisfiability in \cite{KullmannZhao2010Extremal}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{KullmannZhao2010Extremal, Kullmann2007HandbuchMU,KullmannZhao2012ConfluenceJ}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency. 
 
 \begin{defi}\label{def:mu}
-A clause-set $F \in \Usat$ is minimally unsatisfiable if by removing any arbitrary clause $C \in F$, the clause-set $F \sm \set{C}$ becomes satisfiable. The set of all minimally unsatisfiable clause-sets is indicated by $\Musat \in \Usat$.
+A clause-set $F \in \Usat$ is \textbf{minimally unsatisfiable} if by removing any arbitrary clause $C \in F$, the clause-set $F \sm \set{C}$ becomes satisfiable. The set of all minimally unsatisfiable clause-sets is indicated by $\bmm{\Musat} \in \Usat$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item The complexity of the problem $\Musat \in \Usat$ is $D^P$-complete (by Theorem 11.1.1 in \cite{DBLP:series/faia/BuningK09}).
+  \item The complexity of the problem $\Musat \in \Usat$ is $D^P$-complete (by Theorem 11.1.1 in \cite{Kullmann2007HandbuchMU}).
   \item All full clause-sets $ A_n$ are in $\Musati{}$.
   \end{enumerate}
 
 \begin{defi}\label{def:deficiency}
-The deficiency for a clause-set $F \in \Cls$ is defined as the difference between the number of clauses and the number of variables and indicated by $\delta \in \ZZ: \delta(F)= c(F) - n(F)$.
+The \textbf{deficiency} for a clause-set $F \in \Cls$ is defined as the difference between the number of clauses and the number of variables and indicated by $\bmm{\delta} \in \ZZ: \delta(F)= c(F) - n(F)$.
 \end{defi}
 Remarks:
   \begin{enumerate}
   \item In this report, the minimally unsatisfiable clause-sets with deficiency $k \in \ZZ$ are indicated by $\Musati{\delta=k}$.
-  \item The complexity of the problem $\Musati{\delta=k}$ for fixed $k$ is $P$ (by Theorem 11.2.1 in \cite{DBLP:series/faia/BuningK09}).
+  \item The complexity of the problem $\Musati{\delta=k}$ with fixed $k$ is $P$ (by Theorem 11.2.1 in \cite{Kullmann2007HandbuchMU}).
   \item All $F \in \Musati{\delta=k}$ have $k \ge 1$ (by Theorem 8 in \cite{DDK98}).
   \end{enumerate}
 
 \begin{defi}\label{def:degree}
-For a clause-set $F \in \Cls$ the literal degree for a literal $x \in \lit(F)$ is the number of the literal occurrence and denoted by $\ldeg_F(x) \in \NNZ$. The variable degree for a variable $v \in \var(F)$ is defined as $\vdeg_F(v) := \ldeg_F(v) + \ldeg_F(-v) \in \NNZ$. Finally, the minimum variable degree (or min-var-deg) is defined as the minimum of variable degree for all variable in $F$ and indicated by $\minvdeg(F) \in \NN$.
+For a clause-set $F \in \Cls$ the \textbf{literal degree} for a literal $x \in \lit(F)$ is the number of the literal occurrence and denoted by $\bmm{\ldeg_F(x)} \in \NNZ$. The \textbf{variable degree} for a variable $v \in \var(F)$ is defined as $\bmm{\vdeg_F(v)} := \ldeg_F(v) + \ldeg_F(-v) \in \NNZ$. Also, the \textbf{minimum variable degree} (or min-var-deg) is defined as the minimum of variable degree for all variables in $F$ and indicated by $\bmm{\minvdeg(F)} \in \NN$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item It is obvious that $\vdeg_F(v) \le 2 \delta(F)$ and thus for $n(F) >0$, $\minvdeg(F) \le 2 \delta(F)$. A sharper upper bound for $\minvdeg(F)$ is given in Theorem 9.10 of \cite{DBLP:journals/corr/KullmannZ14}.
+  \item It is obvious that $\vdeg_F(v) \le 2 \delta(F)$ and thus for $n(F) >0$, $\minvdeg(F) \le 2 \delta(F)$. A sharper upper bound for $\minvdeg(F)$ is given in Theorem 9.10 of \cite{KullmannZhao2010Extremal}.
   \item All full clauses $A_n$ have deficiency $2^n - n$ and if $n \ge 1$, then  $\minvdeg(A_n) =2^n$.
-  \item In \cite{DBLP:journals/corr/KullmannZ14}, the problem of finding the min-var-deg for minimally unsatisfiable clause-sets with fixed deficiency is indicated by $\minnonmer(k) $ (that is $\minnonmer(k)  :=  \minvdeg(\Musati{\delta=k}) \in \NN$) and an improved upper bound/ lower bound for $\minnonmer(k) $ is given.
+  \item In \cite{KullmannZhao2010Extremal}, the problem of finding the min-var-deg for minimally unsatisfiable clause-sets with fixed deficiency is indicated by $\minnonmer(k) $ (that is $\minnonmer(k)  :=  \minvdeg(\Musati{\delta=k}) \in \NN$) and an improved upper bound/ lower bound for $\minnonmer(k) $ is given.
     \end{enumerate}
     
 \begin{defi}\label{def:singvar}
-By \cite{DBLP:journals/tcs/KullmannZ13}, for a variable $v \in \var(F)$ if $\min(\ldeg_F(v) ,\ldeg_F(-v))=1$ and is not pure, then it is called a singular variable. If a clause-set $F$ does not have any singular variable, it is called nonsingular. An m-singular variable is a singular variable with $\vdeg_F(v)=m+1$, $m \in \NN$.
+By \cite{KullmannZhao2012ConfluenceJ}, for a non-pure variable $v \in \var(F)$ if $\min(\ldeg_F(v) ,\ldeg_F(-v))=1$, then it is called a \textbf{singular variable}. If a clause-set $F$ does not have any singular variable, it is called \textbf{nonsingular}. An \textbf{m-singular variable} is a singular variable with $\vdeg_F(v)=m+1$, $m \in \NN$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item The set of nonsingular minimally unsatisfiable clause-sets $F \in \Musat$ are indicated by $\Musat' \in \Musat$. Thus, if $F \in \Musat'$, then all variables in $F$ are occurred at least twice positively and at least twice negatively.
-  \item A non-1-singular variable is a variable which $m$-singular for some $m \ge 2$.
+  \item The set of nonsingular minimally unsatisfiable clause-sets $F \in \Musat$ is indicated by $\bmm{\Musat'} \in \Musat$. Thus, if $F \in \Musat'$, then all variables in $F$ are occurred at least twice positively and at least twice negatively.
+  \item A \textbf{non-1-singular variable} is a variable which $m$-singular for some $m \ge 2$.
    \end{enumerate}
  
 \begin{defi}\label{def:splitting}
-Consider a variable $v \in \var(F)$. Splitting of $F$ on $v$ is the process of obtaining two clause-set $F_0,F_1$ as  $F_0:=\pao v0 * F$ and $F_1:=\pao v1 * F$.
+For $F \in \Cls$, consider a variable $v \in \var(F)$. \textbf{Splitting} of $F$ on $v$ is the process of obtaining two clause-set $F_0,F_1$ such that  $F_0:=\pao v0 * F$ and $F_1:=\pao v1 * F$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item A clause-set $F$ in $\Musati{\delta=k}$, splitting may leads to produce two minimally unsatisfiable clause-sets $F_0,F_1$ but generally we can not say this for sure unless more information are provided. 
-  \item If a clause-set $F$ is in $\Musatnsi{\delta=k}$ and also after splitting on a variable the clause-sets $F_0,F_1$ are minimally unsatisfiable with deficiency $k_0, k_1$, then we have $k_0, k_1 < k$ (by Theorem 2 in \cite{KleineBuening2000SubclassesMU}).
+  \item For $F \in\Musati{\delta=k}$, splitting may lead to produce two minimally unsatisfiable clause-sets $F_0,F_1$ but generally one can not speak of minimally unsatisfiability unless more information is provided. 
+  \item For $F \in\Musatnsi{\delta=k}$ if after splitting on a variable $v \in \var(F)$ the clause-sets $F_0,F_1$ are minimally unsatisfiable with deficiency $k_0, k_1$, then we have $k_0, k_1 < k$ (by Theorem 2 in \cite{KleineBuening2000SubclassesMU}).
   \item For $F \in \Musat$, the application of splitting for $\delta=2$ are investigated in Sections \ref{sec:smu2}.
   \end{enumerate}
 %-----------------------------------------------------------------------------
@@ -562,79 +561,79 @@ Remarks:
 \label{sec:autrk}
 
 \begin{defi}\label{def:autarky}
-For a clause-set $F$ a partial assignment $\vp \in \Pass$ is called an autarky if $\fa\, C \in F : \vp * \set{C} \in \set{\set{C}, \top}$. That is whenever a clause is touched by a partial assignment $\vp$, then $\vp$ satisfies it.
+For a clause-set $F \in \Cls$ a partial assignment $\vp \in \Pass$ is called an  \textbf{autarky} if $\fa\, C \in F : \vp * \set{C} \in \set{\set{C}, \top}$. That is whenever a clause is touched by an autarky $\vp$, then it is satisfied.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item If $\vp$ is an autarky for a clause-set $F$, then the application of $\vp *F$ is sat-equivalent for $F$. 
+  \item If $\vp \in \Pass$ is an autarky for $F \in \Cls$, then the application of $\vp *F$ is sat-equivalent for $F$. 
   \item All satisfying assignment for $F$ are autarky.
   \item The empty partial assignment $\epa$ is an autarky for every $F \in \Cls$ and more generally all $\varphi \in \Pass$ with $\var(\varphi) \cap \var(F) = \emptyset$ are autarkies for $F$. 
-  \item An autarky $\vp$ for $F$ is called trivial if $\var(f) \cap \var(\vp) = \es$. Else, it is called non-trivial autarky.
-  \item A clause-set with no non-trivial autarky is called a lean clause-set. The set of all lean clause-sets is denoted by $\Lean \subset \Usat \addcup \set{\top}$. An overview on autarkies and lean clause-sets are given in \cite{DBLP:journals/dam/Kullmann03, DBLP:series/faia/BuningK09}. 
+  \item An autarky $\vp$ for $F$ is called \textbf{trivial} if $\var(f) \cap \var(\vp) = \es$. Else, it is called a \textbf{non-trivial} autarky.
+  \item A clause-set with no non-trivial autarky is called a \textbf{lean clause-set}. The set of all lean clause-sets is denoted by $\bmm{\Lean} \subset \Usat \addcup \set{\top}$. An overview on autarkies and lean clause-sets are given in \cite{Ku00f, Kullmann2007HandbuchMU}. 
   \end{enumerate}
   
 \begin{defi}\label{def:autarky-redc}
-If $\vp \in \Pass$ is a non-trivial autarky for a clause-set $F$, then $\vp *F$ is called autarky reduction for $F$ (and is sat-equivalent to $F$).
+If $\vp \in \Pass$ is a non-trivial autarky for a clause-set $F \in \Cls$, then $\vp *F$ is called \textbf{autarky reduction} for $F$ (and is sat-equivalent to $F$).
 \end{defi} 
 Remarks:
   \begin{enumerate}
-  \item If we apply all possible autarky reduction for a clause-set $F$, then we get lean kenrel of $F$ (Section 11.8.3 in \cite{DBLP:series/faia/BuningK09} provides more details of lean kernel). The lean kernel is the largest lean sub-clause-set of $F$.
-  \item Another equivalent description for lean clause-sets according to \cite{DBLP:journals/dam/Kullmann03} is that if $F \in \Lean \sm \top$ then every clause $C \in F$ is used in at least one resolution refutation for $F$. Thus, the lean kernel of $F$ is the set of all clauses from $F$ that can be used in at least one resolution refutation for $F$ (by Theorem 11.8.1 in \cite{DBLP:series/faia/BuningK09}).
-  \item The autarky reduction is obtained a polynomial time, but finding the autarky in polynomial time is still an open question (\cite{DBLP:journals/corr/KullmannZ14} in Section 10.1 discusses whether the autarky can be found in polynomial time).
+  \item If we apply all possible autarky reduction for a clause-set $F$, then we get the \textbf{lean kenrel} of $F$ (Section 11.8.3 in \cite{Kullmann2007HandbuchMU} provides more details of lean kernel). The lean kernel is the largest lean sub-clause-set of $F$.
+  \item Another equivalent description for lean clause-sets according to \cite{Ku00f} is that if $F \in \Lean \sm \top$ then every clause $C \in F$ is used in at least one resolution refutation for $F$. Thus, the lean kernel of $F$ is the set of all clauses from $F$ that can be used in at least one resolution refutation for $F$ (by Theorem 11.8.1 in \cite{Kullmann2007HandbuchMU}).
+  \item The autarky reduction is obtained in a polynomial time, but finding the autarky in polynomial time is still an open question (\cite{KullmannZhao2010Extremal} in Section 10.1 discusses whether the autarky can be found in polynomial time).
   \end{enumerate}
 %-----------------------------------------------------------------------------
 \section{Hitting clause-sets}
 \label{sec:hit}
 
 \begin{defi}\label{def:hit-cls}
-A clause-set $F \in \Cls $ is called a hitting clause-set iff all clauses $C,D \in F$, $C \not = D$ have at least one clash. The set of all hitting clause-sets is indicated by $\Clash \in \Cls$.
+A clause-set $F \in \Cls $ is called a \textbf{hitting clause-set} iff all clauses $C,D \in F$, $C \not = D$ have at least one clash. The set of all hitting clause-sets is indicated by $\bmm{\Clash} \in \Cls$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item The set of all unsatisfiable hitting clause-sets is indicated by $\Uclash := \Usat \cap \Clash$. The set of all nonsingular unsatisfiable hitting clause-sets is denoted by $\Uclash'$ ($\Uclash' \subset \Uclash$).
-  \item If $F \in \Uclash$, then every clause $C \in F$ is a satisfying assignment (as a partial assignment) for $F \sm \set{C}$.
-  \item If $F \in \Musat$ then removing any clause $C \in F$ make $F \sm \set{C}$ satisfiable. On the other hand, if $F \in \Uclash$ then every $C \in F$ is a satisfying assignment for $F \sm \set{C}$. Thus, $\Uclash \subset \Musat$. \cite{DBLP:journals/corr/KullmannZ16} gives overview of unsatisfiable hitting clause-set.
+  \item The set of all unsatisfiable hitting clause-sets is indicated by $\bmm{\Uclash} := \Usat \cap \Clash$. The set of all nonsingular unsatisfiable hitting clause-sets is denoted by $\bmm{\Uclash'} \subset \Uclash$).
+  \item If $F \in \Uclash$, then every clause $C \in F$ (as a partial assignment) is a satisfying assignment for $F \sm \set{C}$.
+  \item If $F \in \Musat$ then removing any clause $C \in F$ makes $F \sm \set{C}$ satisfiable. On the other hand, if $F \in \Uclash$ then every $C \in F$ is a satisfying assignment for $F \sm \set{C}$. Thus, $\Uclash \subset \Musat$. \cite{KullmannZhao2016UHitSAT} gives an overview of unsatisfiable hitting clause-sets.
   \item For all full clauses $A_n$ we have $A_n \in \Uclash$.
   \end{enumerate}
 
  \begin{defi}\label{def:nhit-cls}
-A clause-set $F \in \Cls $ is called a nearly-hitting clause-set iff for all clauses $C,D \in F$, $C \not = D$ either $\var(C) \cap \var(D) = \es$ or $C,D$ have at least one clash. The set of all nearly-hitting clause-sets is denoted by $\Nclash \subset \Cls$.
+A clause-set $F \in \Cls $ is called a \textbf{nearly-hitting clause-set} iff for all clauses $C,D \in F$, $C \not = D$ either $\var(C) \cap \var(D) = \es$ or $C,D$ have at least one clash. The set of all nearly-hitting clause-sets is denoted by $\bmm{\Nclash} \subset \Cls$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item If $F \in \Nclash$ then every $C \in F$, as partial assignment, is an autarky for $F \sm \set{C}$.
+  \item If $F \in \Nclash$, then every $C \in F$, as partial assignment, is an autarky for $F \sm \set{C}$.
   \end{enumerate}
   
 \begin{quest}\label{ques:nhit-sat}
 The complexity of SAT-decision for nearly-hitting clause-sets is open (also in the boolean case).
-\end{quest}
-   
+\end{quest}   
  %-----------------------------------------------------------------------------              
 \section{Saturated minimally unsatisfiable clause-sets}
 \label{sec:smu}
 
 \begin{defi}\label{def:smu}
-A clause set $F \in \Cls$ is called saturated minimally unsatisfiable iff $f \in \Musat $ and by replacing any $C \in F$ by any super-clause $C' \supset C$, the result clause-set is satisfiable. The set of all saturated minimally unsatisfiable clause-sets is denoted $\Smusat \subset \Musat$.
+A clause set $F \in \Cls$ is called \textbf{saturated} minimally unsatisfiable iff $F \in \Musat $ and by replacing any $C \in F$ by any super-clause $C' \supset C$, the result clause-set is satisfiable. The set of all saturated minimally unsatisfiable clause-sets is denoted $\bmm{\Smusat} \subset \Musat$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item The set of all nonsingular saturated minimally unsatisfiable clause-sets is indicated by $\Smusatns \subset \Smusat$.
-  \item For all clause-sets $F \in \Cls$, if $F \in \Uclash$ then $ F \in \Smusat$ ,i.e. $\Uclash \subset \Smusat$ (by Lemma 2 in \cite{DBLP:journals/tcs/KullmannZ13}). 
+  \item The set of all nonsingular saturated minimally unsatisfiable clause-sets is indicated by $\bmm{\Smusatns} \subset \Smusat$.
+  \item For all clause-sets $F \in \Cls$, if $F \in \Uclash$ then $ F \in \Smusat$ ,i.e. $\Uclash \subset \Smusat$ (by Lemma 2 in \cite{KullmannZhao2012ConfluenceJ}). 
   \item The properties of clause-set in $\Smusatnsi{\delta=1}, \Smusatnsi{\delta=2}$ are investigated in Sections \ref{sec:smu1} , \ref{sec:smu2}.
   \item For every $F \in \Musat$ there is a saturation $F' \in \Smusat$. A saturated clause-set  $F'$ for $F$ is obtained using an operation defined in Definition \ref{def:smu-opr}.
   \end{enumerate}
 
 \begin{defi}\label{def:smu-opr}
-\cite{DBLP:journals/tcs/KullmannZ13} For every $F \in \Musat$ a saturation $F' \in \Smusat$ is obtained by iterated application of the operation $\saturate(F,C,x)$ as follows where $C \in F$, $x \in \lit(F)$ and $\var(x) \not \in \var(C)$:
+\cite{KullmannZhao2012ConfluenceJ} For every $F \in \Musat$ a saturation $F' \in \Smusat$ is obtained by iterated application of the operation $\saturate(F,C,x)$ as follows where $C \in F$, $x \in \lit(F)$ and $\var(x) \not \in \var(C)$:
   \begin{displaymath}
-    \saturate(F,C,x) := (F \sm \set{C}) \cup (C \addcup \set{x}) \in \Cls
+    \bmm{\saturate(F,C,x)} := (F \sm \set{C}) \cup (C \addcup \set{x}) \in \Cls
   \end{displaymath}
-If in iteration $m$ there is no literal in $F$ fulfilling the conditions $\var(x) \not \in \var(C)$ for all clauses of $F$ and $F_m \in \Usat$, then $F' =\saturate(F_m,C_m,x_m) \in \Smusat$. 
+If in iteration $m$ there is no literal in $F$ fulfilling the conditions $\var(x) \not \in \var(C)$ for all clauses of $F$ and $F_m \in \Usat$, then $F' =F_m=\saturate(F_{m-1},C_{m-1},x_{m-1}) \in \Smusat$. 
 \end{defi}
 Remarks:
   \begin{enumerate}
   \item If $F' \in \Smusat$ is a saturation for $F \in \Musat$, then we have $n(F')=n(F)$, $c(F')=c(F)$ and $\delta(F')=\delta(F)$.
-  \item If $C \in F$ and $\var(C) = \var(F)$ then no literal can be added to $C$ to make $F$ saturated and all full clauses $A_n$ are in $\Smusat$.
+  \item If $C \in F$ and $\var(C) = \var(F)$ (full clause), then no literal can be added to $C$ to make $F$ saturated. Also, all full clauses $A_n$ are in $\Smusat$.
+  \item By \cite{Ku99dK}, we have $ \Smusati{\delta=k} \subset \Musati{\delta=k} \subset \Lean_{\delta=k} \subset \Usat_{\delta=k} \cup \set{\top} $ which are poly-time decidable.
   \end{enumerate} 
   
 \begin{examp}\label{exp:smu-exp}
@@ -642,35 +641,31 @@ Remarks:
 \end{examp}
 
 \begin{lem}\label{lem:smu-mu}
-By \cite{??}  $F' \in \Smusat$ iff for all $v \in \var(F)$, $\langle v \ra 1 \rangle*F \in \Musat$.
+By \cite{KullmannZhao2010Extremal}  $F' \in \Smusat$ iff for all $v \in \var(F)$, $\langle v \ra 1 \rangle*F \in \Musat$.
 \end{lem}
 
 \begin{lem}\label{lem:smu-app}
-By \cite{DBLP:journals/corr/KullmannZ14}, for a clause-set $F \in \Smusat$ if $F$ is a full clause-set, and if $F$ is the saturation of some $F' \in \Musat$, then $F' = F$. Otherwise, there exist some some $F' \in \Musat$ with $F' \not= F$ such that $F$ is a saturation of $F'$.
-\end{lem}
-
-\begin{lem}\label{lem:smu-mu}
-By \cite{DBLP:conf/coco/Kullmann00}, we have $ \Smusati{\delta=k} \subset \Musati{\delta=k} \subset \Lean_{\delta=k} \subset \Usat_{\delta=k} \cup \set{\top} $ which are poly-time decidable.
+By \cite{KullmannZhao2010Extremal}, consider a clause-set $F \in \Smusat$. If $F$ is a full clause-set and also it is the saturation of some $F' \in \Musat$, then $F' = F$. Otherwise, if $F$ is not a full clause-set then there exist some some $F' \in \Musat$ with $F' \not= F$ such that $F$ is a saturation of $F'$.
 \end{lem}
 
 \begin{quest}\label{que:smu-elim}
-By \cite{DBLP:journals/corr/KullmannZ14} for a clause-set $F \in \Smusat$ if we obtain $F'$ by eliminating a literal occurrences in $F$, is $F'$ still minimally unsatisfiable? (that is for $C \in F$, $x \in C$, whether $F' := (F \sm \set{C}) \addcup \set{C \sm \set{x}}$ is in $\Musat$ ?)
+For a clause-set $F \in \Smusat$ if $F'$ is obtained by eliminating a literal occurrences in $F$, is $F'$ still minimally unsatisfiable? (that is for $C \in F$, $x \in C$, whether $F' := (F \sm \set{C}) \addcup \set{C \sm \set{x}}$ is in $\Musat$ ?)
 \end{quest}
 %-----------------------------------------------------------------------------
 \section{Reduction/ extension of minimally unsatisfiable clause-sets}
 \label{sec:r-e}
 
-To understand the structure of minimally unsatisfiable clause-sets and finding the isomorphism types of $\Musati{\delta=k}$ some types of reduction/ extension of clause-sets are reviewed in this section according to \cite{DBLP:journals/corr/KullmannZ14,DBLP:journals/tcs/KullmannZ13}.
+To understand the structure of minimally unsatisfiable clause-sets and finding the isomorphic types of $\Musati{\delta=k}$ some types of reduction/ extension of clause-sets are reviewed in this section according to \cite{KullmannZhao2010Extremal,KullmannZhao2012ConfluenceJ}.
 
 \subsection{Singular reduction/ extension}
 \label{sec:sing-re} 
 
 \begin{defi}\label{def:singularDP}
-Consider DP-reduction in Definition \ref{def:dpredc}. If the DP-reduction is performed for a singular variable, then it is called the singular DP-reduction and the set of all nonsingular clause-sets obtainable from $F$ by singular DP-reduction denoted by $sDP(F)$. 
+Consider DP-reduction in Definition \ref{def:dpredc}. If a DP-reduction is performed for a singular variable, then it is called a \textbf{singular DP-reduction} and the set of all nonsingular clause-sets obtainable from $F$ by singular DP-reduction denoted by $\bmm{sDP(F)}$. 
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item Base on Lemma 5.3 in \cite{DBLP:journals/corr/KullmannZ14}, if a clause-set $F$ is minimally unsatisfiable then after performing the singular DP-reduction, the result clause-set $F'$ is also minimally unsatisfiable. This is also true when $F$ is in $\Smusat$ or $\Uclash$.   Further more, the singular DP-reduction does not change the deficiency of $F$ since $c(F)$ and $n(F)$ both decreased by one (an overview of DP-reduction for minimally unsatisfiable clause-sets is presented in \cite{DBLP:journals/tcs/KullmannZ13}).
+  \item Base on Lemma 5.3 in \cite{KullmannZhao2010Extremal}, if a clause-set $F$ is minimally unsatisfiable then after performing the singular DP-reduction, the result clause-set $F'$ is also minimally unsatisfiable. This is also true when $F$ is in $\Smusat$ or $\Uclash$.   Further more, the singular DP-reduction does not change the deficiency of $F$ since $c(F)$ and $n(F)$ both decreased by one (an overview of DP-reduction for minimally unsatisfiable clause-sets is presented in \cite{KullmannZhao2012ConfluenceJ}).
   \item If $F \not \in \Musat$, then after singular DP-reduction the result is also not minimally unsatisfiable.
   \item For $F \in \Musat$, the application of $sDP$ for $\delta=1$ and $\delta=2$ are investigated in Sections \ref{sec:smu1} and \ref{sec:smu2}.
   \end{enumerate}
@@ -678,114 +673,115 @@ Remarks:
 \begin{lem}\label{lem:sDP-infl}
 For a clause-set $F \in \Musati{\delta=k}$:
   \begin{enumerate}
-  \item If $k=1$ then an iterated application of singular DP-reduction leads to $\set{\bot}$ (that is $sDP(F)=\set{\bot}$).
+  \item If $k=1$, then an iterated application of singular DP-reduction leads to $\set{\bot}$ (that is $sDP(F)=\set{\bot}$).
   \item If $k \ge 2$, then an iterated application of singular DP-reduction leads to a clause-set in $\Musatnsi{\delta=k}$ (by Lemma 1 in \cite{KleineBuening2000SubclassesMU}).
   \end{enumerate}
 \end{lem} 
 
+\begin{lem}\label{lem:sDP-size}
+By \cite{KullmannZhao2012ConfluenceJ}, for $S \in \Smusat$ we have $\abs{\sdp(F)} = 1$.
+\end{lem} 
+
 \begin{defi}\label{def:singularextn}
-By \cite{DBLP:journals/corr/KullmannZ14} for a clause-set $F \in\Cls$ and a variable $v \not \in \var(F)$, the singular extension is defined as the reverse direction of singular DP-reduction. Thus, for obtaining a singular m-extension $F' $of $F$ with $v$, first we choose $m$ different clauses $D_i:D_1, \dots, D_m \in F$. Then, we consider a clause  $C: C \sse \bca_{i=1}^m D_i$. In the next step, for every $D_i$ we consider a clause $D_i':(D_i \sm C) \sse D_i' \sse D_i$. Finally, we obtain $C' := C \addcup \set{x}$, and $D_i'' := D_i' \addcup \set{\ol{x}}$ for $i \in \tb 1m$. Then, we have:
+By \cite{KullmannZhao2010Extremal} for a clause-set $F \in\Cls$ and a variable $v \not \in \var(F)$, a \textbf{singular extension} is defined as the reverse direction of a singular DP-reduction. Thus, for obtaining a \textbf{singular m-extension} $F' $of $F$ with $v$, first we choose $m$ different clauses $D_i:D_1, \dots, D_m \in F$. Then, we consider a clause  $C: C \sse \bca_{i=1}^m D_i$. In the next step, for every $D_i$ we consider a clause $D_i':(D_i \sm C) \sse D_i' \sse D_i$. Finally, we obtain $C' := C \addcup \set{x}$, and $D_i'' := D_i' \addcup \set{\ol{x}}$ for $i \in \tb 1m$. Then, we have:
   \begin{displaymath}
     F' := (F \sm \set{D_1,\dots,D_m}) \addcup \set{C', D_1'',\dots,D_m''}.
   \end{displaymath}
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item Consider an $m$-extension $F'$ of $F$. Then, $F \in \Musat \Lra F' \in \Musat$ (by Lemma 5.9 in \cite{DBLP:journals/corr/KullmannZ14}).
+  \item Consider an $m$-extension $F'$ of $F$. Then, $F \in \Musat \Lra F' \in \Musat$ (by Lemma 5.9 in \cite{KullmannZhao2010Extremal}).
   \item The singular m-extension of $F$ does not change the deficiency of $F$. But, number of clauses (and variables) is increased by one.
   \end{enumerate}
   
 \begin{defi}\label{def:unit-ext}
-By \cite{DBLP:journals/corr/KullmannZ14} for a clause-set $F \in \Cls$, a full singular unit-extension $F' \in \Cls$ is obtained as follows: First, consider a literal $x:\var(x) \notin \var(F)$. Then, $F' := \set{\set{x}} \addcup \set{C \addcup \set{\ol{x}} : C \in F}$. Thus, $F' $ has a unit clause $\set{x}$ and all clauses of $F$ with literal $\ol{x}$ added to them.
+By \cite{KullmannZhao2010Extremal} for a clause-set $F \in \Cls$, a \textbf{full singular unit-extension} $F' \in \Cls$ is obtained as follows: First, consider a literal $x:\var(x) \notin \var(F)$. Then, $F' := \set{\set{x}} \addcup \set{C \addcup \set{\ol{x}} : C \in F}$. Thus, $F' $ has a unit clause $\set{x}$ and all clauses of $F$ with literal $\ol{x}$ added to them.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item Consider $F'$ as the full singular unit-extension of $F$, if $F \in \Musati{\delta=k} $ the  $F' \in \Musati{\delta=k} $. This is also true about $F \in \Smusati{\delta=k}$. (by Lemma 5.17 in \cite{DBLP:journals/corr/KullmannZ14}).
+  \item Consider $F'$ as the full singular unit-extension of $F$, if $F \in \Musati{\delta=k} $ the  $F' \in \Musati{\delta=k} $. This is also true about $F \in \Smusati{\delta=k}$. (by Lemma 5.17 in \cite{KullmannZhao2010Extremal}).
   \end{enumerate}
 %-----------------------------------------------------------------------------
 \subsection{Full subsumption resolution/ extension}
 \label{sec:fsr-e}  
 
 \begin{defi}\label{def:sres}
-The subsumption resolution is a reduction of a clause-set $F \in \Cls$ to $F'$ by removing a literal $x : \var{x} \in \var{F}$ from a clause $C:C \in F$ when there is a clause $D \in F: \ol x \in D$ and also $D \sm \set{\ol x} \sse C$. This means that the resolution of $C,D$ subsumes $C$. Note that $D$ is still in $F'$.
+The \textbf{subsumption resolution} is a reduction of a clause-set $F \in \Cls$ to $F' \in \Cls$ by removing a literal $x : \var{x} \in \var{F}$ from a clause $C:C \in F$ when there is a clause $D \in F: \ol x \in D$ and also $D \sm \set{\ol x} \sse C$. This means that the resolution of $C,D$ subsumes $C$. Note that $D$ is still in $F'$.
 \end{defi}
 
 \begin{defi}\label{def:fsr}
-\cite{DBLP:journals/corr/KullmannZ14} The strict full subsumption resolution is the reduction of $F \in \Cls$ to $F'$ as follows and indicated by $F \tsubres F'$. To obtain $F'$, consider a clause $R \in F'$ (the resolvent) and a literal $x \in \var(F'):\var(x) \notin R$ ($x, \ol{x}$ the resolution literals). Then if $C := R \addcup \set{x}$ and $D := R \addcup \set{\ol{x}}$ (the parent clauses), then we have $F = (F' \sm \set{R}) \addcup \set{C,D}$.
+\cite{KullmannZhao2010Extremal} The \textbf{strict full subsumption resolution} is the reduction of $F \in \Cls$ to $F'\in \Cls$ as follows and indicated by $\bmm{F \tsubres F'}$. To obtain $F'$, consider a clause $R \in F'$ (the resolvent) and a literal $x \in \var(F'):\var(x) \notin R$ ($x, \ol{x}$ the resolution literals). Then if $C := R \addcup \set{x}$ and $D := R \addcup \set{\ol{x}}$ (the parent clauses), then we have $F = (F' \sm \set{R}) \addcup \set{C,D}$.
 
-$F \tsubresk{k} F'$ for $k \in \NNZ$ shows application of exactly $k$ steps of strict full subsumption resolution. 
+$F \tsubresk{k} F'$ for $k \in \NNZ$ shows the application of exactly $k$ steps of strict full subsumption resolution. 
 \end{defi}
    
 \begin{defi}\label{def:fse}
-Based on \cite{DBLP:journals/corr/KullmannZ14} the strict full subsumption extension in the reverse direction of the strict full subsumption resolution. Thus by considering the parameters in Definition \ref{def:fsr} for $F, F'$ and $F \tsubres F'$, the clause $R$ is expanded to $C = R \addcup \set{x}$, $D = R \addcup \set{\ol{x}}$ and we say $F$ is obtained from $F'$ by strict full subsumption extension.
+Based on \cite{KullmannZhao2010Extremal} the \textbf{strict full subsumption extension} in the reverse direction of the strict full subsumption resolution. Thus by considering the parameters in Definition \ref{def:fsr} for $F, F'$ and $F \tsubres F'$, the clause $R$ is expanded to $C = R \addcup \set{x}$, $D = R \addcup \set{\ol{x}}$ and we say $F$ is obtained from $F'$ by strict full subsumption extension.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item If  $F \tsubres F'$ and $F \in \Musat $ then $ F' \in \Musat$ and also if $F \in \Smusat$ we have $ F' \in \Smusat$ while if $ F' \in \Smusat$ then $F \in \Musat $ ( by Lemma 6.5 in \cite{DBLP:journals/corr/KullmannZ14}). 
-  \item For the full subsumption resolution/ extension for variable $v$, if the resolution variable $V$ is occurred in other clauses the it is called "strict" but if the variable is vanished it is called "non-strict".
+  \item If  $F \tsubres F'$ and $F \in \Musat $ then $ F' \in \Musat$ and also if $F \in \Smusat$ we have $ F' \in \Smusat$ while if $ F' \in \Smusat$ then $F \in \Musat $ ( by Lemma 6.5 in \cite{KullmannZhao2010Extremal}). 
+  \item Note that for the full subsumption resolution/ extension for the resolution variable $v$, if $v$ is occurred in other clauses then it is called \textbf{strict} but if the variable is vanished it is called \textbf{non-strict}.
   \end{enumerate}
 %-----------------------------------------------------------------------------
 \section{Classification of minimally unsatisfiable clause-sets}
 \label{sec:c-mucls}
 
-Considering definitions and tools given in previous sections, minimally unsatisfiable clause-sets can be classified based on their deficiencies. In this section, ???
-
-%So far, the structure of clause-sets in $\Musati{\delta=1}$ is well-known and an overview of them is given in \cite{DBLP:journals/corr/KullmannZ14,DBLP:conf/coco/Kullmann00,KleineBuening2000SubclassesMU,DDK98}. For clause-sets in $\Musati{\delta=2}$, \cite{KleineBuening2000SubclassesMU} gives a formula which is isomorphism for each $F' \in \Smusati{\delta=2}$ and further investigation on these clause-sets is presented in \cite{DBLP:journals/corr/KullmannZ14, KleineBuening2000SubclassesMU, DBLP:journals/tcs/KullmannZ13}. The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{DBLP:journals/corr/KullmannZ16} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{DBLP:journals/corr/KullmannZ14} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in this subclass is an open research question.
+Considering definitions and tools given in previous sections, minimally unsatisfiable clause-sets can be classified based on their deficiencies. In this section, first a comprehensive overview on the clause-sets in $\Musati{\delta=1}$ with some new results are presented. Then, a formula for every $F' \in \Musatnsi{\delta=2}$ is given and some new properties of $F \in \Musati{\delta=2}$ are obtained. Finally, the clause-sets in $ \Musati{\delta=3}$ are investigated and some questions regarding minimally unsatisfiable clause-sets with $\delta \ge 3$ are discussed. 
 
 \begin{lem}\label{lem:mu-refu-tree}
-Based on \cite{KleineBuening2000SubclassesMU} if $F \in \Musati{\delta=k}$ then an iterated application of singular DP-reduction and the splitting leads to a splitting tree, where the leafs are labeled with clause-sets in $\Musati{\delta=1}$. Also, the number of leafs of the splitting tree is bound by $2^{k-1}$.
+Based on \cite{KleineBuening2000SubclassesMU} if $F \in \Musati{\delta=k}$ then an iterated application of singular DP-reduction and the splitting leads to a splitting tree, where the leafs are labeled with clause-sets in $\Musati{\delta=1}$. Also, the number of leafs of the splitting tree is bounded by $2^{k-1}$.
 \end{lem}
 %-----------------------------------------------------------------------------  
 \subsection{Structure of $\Musati{\delta=1}$}
 \label{sec:smu1}
 
 \begin{lem}\label{lem:mu1-uvd}
-\cite{KleineBuening2000SubclassesMU} If $F \in \Musati{\delta=1}$ with $n(F) > 0$ (i.e. $F \not = \set{\bot}$) then it contains a variable occurring positively and negatively exactly once. Thus, $\minvdeg(F) = 2$. Also, they are solvable in quadratic time.
+\cite{KleineBuening2000SubclassesMU} If $F \in \Musati{\delta=1}$ with $n(F) > 0$ (i.e. $F \not = \set{\bot}$) then it contains a variable $v \in \var(F)$ occurring positively and negatively exactly once. Thus, $\minvdeg(F) = 2$. Also, $F \in \Musati{\delta=1}$ are solvable in quadratic time.
 \end{lem}
 
-\begin{lem}\label{lem:mu1-sdp}
-If $F \in \Musat$ and only by iterated applying of singular DP-reduction we get $\set{\bot}$, then $F \in \Musati{\delta=1}$ ($sDP(F) =\set{\bot}$). 
+\begin{lem}\label{lem:mu1-sdp}Conside $F \in \Cls$. Then, $F \in \Musati{\delta=1}$ iff by iterated application of singular DP-reduction we get $\set{\bot}$ ($sDP(F) =\set{\bot}$). 
 \end{lem}
 \begin{prf}
 See Lemma \ref{lem:sDP-infl}.
 \end{prf}
 
 \begin{lem}\label{lem:mu1-refu-tree}
-If $F \in \Musati{\delta=1}$ with $n(F)=m$, then it can be refuted in $m$ resolution steps (that is performing exactly $m$ step singular DP-reduction).
+If $F \in \Musati{\delta=1}$ with $n(F)=m$, then it can be refuted in $m$ resolution steps (that is performing exactly $m$ steps of singular DP-reduction).
 \end{lem}
 \begin{prf}
 By Lemma \ref{lem:mu1-sdp} we know that $sDF(\Musati{\delta=1})=\set{\bot}$. Also, from Lemma \ref{lem:mu1-uvd} we know that if $F \in \Musati{\delta=1}$ with $n(F) > 0$, then there is at least one variable occurring exactly one positively and exactly one negatively. Now for $F \in \Musati{\delta=1}$ if we perform one step sDP (refutation) for this variable (and obtain $F' \in \Musati{\delta=1}$) two cases may happen. The first case is that $F' =\set{\bot}$. The second case is that $F' \not = \set{\bot}$ and it must have at least one variable occurring exactly one positively and exactly one negatively. Thus, if we continue this process we get $\set{\bot}$ after exactly $m$ steps. 
 \end{prf}
 
 \begin{lem}\label{lem:mu1-sma-uhit}
-Based on \cite{DBLP:journals/corr/KullmannZ14}, the only element of $\Musatnsi{\delta=1}$ (and also $\Smusatnsi{\delta=1} = \Uclashnsi{\delta=1}$) is $F=\set{\bot}$. While in general we have $\Musati{\delta=1} \supset \Smusati{\delta=1} = \Uclashi{\delta=1}$.
+Based on \cite{KullmannZhao2010Extremal}, the only element of $\Musatnsi{\delta=1}$ (and also $\Smusatnsi{\delta=1} = \Uclashnsi{\delta=1}$) is $F=\set{\bot}$. While in general we have $\Musati{\delta=1} \supset \Smusati{\delta=1} = \Uclashi{\delta=1}$.
 Remarks:
   \begin{enumerate}
   \item In all clause-sets $F \in \Smusati{\delta=1} = \Uclashi{\delta=1}$, there is exactly one full variable (variable occurring in all clauses) which is the variable corresponding to the edges leading to the root of $T:F \vdash \bot$.
   \end{enumerate} 
 \end{lem}
-%The structure of resolution trees for $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $ and  $F \in \Musati{\delta=1}$ first was investigated in \cite{DBLP:journals/corr/KullmannZ16}.
+
+The structure of resolution trees for $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $ and  $F \in \Musati{\delta=1}$ first was investigated in \cite{KullmannZhao2016UHitSAT}. 
 \begin{lem}\label{lem:mu1-build}
-Based of \cite{DBLP:journals/corr/KullmannZ16}, the structure of resolution trees  for $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $ and  $F \in \Musati{\delta=1}$ are as follows:
+Based of \cite{KullmannZhao2016UHitSAT}, the structure of resolution trees  for $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $ and  $F \in \Musati{\delta=1}$ are as follows:
   \begin{enumerate}
   \item For $F \in \Smusati{\delta=1}$, there exist a resolution tree $T$ such that each inner node is labeled by a distinct variable $v \in \var(F)$ and the left edge of this node is labeled by $x: \var(x)=\var(v)$ and also the right edge is labeled by $\ol x: \var(x)=\var(v)$. The set of all clauses in leaves is $F$. Also, there is a variable occurring in all clauses. 
-  \item Consider the resolution tree in part 1. If we remove a literal $x$ from one of leaves $C$ such that removing that literal does not produce any pure literal (subsumption resolution in Definition \ref{def:sres}), then the new clause-set $F'$ is in $ \Musati{\delta=1}$. If we repeat this process
-  For $F \in \Musati{\delta=1}$, there exist a 
+  \item Consider the resolution tree in part 1. If we remove a literal $x$ from one of leaves $C$ such that removing that literal does not produce any pure literal (by application of subsumption resolution in Definition \ref{def:sres}), then the new clause-set $F'$ is in $ \Musati{\delta=1}$. If more literal elimination are performed for $F'$, all clause-sets in $ \Musati{\delta=1}$ can be obtained.
   \end{enumerate}
 \end{lem}
 \begin{prf}
 For the first part, by considering the two criteria of the tree (each inner node labeled by a distinct variable $v \in \var(F)$ and the left/right edge of this node labeled by $x$/ $\ol x$) we can get $\set{\bot}$ by only iterated application of singular DP-reduction. Thus, based on Lemma \ref{lem:mu1-sdp} we have $F(T) \in  \Musati{\delta=1}$. Furthermore, based on those two criteria any two different clauses $C,D$ in leaves clash and also any clauses in leaves contains at least one literal occurring exactly one in $F$ (as singular variable). Thus, $F$ is a hitting clause set and we have $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $.
 
-For the proof of the second part, if we remove any literal from a clause, then there exist at least two clauses $C,D \in F'$ that does not clash. Thus, $F'$ is not a hitting clause-set any more (and also not saturated). But, since there is no pure literal and $\minvdeg(F) = 2$ we can obtain $\set{\bot}$ by only application of singular DP-reduction. Thus based on Lemma \ref{lem:mu1-sdp}, we have $F \in \Musati{\delta=1}$. If we perform ??????????
+For the proof of the second part, if $F'$ is obtained by removing any literal $x \in C$ from a clause $C$ using subsumption resolution then there is a clause $D:D \sm \set{\ol x} \sse C$. If $C':=C \sm \set{x}$ then $D,C'$ do not clash and $F'$ is not a hitting clause-set any more (and also not saturated). But, $F'$ is still minimally saturated according to Section \ref{sec:fsr-e}. Thus, $F'\in  \Musati{\delta=1} \not \in \Smusati{\delta=1}=\Uclashi{\delta=1}$. If we perform more steps of subsumption resolution for $F'\in  \Musati{\delta=1}$, the result is still in $ \Musati{\delta=1}$. %consider $F \in  \Musati{\delta=1}$. if we perform ???
 \end{prf}
 
 \begin{lem}\label{lem:smu1tomu1}
 For a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $, we can obtain any $F' \in  \Musati{\delta=1}$ by iterated application of subsumption resolution.
 \end{lem}
 \begin{prf}
-For the reason of using subsumption resolution see \ref{lem:mu1-build}. We can perform this operation for $F \in \Smusati{\delta=1}$ if no pure literal is produced which is exactly the condition of subsumption resolution in Definition \ref{def:sres} (that is there must be a clause $D \in F: D \sm \set{\ol x} \sse C$).
+For the reason of using subsumption resolution see Lemma \ref{lem:mu1-build} part 2. We can perform this operation for $F \in \Smusati{\delta=1}$ if no pure literal is produced which is exactly the condition of subsumption resolution in Definition \ref{def:sres} (that is there must be a clause $D \in F: D \sm \set{\ol x} \sse C$).
 \end{prf}
-%*******************************
+
 \begin{lem}\label{lem:smu1-uhit1}
 All clause-sets $F \in  \Smusati{\delta=1} = \Uclashi{\delta=1} \subset \Musati{\delta=1}$ can be obtained by any on the following methods:
   \begin{enumerate}
@@ -798,40 +794,49 @@ All clause-sets $F \in  \Smusati{\delta=1} = \Uclashi{\delta=1} \subset \Musati{
   \begin{enumerate}
   \item The first part is proved in Lemma \ref{lem:mu1-build}.          
   \item By Section \ref{sec:fsr-e}, we know that for non-strict full subsumption extension $F'$ of $F$ we have $F \in  \Musati{\delta=1} \Ra F' \in \Musati{\delta=1}$. For  $F=\set{\bot}$, we get $F'=\set{\set{v},\set{\ol v}} \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. If we perform another step of strict full subsumption extension for $F'$, one of its clauses $R$ is chosen and replaced it by $C := R \addcup \set{x}$ and $D := R \addcup \set{\ol{x}}$. We can see that $C$ and $D$ clash and  they also clash with the other clause of $F$. Thus, $F' \in \Uclashi{\delta=1}$. If we continue this process by using a non-full clause $R \in F$ and a variable $v \in \var(F) \sm \var(R)$, and replacing $R$ by the two clauses $R \addcup \set{v}, R \addcup \set{\ol{v}}$, where none of them is already exist, we can get a clause-set $F" \in \Uclashi{\delta=1}=\Smusati{\delta=1}$.    
-  \item From Section \ref{sec:sing-re}, we know that for singular $m$-DP-extension $F'$ of $F$ , $F \in \Musati{\delta=1} \Lra F' \in \Musati{\delta=1}$. Then, by applying a singular DP-extension of $F=\set{\bot}$ for a variable $v$, we get $F'=\set{\set{v},\set{\ol v}} \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. For performing another  singular $m$-DP-extension, we can choose only one of clauses $D$ ($m$ can not be 2 since $\set{v} \cap \set{\ol v}=\bot $) and a new variable $w \not = v$. Now, we have either $F_i"=\set{\set{v},\set{\ol v, w},\set{\ol v,\ol w}}$ or $F_j"=\set{\set{\ol v},\set{ v, w},\set{ v,\ol w}}$. Since in both cases all clauses clash we have $F" \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. In general, in each step we know that all clauses already clash and if we add new variable base on Definition \ref{def:singularextn}, every new clause also clash with other clauses since the new variable does not affect the clashing variables. Thus, the obtained clause-set is in $\Smusati{\delta=1} = \Uclashi{\delta=1}$.
+  \item From Section \ref{sec:sing-re}, we know that for singular $m$-DP-extension $F'$ of $F$ , $F \in \Musati{\delta=1} \Lra F' \in \Musati{\delta=1}$. Then, by applying a singular DP-extension of $F=\set{\bot}$ for a variable $v$, we get $F'=\set{\set{v},\set{\ol v}} \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. For performing another  singular $m$-DP-extension, we can choose only one of clauses $D$ ($m$ can not be 2 since $\set{v} \cap \set{\ol v}=\bot $) and a new variable $w \not = v$. Now, we have either $F_i"=\set{\set{v},\set{\ol v, w},\set{\ol v,\ol w}}$ or $F_j"=\set{\set{\ol v},\set{ v, w},\set{ v,\ol w}}$. Since in both cases all clauses clash we have $F_i",F_j" \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. In general, in each step we know that all clauses already clash and if we add a new variable base on Definition \ref{def:singularextn}, every new clause also clash with other clauses since the new variable does not affect the clashing variables. Thus, the obtained clause-set is in $\Smusati{\delta=1} = \Uclashi{\delta=1}$.
   \end{enumerate}
 \end{prf}
 
 \begin{lem}\label{lem:mu1-strc}
-We can obtain an special group of $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$ can be obtained by iterated application of full singular unit-extension for $\set{\bot}$.
+An special group of $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$ can be obtained by iterated application of full singular unit-extension for $\set{\bot}$.
 \end{lem}
 \begin{prf}
-(Based on Example 5.16 in \cite{DBLP:journals/corr/KullmannZ14}) Consider $\set{\bot} \in \Smusati{\delta=1}$. If we apply a full singular unit-extension, we get $\set{\set{v},\set{\ol{v}}} \in \Smusati{\delta=1}$. Then, we can apply the second full singular unit-extension and obtain $\set{\set{w},\set{v,\ol{w}},\set{\ol{v},\ol{w}}}\in \Smusati{\delta=1}$. If we continue this process, we can obtain special group of clause-sets in $\Smusati{\delta=1}$ with $\hts(F) \le 1$.
+(Based on Example 5.16 in \cite{KullmannZhao2010Extremal}) Consider $\set{\bot} \in \Smusati{\delta=1}$. If we apply a full singular unit-extension, we get $\set{\set{v},\set{\ol{v}}} \in \Smusati{\delta=1}$. Then, we can apply the second full singular unit-extension and obtain $\set{\set{w},\set{v,\ol{w}},\set{\ol{v},\ol{w}}}\in \Smusati{\delta=1}$. If we continue this process, we can obtain special group of clause-sets in $\Smusati{\delta=1}$ with $\hts(F) \le 1$.
 \end{prf}
-
 
 \begin{lem}\label{lem:mu1-iso}
-For two clause-sets $F_1,F_2 \in \Smusati{\delta=1}$ we have $F_1=F_2 \Lra T(F_1) $ is isomorphic to $T(F_2)$.
+Consider two clause-sets $F_1,F_2 \in \Smusati{\delta=1}$. Then, $F_1=F_2 \Lra T(F_1) $ is isomorphic to $T(F_2)$.
 \end{lem}    
-\begin{prf} 
-\end{prf}           
- \begin{lem}\label{lem:mu1-iso}
-For two clause-sets $F_1,F_2 \in \Smusati{\delta=1}$ we have $F_1=F_2 \Lra T(F_1) $ is isomorphic to $T(F_2)$.
-\end{lem}                   
-\begin{prf}                              
-\end{prf}
+\begin{prf}
+By Definition \ref{def:isomo-trees} and Lemma \ref{lem:mu1-build}.
+%For $F \in \Smusati{\delta=1}$ there exist a unique resolution tree $ T(F) $ as described in Lemma \ref{} part 1. Also, based on Definition \ref{}, if two binary tree is isomorphic then there is a bijective map between them. 
+\end{prf}                                                                                                     
+                                                                                                                        
+\begin{lem}\label{lem:mu1-iso-num}
+Consider $F \in \Smusati{\delta=1}$ with $n \in \NN_0$ variables. Then, the number of isomorphic trees $T(F)$ with $n$ variables is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
+\begin{displaymath}
+ 1, 1, 1, 2, 3, 6, 11, 23, 46, 98, 207, 451, ...
+\end{displaymath}
+The first number is for trivial resolution tree, the second one is for $n=1$ and etc. Pic \ref{fig:isotree} shows the isomorphic trees for $n=0,1,..., 5$.
+ \begin{figure}
+   \begin{center}
+   \includegraphics[scale =0.45]{a001190.png}
+   \caption{The isomorphic trees for $n=0,1,..., 5$ by \url{https://oeis.org/A001190/a001190.gif}.}
+   \label{fig:isotree}
+   \end{center}
+   \end{figure}
+\end{lem}   
+                             
+\begin{quest}\label{que:hitnum}
+For a non-trivial binary tree $T$ and $F(T) \in \Smusati{\delta=1}=\Uclashi{\delta=1}$, is the number of 1-singular variables in $F(T)$ equal $2^{\hts(T)-1}$?
+\end{quest}
+
 Some general remarks: 
   \begin{enumerate}
   \item There are exactly two full clause-sets of $\Musati{\delta=1}$, namely $A_0$ and $A_1$.
   \item If a Horn clause-set $F$ (a clause-set with at most one positive literal in each clause) is minimally unsatisfiable, then $F \in \Musati{\delta=1}$.
   \end{enumerate} 
-  
-\begin{lem}\label{lem:hitnum}
-For a non-trivial binary tree $T$ and $F(T) \in \Smusati{\delta=1}=\Uclashi{\delta=1}$, the number of 1-singular variables in $F(T)$ is equal $2^{\hts(T)-1}$.
-\end{lem}
-\begin{prf}
-%The number of variables of $F$ is the number of inner node of $T(F)$. Based on Lemma \ref{}, the 1-singular variables of  $F(T) \in \Smusati{\delta=1}$ are those nodes having distance one to leaves in right/left path. Also, from Definition \ref{}, $\hts(T)$ is the shortest path from leaves to the root of tree.
-\end{prf}
 %-----------------------------------------------------------------------------
 \subsection{Structure of $\Musati{\delta=2}$}
 \label{sec:smu2}
@@ -839,6 +844,9 @@ For a non-trivial binary tree $T$ and $F(T) \in \Smusati{\delta=1}=\Uclashi{\del
 \begin{lem}\label{lem:mu2-mup}
 If $F \in \Musati{\delta=2}$ and there is at least one singular variable $v \in \var(F)$, then by an iterated application of singular DP-reduction we get $F' \in \Musatnsi{\delta=2}$.
 \end{lem}
+\begin{prf}
+See Lemma \ref{lem:sDP-infl}.
+\end{prf}
 
 \begin{lem}\label{lem:mu2-Fn}
 \cite{KleineBuening2000SubclassesMU} If $F \in \Musatnsi{\delta=2}$, then it is in the form of (isomorphism) $\Dt{n}$  for $n \ge 2$ as follows:
@@ -849,24 +857,24 @@ If $F \in \Musati{\delta=2}$ and there is at least one singular variable $v \in 
 \end{lem}
 Remarks:
   \begin{enumerate}
-  \item According to \cite{DBLP:journals/corr/KullmannZ14}
+  \item According to \cite{KullmannZhao2010Extremal}
   \begin{enumerate}
   \item The only hitting clause-sets amongst the $\Dt{n}$ ($\Uclashnsi{\delta=2}$) are for $n=2,3$. 
   \item All $\Dt{n}$ are saturated, thus $\Musatnsi{\delta=2} = \Smusatnsi{\delta=2}$. Also we have $\minvdeg(\Dt{n}) = 4$. 
-  \item $\Dt{n}$ contains two full clauses (one positive literals and one with negative literals) and the rest of clauses are as a cycle $v_1 \ra \dots \ra v_n \ra v_1$ (that at least one variable must be true and one must be false).
+  \item $\Dt{n}$ contains two full clauses (one with only positive literals and one with only negative literals) and the rest of clauses are as a cycle $v_1 \ra \dots \ra v_n \ra v_1$ (that at least one variable must be true and one must be false).
   \item By splitting $\Dt{n}$ to $F_0, F_1$ for any variable $v \in \var(\Dt{n})$, we have $F_0, F_1 \in \Musati{\delta=1} $.
   \end{enumerate} 
   \end{enumerate} 
   
 \begin{lem}\label{lem:mu2-smu2}
-For all $\Dt{n}$ ($F \in \Musatnsi{\delta=2} = \Smusatnsi{\delta=2}$) if we split $\Dt{n}$ to $F_0, F_1$ for any variable $v \in \var(\Dt{n})$, then they are not saturated.
+Consider $\Dt{n}$ in Lemma \ref{lem:mu2-Fn}. If we split $\Dt{n}$ to $F_0:=\pao v0 * \Dt{n}$ and $F_1:=\pao v1 * \Dt{n}$ on any variable $v \in \var(\Dt{n})$, then they are not saturated.($F \in \Musatnsi{\delta=2} = \Smusatnsi{\delta=2}$)
 \end{lem}
 \begin{prf}
-We know from Lemma \ref{lem:mu1-sma-uhit} that $\Smusati{\delta=1} = \Uclashi{\delta=1}$. Also, since $\Dt{n}$ for $n \ge 4$ is not in $\Uclash$ thus there exists some partial assignment $\vp$ such that $\vp * \Dt{n} \not \in \Musat$. Now, suppose that for all one-variable assignments the result would be in $\Smusati{\delta=1}$. Thus, they would be in $\Uclashi{\delta=1}$, which is stable under partial assignments, and as a result all applications of partial assignments to $\Dt{n}$ would stay in $\Musat$. This yields a contradiction. Since  the literals in $\Dt{n}$ have complete symmetry, thus for $n \ge 4$ no single assignment can yield an element of $\Musati{\delta=1}$.
+Based on Lemma \ref{lem:mu1-sma-uhit}, we have $\Smusati{\delta=1} = \Uclashi{\delta=1}$. Also, since $\Dt{n}$ for $n \ge 4$ is not in $\Uclash$ thus there exists some partial assignment $\vp$ such that $\vp * \Dt{n} \not \in \Musat$. Now, suppose that for all one-variable assignments the result would be in $\Smusati{\delta=1}$. Thus, they would be in $\Uclashi{\delta=1}$, which is stable under partial assignments, and as a result all applications of partial assignments to $\Dt{n}$ would stay in $\Musat$. This yields a contradiction. Since  the literals in $\Dt{n}$ have complete symmetry, thus for $n \ge 4$ no single assignment can yield an element of $\Musati{\delta=1}$.
 \end{prf}
 
 \begin{lem}\label{lem:mu2-horn-tree}
-For all $\Dt{n}$, if we split $\Dt{n}$ regarding any variable $v \in \var(\Dt{n})$ then $F_0, F_1$ are Horn clause-sets with  $\hts(T_0)= \hts(T_1) \le 1$ for resolution-trees of $F_0, F_1$.
+Consider splitting $\Dt{n}$ based on Lemma \ref{lem:mu2-smu2} on any variable $v \in \var(\Dt{n})$. Then, $ F_1$ is a Horn clause-set and $ F_0$ is a dual-Horn clause-set. Also, there exist a resolution tree $T$ for $ F_0,F_1$ such that $\hts(T(F_0))= \hts(T(F_1)) \le 1$.
 \end{lem}
 \begin{prf}
 If we split $\Dt{n}$ regarding $x_1$, we have:
@@ -876,23 +884,29 @@ F_0=\set{\set{x_2,\dots,x_n},\set{\ol x_2,x_3},\dots, \set{\ol x_{n-1},x_n},\set
 \begin{displaymath}
 F_1=\set{\set{\ol x_2,\dots,\ol x_n},\set{x_2},\set{\ol x_2,x_3}\dots, \set{\ol x_{n-1},x_n}}.
 \end{displaymath}
-As it can be seen, $F_1$ is a Horn clause-set. Also, if we consider literals $y_i: 1 \le y_i \le n, y_i=\ol x_i$ and we replace all $x_i$ with $y_i$ in  $F_0$, then we can see that $F_0$ is a Horn clause-set too. Since $\Dt{n}$ have complete symmetry regarding the literals, $F_0, F_1$ for all literals are Horn clause-sets and with $\hts(T) \le 1$.
+As it can be seen, $F_1$ is a Horn clause-set. Also, if we flip (change the sign) all literals $x$ in  $F_0$ to get $F_0'$, then $F_0'$ is a Horn clause-set and thus, $ F_0$ is a dual-Horn clause-set. Since $\Dt{n}$ have complete symmetry regarding the literals, $F_0, F_1$ for all literals hold these properties. Also, for all Horn clause-sets (and dual-Horn clause-sets) there exist a resolution tree such that $\hts(T) \le 1$.
 \end{prf}
 
+\begin{quest}\label{que:mu-2-horn}
+If we saturate $F_0, F_1$ in Lemma \ref{lem:mu2-horn-tree}, what would happen to the resolution trees $T(F_0), T(F_1)$ with $\hts(T(F_0))= \hts(T(F_1)) \le 1$?
+\end{quest}
+
 \begin{lem}\label{lem:mu2-build}
-All $F \in \Musati{\delta=2}$ can be obtained from $\Dt{n}$ by singular expansion of  $\Dt{n}$ .We also can obtain $F' \in \Musati{\delta=2}$ from a clause-set $F \in \Musati{\delta=2}$ via singular expansion.
+All $F \in \Musati{\delta=2}$ can be obtained from $\Dt{n}$ (in Lemma \ref{lem:mu2-Fn}) by singular extension of  $\Dt{n}$. Also, for a clause-set $F \in \Musati{\delta=2}$ we can obtain a clause-set $F' \in \Musati{\delta=2}$ via singular extension.
 \end{lem}
 \begin{prf}
-?????
+For the first part, consider $F \in \Musati{\delta=2}$. Then, based on Lemma \ref{lem:mu2-Fn} an iterated application of singular DP-reduction leads to $F'=\Dt{n}$. Also, the singular DP-extension is the reverse direction of singular DP-reduction (and does not change the deficiency and minimal unsatisfiability). Thus, we can obtain all $F \in \Musati{\delta=2}$ by singular extension of $\Dt{n}$. For the second part, consider $F \in \Musati{\delta=2}$. Based on definition \ref{def:singularextn}, if $F'$ is obtained by application of singular extension then $F' \in \Musati{\delta=2}$.
 \end{prf}
 Remarks:
   \begin{enumerate}
   \item There is exactly one full element of $\Musati{\delta=2}$, namely $A_2$.
-  \item For $\Dt{n} \in \Smusatnsi{\delta=2}$ and each $v \in \var(\Dt{n})$, $\ve \in \set{0,1}$, holds $\pao v{\ve} * \Dt{n} \in \Musati{\delta=1}$.example 8.3 in \cite{DBLP:journals/corr/KullmannZ14}.
-  \item Based on Section \ref{sec:sing-re}, an iterated application of singular DP-reduction for $F \in \Musati{\delta=2}$ produces a clause-set $F' \in \Musati{\delta=2}$ that each variable in $F'$ is occurred at least twice positively and twice negatively ($F' \in  \Musatnsi{\delta=2}$).
-  \item For $\delta(F) = 2$ all elements of $sDP(F)$ are pairwise isomorphic.
+  \item For $\Dt{n} \in \Smusatnsi{\delta=2}$ and each $v \in \var(\Dt{n})$, $\ve \in \set{0,1}$, holds $\pao v{\ve} * \Dt{n} \in \Musati{\delta=1}$ (by Lemma \ref{lem:smu-mu}).
   \end{enumerate}
   
+\begin{lem}\label{lem:mu2-sing}
+ By Lemma 5.13 in \cite{KullmannZhao2010Extremal}, if $F \in \Musati{\delta=2}$ with $\minvdeg(F) \ge 4$ then $F$ is singular if and only if $F$ contains a unit-clause.
+\end{lem}  
+
 \begin{quest}\label{que:mu-2-ism}
 If we extend some of clause-sets in $\Dt{n}$ with different $n$ using Lemma \ref{lem:mu2-build}, is it possible to obtain isomorphic clause-sets with different $n$?
 \end{quest}
@@ -901,24 +915,34 @@ If we extend some of clause-sets in $\Dt{n}$ with different $n$ using Lemma \ref
 Is every element of $\Musati{\delta=2}$ obtained from some $\Dt{n}$, by expanding every clause via variable-disjoint elements from $\Musati{\delta=1}$ ?
 \end{quest}
 
-\begin{lem}\label{lem:mu2-sing}
-[Lemma 5.13 in \cite{DBLP:journals/corr/KullmannZ14}]  Consider $F \in \Musati{\delta=2}$ with $\minvdeg(F) \ge 4$. Then $F$ is singular if and only if $F$ contains a unit-clause.
-\end{lem}
+\begin{quest}\label{que:mu2-uhit2}
+How can we describe the subclasses $\Uclashi{\delta=2}$ and $\Smusati{\delta=2}$?
+\end{quest}
+
+\begin{quest}\label{que:mu2-hardness}
+Based on Section \ref{sec:Hardnessmeasures}, how can we determine the hardness and the width hardness for $F \in \Musati{\delta=2}$? and moreover how can we determine the resolution- and tree-resolution-complexity precisely?
+\end{quest}
+
+\begin{quest}\label{que:mu2-count}
+Can we count the number of non-isomorphic elements of $F \in \Musati{\delta=2}$ for a given number of clauses?
+\end{quest}
+
 %-----------------------------------------------------------------------------
 \subsection{Structure of $\Musat$ with $\delta \ge 3$}
 \label{sec:smu3}
 
 So far, we discussed the structure of $\Musati{\delta=1}$ in Section \ref{sec:smu1}. Also, for $\Musati{\delta=2}$ in Section \ref{sec:smu2} we showed that by applying singular DP-reduction we get $F \in \Musatnsi{\delta=2}$ (which is in the form of $\Dt{n} $) and then, by splitting we get the elements of $\Musati{\delta=1}$ (which are well-known). In this section, we discuss some properties and questions regarding $F \in \Musat$ with $\delta \ge 3$ for future work.
-
+%The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{KullmannZhao2016UHitSAT} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{KullmannZhao2010Extremal} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in this subclass is an open research question.
 \begin{lem}\label{lem:muk-k}
-By \cite{DBLP:conf/coco/Kullmann00} if $F \in \Musati{\delta=k}$, then there exist a variable with at most $k$ positive and $k$ negative occurrence. %Lemma C2
+By \cite{Ku99dK} if $F \in \Musati{\delta=k}$, then there exist a variable with at most $k$ positive and $k$ negative occurrence. %Lemma C2
 \end{lem}
 
 \begin{lem}\label{lem:mu2tomu3}
-For any non-full $F \in \Musati{\delta=2}$ ($F \not = A_2$), if we perform a strict full subsumption extension, we can obtain an special group of clause-sets $F' \in \Musati{\delta=3}$. Thus, by Definition \ref{def:fse} $F'$ can be obtained by performing a strict full subsumption resolution for $F$.
+For any non-full $F \in \Musati{\delta=2}$ ($F \not = A_2$), if we perform a strict full subsumption extension, we can obtain an special group of clause-sets $F' \in \Musati{\delta=3}$. Also, by Definition \ref{def:fse} $F'$ can be obtained by performing a strict full subsumption resolution for $F$.
 \end{lem}
 \begin{prf}
-???
+For $F, F' \in \Cls$ consider $ F' \tsubres F$. Based on Section \ref{sec:fsr-e}, the strict full subsumption extension is the reverse direction of the  strict full subsumption resolution and if $F' \in \Musat$ then we have $F \in \Musat$ (minimal unsatisfiability is stable under the strict full subsumption extension). Also, consider a clause $R \in F$ such that $ x \in \lit(F)$ and $x, \ol x \not \in \lit(R)$. To perform the strict full subsumption extension for $F$, we have $C = R \addcup \set{x}$, $D = R \addcup \set{\ol{x}}, F = (F' \sm \set{R}) \addcup \set{C,D}$. Also, since the operation is strict, the literals $x, \ol x$ must occur in $F \sm \set{R}$ and we have $c(F)=c(F')+1$, $n(F)=n(F')$ and $\delta(F')=3$. Thus, $F' \in \Musati{\delta=3}$.
+
 \end{prf}
 Remarks:
 \begin{enumerate}
@@ -927,11 +951,15 @@ Remarks:
 \end{enumerate}
 
 \begin{conj}\label{con:mudelta}
-By Conjecture 15.6 in \cite{DBLP:journals/corr/KullmannZ14} for every deficiency $k \in \NN$ there are finitely many ``patterns'' which explain the elements of $\Musatnsi{\delta=k}$, as well as the saturated and hitting cases amongst them.
+By Conjecture 15.6 in \cite{KullmannZhao2010Extremal} for every deficiency $k \in \NN$ there are finitely many ``patterns'' which explain the elements of $\Musatnsi{\delta=k}$, as well as the saturated and hitting cases amongst them.
 \end{conj}
  
 \begin{quest}\label{que:str-3}
-The structure of $\Musati{\delta=3}$? Is there any isomorphic form?
+Based on Conjecture \ref{con:mudelta}, is there any isomorphic form for $F \in \Musati{\delta=3}$?
+\end{quest}
+
+\begin{quest}\label{que:smu-3}
+How can we determine the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and also $\Smusatnsi{\delta=3}$?
 \end{quest}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Research ideas}
