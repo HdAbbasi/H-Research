@@ -1,25 +1,25 @@
-@book{h1,
-  author    = {Devlin, Keith},
-  title     = {The joy of sets : fundamentals of contemporary set theory},
-  publisher = {Springer-Verlag},
-  address   = {New York},
-  edition   = {2nd ed.},
-  keywords  = {Set theory.},
-  ISBN      = {0387940944 3540940944},
-  year      = {1993},
-  type      = {Book}
+%h1
+@Book{Devlin1993Sets,
+  author =       {Keith Devlin},
+  title =        {The Joy of Sets: Fundamentals of Contemporary Set Theory},
+  publisher =    {Springer},
+  year =         1993,
+  series =       {Undergraduate Texts in Mathematics},
+  edition =      {Second},
+  note =         {ISBN 0-387-94094-4},
+  doi =          {10.1007/978-1-4612-0903-4},
+  annote =       {Vorhanden, auch als Pdf (erstes Kapitel).}
 }
 
-@book{h2,
-  author    = {Halmos, Paul R.},
-  title     = {Naive Set Theory},
-  publisher = {Springer-Verlag},
-  address   = {[S.l.]},
-  note      = {Undergraduate texts in Mathematics
-              Reprint of 2nd ed 1960.},
-  ISBN      = {3540900926},
-  year      = {1974},
-  type      = {Book}
+@Book{Halmos1960SetTheory,
+  author =       {Paul R. Halmos},
+  title =        {Naive Set Theory},
+  publisher =    {Springer},
+  year =         1974,
+  series =       {Undergraduate Texts in Mathematics},
+  note =         {Republication of D. Van Nostrand Company, Inc., 1960},
+  doi =          {10.1007/978-1-4757-1645-0},
+  annote =       {Pdf vorhanden.}
 }
 
 @misc{h3,
@@ -40,150 +40,131 @@
   type      = {Electronic Article}
 }
 
-@article{h5,
-  author    = {Oliver Kullmann},
-  title     = {Hardness measures and resolution lower bounds},
-  journal   = {CoRR},
-  volume    = {abs/1310.7627},
-  year      = {2013},
-  url       = {http://arxiv.org/abs/1310.7627},
-  timestamp = {Mon, 04 Nov 2013 15:55:48 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/Kullmann13},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+@TechReport{BeyersdorffGwynneKullmann2013PHPER,
+  author =       {Olaf Beyersdorff and Oliver Kullmann},
+  title =        {Hardness measures and resolution lower bounds},
+  institution =  {arXiv},
+  year =         2014,
+  number =       {arXiv:1310.7627v2 [cs.CC]},
+  month =        {February},
+  url =          {http://arxiv.org/abs/1310.7627},
+  annote =       {2013_PHP.tex; der ER-Teil soll in \cite{BeyersdorffKullmann2014EPHP} bearbeitet werden, sonst Fortsetzung in \cite{BeyersdorffGwynneKullmann2013PHP} (unter gleicher Nummer).}
 }
 
-@proceedings{h6,
-  editor    = {Armin Biere and
-               Marijn Heule and
-               Hans van Maaren and
-               Toby Walsh},
-  title     = {Handbook of Satisfiability},
-  series    = {Frontiers in Artificial Intelligence and Applications},
-  volume    = {185},
-  publisher = {{IOS} Press},
-  year      = {2009},
-  isbn      = {978-1-58603-929-5},
-  timestamp = {Wed, 16 Sep 2009 11:21:15 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/series/faia/2009-185},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
 
-@inproceedings{h7,
+@Book{2008HandbuchSAT,
+  editor =    {Armin Biere and Marijn J.H. Heule and Hans van Maaren and Toby Walsh},
+  title =     {Handbook of Satisfiability},
+  booktitle = {Handbook of Satisfiability},
+  publisher = {IOS Press},
+  year =      2009,
+  Month =     {February},
+  Volume =    {185},
+  ISBN =      {978-1-58603-929-5},
+  ISSN =      {0922-6389},
+  Series =    {Frontiers in Artificial Intelligence and Applications},
+  Pages =     {980},
+  annote =    {Vorhanden (auch als pdf-Dateien).}
+}
+%h7 
+@inproceedings{GalesiKullmann2003Hermitian,
   author    = {Nicola Galesi and
                Oliver Kullmann},
   title     = {Polynomial Time {SAT} Decision, Hypergraph Transversals and the Hermitian
                Rank},
-  booktitle = {{SAT} 2004 - The Seventh International Conference on Theory and Applications
-               of Satisfiability Testing, 10-13 May 2004, Vancouver, BC, Canada,
-               Online Proceedings},
+  booktitle = {Theory and Applications of Satisfiability Testing, 7th International
+               Conference, {SAT} 2004, Vancouver, BC, Canada, May 10-13, 2004, Revised
+               Selected Papers},
+  pages     = {89--104},
   year      = {2004},
-  crossref  = {DBLP:conf/sat/2004},
-  url       = {http://www.satisfiability.org/SAT04/programme/42.pdf},
-  timestamp = {Mon, 06 Jun 2005 13:58:12 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/sat/GalesiK04},
+  crossref  = {DBLP:conf/sat/2004lncs},
+  url       = {http://dx.doi.org/10.1007/11527695_8},
+  doi       = {10.1007/11527695_8},
+  timestamp = {Mon, 02 Jan 2006 14:37:36 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/sat/GalesiK04a},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
-
-@article{h8,
-  author    = {Matthew Gwynne and
-               Oliver Kullmann},
-  title     = {A framework for good {SAT} translations, with applications to {CNF}
-               representations of {XOR} constraints},
-  journal   = {CoRR},
-  volume    = {abs/1406.7398},
-  year      = {2014},
-  url       = {http://arxiv.org/abs/1406.7398},
-  timestamp = {Tue, 01 Jul 2014 11:58:08 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/GwynneK14},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+%h8
+@TechReport{GwynneKullmann2013GoodRepresentationsIIex,
+  author =       {Matthew Gwynne and Oliver Kullmann},
+  title =        {A framework for good {SAT} translations, with applications to {CNF} representations of {XOR} constraints},
+  institution =  {arXiv},
+  year =         2014,
+  number =       {arXiv:1406.7398v2 [cs.CC]},
+  month =        {August},
+  url =          {http://arxiv.org/abs/1406.7398}
 }
 
-@article{h9,
-  author    = {Oliver Kullmann and
-               Xishun Zhao},
-  title     = {Bounds for variables with few occurrences in conjunctive normal forms},
-  journal   = {CoRR},
-  volume    = {abs/1408.0629},
-  year      = {2014},
-  url       = {http://arxiv.org/abs/1408.0629},
-  timestamp = {Fri, 12 Sep 2014 12:44:21 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/KullmannZ14},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+%h9 
+@TechReport{KullmannZhao2010Extremal,
+  author =       {Oliver Kullmann and Xishun Zhao},
+  title =        {Bounds for variables with few occurrences in conjunctive normal forms},
+  institution =  {arXiv},
+  year =         2016,
+  number =       {arXiv:1408.0629v4 [math.CO]},
+  month =        {April},
+  url =          {http://arxiv.org/abs/1408.0629},
+  annote =       {Zeitschriftenversion von \cite{KullmannZhao2011Bounds}; Datei Annotations/OK_XSZ_MinVarDegree.tex, submitted to JCSS.}
 }
 
-@article{h10,
-  author    = {Oliver Kullmann},
-  title     = {Investigating a general hierarchy of polynomially decidable classes
-               of CNF's based on short tree-like resolution proofs},
-  journal   = {Electronic Colloquium on Computational Complexity {(ECCC)}},
-  number    = {41},
-  year      = {1999},
-  url       = {http://eccc.hpi-web.de/eccc-reports/1999/TR99-041/index.html},
-  timestamp = {Wed, 07 Dec 2011 17:05:31 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/eccc/ECCC-TR99-041},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+%h10DBLP:journals/eccc/ECCC-TR99-041
+@TechReport{Ku99b,
+  author =       {Oliver Kullmann},
+  title =        {Investigating a general hierarchy of polynomially decidable classes of {CNF}'s based on short tree-like resolution proofs},
+  institution =  {Electronic Colloquium on Computational Complexity (ECCC)},
+  year =         1999,
+  number =       {TR99-041},
+  month =        {October},
+  url =          {http://eccc.hpi-web.de/report/1999/041/}
 }
 
-@article{h11,
-  author    = {Matthew Gwynne and
-               Oliver Kullmann},
-  title     = {Towards a theory of good {SAT} representations},
-  journal   = {CoRR},
-  volume    = {abs/1302.4421},
-  year      = {2013},
-  url       = {http://arxiv.org/abs/1302.4421},
-  timestamp = {Fri, 01 Mar 2013 15:41:02 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/abs-1302-4421},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+%h11
+@TechReport{GwynneKullmann2013GoodRepresentations,
+  author =       {Matthew Gwynne and Oliver Kullmann},
+  title =        {Towards a theory of good {SAT} representations},
+  institution =  {arXiv},
+  year =         2013,
+  number =       {arXiv:1302.4421v4 [cs.AI]},
+  month =        {May},
+  url =          {http://arxiv.org/abs/1302.4421},
+  annote =       {Fortgesetzt durch GwynneKullmann2013GoodRepresentationsI-III.}
 }
 
-@article{h12,
-  author    = {Oliver Kullmann and
-               Xishun Zhao},
-  title     = {Parameters for minimal unsatisfiability: Smarandache primitive numbers
-               and full clauses},
-  journal   = {CoRR},
-  volume    = {abs/1505.02318},
-  year      = {2015},
-  url       = {http://arxiv.org/abs/1505.02318},
-  timestamp = {Mon, 01 Jun 2015 14:13:54 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/KullmannZ15},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+%h12
+@TechReport{KullmannZhao2015FullClauses,
+  author =       {Oliver Kullmann and Xishun Zhao},
+  title =        {Parameters for minimal unsatisfiability: {S}marandache primitive numbers and full clauses},
+  institution =  {arXiv},
+  year =         "2015",
+  number =       {arXiv:1505.02318v2 [cs.DM]},
+  month =        {July},
+  url =          {http://arxiv.org/abs/1505.02318},
+  annote =       {Datei Annotations/OK_XSZ_FullSAT.tex. Submitted to DAM.}
 }
 
-@article{h13,
-  author    = {Matthew Gwynne and
-               Oliver Kullmann},
-  title     = {Generalising Unit-Refutation Completeness and {SLUR} via Nested Input
-               Resolution},
-  journal   = {J. Autom. Reasoning},
-  volume    = {52},
-  number    = {1},
-  pages     = {31--65},
-  year      = {2014},
-  url       = {http://dx.doi.org/10.1007/s10817-013-9275-8},
-  doi       = {10.1007/s10817-013-9275-8},
-  timestamp = {Wed, 19 Feb 2014 13:43:01 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/jar/GwynneK14},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+%h13
+@TechReport{GwynneKullmann2012Slur,
+  author =       {Matthew Gwynne and Oliver Kullmann},
+  title =        {Generalising unit-refutation completeness and {SLUR} via nested input resolution},
+  institution =  {arXiv},
+  year =         2013,
+  number =       {arXiv:1204.6529v5 [cs.LO]},
+  month =        {January},
+  url =          {http://arxiv.org/abs/1204.6529}
 }
 
-@inproceedings{h14,
-  author    = {Oliver Kullmann},
-  title     = {The Combinatorics of Conflicts between Clauses},
-  booktitle = {Theory and Applications of Satisfiability Testing, 6th International
-               Conference, {SAT} 2003. Santa Margherita Ligure, Italy, May 5-8, 2003
-               Selected Revised Papers},
-  pages     = {426--440},
-  year      = {2003},
-  crossref  = {DBLP:conf/sat/2003},
-  url       = {http://dx.doi.org/10.1007/978-3-540-24605-3_32},
-  doi       = {10.1007/978-3-540-24605-3_32},
-  timestamp = {Wed, 06 Jul 2011 21:20:44 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/sat/Kullmann03},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+%h14
+@InProceedings{Ku2003e,
+  author =       {Oliver Kullmann},
+  title =        {The Combinatorics of Conflicts between Clauses},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {426--440},
+  doi =          {10.1007/978-3-540-24605-3_32},
+  note =         {This is a slightly shortened version of \cite{Ku2003b}.}
 }
 
+%h15
 @book{h15, 
   author    = {Bollobás, Béla},
   title     = {Modern graph theory},
@@ -197,7 +178,7 @@
   type      = {Book}
 }
 
-@inproceedings{h16,
+@inproceedings{DBLP:conf/sat/NewshamGFAS14,
   author    = {Zack Newsham and
                Vijay Ganesh and
                Sebastian Fischmeister and
@@ -217,7 +198,7 @@
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@inproceedings{h17,
+@inproceedings{DBLP:conf/sat/AnsoteguiGL12,
   author    = {Carlos Ans{\'{o}}tegui and
                Jes{\'{u}}s Gir{\'{a}}ldez{-}Cru and
                Jordi Levy},
@@ -234,25 +215,20 @@
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@inproceedings{h18,
-  author    = {Olaf Beyersdorff and
-               Oliver Kullmann},
-  title     = {Unified Characterisations of Resolution Hardness Measures},
-  booktitle = {Theory and Applications of Satisfiability Testing - {SAT} 2014 - 17th
-               International Conference, Held as Part of the Vienna Summer of Logic,
-               {VSL} 2014, Vienna, Austria, July 14-17, 2014. Proceedings},
-  pages     = {170--187},
-  year      = {2014},
-  crossref  = {DBLP:conf/sat/2014},
-  url       = {http://dx.doi.org/10.1007/978-3-319-09284-3_13},
-  doi       = {10.1007/978-3-319-09284-3_13},
-  timestamp = {Wed, 02 Jul 2014 14:22:45 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/sat/BeyersdorffK14},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+%h18
+@InProceedings{BeyersdorffKullmann2014PHP,
+  author =       {Olaf Beyersdorff and Oliver Kullmann},
+  title =        {Unified characterisations of resolution hardness measures},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2014},
+  crossref =     {Wien2014},
+  pages =        {170--187},
+  year =         2014,
+  doi =          {10.1007/978-3-319-09284-3_13},
+  annote =       {2014_PHP.tex; \cite{BeyersdorffGwynneKullmann2013PHPER} ist der zugrundeliegende Bericht.}
 }
 
-
-@Article{h19,
+%h19
+@Article{Kl93,
   author    = {Hans {Kleine B{\"u}ning}},
   title     = {On generalized {H}orn formulas and {$k$}-resolution},
   journal   = {Theoretical Computer Science},
@@ -264,140 +240,33 @@
   doi       = {10.1016/0304-3975(93)90331-M}
 }
 
-@InCollection{h20,
-  author    = {G.S. Tseitin},
-  title     = {On the Complexity of Derivation in Propositional Calculus},
-  booktitle = {Automation of Reasoning 2: Classical Papers on Computational Logic 1967--1970},
-  pages     = {466--483},
-  publisher = {Springer},
-  year      = {1983},
-  editor    = {Jörg H. Siekmann and Graham Wrightson},
-  series    = {Symbolic Computation: Artificial Intelligence},
-  doi       = {10.1007/978-3-642-81955-1_28},
-  annote    = {Pdf-Datei vorhanden.}
+%h20
+@InCollection{Ts68,
+  author =       {G.S. Tseitin},
+  title =        {On the Complexity of Derivation in Propositional Calculus},
+  booktitle =    {Automation of Reasoning 2: Classical Papers on Computational Logic 1967--1970},
+  pages =        {466--483},
+  publisher =    {Springer},
+  year =         1983,
+  editor =       {Jörg H. Siekmann and Graham Wrightson},
+  series =       {Symbolic Computation: Artificial Intelligence},
+  note =         {Original publication: Seminars in Mathematics, V.A.~Steklov Mathematical Institute, Leningrad, 1968, Volume 8; english translation: Studies in mathematics and mathematical logic, Part II (A.O. Slisenko, editor), 1970, pages 115-125},
+  doi =          {10.1007/978-3-642-81955-1_28},
+  annote =       {Pdf-Datei vorhanden.}
 }
 
-@misc{h21,
-  author    = {Pavel Pudlak and
-               Russell Impagliazzo},
-  title     = {A lower bound for DLL algorithms for k-SAT},
-  year      = {1999}
+%h21DBLP:conf/soda/PudlakI00
+@InProceedings{PI2000,
+  author =       {Pavel Pudl{\'{a}}k and Russell Impagliazzo},
+  title =        {A lower bound for {DLL} algorithms for $k$-{SAT} (preliminary version)},
+  booktitle =    {SODA},
+  pages =        {128--136},
+  year =         2000,
+  publisher =    {ACM/SIAM},
+  annote =       {Zu besorgen; Vorversion als Pdf vorhanden.}
 }
 
-@article{h22,
-  author    = {Olaf Beyersdorff and
-               Nicola Galesi and
-               Massimo Lauria},
-  title     = {A characterization of tree-like Resolution size},
-  journal   = {Inf. Process. Lett.},
-  volume    = {113},
-  number    = {18},
-  pages     = {666--671},
-  year      = {2013},
-  url       = {http://dx.doi.org/10.1016/j.ipl.2013.06.002},
-  doi       = {10.1016/j.ipl.2013.06.002},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ipl/BeyersdorffGL13}
-}
-
-@inproceedings{h23,
-  author    = {Matthew Gwynne and
-               Oliver Kullmann},
-  title     = {On {SAT} Representations of {XOR} Constraints},
-  booktitle = {Language and Automata Theory and Applications - 8th International
-               Conference, {LATA} 2014, Madrid, Spain, March 10-14, 2014. Proceedings},
-  pages     = {409--420},
-  year      = {2014},
-  crossref  = {DBLP:conf/lata/2014},
-  url       = {http://dx.doi.org/10.1007/978-3-319-04921-2_33},
-  doi       = {10.1007/978-3-319-04921-2_33},
-  timestamp = {Fri, 07 Feb 2014 14:09:31 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/lata/GwynneK14},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@Article{h24,
-  author    = {Hans {Kleine B{\"u}ning}},
-  title     = {On subclasses of minimal unsatisfiable formulas},
-  journal   = {Discrete Applied Mathematics},
-  year      = {2000},
-  volume    = {107},
-  number    = {1-3},
-  pages     = {83--98},
-  doi       = {10.1016/S0166-218X(00)00245-6}
-}
-
-@incollection{h25,
-  author    = {Hans Kleine{ }B{\"{u}}ning and
-               Oliver Kullmann},
-  title     = {Minimal Unsatisfiability and Autarkies},
-  booktitle = {Handbook of Satisfiability},
-  pages     = {339--401},
-  year      = {2009},
-  crossref  = {DBLP:series/faia/2009-185},
-  url       = {http://dx.doi.org/10.3233/978-1-58603-929-5-339},
-  doi       = {10.3233/978-1-58603-929-5-339},
-  timestamp = {Wed, 16 Sep 2009 11:21:44 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/series/faia/BuningK09},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@TechReport{h26,
-  author    = {Oliver Kullmann and 
-               Xishun Zhao},
-  title     = {Unsatisfiable hitting clause-sets with three more clauses than variables},
-  institution =  {arXiv},
-  year      = {2016},
-  number    = {arXiv:1604.01288v1 [cs.DM]},
-  month     = {April},
-  url       = {http://arxiv.org/abs/1604.01288}
-}
-
-@inproceedings{h27,
-  author    = {Oliver Kullmann},
-  title     = {An Application of Matroid Theory to the {SAT} Problem},
-  booktitle = {Proceedings of the 15th Annual {IEEE} Conference on Computational
-               Complexity, Florence, Italy, July 4-7, 2000},
-  pages     = {116},
-  year      = {2000},
-  crossref  = {DBLP:conf/coco/2000},
-  url       = {http://dx.doi.org/10.1109/CCC.2000.856741},
-  doi       = {10.1109/CCC.2000.856741},
-  timestamp = {Fri, 13 May 2016 10:31:15 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/coco/Kullmann00},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@article{h28,
-  author    = {Oliver Kullmann},
-  title     = {Lean clause-sets: generalizations of minimally unsatisfiable clause-sets},
-  journal   = {Discrete Applied Mathematics},
-  volume    = {130},
-  number    = {2},
-  pages     = {209--249},
-  year      = {2003},
-  url       = {http://dx.doi.org/10.1016/S0166-218X(02)00406-7},
-  doi       = {10.1016/S0166-218X(02)00406-7},
-  timestamp = {Wed, 12 May 2004 14:52:22 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/dam/Kullmann03},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@article{h29,
-  author    = {Oliver Kullmann and
-               Xishun Zhao},
-  title     = {On Davis-Putnam reductions for minimally unsatisfiable clause-sets},
-  journal   = {Theor. Comput. Sci.},
-  volume    = {492},
-  pages     = {70--87},
-  year      = {2013},
-  url       = {http://dx.doi.org/10.1016/j.tcs.2013.04.020},
-  doi       = {10.1016/j.tcs.2013.04.020},
-  timestamp = {Tue, 18 Jun 2013 19:53:28 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/tcs/KullmannZ13},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@article{h30,
+@article{DBLP:journals/ipl/BeyersdorffGL13,
   author    = {Olaf Beyersdorff and
                Nicola Galesi and
                Massimo Lauria},
@@ -414,40 +283,118 @@
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@inproceedings{h31,
-  author    = {Pavel Pudl{\'{a}}k and
-               Russell Impagliazzo},
-  title     = {A lower bound for {DLL} algorithms for \emph{k}-SAT (preliminary version)},
-  booktitle = {Proceedings of the Eleventh Annual {ACM-SIAM} Symposium on Discrete
-               Algorithms, January 9-11, 2000, San Francisco, CA, {USA.}},
-  pages     = {128--136},
+%h23
+@InProceedings{GwynneKullmann2013GoodRepresentationsIILata,
+  author =       {Matthew Gwynne and Oliver Kullmann},
+  title =        {On {SAT} representations of {XOR} constraints},
+  booktitle =    {LATA 2014: Language and Automata Theory and Applications, 8th International Conference},
+  pages =        {409--420},
+  year =         2014,
+  editor =       {Adrian-Horia Dediu and Carlos Mart{\'{\i}}n-Vide and Jos{\'{e}}-Luis Sierra and Bianca Truthe},
+  volume =       {8370},
+  series =       {Lecture Notes in Computer Science (LNCS)},
+  publisher =    {Springer},
+  doi =          {10.1007/978-3-319-04921-2_33},
+  annote =       {Zugrundeliegender Bericht ist \cite{GwynneKullmann2013GoodRepresentationsII}.}
+}
+
+%h24
+@article{KleineBuening2000SubclassesMU,
+  author    = {Hans Kleine{ }B{\"{u}}ning},
+  title     = {On subclasses of minimal unsatisfiable formulas},
+  journal   = {Discrete Applied Mathematics},
+  volume    = {107},
+  number    = {1-3},
+  pages     = {83--98},
   year      = {2000},
-  crossref  = {DBLP:conf/soda/2000},
-  url       = {http://dl.acm.org/citation.cfm?id=338219.338244},
-  timestamp = {Fri, 07 Dec 2012 17:02:09 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/soda/PudlakI00},
+  url       = {http://dx.doi.org/10.1016/S0166-218X(00)00245-6},
+  doi       = {10.1016/S0166-218X(00)00245-6},
+  timestamp = {Thu, 18 Aug 2011 16:29:13 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/dam/Buning00},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@article{h32,
-  author    = {Gennady Davydov and
-               Inna Davydova and
-               Hans Kleine{ }B{\"{u}}ning},
-  title     = {An Efficient Algorithm for the Minimal Unsatisfiability Problem for
-               a Subclass of {CNF}},
-  journal   = {Ann. Math. Artif. Intell.},
-  volume    = {23},
-  number    = {3-4},
-  pages     = {229--245},
-  year      = {1998},
-  url       = {http://dx.doi.org/10.1023/A:1018924526592},
-  doi       = {10.1023/A:1018924526592},
-  timestamp = {Wed, 18 May 2011 16:17:43 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/amai/DavydovDB98},
+%h25
+@incollection{Kullmann2007HandbuchMU,
+  author    = {Hans Kleine{ }B{\"{u}}ning and
+               Oliver Kullmann},
+  title     = {Minimal Unsatisfiability and Autarkies},
+  booktitle = {Handbook of Satisfiability},
+  pages     = {339--401},
+  year      = {2009},
+  crossref  = {2008HandbuchSAT},
+  url       = {http://dx.doi.org/10.3233/978-1-58603-929-5-339},
+  doi       = {10.3233/978-1-58603-929-5-339}
+}
+
+%h26 
+@TechReport{KullmannZhao2016UHitSAT,
+  author =       {Oliver Kullmann and Xishun Zhao},
+  title =        {Unsatisfiable hitting clause-sets with three more clauses than variables},
+  institution =  {arXiv},
+  year =         {2016},
+  number =       {arXiv:1604.01288v1 [cs.DM]},
+  month =        {April},
+  url =          {http://arxiv.org/abs/1604.01288},
+  annote =       {Datei Annotations/OK_XSZ_SAT2016conference.tex.}
+}
+%h27
+@inproceedings{Ku99dK,
+  author    = {Oliver Kullmann},
+  title     = {An Application of Matroid Theory to the {SAT} Problem},
+  booktitle = {Proceedings of the 15th Annual {IEEE} Conference on Computational
+               Complexity, Florence, Italy, July 4-7, 2000},
+  pages     = {116},
+  year      = {2000},
+  url       = {http://dx.doi.org/10.1109/CCC.2000.856741},
+  doi       = {10.1109/CCC.2000.856741}
+}
+
+%h28DBLP:journals/dam/Kullmann03
+@Article{Ku00f,
+  author =       {Oliver Kullmann},
+  title =        {Lean clause-sets: Generalizations of minimally unsatisfiable clause-sets},
+  journal =      {Discrete Applied Mathematics},
+  year =         2003,
+  volume =       130,
+  pages =        {209--249},
+  doi =          {10.1016/S0166-218X(02)00406-7},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+%h29
+@article{KullmannZhao2012ConfluenceJ,
+  author    = {Oliver Kullmann and
+               Xishun Zhao},
+  title     = {On Davis-Putnam reductions for minimally unsatisfiable clause-sets},
+  journal   = {Theor. Comput. Sci.},
+  volume    = {492},
+  pages     = {70--87},
+  year      = {2013},
+  url       = {http://dx.doi.org/10.1016/j.tcs.2013.04.020},
+  doi       = {10.1016/j.tcs.2013.04.020},
+  timestamp = {Tue, 18 Jun 2013 19:53:28 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/tcs/KullmannZ13},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@article{h33,
+%h30 removed
+%h31 removed
+
+%h32 
+@Article{DDK98,
+  author =       {Gennady Davydov and Inna Davydova and Hans {Kleine B{\"u}ning}},
+  title =        {An efficient algorithm for the minimal unsatisfiability problem for a subclass of {CNF}},
+  journal =      {Annals of Mathematics and Artificial Intelligence},
+  year =         1998,
+  volume =       23,
+  number =       {3-4},
+  pages =        {229--245},
+  doi =          {10.1023/A:1018924526592},
+  annote =       {Vorhanden.}
+
+%h33
+@article{Kl93,
   author    = {Hans Kleine{ }B{\"{u}}ning},
   title     = {On generalized Horn formulas and k-resolution},
   journal   = {Theor. Comput. Sci.},
@@ -456,20 +403,29 @@
   pages     = {405--413},
   year      = {1993},
   url       = {http://dx.doi.org/10.1016/0304-3975(93)90331-M},
-  doi       = {10.1016/0304-3975(93)90331-M},
-  timestamp = {Mon, 02 Feb 2015 17:04:38 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/tcs/Buning93},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+  doi       = {10.1016/0304-3975(93)90331-M}
 }
 
-@InCollection{h34,
-  author    = {G.S. Tseitin},
-  title     = {On the Complexity of Derivation in Propositional Calculus},
-  booktitle = {Automation of Reasoning 2: Classical Papers on Computational Logic 1967--1970},
-  pages     = {466--483},
-  publisher = {Springer},
-  year      = {1983},
-  editor    = {Jörg H. Siekmann and Graham Wrightson},
-  series    = {Symbolic Computation: Artificial Intelligence},
-  doi       = {10.1007/978-3-642-81955-1_28}
+%h34 removed
+
+%h35
+@Article{Ku00g,
+  author =       {Oliver Kullmann},
+  title =        {Upper and Lower Bounds on the Complexity of Generalised Resolution and Generalised Constraint Satisfaction Problems},
+  journal =      {Annals of Mathematics and Artificial Intelligence},
+  year =         2004,
+  volume =       40,
+  number =       {3-4},
+  pages =        {303--352},
+  month =        {March},
+  doi =          {10.1023/B:AMAI.0000012871.08577.0b},
+  annote =       {pdf-Datei vorhanden.}
 }
+
+@Misc{Sloane2008OEIS,
+  author =       {Neil J.A. Sloane},
+  title =        {The {O}n-{L}ine {E}ncyclopedia of {I}nteger {S}equences ({OEIS})},
+  year =         2008,
+  url =          {http://oeis.org/}
+}
+
