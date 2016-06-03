@@ -49,7 +49,8 @@ The hardness is defined as a measure of complexity (the amount of effort needed 
 
 For representing a boolean function $f$ CNF-clause-sets are defined in Section \ref{sec:Clause-sets}. Here, another representation of $f$ is introduced (called XOR-representation) which is used for extending the hardness game for graphs based on \cite{GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata}. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. 
 ????
-
+The XOR-representation is investigated in \cite{GwynneKullmann2013GoodRepresentations,GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} with the goal of finding a good representation for XOR-constraints.
+???????
 
 One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which are referred as the building block for understanding unsatisfiability in \cite{KullmannZhao2010Extremal}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{KullmannZhao2010Extremal, Kullmann2007HandbuchMU,KullmannZhao2012ConfluenceJ}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency and it is used for classification of minimally unsatisfiable clause-sets. In Section \ref{cha:mucls}, first we give an overview of result regarding clause-sets with small deficiency and then, we discuss open problems and our research themes. So far, the structure of clause-sets in $\Musati{\delta=1}$ is well-known and an overview of them is given in \cite{KullmannZhao2010Extremal, Ku99dK,KleineBuening2000SubclassesMU,DDK98}. For clause-sets in $\Musati{\delta=2}$, \cite{KleineBuening2000SubclassesMU} gives a formula which is isomorphism for each $F' \in \Smusati{\delta=2}$ and further investigation on these clause-sets is presented in \cite{KullmannZhao2010Extremal, KleineBuening2000SubclassesMU, KullmannZhao2012ConfluenceJ}. The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{KullmannZhao2016UHitSAT} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{KullmannZhao2010Extremal} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in this subclass is an open research question.
 
@@ -86,7 +87,7 @@ Partial assignments are extended from variables to literals using $\vp(\ol{v})=\
 
 Two clause-sets $F, G$ are called \textbf{isomorphic}, if one can get $G$ from $F$ by renaming the variables of $F$ (and also flipping the variables is allowed if needed). Thus, the isomorphism is considered as a bijection $\alpha: \lit(F) \ra \lit(G)$ such that $\alpha(\ol{x}) = \ol{\alpha(x)}$) and the clauses of $F$ are precisely mapped to the clauses of $G$. 
 
-A boolean function is a total assignment $f$ over a finite set of variables $V$ and denoted by $f:  \Tass(V) \ra \set{0,1}$. The Conjunctive Normal Form (or the CNF-representation) is the interpretation of a clause-set $F$ as a boolean function $f$ by considering the $F$ as the conjunction of clauses and a clause $C \in F$ as the disjunction of literals. In general, $F$ is a CNF-representation of $f$ if $\var(F) \spe \var(f)$ and for $\vp \in \Tass(\var(f))$, $(\vp * F) \in \Sat \Lra f(\vp) = 1$. If $v \in \var(f)$ it is called primary variable while $v \in \var(F) \sm \var(f)$ is called auxiliary variable.
+A boolean function is a total assignment $f$ over a finite set of variables $V$ and denoted by $f:  \Tass(V) \ra \set{0,1}$. The Conjunctive Normal Form (or the CNF-representation) is the interpretation of a clause-set $F$ as a boolean function $f$ by considering the $F$ as the conjunction of clauses and a clause $C \in F$ as the disjunction of literals. In general, $F$ is a CNF-representation of $f$ if $\var(F) \spe \var(f)$ and for $\vp \in \Tass(\var(f))$, $(\vp * F) \in \Sat \iff f(\vp) = 1$. If $v \in \var(f)$ it is called primary variable while $v \in \var(F) \sm \var(f)$ is called auxiliary variable.
 
 \section{Implication-relation}
 \label{sec:imprel}
@@ -206,6 +207,7 @@ Remarks:
   \item For $k=1$, the generalised unit-clause propagation eliminates all unit-clauses with assigning their satisfying assignment. Thus, $\rk_1$ is the \textbf{unit-clause propagation}.
   \item $\rk_2$ is called \textbf{failed literal elimination} and all clauses in $\rk_2$ have length at least $2$ (since all unit-clauses have already been removed).
   \item In each step $k$, if $\rk_k$ yields $\bot$ then the original clause-set $F$ is unsatisfiable while $F$ is satisfiable if $\top$ is obtained. In the latter case, the sequence of forced assignments eliminated until that level is a satisfying assignment for $F$.
+  \item $\rk_k(F)$ is computable in time $O(\ell(F) \cdot n(F)^{2(k-1)})$ (by \cite{GwynneKullmann2012Slur}).
   \item The map $\rk_k$ is well-defined since it does not depend on the choices of literals in each step. For example, in the process of obtaining  $\rk_1$ the final result does not change based on the order of choosing the unit literals. 
   \item For all clauses $C \in F$ if $\abs{C} > k$, then $\rk_k(F) = F$. This means that this technique is not complete since $\rk_k(F)$ can not discover the unsatisfiability of a clause-set $F$ if all clauses in $F$ have length at least $k+1$.
 \end{enumerate}
@@ -248,10 +250,13 @@ Based on \cite{BeyersdorffGwynneKullmann2013PHPER}, the hardness is a map that a
 
 Remarks:
   \begin{enumerate}
+  \item For all full clauses $A_n \in \Usat$, we have $\hardness(A_n)=n$.
   \item By \cite{BeyersdorffGwynneKullmann2013PHPER}, we have $\bmm{\Urefc_k} := \set{F \in \Cls : \hardness(F) \le k}$. The properties of $\Urefc_k$ is investigated in \cite{GwynneKullmann2012Slur}.
+  \item For $F \in \Urefc_k$, the decision whether they are satisfiable or not is polynomial time (by \cite{GwynneKullmann2012Slur}).
   \item Every $F \in \Sat \sm \set{\top}$ can be converted to an unsatisfiable clause-set $F' \in \Usat$ by applying a partial assignment $\vp$. 
   \item For extending the hardness measure for $F \in \Sat$ based on Lemma \ref{lem:hd-phi}, we should consider the worst case value of $\hardness$ for $\vp * F \in \Usat$ which is the maximum of $\hardness(\vp * F)$. The reason is that $\hardness(\vp * F) \leq \hardness(F)$ and one can easily find a $\vp$ such that $\bot \in \vp * F$ and $\hardness(\vp * F)=0$. For $\vp$ we only need to consider the minimal partial assignment which is $\vp_C : C \in \primec_0(F)$. For $F = \top$, since it is not convertible to an unsatisfiable clause-set, we assign the minimum of the hardness which is zero.  
   \item $\rk_k$ can not yield $\set{\bot}$ if all clauses in $F$ have length at least $k+1$.
+  \item For $F \in \Cls$, in general computing $\hardness(F)$ is not polynomial time. But, there are special groups of clause-sets (as investigated in \cite{GwynneKullmann2012Slur}) that we can compute their hardness in polynomial time. 
 \end{enumerate}
 
 \begin{examp}\label{exp:harducls}
@@ -269,6 +274,12 @@ Following, $\hardness(F)$ for some more examples of unsatisfiable clause-sets $(
 \begin{examp}\label{exp:hd-extd}
 For $F = \set{\set{x, y} , \set{x,\ol y}} \in \Sat$ with $\primec_0(F) = \set{\set{x}}$,  $\hardness(F)= \max \set{ \hardness(\vp * F) : \vp =\pab{x \ra 0} }=\hardness(\set{\set{y},\set{\ol y}})=1$.
 \end{examp}
+\begin{lem}\label{lem:hd1}
+By  \cite{GwynneKullmann2012Slur}, consider $F \in \Cls$ and $v \not \in \var(F)$. If $F' := \set{C \cup \set{v} : C \in F} \cup \set{C \cup \set{\ol{v}} : C \in F}$, Then $\hardness(F') = \hardness(F) + 1$.
+\end{lem}
+\begin{lem}\label{lem:uck}
+Based on \cite{GwynneKullmann2012Slur}, For $F \in \Cls$ and $k \in \NNZ$ we have $F \in \Urefc_k \iff \fa\, C \in \primec_0(F) : F \vdash_k C$ (that is for all prime implicates $C$ of $F$ there is a resolution tree deriving $C$ from $F$ such that there exists a path to some leaf of length at most $k$ from all nodes.
+\end{lem}
 %-----------------------------------------------------------------
 \subsection{Width-hardness of clause-sets}
 \label{sec:whdd}
@@ -287,7 +298,7 @@ Remarks:
   \end{enumerate}
  
 \begin{defi}\label{def:whd-extended}
-The \textbf{width-hardness} is a map denoted by $\bmm{\whardness} : \Cls \rightarrow \NNZ$ for a representation of a boolean function $f$ as a clause-set $F \in \Cls$. To obtain the width-hardness of  $F$, there are three cases: if $F = \top$, then $\whardness(F) := 0$. Else if $F \in \Usat$, then $\whardness(F) := \min \set{k \in \NNZ : F \vdash^k \bot}$. Otherwise, $F \in \Sat \sm \set{\top}$, and $\whardness(F) := \max \set{ \whardness(\vp * F) : \vp * F \in \Usat }$.
+The \textbf{width-hardness} is a map denoted by $\bmm{\whardness} : \Cls \rightarrow \NNZ$ for a representation of a boolean function $f$ as a clause-set $F \in \Cls$. By \cite{GwynneKullmann2013GoodRepresentations}, to obtain the width-hardness of  $F$ there are three cases: if $F = \top$, then $\whardness(F) := 0$. Else if $F \in \Usat$, then $\whardness(F) := \min \set{k \in \NNZ : F \vdash^k \bot}$. Otherwise, $F \in \Sat \sm \set{\top}$, and $\whardness(F) := \max \set{ \whardness(\vp * F) : \vp * F \in \Usat }$.
 \end{defi}
 
 Remarks:
@@ -295,6 +306,7 @@ Remarks:
   \item By \cite{BeyersdorffKullmann2014PHP}, we have $\bmm{\Wrefc_k}:= \set{F \in \Cls : \whardness(F) \le k}$. 
   \item If $\bot \in F$, then $F \vdash^0 \bot$ and $\whardness(F)=0$. Also if $\rk_1(F)=\set{\bot}$, then it is 1-resolution (unit resolution) and  $\whardness(F)=1$.
   \item For fixed $k \in \NNZ$ and input $F \in \Usat$ the decision whether $\hardness(F) \le k$ or $\whardness(F) \le k$ is solvable in polynomial time (by \cite{BeyersdorffKullmann2014PHP}). 
+  \item For $F \in \Usat$, obtaining $\whardness(F) = k$ for $k \in \set{0,1,2}$ is decided in polynomial time, while for $k > 2$ its time complexity is unknown (by \cite{GwynneKullmann2013GoodRepresentationsIIex}).
   \item For $F \in \Usat$, a formula is given to obtain $\whardness(F)$ in \cite{BeyersdorffGwynneKullmann2013PHPER} as follows: if $T$ is a resolution tree for $F$ with $w_1, w_2$ as left and right children and subtrees $T_1, T_2$, then we have:
   \begin{displaymath}
   \whardness(T) := \max \big (\whardness(T_1), \whardness(T_2), \, \min(\abs{C(w_1)}, \abs{C(w_2)}) \big )
@@ -310,7 +322,7 @@ By \cite{BeyersdorffKullmann2014PHP}, $\Wrefc_0 = \Urefc_0$ and $\Wrefc_1 = \Ure
 \section{Game characterisations of hardness measures}
 \label{sec:game-pd}
 
-In \cite{PI2000}, a game (with two player: Delayer and Prover) is explained to obtain a lower bounds on resolution refutation for unsatisfiable clause-sets. In this game, the Delayer claims to know a satisfying assignment for $F \in \Usat$, while the Prover wants to expose his lie by asking for a variable value in each round. The Delayer can either choose to answer this question by setting the variable to 0/1, or can defer the choice to the Prover. In the latter case, Delayer scores one point \cite{BeyersdorffKullmann2014PHP}. Then, the game is modified to an asymmetric version in \cite{BGL13a} which precisely characterises tree resolution size. In \cite{BeyersdorffKullmann2014PHP,BeyersdorffGwynneKullmann2013PHPER}, the asymetric version of the game is characterised to obtain $\hardness(F)$ and $\whardness(F)$ of a clause-set $F \in \Cls$ called the Prover-Delayer game. Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ by two players. Delayer extend $\vp$ to $\vp'$ such that $\vp' \spe \vp$ while Prover extend $\vp$ to $\vp'$ such that $\vp' \spe \vp$ with $\vp' * F= \top$ or $n(\vp')=n(\vp)+1$.In the following sections, first the game for $\hardness(F)$ is explained in Section \ref{sec:game-hdf}. Then the game for $\whardness(F)$ is presented in Section \ref{sec:game-whdf}.
+In \cite{PI2000}, a game (with two player: Delayer and Prover) is explained to obtain a lower bounds on resolution refutation for $F \in \Usat$. In this game, Delayer starts the game by claiming to know a satisfying assignment for $F$, and Prover wants to expose his lie by asking for a variable value in each round. Then, Delayer can either choose to set some variables to 0/1, or can defer the choice to the Prover. In the latter case, Delayer gets one point. This game is modified to an asymmetric version in \cite{BGL13a} which precisely characterises tree resolution size. In \cite{BeyersdorffKullmann2014PHP,BeyersdorffGwynneKullmann2013PHPER}, the asymmetric version of the game is characterised to obtain $\hardness(F)$ and $\whardness(F)$ of a clause-set $F \in \Cls$. In this game, Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ by two players. Delayer extend $\vp$ to $\vp'$ such that $\vp' \spe \vp$ while Prover extend $\vp$ to $\vp'$ such that $\vp' \spe \vp$ with $\vp' * F= \top$ or $n(\vp')=n(\vp)+1$. Section \ref{sec:game-hdf} is dedicated to explain the game for obtaining $\hardness(F)$ and in Section \ref{sec:game-whdf} the game for $\whardness(F)$ is presented.
 
 \subsection{Game characterisations of tree-hardness}
 \label{sec:game-hdf}
@@ -318,28 +330,30 @@ In \cite{PI2000}, a game (with two player: Delayer and Prover) is explained to o
 In this section, the modified Prover-Delayer game for obtaining the hardness is discussed. To explain the game, first we need to know that how $\hardness(F)$ for $F \in \Cls$ is changed by assigning a variable in $F$. 
 
 \begin{lem}\label{lem:hd-var}
-\cite{BeyersdorffKullmann2014PHP} Consider a clause-set $F \in \Cls$ and $\hardness(F)$. If we assign a value $\ve \in \set{0,1}$ to a variable $v \in \var(F)$, then there are exactly two cases that can happen for $\hardness(F)$. The first case is $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ and $\hardness(\pab{v \ra \ol \ve}*F) \leq \hardness(F)$ and the second case is  $\hardness(\pab{v \ra \ve}*F)=\hardness(\pab{v \ra \ol \ve}*F)=\hardness(F)-1$. Thus, for all cases  $\hardness(\pab{v \ra \ve}*F) \leq \hardness(F)$.
+By \cite{BeyersdorffKullmann2014PHP}, for a clause-set $F \in \Cls$ and $\hardness(F)$ if we assign a value $\ve \in \set{0,1}$ to a variable $v \in \var(F)$, then there are exactly two cases that can happen for $\hardness(F)$. The first case is $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ and $\hardness(\pab{v \ra \ol \ve}*F) \leq \hardness(F)$ and the second case is  $\hardness(\pab{v \ra \ve}*F)=\hardness(\pab{v \ra \ol \ve}*F)=\hardness(F)-1$. Thus, for all cases  $\hardness(\pab{v \ra \ve}*F) \leq \hardness(F)$.
 \end{lem}
 
 \begin{defi}\label{def:var-trb}
 For $F \in \Cls$ and  $\ve \in \set{0,1}$, a variable $v \in \var(F)$ is called \textbf{trouble maker} if $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ and $\hardness(F)- \hardness(\pab{v \ra \ol \ve}*F) \geq 2$. Also, if $\hardness(\pab{v \ra \ve}*F)=\hardness(\pab{v \ra \ol \ve}*F = \hardness(F)$ then $v$ is called \textbf{ineffective variable}.
 \end{defi}
 
-Based on \cite{BeyersdorffKullmann2014PHP}, the strategy of Delayer is to maximize the $\hardness(F)$ for $F \in \Cls$ while Prover wants to minimize the hardness. Also, \cite{BeyersdorffKullmann2014PHP} considers a global partial assignment $\vp \in \Pass$ which is extended to $\vp' \spe \vp$ in each round. Here, the extension of the partial assignment $\vp \in \Pass$ is considered as a sequence in Definition \ref{def:atomicm}.
+Based on \cite{BeyersdorffKullmann2014PHP}, the strategy of Delayer is to maximize the $\hardness(F)$ for $F \in \Cls$ while Prover wants to minimize the hardness. Also, \cite{BeyersdorffKullmann2014PHP} considers a global partial assignment $\vp \in \Pass$ which is extended to $\vp' \spe \vp$ in each round. Here, the extension of the partial assignment is considered as a sequence in Definition \ref{def:atomicm}.
 
 \begin{defi}\label{def:atomicm}
-For $F \in \Cls$, there is a sequence of partial assignment $\vp_0, ..., \vp_m \in \Pass$ for the Prover-Delayer ($m \in \NN$ is the number of rounds played in the game) such that $\vp_0=\epa$ and $\vp_i \spe \vp_{i-1}$ with $1 \le i \le m$ and $\var(\vp_i) \sse \var(F)$. The \textbf{atomic move} in the Prover-Delayer game is defined as the extension of the partial assignment $\vp_i $ to $\vp_{i-1}$ by each player and in the case of Prover, also holds $n(\vp_i)=n( \vp_{i-1})+1$.
+For $F \in \Cls$, there is a sequence of partial assignments $\vp_0, ..., \vp_m \in \Pass$ for Prover-Delayer game ($m \in \NN$ is the number of rounds played in the game) such that $\vp_0=\epa$ and $\vp_i \spe \vp_{i-1}$ with $1 \le i \le m$ and $\var(\vp_i) \sse \var(F)$. The \textbf{atomic move} of the Prover-Delayer game introduced in \cite{BeyersdorffKullmann2014PHP} can be defined as the extension of the partial assignment $\vp_{i-1} $ to $\vp_{i}$ by each player and in the case of Prover, also holds $n(\vp_i)=n( \vp_{i-1})+1$.
 \end{defi}
 
 \begin{lem}\label{lem:atm-m-D-P}
-The atomic move for Delayer is removing all trouble makers in Definition \ref{def:var-trb} by assigning them such that $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ (the hardness remains unchanged). In the case of no trouble maker, Delayer defers the assignment to Prover. In the case of Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ such that the hardness decreases exactly one unit.
+In the case of Prover-Delayer game for obtaining the hardness of $F \in \Cls$, the optimal atomic move for Delayer is removing all trouble makers in Definition \ref{def:var-trb} by assigning them such that $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ (the hardness remains unchanged). If htere is no trouble maker, Delayer defers the assignment to Prover. For Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ such that the hardness decreases exactly one unit.
 \end{lem}
 \begin{prf}
-The aim of Delayer is to maximize $\hardness(F)$ for $F \in \Cls$. But since according to Lemma \ref{lem:hd-var} assigning a variable for $F$ does not increase the hardness, Delayer must keep $\hardness(F)$ unchanged. This is achieved by taking no action or just assigning  ineffective variables. On the other hand, Prover wants to minimize $\hardness(F)$ and in each round, tries to choose a variable $v \in \var(F)$ whose assigning reduces the hardness at most (like two or more points). Thus, Delayer must prevent the case that Prover decreases the hardness more that one unit. This is achieves by assigning the trouble makers such that $\hardness(F)$ remains unchanged. If Delayer succeeds in removing all trouble makers in each round, then Prover must decrease $\hardness(F)$ exactly one unit.
+The aim of Delayer is to maximize $\hardness(F)$ for $F \in \Cls$. But since according to Lemma \ref{lem:hd-var} assigning a variable for $F$ does not increase the hardness, Delayer must keep $\hardness(F)$ unchanged. This is achieved by taking no action or just assigning  ineffective variables. On the other hand, Prover wants to minimize $\hardness(F)$ and in each round, tries to choose a variable $v \in \var(F)$ whose assigning reduces the hardness at most (like two or more units). Thus, Delayer must prevent the case that Prover decreases the hardness more than one unit. This is achieves by assigning the trouble makers such that $\hardness(F)$ remains unchanged. If Delayer succeeds in removing all trouble makers in each round, then Prover must decrease $\hardness(F)$ exactly one unit.
 \end{prf}
 
+In \cite{BeyersdorffKullmann2014PHP}, the game for obtaining the hardness of $F \in \Cls$ is explained as performing an atomic move (as the extension of the global assignment $\vp$) and the game ends once $\bot \in \vp * F $ or $\vp * F=\top$ is reached. Here, the game is re-defined using Definition \ref{def:atomicm} for the sequence of partial assignments and Lemma \ref{lem:atm-m-D-P} for atomic move.
+
 \begin{lem}\label{lem:hd-game-main}
-By \cite{BeyersdorffKullmann2014PHP}, for $F \in \Cls$ the Prover-Delayer game to obtain $\hardness(F)$ is as follows:
+Consider $F \in \Cls$. The Prover-Delayer game to obtain $\hardness(F)$ is as follows:
   \begin{enumerate}
   \item Delayer starts the game and two players play in turns.
   \item Both players perform one atomic move (defined in Lemma \ref{lem:atm-m-D-P}) in each round.
@@ -348,7 +362,7 @@ By \cite{BeyersdorffKullmann2014PHP}, for $F \in \Cls$ the Prover-Delayer game t
 \end{lem}
 Remarks:
   \begin{enumerate}
-  \item The game has a finite number of rounds $m \in \NN$ since there is a finite number of variables in a clause-set. 
+  \item The game has a finite number of rounds $m \in \NN$ since there is a finite number of variables in clause-sets $F \in \Cls$. 
   \end{enumerate}
 
 \begin{lem}\label{lem:hdchg}
@@ -398,17 +412,21 @@ By \cite{BeyersdorffKullmann2014PHP}, for $F \in \Usat$ the Prover-Delayer game 
   \end{lem}
 Remarks:
   \begin{enumerate}
+  \item According to \cite{BeyersdorffKullmann2014PHP}:
+  \begin{enumerate}
   \item In this game, Delayer achieves $k \in \NN$ points whatever Prover does and wants to achieve $\whardness(F) \ge k$. Since the strategy of Delayer is to maximize points, thus it guarantees to obtain at least $\whardness(F)$ many points.
   \item Prover guarantees that Delayer gets at most $k \in \NNZ$ points in any case and wants to achieve $\whardness(F) \le k$. Since the strategy of Prover is to minimize points, Thus it guarantees to obtain at most $\whardness(F)$ many points for Delayer (whatever Delayer does).
   \end{enumerate}
+  \end{enumerate}
 
 \begin{quest}\label{que:whdall}
-Can we generalise the game characterisation of width-hardness for all clause-sets?
+Can we generalise the game characterisation of width-hardness for all clause-sets  $F \in \Cls$?
 \end{quest}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{XOR representation}
 \label{sec:XOR representation}
-The CNF-clause-sets is defined in Section \ref{sec:Clause-sets}. In this section, XOR-clause-set is explained for extending the hardness game for graphs. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. 
+
+The CNF-clause-sets is defined in Section \ref{sec:Clause-sets}. In this section, XOR-clause-set is explained for extending the hardness game for graphs. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. This representation is investigated in \cite{GwynneKullmann2013GoodRepresentations,GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} with the goal of finding a good representation for XOR-constraints.
 
 \begin{defi}\label{def:xor-const} 
 An \textbf{XOR-constraint} (or parity constraint) is a boolean function (parity function) $f$ in the form of $x_1 \oplus \dots \oplus x_n = \ve$ that $x_1, \dots, x_n \in \Lit$ and $\ve \in \set{0,1}$.
@@ -470,11 +488,11 @@ Based on \cite{GwynneKullmann2013GoodRepresentationsIIex}, a simple graph is a p
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item Consider a connected graph $G=(V,E,\eta)$ without loop. First, we label each edge with a distinct literal $x \in E$. Then, if we assign a charge $\rho$ to each vertex such that $\rho: V \ra \set{0,1}$, a unique XOR-clause-set corresponded to $G$ is obtained. In this case, each vertex $w \in V$ is specified as an XOR-clause $C \in \Cl$ such that $\oplus_{x \in E, w \in \eta(x)} \; x = \rho(w)$. Then, the XOR-clause-set for $G$ is obtained by $T_0(G,\rho) := \set{C_w : w \in V} \in \Cls$. 
+  \item Consider a connected graph $G=(V,E,\eta)$ without loop. First, we label each edge with a distinct literal $x \in E$. Then, if we assign a \textbf{charge} $\bmm{\rho}$ to each vertex such that $\rho: V \ra \set{0,1}$, a unique XOR-clause-set corresponded to $G$ is obtained. In this case, each vertex $w \in V$ is specified as an XOR-clause $C \in \Cl$ such that $\bmm{\oplus_{x \in E, w \in \eta(x)} \; x = \rho(w)}$. Then, the XOR-clause-set for $G$ is obtained by $T_0(G,\rho) := \set{C_w : w \in V} \in \Cls$. 
   \end{enumerate}
 
 \begin{lem}\label{lem:chgvar}
-Suppose that $T_0(G,\rho)$ is an XOR-clause-set for a graph $G=(V,E,\eta)$ without loop. Based on \cite{Ts68} Section 2, we define $\Phi$ as an XOR-constraint for charges of vertices that is $\oplus_{w \in V} \rho(w) = \ve$ and $\ve \in \set{0,1}$. By assigning a value to all edges $x \in E$, we obtain $\rho(w)$ of all vertices and then, the value of $\ve$ in $\Phi$. In this case, if we change the value of an edge $x$, then $\rho(w)$ for each endpoint of $x$ must be changed to keep $\Phi$ unchanged.
+ For a graph $G=(V,E,\eta)$ without loop, consider $T_0(G,\rho)$ an XOR-clause-set. Based on \cite{Ts68} Section 2, we define $\Phi$ as an XOR-constraint for charges of vertices that is $\oplus_{w \in V} \rho(w) = \ve$ and $\ve \in \set{0,1}$. By assigning a value to all edges $x \in E$, we obtain $\rho(w)$ of all vertices and then, the value of $\ve$ in $\Phi$. In this case, if we change the value of an edge $x$, then $\rho(w)$ for each endpoint of $x$ must be changed to keep $\Phi$ unchanged.
 \end{lem}
 \begin{prf}
 According to the definition, each vertex $w$ of $G$ is an XOR-clause with $\rho(w)$ such that  $\oplus_{x \in E, w \in \eta(x)} \; x = \rho(w)$ ($\rho$ is the parity). Since each literal corresponds to an edge connected to two vertices $w_1, w_2$, changing the value of a literal $x$ will change the parity $\rho(w)$ for equations of $w_1, w_2$. Thus, by changing the value of an edge, these two equation must be changed to $\Phi$ remains unchanged.
@@ -489,14 +507,14 @@ By \cite{GwynneKullmann2013GoodRepresentationsIIex}, a graph $G$ as explained in
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item The clause-set $T(G,\rho) \in \Usat$ is an special subset of clause-sets $F \in \Usat$ and all variables $v \in \var(T(G,\rho) )$ are occurred at most in two clauses (every edge is labeled with a distinct variable). 
-  \item Removing an edge $x \in E$ from a Tseitin graph $G$ is equivalent to assigning a value to $x$.
+  \item The clause-set $T(G,\rho) \in \Usat$ is an special subset of clause-sets $F \in \Usat$ and all variables $v \in \var(T(G,\rho) )$ are occurred at most in two clauses (every edge is labeled with a distinct variable). In the case of hypergraph (as in \cite{BeyersdorffGwynneKullmann2013PHPER}), we have hyperedges and variables occurring in more than two clauses are allowed.
+  \item Removing an edge $e \in E$ from a Tseitin graph $G$ is equivalent to assigning a value to $e$.
 \end{enumerate}
 %----------------------------------------------
 \section{Application of game characterisation for Tseitin graph}
 \label{sec:appgame}
 
-In Section \ref{}, a game is explained to obtain the hardness of a clause-set $F \in \Cls$. In this section, This game is applied to a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). For this reason, first the concept of atomic move is explained for Tsitin graph. Then, the structure of a tree (game-tree) showing all possible atomic moves for a Tseitin graph is given. Finally, the game is applied for a Tseitin graph.
+In Section \ref{sec:game-hdf}, a game is explained to obtain the hardness of a clause-set $F \in \Cls$. In this section, This game is applied to a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). %For this reason, first the concept of atomic move is explained for Tsitin graph. Then, the structure of a tree (game-tree) showing all possible atomic moves for a Tseitin graph is given. Finally, the game is applied for a Tseitin graph. 
 
 %In this section based on the game characterisation of the hardness in Section \ref{sec:game-hdf}, a game is explained to obtain the hardness of a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). For this reason, first the concept of atomic move is explained for Tsitin graph. Then, the structure of a tree (game-tree) showing all possible atomic moves for a Tseitin graph is given. Finally, the game is applied for a Tseitin graph.
  
@@ -508,31 +526,44 @@ Consider a Tseitin graph $G$ as explained in Section \ref{sec:Tseitin graph}. If
 In a Tseitin graph $G$ if an edge $e \in E$ is removed, then $\rho(w)$ of both endpoints will be changed to keep $G$ unsatisfiable. 
 \end{lem}
 \begin{prf}
-According to the definition of a Tseitin graph $G$, the XOR-clause-set $T_0(G,\rho)$ is unsatisfiable since $\ve=1$ for $\Phi$. Thus, based on Lemma \ref{lem:chgvar} by removing any edge (assigning a value to a variable) the equation of endpoints must be changed to keep $\ve=1$ unchanged.
+According to the Definition \ref{def:tseitindef} of a Tseitin graph $G$, the XOR-clause-set $T_0(G,\rho)$ is unsatisfiable since $\ve=1$ for $\Phi$. Thus, based on Lemma \ref{lem:chgvar} by removing any edge (assigning a value to a variable) the equation of endpoints must be changed to keep $\ve=1$ unchanged.
 \end{prf}
 Remarks:
   \begin{enumerate}
-  \item Since every bridge is labeled by a distinct variable, removing a bridge (assigning a variable) divides $G$ into two components$G_1,G_2 $ with $T(G_1,\rho), T(G_2,\rho) \in \Usat$. If the hardness of $G$ is indicated by $\hardness(T(G,\rho))$, then holds $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho)) \le \hardness(T(G,\rho))$ (by Lemma \ref{lem:hd-var}).
+  \item For a Tseitin graph $G$, removing a bridge (assigning a variable) divides $G$ into two components $G_1,G_2 $ with $T(G_1,\rho), T(G_2,\rho) \in \Usat$. If the hardness of $G$ is indicated by $\hardness(T(G,\rho))$, then we have $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho)) \le \hardness(T(G,\rho)) $ (by Lemma \ref{lem:hd-var}). In this report,  $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$ are indicated by  $\hardness_1$ and $\hardness_2$ respectively.
 \end{enumerate}
 
-\begin{lem}\label{lem:troubllemk-hd}
- Consider a Tseitin graph $G$. Trouble makers is Definition \ref{} for $G$ are bridges.
+Consider the game in Lemma \ref{lem:hd-game-main} for obtaining the hardness of $F \in \Cls$. The game is performed between two players by removing some variables (assigning some variables) in each round. In \cite{BeyersdorffKullmann2014PHP}, this game is applied for a Tseitin graph $G$ to obtain the hardness of $T(G,\rho)$ as follows:
+
+%In the case of Delayer, based on \cite{BeyersdorffKullmann2014PHP} the atomic move is just removing some variables while in the case of Prover, it is removing exactly one variables. Now for a Tseitin graph, based on this expression of atomic move (and also by considering removing at most one variable in each round), there is a tree (as in Lemma \ref{lem:game-tree}) showing all possible moves for the two players. The hardness of the graph $G$ can be obtained using this tree. Then, the atomic move is optimized for a Tsetin graph in Lemma \ref{lem:atmv} to apply this game for a this graph.
+
+
+\begin{lem}\label{lem:game-tseitin-hd}
+By \cite{BeyersdorffKullmann2014PHP}, consider  $G$ as a non-trivial Tseitin graph. Then $\hardness(T(G,\rho))$ is characterised by the following game:
+  \begin{enumerate}
+  \item An atomic move for $G$ is defined as removing some $e \in E(G)$ and choosing a connected component of $G - e$. 
+  \item The two players play in turns, and Delayer starts with $G$.
+  \item A move of Delayer is to apply a sequence of atomic moves (possibly zero).
+  \item A move of Prover is to apply exactly one atomic move.
+  \item The games ends when $G$ becomes trivial, in which case Delayer gets as many points as there have been moves by Prover.
+  \end{enumerate}
 \end{lem}
-\begin{prf}
-By Section \ref{sec:Tseitin graph} removing an edge $e \in E$ in Tseitin graph $G$ means assigning $e$. Suppose that there is a bridge $e$ in $G$ which divides $G$ to two components $G_1,G_2$ with $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$. If Delayer does not remove $e$, then Player can remove this bridge by assigning 
-
- such than ????and choose the smaller component. In this case, $\hardness(T(G,\rho))$ may go down more than one unit and Prover gets more than one point. Thus, Delayer must prevent this situation by removing all bridges
-\end{prf}
-
+  
 \begin{lem}\label{lem:game-tree}
-Consider a Tseitin graph $G$ of a Tseitin clause-set $T(G,\rho) \in \Usat$ as in Section \ref{sec:Tseitin graph}. For every $G$, there exist a unique tree called \textbf{game-tree} such that shows all possible moves for Prover and Delayer (that is removing some $e \in E(G)$ and choosing the connected component $G-e$). The tree is upside down with even number of levels (the number of game's rounds is always even) and the root of the tree labeled by $F$. Every node of the game-tree (except leaves) corresponds to a clause-set $T'(G,\rho)$ ($ \bot \not \in T'(G,\rho)'$) such that the difference between the number of variables in $F'$ and the upper-level nodes is at most one. The children of each node are the all possible atomic moves in that round. Each path from root must end in a leaf since the edges of graph (which correspond to the maximum of atomic moves of Prover) are finite and the leaves correspond to $\bot$. The hardness of $F$ is achieved by assigning a number to each node (starting from leaves) and obtaining the number of the root based on the strategy of Delayer (mazimizing points) and Prover (minimizing points).
+Consider the game in Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$ with the Tseitin clause-set $T(G,\rho) \in \Usat$. For every $G$, there exist a unique tree called \textbf{game-tree} such that shows all possible moves for Prover and Delayer (as removing at most one $e \in E(G)$ and choosing the connected component $G-e$). The tree is upside down with even number of levels (the number of game's rounds is always even) and the root of the tree labeled by $F$. Each level shows the possible moves for a player. Also, every node of the game-tree (except leaves) corresponds to a clause-set $T'(G,\rho)$ ($ \bot \not \in T'(G,\rho)'$) such that the difference between the number of variables in $F'$ and the upper-level nodes is at most one. The children of each node are the all possible atomic moves in that round. It should be mentioned that if Prover can finish the game in one move, then it would do that. Each path from root must end in a leaf since the edges of graph (which correspond to the maximum of atomic moves of Prover) are finite and the leaves correspond to $\bot$. The hardness of $F$ is achieved by assigning a number to each node (starting from leaves) and obtaining the number of the root based on the strategy of Delayer (maximizing points) and Prover (minimizing points).
+%Consider a Tseitin graph $G$ of the Tseitin clause-set $T(G,\rho) \in \Usat$ as in Section \ref{sec:Tseitin graph}. Based on Lemma \ref{lem:game-tseitin-hd}, for every $G$, there exist
 \end{lem}
 \begin{prf}
-To obtain the harness, first we assign a number to each leaf that corresponds to the scores of Prover (the number of Prover's atomic moves) through the path to that leaf. Since the last round of game is always played by Prover, we assign the minimum number of leaves to their parents (upper-level nodes). Then, we consider the upper level which is played by Delayer and therefore, we assign the maximum number of nodes for their parents. This process is continued until we get the root and and we assign the maximum number of root's children to the root (since the first round is played by delayer). Finally, the hardness of $F$ corresponds to the number of the root.
+To obtain the harness, first we assign a number to each leaf that corresponds to the scores of Prover (the number of Prover's atomic moves) through the path to that leaf. Since the last round of game is always played by Prover, we assign the minimum number of leaves to their parents (upper-level nodes). Then, we consider the upper level which is played by Delayer and therefore, we assign the maximum number of nodes for their parents. This process is continued until we get the root and and we assign the maximum number of root's children to the root (since the first round is played by delayer). Finally, the hardness of $F$ corresponds to the number assigned to the root.
 \end{prf}
-
+Remarks:
+  \begin{enumerate}
+  \item The hardness game has finitely many moves since the edges of a Tseitin graph are variables of a clause-set $T(G,\rho) \in \Usat$ (and the number of variables in a clause-set is finite). 
+  \item The game is well-defined since it does not depend on choices.
+  \end{enumerate}
+  
 \begin{examp}\label{exp:gg1}
-Fig \ref{fig:gg1} shows the game-tree for graph $K_3$ (complete graph with 3 vertices). The children of each node are all possible moves (whether the move is optimal or not) in hardness game for $K_3$. Here, $\ve $ shows the empty move (or when delayer decides to do nothing) and $\bot$ shows the end of game. We start from leaves by counting the number of prover's moves until that leaf and assign this number to that leaf. 
+Fig \ref{fig:gg1} shows the game-tree for graph $K_3$ (complete graph with 3 vertices). The children of each node are all possible moves (whether the move is optimal or not) in hardness game for $K_3$. Here, $\ve $ shows the empty move (or when delayer decides to remove no edge) and $\bot$ shows the end of game. The game starts from leaves by counting the number of prover's moves until that leaf and assign this number to that leaf. Then, by considering the maximum assigned number in the Delayer's level and the minimum number in the Prover's level we get the $\hardness(K_3)=2$.
    \begin{figure}
    \begin{center}
    \includegraphics[scale =0.45]{gg1.png}
@@ -542,49 +573,91 @@ Fig \ref{fig:gg1} shows the game-tree for graph $K_3$ (complete graph with 3 ver
    \end{figure}
 \end{examp}
 
-The optimal value of the game for the hardness of a Tseitin graph $G$ would be in the case that both players play optimally. The optimal move for delayer is the one which maximizes the hardness and for prover, the move that minimizes the hardness. Based on Lemma \ref{lem:game-tree}, the optimal move is explained as atomic move in Lemma \ref{def:atmv}.
+%The optimal value for the hardness of a Tseitin graph $G$ would be in the case that both players play optimally. The optimal move for Delayer is the one which maximizes the hardness and for Prover, the move that minimizes the hardness. Based on Lemma \ref{lem:game-tree}, the optimal move is explained as atomic move in Lemma \ref{def:atmv}.
 
-\begin{lem}\label{def:atmv}
-Consider a Tseitin graph $G$ for a Tseitin clause-set $T(G,\rho) \in \Usat$. The atomic move in Lemma \ref{lem:atm-m-D-P} for this graph is as follows:
+\begin{lem}\label{lem:tseitin-game-bridge}
+Consider a Tseitin graph $G$ with a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$. In the case of Delayer, it would remove the edge and discards the component with smaller hardness (that is having less edges) and the game is continued with the other component. In the case of Prover, it would remove the bridge and discards the component with bigger hardness.
+\end{lem}
+\begin{prf}
+Based on Section \ref{sec:game-pd}, the strategy of Delayer is to maximize the game. Thus, after removing the bridge Delayer would choose the component with bigger hardness to delay the game while for Prover it is vice verse.
+\end{prf}
+
+\begin{lem}\label{lem:hd1hd2}
+Consider a Tseitin graph $G$. If there is a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$, then there are two cases for $\hardness_{total}$. If $\hardness_1= \hardness_2$, then $\hardness_{total}= \hardness_1= \hardness_2$. Else, $ \abs {\hardness_1- \hardness_2 } \geq 1$ and if $ \hardness_1 > \hardness_2 $  then $\hardness_{total}= \hardness_1$.
+\end{lem}	
+\begin{prf}
+Based on Lemma \ref{lem:game-tseitin-hd}, Delayer starts the game. If $\hardness_1= \hardness_2$, then it does not change the result whether Delayer removes the bridge or it chooses to do nothing and Prover removes the bridge in next move. In both cases $\hardness_{total}$ would be equal to the hardness of the selected component. Otherwise, if $ \hardness_1 > \hardness_2 $ based on \ref{lem:tseitin-game-bridge} Delayer removes the bridge and discards the  component with smaller hardness. In this case, Prover has not performed any move and it did not get any points. Thus, in the next step Prover continues the game and  $\hardness_{total}= \hardness_1$.
+\end{prf}
+
+\begin{lem}\label{lem:troubllemk-hd}
+Consider a Tseitin graph $G$. The trouble maker variables is Definition \ref{def:var-trb} for $G$ are bridges.
+\end{lem}
+\begin{prf}
+Consider Lemma \ref{lem:hd1hd2}. If $ \abs {\hardness_1- \hardness_2 } \geq 2$ and Delayer does not remove the bridge, then Prover can remove the bridge and get more than one points. Thus, this situation must be prevented by Delayer. This is equivalent to the Definition\ref{def:var-trb} for trouble makers.
+\end{prf}
+
+\begin{lem}\label{lem:atmvtseitin}
+Consider the game in Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$ with Tseitin clause-set $T(G,\rho) \in \Usat$. The optimal atomic move in Lemma \ref{lem:atm-m-D-P} for this game is as follows:
   \begin{enumerate}
-  \item In the case of Delayer, the atomic move is removing all bridges (trouble makers) and then choosing the biggest component.
-  \item In the case of Prover, the atomic move is removing one edge (and choosing the smallest component if the edge is a bridge).
+  \item In the case of Delayer, if $G \not = K_2$, the optimal atomic move is removing all bridges (trouble makers) and then choosing the component with biggest hardness (and discarding other components).
+  \item In the case of Prover, the optimal atomic move is removing one edge and choosing the component with smallest hardness if the edge is a bridge (and discarding other components).
   \end{enumerate}
 \end{lem}
 \begin{prf}
-Based on Section \ref{sec:game-hdf}, we know that Delayer wants to maximize the hardness (delay the game) while Prover wants to minimize it (finishing the game ASAP). Also, by Section \ref{sec:Tseitin graph} removing an edge in Tseitin graph $G$ means assigning its variable. Suppose that there is a bridge $e \in E$ in Tseitin graph $G$ which divides $G$ to two components $G_1,G_2$ with $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$. If Delayer does not remove $e$, then Player can remove this bridge by assigning troble makers such than ????and choose the smaller component. In this case, $\hardness(T(G,\rho))$ may go down more than one unit and Prover gets more than one point. Thus, Delayer must prevent this situation by removing all bridges
+Based on Lemma \ref{lem:tseitin-game-bridge} and \ref{lem:troubllemk-hd}.
+%Section \ref{sec:game-hdf}, we know that Delayer wants to maximize the hardness (delay the game) while Prover wants to minimize it (finishing the game ASAP). Suppose that there is a bridge $e \in E$ in $G$ which divides it into two components $G_1,G_2$ with $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$. If Delayer does not remove $e$, then Player can remove this bridge by assigning troble makers such than ????and choose the smaller component. In this case, $\hardness(T(G,\rho))$ may go down more than one unit and Prover gets more than one point. Thus, Delayer must prevent this situation by removing all bridges
 \end{prf}
 
-%----------------------------------------------
+%\begin{lem}\label{lem:Tseitingame1}
+%The game with optimal atomic move is well-defined (it does not depend on choices). 
+%\end{lem}
+%\begin{prf}
+%According to Lemma \ref{lem:atmvtseitin}, in each round Delayer removes all edges that are bridge (trouble maker) to prevent the case that the hardness reduction is more than one unit. Thus, the result of the game does not depend to the order of choosing edges in each round.
+%\end{prf}
 
-\begin{lem}\label{lem:game1}
-     By \cite{}  Let $G$ be a Tseitin graph. Then $\hardness(T(G,\rho))$ is characterised by the following game $F :=T(G,\rho) \in \Usat$
-	  \begin{enumerate}
-	  \item An atomic move for the current non-trivial Tseitin graph $G$ replaces $G$ with a sub-graph $G'$ of $G$, obtained by choosing 
-	  some $e \in E(G)$ and choosing a connected component of $G - e$.
-	  \item The two players play in turns, and delayer starts with $G$.
-	  \item A move of delayer is to apply a sequence of atomic moves (possibly zero).
-	  \item A move of prover is to apply one atomic move.
-	  \item The games ends when $G$ becomes trivial, in which case delayer gets as many points as there have been moves by prover.
-	  \end{enumerate}
-\end{lem}
-Remarks:
-  \begin{enumerate}
-  \item The hardness game has finitely many moves since the edges of a Tseitin graph are variables of a clause-set $T(G,\rho) \in \Usat$ (and the number of variables in a clause-set is finite). 
-  \item 
-  \end{enumerate}
+\begin{conj}\label{con:nobridge-pd}
+If a Tseitin graph $G$ has no bridge and the number of connected edges to vertices are not equal then Prover chooses the vertex with minimum connected edges and removes one of them.
+\end{conj}
 
-\begin{lem}\label{lem:Tseitingame1}
-The game is well-defined (it does not depend on choices). 
-\end{lem}
+If Conjecture \ref{con:nobridge-pd} is true, then we have the following lemma:	  
+\begin{lem}\label{lem:complete-graph}
+Consider a non-trivial complete graph $K_n, n \in \NN$ as a Tseitin graph. Then, we have $\hardness(K_n)= n-2+\hardness(K_{n-1})$. 
+\end{lem}	
 \begin{prf}
-According to Lemma \ref{def:atmv}, in each round Delayer assigns all variables that are trouble maker (the variables that Prover can assign a value to them such that the hardness decreases more that one units) to prevent the case that the hardness reduction is more than one unit. Thus, the result of the game does not depend to the order of choosing variables in each round.
+In a complete graph $K_n$, there are $n-1$ connected edges to each vertex. At first, if $n =2$ then the graph has one edge. In this case, Delayer does not remove the edge (since the game ends) and Prover gets one point by removing that edge. Else, there is no bridge and Delayer does not remove any edge. Then, Prover chooses a vertex and removes a connected edge of that vertex. Now, there are only two cases. The first case is that there is only one edge (we get graph $K_2$) and again Delayer differ the choice to Prover. The second case is that there is no bridge and Prover continues the game by removing one connected edge of the vertex with minimum number of connected edges (based on Conjecture \ref{con:nobridge-pd}). This process continues till there is only one bridge that connects a vertex to the graph $K_{n-1}$. In this case, Delayer removes the bridge and chooses the graph $K_{n-1}$. Thus, based on Lemma \ref{} we have $\hardness(K_n)= (n-1)-1+\hardness(K_{n-1}) $. Table \ref{fig:table1} shows $\hardness(K_n)$ for some $n$.
+       \begin{figure}[h]
+       \centering
+       \begin{tabular}{|c|c|} 
+                  \hline
+                  $n$ & $\hardness(K_n)$ \\ \hline
+		  2 & 1  \\ \hline
+		  3 & $1+ \hardness(K_2)=2$ \\ \hline
+		 4 & $2+ \hardness(K_3)=4$  \\ \hline
+		 5 & $3+ \hardness(K_4)=7$  \\ \hline
+		 6 & $4+ \hardness(K_5)=11$  \\ \hline
+		 7 & $5+ \hardness(K_6)=16$  \\ \hline
+       \end{tabular}
+       \caption{The hardness for complete graph $K_n$.}
+       \label{fig:table1}
+      \end{figure}
 \end{prf}
-%%%%%%%************************************
-\begin{quest}\label{que:gamehd}
-???? for hd
+\begin{conj}\label{con:hd_game2}
+For all Tseitin graphs $G$ with $n$ vertices, graph $K_n$ has the worst case of the hardness (the maximum of $\hardness$) which is equal to $\hardness(K_n)= n-2+\hardness(K_{n-1})$ according to Lemma \ref{lem:complete-graph}.
+\end{conj}
+
+\begin{conj}\label{con:hd2}
+The time complexity of the Delayer-Prover game in Lemma \ref{lem:game-tseitin-hd} is polynomial time.
+\end{conj}
+
+\begin{quest}\label{que:gamehd-move}
+Consider Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$. If Delayer removes some non-bridge edges $e \in E$, then is optimal value of the game still the hardness of $G$?
 \end{quest}
 
+\begin{quest}\label{que:gamehd}
+How can we extend the game in Lemma \ref{lem:game-tseitin-hd} for Tseitin hypergraph (which is defined as full Tseitin graph in \cite{BeyersdorffGwynneKullmann2013PHPER})?
+\end{quest}
+
+%%%%%%%************************************
 Consider the game characterisation in \ref{sec:game-whdf} ???
 In \cite{} Lemma 9.7, a game characterization for $\whardness(T(G,\rho))$ is given as follows:
 
@@ -795,7 +868,7 @@ By \cite{KullmannZhao2010Extremal} for a clause-set $F \in\Cls$ and a variable $
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item Consider an $m$-extension $F'$ of $F$. Then, $F \in \Musat \Lra F' \in \Musat$ (by Lemma 5.9 in \cite{KullmannZhao2010Extremal}).
+  \item Consider an $m$-extension $F'$ of $F$. Then, $F \in \Musat \iff F' \in \Musat$ (by Lemma 5.9 in \cite{KullmannZhao2010Extremal}).
   \item The singular m-extension of $F$ does not change the deficiency of $F$. But, number of clauses (and variables) is increased by one.
   \end{enumerate}
   
@@ -862,7 +935,7 @@ By Lemma \ref{lem:mu1-sdp} we know that $sDF(\Musati{\delta=1})=\set{\bot}$. Als
 Based on \cite{KullmannZhao2010Extremal}, the only element of $\Musatnsi{\delta=1}$ (and also $\Smusatnsi{\delta=1} = \Uclashnsi{\delta=1}$) is $F=\set{\bot}$. While in general we have $\Musati{\delta=1} \supset \Smusati{\delta=1} = \Uclashi{\delta=1}$.
 Remarks:
   \begin{enumerate}
-  \item In all clause-sets $F \in \Smusati{\delta=1} = \Uclashi{\delta=1}$, there is exactly one full variable (variable occurring in all clauses) which is the variable corresponding to the edges leading to the root of $T:F \vdash \bot$.
+  \item If $F \in \Smusati{\delta=1}$, then by application of partial assignments $\vp \in \Pass$,we have $\vp * F \in \Smusati{\delta=1}$ (by Corollary 5.7 in \cite{GwynneKullmann2013GoodRepresentations}).
   \end{enumerate} 
 \end{lem}
 
@@ -870,13 +943,13 @@ The structure of resolution trees for $F \in \Smusati{\delta=1}=\Uclashi{\delta=
 \begin{lem}\label{lem:mu1-build}
 Based of \cite{KullmannZhao2016UHitSAT}, the structure of resolution trees  for $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $ and  $F \in \Musati{\delta=1}$ are as follows:
   \begin{enumerate}
-  \item For $F \in \Smusati{\delta=1}$, there exist a resolution tree $T$ such that each inner node is labeled by a distinct variable $v \in \var(F)$ and the left edge of this node is labeled by $x: \var(x)=\var(v)$ and also the right edge is labeled by $\ol x: \var(x)=\var(v)$. The set of all clauses in leaves is $F$. Also, there is a variable occurring in all clauses. 
+  \item For $F \in \Smusati{\delta=1}$, there exist a resolution tree $T$ such that each inner node is labeled by a distinct variable $v \in \var(F)$ and the left edge of this node is labeled by $v$ and also the right edge is labeled by $\ol v$. The set of all clauses in leaves is $F$. Also, there is one variable occurring in all clauses (full variable). 
   \item Consider the resolution tree in part 1. If we remove a literal $x$ from one of leaves $C$ such that removing that literal does not produce any pure literal (by application of subsumption resolution in Definition \ref{def:sres}), then the new clause-set $F'$ is in $ \Musati{\delta=1}$. If more literal elimination are performed for $F'$, all clause-sets in $ \Musati{\delta=1}$ can be obtained.
   \end{enumerate}
 \end{lem}
 \begin{prf}
-For the first part, by considering the two criteria of the tree (each inner node labeled by a distinct variable $v \in \var(F)$ and the left/right edge of this node labeled by $x$/ $\ol x$) we can get $\set{\bot}$ by only iterated application of singular DP-reduction. Thus, based on Lemma \ref{lem:mu1-sdp} we have $F(T) \in  \Musati{\delta=1}$. Furthermore, based on those two criteria any two different clauses $C,D$ in leaves clash and also any clauses in leaves contains at least one literal occurring exactly one in $F$ (as singular variable). Thus, $F$ is a hitting clause set and we have $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $.
-
+For the first part, by considering the two criteria of the tree (each inner node labeled by a distinct variable $v \in \var(F)$ and the left/right edge of this node labeled by $v$/ $\ol v$) we can get $\set{\bot}$ by only iterated application of singular DP-reduction. Thus, based on Lemma \ref{lem:mu1-sdp} we have $F(T) \in  \Musati{\delta=1}$. Furthermore, based on those two criteria any two different clauses $C,D$ in leaves clash and also any clauses in leaves contains at least one literal occurring exactly one in $F$ (as singular variable). Thus, $F$ is a hitting clause set and we have $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $. Also, there is exactly one full variable (variable occurring in all clauses) which is the variable corresponding to the edges leading to the root of $T:F \vdash \bot$.
+ 
 For the proof of the second part, if $F'$ is obtained by removing any literal $x \in C$ from a clause $C$ using subsumption resolution then there is a clause $D:D \sm \set{\ol x} \sse C$. If $C':=C \sm \set{x}$ then $D,C'$ do not clash and $F'$ is not a hitting clause-set any more (and also not saturated). But, $F'$ is still minimally saturated according to Section \ref{sec:fsr-e}. Thus, $F'\in  \Musati{\delta=1} \not \in \Smusati{\delta=1}=\Uclashi{\delta=1}$. If we perform more steps of subsumption resolution for $F'\in  \Musati{\delta=1}$, the result is still in $ \Musati{\delta=1}$. %consider $F \in  \Musati{\delta=1}$. if we perform ???
 \end{prf}
 
@@ -899,7 +972,7 @@ All clause-sets $F \in  \Smusati{\delta=1} = \Uclashi{\delta=1} \subset \Musati{
   \begin{enumerate}
   \item The first part is proved in Lemma \ref{lem:mu1-build}.          
   \item By Section \ref{sec:fsr-e}, we know that for non-strict full subsumption extension $F'$ of $F$ we have $F \in  \Musati{\delta=1} \Ra F' \in \Musati{\delta=1}$. For  $F=\set{\bot}$, we get $F'=\set{\set{v},\set{\ol v}} \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. If we perform another step of strict full subsumption extension for $F'$, one of its clauses $R$ is chosen and replaced it by $C := R \addcup \set{x}$ and $D := R \addcup \set{\ol{x}}$. We can see that $C$ and $D$ clash and  they also clash with the other clause of $F$. Thus, $F' \in \Uclashi{\delta=1}$. If we continue this process by using a non-full clause $R \in F$ and a variable $v \in \var(F) \sm \var(R)$, and replacing $R$ by the two clauses $R \addcup \set{v}, R \addcup \set{\ol{v}}$, where none of them is already exist, we can get a clause-set $F" \in \Uclashi{\delta=1}=\Smusati{\delta=1}$.    
-  \item From Section \ref{sec:sing-re}, we know that for singular $m$-DP-extension $F'$ of $F$ , $F \in \Musati{\delta=1} \Lra F' \in \Musati{\delta=1}$. Then, by applying a singular DP-extension of $F=\set{\bot}$ for a variable $v$, we get $F'=\set{\set{v},\set{\ol v}} \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. For performing another  singular $m$-DP-extension, we can choose only one of clauses $D$ ($m$ can not be 2 since $\set{v} \cap \set{\ol v}=\bot $) and a new variable $w \not = v$. Now, we have either $F_i"=\set{\set{v},\set{\ol v, w},\set{\ol v,\ol w}}$ or $F_j"=\set{\set{\ol v},\set{ v, w},\set{ v,\ol w}}$. Since in both cases all clauses clash we have $F_i",F_j" \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. In general, in each step we know that all clauses already clash and if we add a new variable base on Definition \ref{def:singularextn}, every new clause also clash with other clauses since the new variable does not affect the clashing variables. Thus, the obtained clause-set is in $\Smusati{\delta=1} = \Uclashi{\delta=1}$.
+  \item From Section \ref{sec:sing-re}, we know that for singular $m$-DP-extension $F'$ of $F$ , $F \in \Musati{\delta=1} \iff F' \in \Musati{\delta=1}$. Then, by applying a singular DP-extension of $F=\set{\bot}$ for a variable $v$, we get $F'=\set{\set{v},\set{\ol v}} \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. For performing another  singular $m$-DP-extension, we can choose only one of clauses $D$ ($m$ can not be 2 since $\set{v} \cap \set{\ol v}=\bot $) and a new variable $w \not = v$. Now, we have either $F_i"=\set{\set{v},\set{\ol v, w},\set{\ol v,\ol w}}$ or $F_j"=\set{\set{\ol v},\set{ v, w},\set{ v,\ol w}}$. Since in both cases all clauses clash we have $F_i",F_j" \in \Smusati{\delta=1} = \Uclashi{\delta=1}$. In general, in each step we know that all clauses already clash and if we add a new variable base on Definition \ref{def:singularextn}, every new clause also clash with other clauses since the new variable does not affect the clashing variables. Thus, the obtained clause-set is in $\Smusati{\delta=1} = \Uclashi{\delta=1}$.
   \end{enumerate}
 \end{prf}
 
@@ -910,14 +983,22 @@ An special group of $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$ can be obtai
 (Based on Example 5.16 in \cite{KullmannZhao2010Extremal}) Consider $\set{\bot} \in \Smusati{\delta=1}$. If we apply a full singular unit-extension, we get $\set{\set{v},\set{\ol{v}}} \in \Smusati{\delta=1}$. Then, we can apply the second full singular unit-extension and obtain $\set{\set{w},\set{v,\ol{w}},\set{\ol{v},\ol{w}}}\in \Smusati{\delta=1}$. If we continue this process, we can obtain special group of clause-sets in $\Smusati{\delta=1}$ with $\hts(F) \le 1$.
 \end{prf}
 
+\begin{lem}\label{lem:smu1hs1}
+By \cite{GwynneKullmann2013GoodRepresentations}, consider $F \in \Smusati{\delta=1}$ with the resolution tree $T(F)$ as in Lemma \ref{lem:mu1-build}. Then, we have:
+  \begin{enumerate}
+  \item $\hardness(F) = \hts(T(F))$.
+  \item Also, $F$ has a full clause iff $\hts(T(F)) \le 1$.
+  \end{enumerate}
+\end{lem}
+
 \begin{lem}\label{lem:mu1-iso}
-Consider two clause-sets $F_1,F_2 \in \Smusati{\delta=1}$. Then, $F_1=F_2 \Lra T(F_1) $ is isomorphic to $T(F_2)$.
+Consider two clause-sets $F_1,F_2 \in \Smusati{\delta=1}$. Then, $F_1=F_2 \iff T(F_1) $ and $T(F_2)$ are isomorphic.
 \end{lem}    
 \begin{prf}
 By Definition \ref{def:isomo-trees} and Lemma \ref{lem:mu1-build}.
 %For $F \in \Smusati{\delta=1}$ there exist a unique resolution tree $ T(F) $ as described in Lemma \ref{} part 1. Also, based on Definition \ref{}, if two binary tree is isomorphic then there is a bijective map between them. 
 \end{prf}                                                                                                     
-                                                                                                                        
+                                                                                                                                                                                                                                           
 \begin{lem}\label{lem:mu1-iso-num}
 Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ variables. Then, the number of isomorphic trees $T(F)$ with $n$ variables is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
 \begin{displaymath}
