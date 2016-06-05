@@ -60,6 +60,45 @@ The second chapter is dedicated to explain basic concepts and preliminaries. In 
 
 Chapter four explains ?????????
 
+
+
+The initial results regarding the hardness measures in Chapter \ref{cha:Hd-TseitinG} are as follows:
+  \begin{enumerate}
+  \item Definition \ref{def:var-trb}: new definitions of trouble maker variables and ineffective variables.
+  \item Definition \ref{def:atomicm}: a modified definition for the atomic move in game characterisation of the hardness.
+  \item Lemma \ref{lem:atm-m-D-P}: the optimal atomic move in game characterisation of the hardness.
+  \item Lemma \ref{lem:hd-game-main} and Lemma \ref{lem:gameres1}: a modified version of the asymmetric Prover-Delayer game to obtain the hardness of a clause-set $F \in \Cls$ based on the optimal atomic move.
+  \item Lemma \ref{}: investigation of hardness change????????the effect of applying the sequence of partial assignment on the hardness of the initial clause-set????? during the game
+  \item Lemma \ref{lem:game3}: investigation of the effect removing an edge on distribution of charges in a Tseitin graph.
+  \item Lemma \ref{lem:game-tree}: characterisation of the game-tree for application of the hardness game for a Tseitin graph.
+  \item Example \ref{exp:gg1}: the game-tree for the Tseitin graphs $K_3$.
+  \item Lemma \ref{lem:tseitin-game-bridge}: the optimal atomic move for each players in the presence of a bridge in a Tseitin graph.
+  \item Lemma \ref{lem:hd1hd2}: the effect of removing a bridge on the hardness of a Tseitin graph.
+  \item Lemma \ref{lem:troubllemk-hd}: application of the definitions of trouble maker variable for a Tseitin graph.
+  \item Lemma \ref{lem:atmvtseitin}: the optimal atomic move for a Tseitin graph in general.
+  \item Example\ref{exp:hd-K3}, \ref{exp:hd-K4}, \ref{exp:hd-K5}: application of the hardness game for the Tseitin graphs $K_3,K_4,K_2$.
+  \item Conjecture \ref{con:nobridge-pd}: the optimal atomic move of Prover for a Tseitin graph with no bridge.
+  \item Lemma \ref{lem:complete-graph}: a formula for the hardness of a complete Tseitin graph.
+  \item Lemma \ref{graphwithcomplt}: a formula for the hardness of a Tseitin graph if a complete graph $K_n$ is obtained during the game.
+  \item Conjecture \ref{con:hd_game2}: the worst case of the hardness for a Tseitin graph with $n$ vertices.
+  \item Conjecture \ref{con:hd-game-time}: the time complexity of the hardness game for a Tseitin graph. 
+  \item Conjecture \ref{whd-gametime}: the time complexity of the width-hardness game for a Tseitin graph.
+  \end{enumerate}
+The initial results regarding the minimally unsatisfiable clause-sets in Chapter \ref{cha:mucls} are as follows:
+  \begin{enumerate}
+  \item ???
+  \item Lemma \ref{}: a modified expression of the main property of clause-sets $F \in \Musati{\delta=1}$.
+  \item Lemma \ref{}: a modified description of the structure of saturated minimally unsatisfiable clause-sets with deficiency 1.
+  \item Lemma \ref{lem:smu1tomu1}: a method of obtaining all clause-sets $F' \in \Musati{\delta=1}$ with $\var(F)=\var(F')$ from a clause-set $F \in  \Smusati{\delta=1}$.
+  \item Lemma \ref{}: some methods of obtaining clause-sets $F \in \Smusati{\delta=1}$.
+  \item Lemma \ref{lem:mu1-strc}: investigation of the structure of clause-sets $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$.
+  \item Lemma \ref{}: investigation of the equality relation between two clause-sets $F,F' \in \Smusati{\delta=1}$ by their resolution tree.
+  \item Lemma \ref{}: characterisation of the number of isomorphic trees $T(F)$ for $F \in  \Smusati{\delta=1}$ as the Wedderburn-Etherington numbers.
+  \item Lemma \ref{}: investigation of the saturation stability of $F \in  \Musatnsi{\delta=2}$ ($\Dt{n}$) under splitting.
+  \item Lemma \ref{}: investigation of the structure of clause-sets obtained by splitting $F \in  \Musatnsi{\delta=2}$ ($\Dt{n}$).
+  \item Lemma \ref{}: investigation of how all clause-sets $F' \in \Musati{\delta=2}$ can be obtained from $F \in  \Musatnsi{\delta=2}$.
+  \item Lemma \ref{}: a method to obtain an special clause-sets $F' \in \Musati{\delta=3}$ from any non-full $F \in  \Musati{\delta=2}$.
+  \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Preliminaries}
 \label{cha:Preliminaries}
@@ -271,7 +310,7 @@ Following, $\hardness(F)$ for some more examples of unsatisfiable clause-sets $(
 For $F = \set{\set{x, y} , \set{x,\ol y}} \in \Sat$ with $\primec_0(F) = \set{\set{x}}$,  $\hardness(F)= \max \set{ \hardness(\vp * F) : \vp =\pab{x \ra 0} }=\hardness(\set{\set{y},\set{\ol y}})=1$.
 \end{examp}
 \begin{lem}\label{lem:hd1}
-By  \cite{GwynneKullmann2012Slur}, consider $F \in \Cls$ and $v \not \in \var(F)$. If $F' := \set{C \cup \set{v} : C \in F} \cup \set{C \cup \set{\ol{v}} : C \in F}$, Then $\hardness(F') = \hardness(F) + 1$.
+By \cite{GwynneKullmann2012Slur}, consider $F \in \Cls$ and $v \not \in \var(F)$. If $F' := \set{C \cup \set{v} : C \in F} \cup \set{C \cup \set{\ol{v}} : C \in F}$, Then $\hardness(F') = \hardness(F) + 1$.
 \end{lem}
 \begin{lem}\label{lem:uck}
 Based on \cite{GwynneKullmann2012Slur}, For $F \in \Cls$ and $k \in \NNZ$ we have $F \in \Urefc_k \iff \fa\, C \in \primec_0(F) : F \vdash_k C$ (that is for all prime implicates $C$ of $F$ there is a resolution tree deriving $C$ from $F$ such that there exists a path to some leaf of length at most $k$ from all nodes.
@@ -333,14 +372,14 @@ By \cite{BeyersdorffKullmann2014PHP}, for a clause-set $F \in \Cls$ and $\hardne
 For $F \in \Cls$ and  $\ve \in \set{0,1}$, a variable $v \in \var(F)$ is called \textbf{trouble maker} if $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ and $\hardness(F)- \hardness(\pab{v \ra \ol \ve}*F) \geq 2$. Also, if $\hardness(\pab{v \ra \ve}*F)=\hardness(\pab{v \ra \ol \ve}*F = \hardness(F)$ then $v$ is called \textbf{ineffective variable}.
 \end{defi}
 
-Based on \cite{BeyersdorffKullmann2014PHP}, the strategy of Delayer is to maximize the $\hardness(F)$ for $F \in \Cls$ while Prover wants to minimize the hardness. Also, \cite{BeyersdorffKullmann2014PHP} considers a global partial assignment $\vp \in \Pass$ which is extended to $\vp' \spe \vp$ in each round. Here, the extension of the partial assignment is considered as a sequence in Definition \ref{def:atomicm}.
+Based on \cite{BeyersdorffKullmann2014PHP}, the strategy of Delayer is to maximize the points he gets (to maximize $\hardness(F)$ for $F \in \Cls$) while Prover wants to minimize the points that Delayer gets (to minimize the hardness of $F$). Also, \cite{BeyersdorffKullmann2014PHP} considers a global partial assignment $\vp \in \Pass$ which is extended to $\vp' \spe \vp$ in each round. Here, the extension of the partial assignment is considered as a sequence in Definition \ref{def:atomicm}.
 
 \begin{defi}\label{def:atomicm}
 For $F \in \Cls$, there is a sequence of partial assignments $\vp_0, ..., \vp_m \in \Pass$ for Prover-Delayer game ($m \in \NN$ is the number of rounds played in the game) such that $\vp_0=\epa$ and $\vp_i \spe \vp_{i-1}$ with $1 \le i \le m$ and $\var(\vp_i) \sse \var(F)$. The \textbf{atomic move} of the Prover-Delayer game introduced in \cite{BeyersdorffKullmann2014PHP} can be defined as the extension of the partial assignment $\vp_{i-1} $ to $\vp_{i}$ by each player and in the case of Prover, also holds $n(\vp_i)=n( \vp_{i-1})+1$.
 \end{defi}
 
 \begin{lem}\label{lem:atm-m-D-P}
-In the case of Prover-Delayer game for obtaining the hardness of $F \in \Cls$, the optimal atomic move for Delayer is removing all trouble makers in Definition \ref{def:var-trb} by assigning them such that $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ (the hardness remains unchanged). If htere is no trouble maker, Delayer defers the assignment to Prover. For Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ such that the hardness decreases exactly one unit.
+In the case of Prover-Delayer game for obtaining the hardness of $F \in \Cls$, the \textbf{optimal atomic move} for Delayer is removing all trouble makers in Definition \ref{def:var-trb} by assigning them such that $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ (the hardness remains unchanged). If htere is no trouble maker, Delayer defers the assignment to Prover. For Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ such that the hardness decreases exactly one unit.
 \end{lem}
 \begin{prf}
 The aim of Delayer is to maximize $\hardness(F)$ for $F \in \Cls$. But since according to Lemma \ref{lem:hd-var} assigning a variable for $F$ does not increase the hardness, Delayer must keep $\hardness(F)$ unchanged. This is achieved by taking no action or just assigning  ineffective variables. On the other hand, Prover wants to minimize $\hardness(F)$ and in each round, tries to choose a variable $v \in \var(F)$ whose assigning reduces the hardness at most (like two or more units). Thus, Delayer must prevent the case that Prover decreases the hardness more than one unit. This is achieves by assigning the trouble makers such that $\hardness(F)$ remains unchanged. If Delayer succeeds in removing all trouble makers in each round, then Prover must decrease $\hardness(F)$ exactly one unit.
@@ -352,7 +391,7 @@ In \cite{BeyersdorffKullmann2014PHP}, the game for obtaining the hardness of $F 
 Consider $F \in \Cls$. The Prover-Delayer game to obtain $\hardness(F)$ is as follows:
   \begin{enumerate}
   \item Delayer starts the game and two players play in turns.
-  \item Both players perform one atomic move (defined in Lemma \ref{lem:atm-m-D-P}) in each round.
+  \item Both players perform one optimal atomic move (defined in Lemma \ref{lem:atm-m-D-P}) in each round.
   \item Considering $\vp_m$ in Definition \ref{def:atomicm}, the game ends once $\bot \in \vp_m * F $ (if $F$ is unsatisfiable) or $\vp_m * F=\top$ (if $F$ is satisfiable) is reached. 
   \end{enumerate}
 \end{lem}
@@ -410,7 +449,7 @@ Remarks:
   \begin{enumerate}
   \item According to \cite{BeyersdorffKullmann2014PHP}:
   \begin{enumerate}
-  \item In this game, Delayer achieves $k \in \NN$ points whatever Prover does and wants to achieve $\whardness(F) \ge k$. Since the strategy of Delayer is to maximize points, thus it guarantees to obtain at least $\whardness(F)$ many points.
+  \item In this game, Delayer achieves $k \in \NN$ points whatever Prover does and wants to achieve $\whardness(F) \ge k$. Since the strategy of Delayer is to maximize the points he gets, thus it guarantees to obtain at least $\whardness(F)$ many points.
   \item Prover guarantees that Delayer gets at most $k \in \NNZ$ points in any case and wants to achieve $\whardness(F) \le k$. Since the strategy of Prover is to minimize points, Thus it guarantees to obtain at most $\whardness(F)$ many points for Delayer (whatever Delayer does).
   \end{enumerate}
   \end{enumerate}
@@ -571,10 +610,10 @@ Fig \ref{fig:gg1} shows the game-tree for graph $K_3$ (complete graph with 3 ver
 %The optimal value for the hardness of a Tseitin graph $G$ would be in the case that both players play optimally. The optimal move for Delayer is the one which maximizes the hardness and for Prover, the move that minimizes the hardness. Based on Lemma \ref{lem:game-tree}, the optimal move is explained as atomic move in Lemma \ref{def:atmv}.
 
 \begin{lem}\label{lem:tseitin-game-bridge}
-Consider a Tseitin graph $G \not = K_2$ with a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$. In the case of Delayer, it would remove the edge and discards the component with smaller hardness (that is having less edges) and the game is continued with the other component. In the case of Prover, it would remove the bridge and discards the component with bigger hardness.
+Consider a Tseitin graph $G \not = K_2$ with a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$. In the case of Delayer, the optimal atomic move is to remove the edge and discard the component with smaller hardness (that is having less edges) and the game is continued with the other component. In the case of Prover, the optimal atomic move is to remove the bridge and discard the component with bigger hardness.
 \end{lem}
 \begin{prf}
-Based on Section \ref{sec:game-pd}, the strategy of Delayer is to maximize the game. Thus, after removing the bridge Delayer would choose the component with bigger hardness to delay the game while for Prover it is vice verse.
+Based on Section \ref{sec:game-pd}, the strategy of Delayer is to delay the game while for the Prover it is vise verse. If $G=K_2$, then Delayer must not remove the bridge otherwise the game ends. Else if $G \not = K_2$, then Delayer should remove the bridge and choose the component with bigger hardness to delay the game (to prevent the case that Prover chooses the smaller component). Otherwise Prover removes the bridge and chooses the smaller component to finish the game ASAP.
 \end{prf}
 
 \begin{lem}\label{lem:hd1hd2}
@@ -1060,7 +1099,7 @@ For the proof of the second part, if $F'$ is obtained by removing any literal $x
 \end{prf}
 
 \begin{lem}\label{lem:smu1tomu1}
-For a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $, we can obtain any $F' \in  \Musati{\delta=1}$ by iterated application of subsumption resolution.
+For a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $, we can obtain any $F' \in  \Musati{\delta=1}$ with $\var(F)=\var(F')$ by iterated application of subsumption resolution.
 \end{lem}
 \begin{prf}
 For the reason of using subsumption resolution see Lemma \ref{lem:mu1-build} part 2. We can perform this operation for $F \in \Smusati{\delta=1}$ if no pure literal is produced which is exactly the condition of subsumption resolution in Definition \ref{def:sres} (that is there must be a clause $D \in F: D \sm \set{\ol x} \sse C$).
@@ -1257,6 +1296,12 @@ How can we determine the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and a
 \chapter{Research ideas}
 \label{cha:concl}
 
+In this????????
+
+
+  \begin{enumerate}
+  \item Question \ref{}: 
+  \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
 \bibliographystyle{plainurl}
