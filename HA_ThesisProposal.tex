@@ -29,13 +29,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-This proposal deals with two different aspects of SAT problem and particularly unsatisfiable problems. 
+This research investigates the connection between SAT problems (and particularly unsatisfiable problems) and combinatorics from two different aspects. The first aspect is concerned with two measures of resolution proof complexity. In general, there are various measures for representing the complexity of SAT problems called "hardness measures''. Here, two measures of hardness for resolution proofs ("tree-hardness'' and "width-hardness'') are reviewed and a game characterisation is investigated for them. This game is performed by two players for a clause-set $F$ and has an "optimal value'' corresponds to the hardness measures of $F$. Then, this game is applied for an special graphs called Tseitin graph to obtain the hardness measures.
 
-There are various measures for representing the complexity of SAT problems called ``hardness measures''. In the first part of this proposal, two measures of the hardness for clause-sets (``tree-hardness'' and ``width-hardness'') and a game characterisation for these measures are reviewed. This game is performed by two players for a clause-set $F$ and has an ``optimal value'' corresponds to the hardness of $F$. Then, we use this game for obtaining the hardness of some graphs that are called Tseitin graphs. ?????????
-
-The second part????????
-
-
+The second aim of this research is to study the structure of minimally unsatisfiable clause-sets due to understand unsatisfiability. For investigating the properties of these clause-sets special reduction/extension are reviewed. Then, "deficiency" (the difference between the number of clauses and the number of variables in $F$) is used as a measure to classify minimally unsatisfiable clause-sets. So far, the structure of minimally unsatisfiable clause-sets with deficiency 1,2 are almost well-known but for higher deficiencies, our knowledge is limited. On the other hand, according to the literature it seems that there are finitely many-patterns for these clause-sets which is a motivation for further studies.
 \end{abstract}
 
 \tableofcontents
@@ -530,7 +526,7 @@ According to the Definition \ref{def:tseitindef} of a Tseitin graph $G$, the XOR
 \end{prf}
 Remarks:
   \begin{enumerate}
-  \item For a Tseitin graph $G$, removing a bridge (assigning a variable) divides $G$ into two components $G_1,G_2 $ with $T(G_1,\rho), T(G_2,\rho) \in \Usat$. If the hardness of $G$ is indicated by $\hardness(T(G,\rho))$, then we have $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho)) \le \hardness(T(G,\rho)) $ (by Lemma \ref{lem:hd-var}). In this report,  $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$ are indicated by  $\hardness_1$ and $\hardness_2$ respectively.
+  \item For a Tseitin graph $G$, removing a bridge (assigning a variable) divides $G$ into two components $G_1,G_2 $ with $T(G_1,\rho), T(G_2,\rho) \in \Usat$. If the hardness of $G$ is indicated by $\hardness(T(G,\rho))$, then we have $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho)) \le \hardness(T(G,\rho)) $ (by Lemma \ref{lem:hd-var}). In this proposal  report,  $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$ are indicated by  $\hardness_1$ and $\hardness_2$ respectively.
 \end{enumerate}
 
 Consider the game in Lemma \ref{lem:hd-game-main} for obtaining the hardness of $F \in \Cls$. The game is performed between two players by removing some variables (assigning some variables) in each round. In \cite{BeyersdorffKullmann2014PHP}, this game is applied for a Tseitin graph $G$ to obtain the hardness of $T(G,\rho)$ as follows:
@@ -545,10 +541,10 @@ By \cite{BeyersdorffKullmann2014PHP}, consider  $G$ as a non-trivial Tseitin gra
   \item The two players play in turns, and Delayer starts with $G$.
   \item A move of Delayer is to apply a sequence of atomic moves (possibly zero).
   \item A move of Prover is to apply exactly one atomic move.
-  \item The games ends when $G$ becomes trivial, in which case Delayer gets as many points as there have been moves by Prover.
+  \item The games ends when $G$ becomes trivial, in which case Delayer gets as many points as there have been moves by Prover (which is equal $\hardness(T(G,\rho))$).
   \end{enumerate}
 \end{lem}
-  
+
 \begin{lem}\label{lem:game-tree}
 Consider the game in Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$ with the Tseitin clause-set $T(G,\rho) \in \Usat$. For every $G$, there exist a unique tree called \textbf{game-tree} such that shows all possible moves for Prover and Delayer (as removing at most one $e \in E(G)$ and choosing the connected component $G-e$). The tree is upside down with even number of levels (the number of game's rounds is always even) and the root of the tree labeled by $F$. Each level shows the possible moves for a player. Also, every node of the game-tree (except leaves) corresponds to a clause-set $T'(G,\rho)$ ($ \bot \not \in T'(G,\rho)'$) such that the difference between the number of variables in $F'$ and the upper-level nodes is at most one. The children of each node are the all possible atomic moves in that round. It should be mentioned that if Prover can finish the game in one move, then it would do that. Each path from root must end in a leaf since the edges of graph (which correspond to the maximum of atomic moves of Prover) are finite and the leaves correspond to $\bot$. The hardness of $F$ is achieved by assigning a number to each node (starting from leaves) and obtaining the number of the root based on the strategy of Delayer (maximizing points) and Prover (minimizing points).
 %Consider a Tseitin graph $G$ of the Tseitin clause-set $T(G,\rho) \in \Usat$ as in Section \ref{sec:Tseitin graph}. Based on Lemma \ref{lem:game-tseitin-hd}, for every $G$, there exist
@@ -572,18 +568,17 @@ Fig \ref{fig:gg1} shows the game-tree for graph $K_3$ (complete graph with 3 ver
    \end{center}
    \end{figure}
 \end{examp}
-
 %The optimal value for the hardness of a Tseitin graph $G$ would be in the case that both players play optimally. The optimal move for Delayer is the one which maximizes the hardness and for Prover, the move that minimizes the hardness. Based on Lemma \ref{lem:game-tree}, the optimal move is explained as atomic move in Lemma \ref{def:atmv}.
 
 \begin{lem}\label{lem:tseitin-game-bridge}
-Consider a Tseitin graph $G$ with a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$. In the case of Delayer, it would remove the edge and discards the component with smaller hardness (that is having less edges) and the game is continued with the other component. In the case of Prover, it would remove the bridge and discards the component with bigger hardness.
+Consider a Tseitin graph $G \not = K_2$ with a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$. In the case of Delayer, it would remove the edge and discards the component with smaller hardness (that is having less edges) and the game is continued with the other component. In the case of Prover, it would remove the bridge and discards the component with bigger hardness.
 \end{lem}
 \begin{prf}
 Based on Section \ref{sec:game-pd}, the strategy of Delayer is to maximize the game. Thus, after removing the bridge Delayer would choose the component with bigger hardness to delay the game while for Prover it is vice verse.
 \end{prf}
 
 \begin{lem}\label{lem:hd1hd2}
-Consider a Tseitin graph $G$. If there is a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$, then there are two cases for $\hardness_{total}$. If $\hardness_1= \hardness_2$, then $\hardness_{total}= \hardness_1= \hardness_2$. Else, $ \abs {\hardness_1- \hardness_2 } \geq 1$ and if $ \hardness_1 > \hardness_2 $  then $\hardness_{total}= \hardness_1$.
+Consider a Tseitin graph $G \not = K_2$. If there is a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$, then there are two cases for $\hardness_{total}$. If $\hardness_1= \hardness_2$, then $\hardness_{total}= \hardness_1= \hardness_2$. Else, $ \abs {\hardness_1- \hardness_2 } \geq 1$ and if $ \hardness_1 > \hardness_2 $  then $\hardness_{total}= \hardness_1$.
 \end{lem}	
 \begin{prf}
 Based on Lemma \ref{lem:game-tseitin-hd}, Delayer starts the game. If $\hardness_1= \hardness_2$, then it does not change the result whether Delayer removes the bridge or it chooses to do nothing and Prover removes the bridge in next move. In both cases $\hardness_{total}$ would be equal to the hardness of the selected component. Otherwise, if $ \hardness_1 > \hardness_2 $ based on \ref{lem:tseitin-game-bridge} Delayer removes the bridge and discards the  component with smaller hardness. In this case, Prover has not performed any move and it did not get any points. Thus, in the next step Prover continues the game and  $\hardness_{total}= \hardness_1$.
@@ -599,14 +594,19 @@ Consider Lemma \ref{lem:hd1hd2}. If $ \abs {\hardness_1- \hardness_2 } \geq 2$ a
 \begin{lem}\label{lem:atmvtseitin}
 Consider the game in Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$ with Tseitin clause-set $T(G,\rho) \in \Usat$. The optimal atomic move in Lemma \ref{lem:atm-m-D-P} for this game is as follows:
   \begin{enumerate}
-  \item In the case of Delayer, if $G \not = K_2$, the optimal atomic move is removing all bridges (trouble makers) and then choosing the component with biggest hardness (and discarding other components).
-  \item In the case of Prover, the optimal atomic move is removing one edge and choosing the component with smallest hardness if the edge is a bridge (and discarding other components).
+  \item In the case of Delayer, if $G \not = K_2$, the optimal atomic move is removing all bridges (trouble makers) and then choosing the component with the biggest hardness (and discarding other components). 
+  \item In the case of Prover, there are two possible situations. If there is no bridge in the graph then the optimal atomic move for Prover is not clear but it should remove an edge. If there is only one bridge, then the optimal atomic move is removing the bridge and choosing the component with the smallest hardness (and discarding other components). In both cases, the hardness decreases one unit.
   \end{enumerate}
 \end{lem}
 \begin{prf}
 Based on Lemma \ref{lem:tseitin-game-bridge} and \ref{lem:troubllemk-hd}.
 %Section \ref{sec:game-hdf}, we know that Delayer wants to maximize the hardness (delay the game) while Prover wants to minimize it (finishing the game ASAP). Suppose that there is a bridge $e \in E$ in $G$ which divides it into two components $G_1,G_2$ with $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$. If Delayer does not remove $e$, then Player can remove this bridge by assigning troble makers such than ????and choose the smaller component. In this case, $\hardness(T(G,\rho))$ may go down more than one unit and Prover gets more than one point. Thus, Delayer must prevent this situation by removing all bridges
 \end{prf}
+Remarks:
+  \begin{enumerate}
+  \item We are not interested in Prover plays optimally if Delayer has already made a mistake.
+  \item If Prover can get two or more points by one move, then Delayer has made a mistake before.
+  \end{enumerate}
 
 %\begin{lem}\label{lem:Tseitingame1}
 %The game with optimal atomic move is well-defined (it does not depend on choices). 
@@ -615,66 +615,172 @@ Based on Lemma \ref{lem:tseitin-game-bridge} and \ref{lem:troubllemk-hd}.
 %According to Lemma \ref{lem:atmvtseitin}, in each round Delayer removes all edges that are bridge (trouble maker) to prevent the case that the hardness reduction is more than one unit. Thus, the result of the game does not depend to the order of choosing edges in each round.
 %\end{prf}
 
+\begin{examp}\label{exp:hd-K3}
+Fig \ref{fig:game1} shows the Prover-Delayer game based on optimal atomic move in Lemma \ref{lem:atmvtseitin} for graph $K_3$ in Fig \ref{fig:hd1}. In this game, Delayer starts the game and since the graph has no bridge, Delayer differs the choice to Prover. Then, Prover removes an edge (in this case, he can remove any edge). In third move, Delayer has to do nothing since removing any edge will lead to ending the game. Thus, Prover removes an edge and the graph is divided to two components: one isolated vertex and one edge. Prover chooses the vertex (the smaller component) to finish the game. The hardness of the graph (which is the number of moves done by Prover) is as $\hardness(K_3)=2$.
+  \begin{figure}%[h]
+  \centering
+  \begin{tabular}{|c|c|} 
+                  \hline
+                  Delayer & Prover \\ \hline
+                  empty move & removing edge 1  \\ \hline
+                  empty move & removing edge 3 and keeping the smaller component \\ \hline
+  \end{tabular}
+  \caption{The optimal atomic moves for graph $K_3$ in Fig \ref{fig:hd1} with $\hardness(K_3)=2$.}  \label{fig:game1}
+  \end{figure}
+  \begin{figure}
+  \begin{center}
+  \includegraphics[scale =0.45]{g1.png}
+  \caption{The hardness game for graph $K_3$ in Example \ref{exp:hd-K3}.} \label{fig:hd1}
+  \end{center}
+  \end{figure}
+\end{examp}
+
+\begin{examp}\label{exp:hd-K4}
+Fig \ref{fig:game2} shows the Prover-Delayer game based on optimal atomic move in Lemma \ref{lem:atmvtseitin} for graph $K_4$ in Fig \ref{fig:hd2}. Delayer starts the game and since the graph has no bridge, Delayer takes no action. Then, Prover removes an edge (in this case, he can remove any edge). In third move, Delayer again takes no action since there is no bridge. Then, Prover whether removes edges 1 or 4 (in this case we continue with removing edge 1) the result would be the same. In next move, Delayer has to remove edge 6 (the bridge) and divides the graph into two components: one isolated vertex and the graph $K_3$. Delayer keeps the bigger component (graph $K_3$) and the rest of the game would be the same as Example \ref{exp:hd-K3}. Thus, we get $\hardness(K_4)=4$.
+  \begin{figure}%[h]
+  \centering
+  \begin{tabular}{|c|c|} 
+  \hline
+                  Delayer & Prover \\ \hline
+                  empty move & removing edge 2  \\ \hline
+                  empty move & removing edge 1  \\ \hline
+                  removing edge 6 and discarding the vertex & removing edge 5  \\ \hline
+                  empty move & removing edge 4 and keeping the vertex\\ \hline
+  \end{tabular}
+  \caption{The optimal atomic moves for Fig \ref{fig:hd2} and  $\hardness(K_4)=4$.} \label{fig:game2}
+  \end{figure}
+  \begin{figure}
+  \begin{center}
+  \includegraphics[scale =0.26]{g2.png}
+  \caption{The hardness game for graph $K_4$ in Example \ref{exp:hd-K4}.}  \label{fig:hd2}
+  \end{center}
+  \end{figure}	   
+\end{examp}
+
+\begin{examp}\label{exp:hd-K5}
+Fig \ref{fig:game3} shows  the Prover-Delayer game based on optimal atomic move in Lemma \ref{lem:atmvtseitin} for graph $K_5$ in Fig \ref{fig:hd3}. Delayer starts the game and since the graph has no bridge, Delayer performs an empty move. Then, Prover removes an edge (in this case, it can remove any edge). In third move, Delayer again performs an empty move. Then, Prover removes edge 5. Then, the Delayer again chooses to do nothing. In the next move, Prover removes edge 10. Therefore, Delayer has to remove edge 7 (the bridge) and the graph is divided into two components: one separate vertex and the graph $K_4$. Delayer keeps the bigger component (graph $K_4$) and the rest of the game would be the same as Example \ref{exp:hd-K4}. Thus, we get $\hardness(K_5)=7$.
+  \begin{figure}%[h]
+  \centering
+  \begin{tabular}{|c|c|} 
+  \hline
+                  Delayer & Prover \\ \hline
+                  empty move & removing edge 1  \\ \hline
+		  empty move & removing edge 5  \\ \hline
+		  empty move & removing edge 10  \\ \hline
+                  removing edge 7 and discarding the vertex & removing edge 4  \\ \hline
+		  empty move & removing edge 3  \\ \hline
+                  removing edge 8 and discarding the vertex & removing edge 9  \\ \hline
+		  empty move & removing edge 2  and keep the vertex\\ \hline
+  \end{tabular}
+  \caption{The optimal atomic moves for Fig \ref{fig:hd3} and $\hardness(K_5)=7$.} \label{fig:game3}
+  \end{figure}
+  \begin{figure}
+  \begin{center}
+  \includegraphics[scale =0.4]{g3.png}
+  \caption{The hardness game for graph $K_5$ in Example \ref{exp:hd-K5}.} \label{fig:hd3}
+  \end{center}
+  \end{figure}
+\end{examp}
+
+Based on previous examples, we have Conjecture \ref{con:nobridge-pd} and Lemma \ref{lem:complete-graph}.
 \begin{conj}\label{con:nobridge-pd}
-If a Tseitin graph $G$ has no bridge and the number of connected edges to vertices are not equal then Prover chooses the vertex with minimum connected edges and removes one of them.
+If a Tseitin graph $G$ has no bridge and the number of connected edges to vertices are not equal then Prover chooses the vertex with minimum connected edges and removes one of its connected edges.
 \end{conj}
 
-If Conjecture \ref{con:nobridge-pd} is true, then we have the following lemma:	  
+%If Conjecture \ref{con:nobridge-pd} is true, then we have the following lemma:	  
 \begin{lem}\label{lem:complete-graph}
 Consider a non-trivial complete graph $K_n, n \in \NN$ as a Tseitin graph. Then, we have $\hardness(K_n)= n-2+\hardness(K_{n-1})$. 
 \end{lem}	
 \begin{prf}
-In a complete graph $K_n$, there are $n-1$ connected edges to each vertex. At first, if $n =2$ then the graph has one edge. In this case, Delayer does not remove the edge (since the game ends) and Prover gets one point by removing that edge. Else, there is no bridge and Delayer does not remove any edge. Then, Prover chooses a vertex and removes a connected edge of that vertex. Now, there are only two cases. The first case is that there is only one edge (we get graph $K_2$) and again Delayer differ the choice to Prover. The second case is that there is no bridge and Prover continues the game by removing one connected edge of the vertex with minimum number of connected edges (based on Conjecture \ref{con:nobridge-pd}). This process continues till there is only one bridge that connects a vertex to the graph $K_{n-1}$. In this case, Delayer removes the bridge and chooses the graph $K_{n-1}$. Thus, based on Lemma \ref{} we have $\hardness(K_n)= (n-1)-1+\hardness(K_{n-1}) $. Table \ref{fig:table1} shows $\hardness(K_n)$ for some $n$.
-       \begin{figure}[h]
-       \centering
-       \begin{tabular}{|c|c|} 
+In a complete graph $K_n$, there are $n-1$ connected edges to each vertex. At first, if $n =2$ then the graph has one edge. In this case, Delayer does not remove the edge (since the game ends) and Prover gets one point by removing that edge. Else, there is no bridge and Delayer does not remove any edge. Then, Prover chooses a vertex and removes a connected edge of that vertex. Now, there are only two cases. The first case is that there is only one edge (we get graph $K_2$) and again Delayer differ the choice to Prover. The second case is that there is no bridge and Prover continues the game by removing one connected edge of the vertex with minimum number of connected edges (based on Conjecture \ref{con:nobridge-pd}). This process continues till there is only one bridge that connects a vertex to the graph $K_{n-1}$. In this case, Delayer removes the bridge and chooses the graph $K_{n-1}$. Thus, we have $\hardness(K_n)= (n-1)-1+\hardness(K_{n-1}) $. Table \ref{fig:table1} shows $\hardness(K_n)$ for some $n$.
+   \begin{figure}[h]
+   \centering
+   \begin{tabular}{|c|c|} 
                   \hline
                   $n$ & $\hardness(K_n)$ \\ \hline
 		  2 & 1  \\ \hline
 		  3 & $1+ \hardness(K_2)=2$ \\ \hline
-		 4 & $2+ \hardness(K_3)=4$  \\ \hline
-		 5 & $3+ \hardness(K_4)=7$  \\ \hline
-		 6 & $4+ \hardness(K_5)=11$  \\ \hline
-		 7 & $5+ \hardness(K_6)=16$  \\ \hline
-       \end{tabular}
-       \caption{The hardness for complete graph $K_n$.}
-       \label{fig:table1}
-      \end{figure}
+		  4 & $2+ \hardness(K_3)=4$  \\ \hline
+	   	  5 & $3+ \hardness(K_4)=7$  \\ \hline
+		  6 & $4+ \hardness(K_5)=11$  \\ \hline
+		  7 & $5+ \hardness(K_6)=16$  \\ \hline
+   \end{tabular}
+   \caption{The hardness for complete graph $K_n$.}  \label{fig:table1}
+   \end{figure}
 \end{prf}
+
+\begin{lem}\label{lem:graphwithcomplt}
+Consider the game in Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$. During the game, if we obtain a complete graph $K_n, n \in \NN$, then the hardness would be the sum of Prover's points (until that step) and $\hardness(K_n)$.
+\end{lem}	
+\begin{prf}
+Based on Lemma \ref{lem:game-tseitin-hd} and \ref{lem:complete-graph}.
+\end{prf}
+  
+\begin{examp}\label{exp:graph-notK}
+Fig \ref{fig:game4} shows the atomic moves of hardness game for graph $G_1$ in Fig \ref{fig:hd4}. In first move, the graph has no bridge and Delayer performs an empty move. Then, Prover chooses a vertex with the least number of connected edges and removes one of its edges (edge 5). In next move, the graph has a bridge (edge 6) and removes the bridge and discards the smaller component (the isolated vertex). Then, Prover chooses another vertex with the least number of connected edges and removes one of its edges (edge 9). Delayer, again, finds a bridge (edge 7) and removes it. Then, Prover removes edge 3 and in next move, Delayer removes the bridge (edge 4). In this step, the left component is graph $K_3$ and the rest of game is the same as Example \ref{exp:hd-K3}. Thus, we get $\hardness(G_1)=3+\hardness(K_3)=5$.
+  \begin{figure}[h]
+  \centering
+  \begin{tabular}{|c|c|} 
+  \hline
+                  Delayer & Prover \\ \hline
+                  empty move & removing edge 5  \\ \hline
+		  removing edge 6 and discarding the vertex & removing edge 9  \\ \hline
+		  removing edge 7 and discarding the vertex & removing edge 3  \\ \hline
+		  removing edge 4 and discarding the vertex & removing edge 8  \\ \hline
+		  empty move & removing edge 2  and keeping the vertex\\ \hline
+
+   \end{tabular}
+   \caption{The optimal atomic moves for Fig \ref{fig:hd4}.} \label{fig:game4}
+   \end{figure}
+   \begin{figure}
+   \begin{center}
+   \includegraphics[scale =0.4]{graph_hd1.png}
+   \caption{The hardness game for graph $G_1$ in Example \ref{exp:graph-notK}.}  \label{fig:hd4}
+   \end{center}
+   \end{figure}
+\end{examp}
+  
 \begin{conj}\label{con:hd_game2}
 For all Tseitin graphs $G$ with $n$ vertices, graph $K_n$ has the worst case of the hardness (the maximum of $\hardness$) which is equal to $\hardness(K_n)= n-2+\hardness(K_{n-1})$ according to Lemma \ref{lem:complete-graph}.
 \end{conj}
 
-\begin{conj}\label{con:hd2}
+\begin{conj}\label{con:hd-game-time}
 The time complexity of the Delayer-Prover game in Lemma \ref{lem:game-tseitin-hd} is polynomial time.
 \end{conj}
 
 \begin{quest}\label{que:gamehd-move}
-Consider Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$. If Delayer removes some non-bridge edges $e \in E$, then is optimal value of the game still the hardness of $G$?
+Consider Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$. If Delayer removes some non-bridge edges $e \in E$ such that the hardness remain unchanged, then is optimal value of the game still the hardness of $G$?
 \end{quest}
 
 \begin{quest}\label{que:gamehd}
 How can we extend the game in Lemma \ref{lem:game-tseitin-hd} for Tseitin hypergraph (which is defined as full Tseitin graph in \cite{BeyersdorffGwynneKullmann2013PHPER})?
 \end{quest}
 
-%%%%%%%************************************
-Consider the game characterisation in \ref{sec:game-whdf} ???
-In \cite{} Lemma 9.7, a game characterization for $\whardness(T(G,\rho))$ is given as follows:
+%%%%%%%***********************************
+In Section  \ref{sec:game-whdf}, a game characterisation is given to obtain the width-hardness of a clause-set $F \in \Usat$. Here, this game is applied to a Tseitin garph $G$ based on Lemma 9.7 in \cite{BeyersdorffGwynneKullmann2013PHPER}.
 
-\begin{lem}\label{lem:characwhdTs}
-  By \ref{}, consider  a Tseitin graph $G$ for a Tseitin clause-set $F :=T(G,\rho) \in \Usat$. Then $\whardness(F)$ is obtained as follows:
+\begin{lem}\label{lem:whd-tseitin-game}
+By \cite{BeyersdorffGwynneKullmann2013PHPER}, consider  a Tseitin graph $G$ for a Tseitin clause-set $T(G,\rho) \in \Usat$. Then $\whardness(T(G,\rho))$ is obtained as follows:
   \begin{enumerate}
-  \item The notion of ``atomic move'' is as in??????.
-  \item Again, two players play in turns, and delayer starts with $G$.
-  \item Again, a move of delayer is to apply a sequence of atomic moves (possibly zero).
-  \item A mover of prover is to replace the current global sequence of atomic moves by another sequence, which is consistent with the old sequence, and handles exactly one new edge.
-  \item Here ``consistent'' means that in case removal of an edge splits the graph into two connected components, where this edge occurs also in the original sequence, then the same ``side'' of the graph is chosen.
-  \item The games ends when $G$ becomes trivial, in which case delayer gets as many points as the maximum length of a sequence used in a replacement by prover.
+  \item The atomic move is the same as Lemma \ref{lem:game-tseitin-hd} (as removing some $e \in E(G)$ and choosing a connected component of $G - e$).
+  \item Two players play in turns, and Delayer starts the game.
+  \item A move of Delayer is to apply a sequence of atomic moves (possibly zero).
+  \item A move of Prover is to replace the current global sequence of atomic moves by another sequence, which is consistent with the old sequence, and handles exactly one new edge (that is Prover can undo some of Delayer's atomic moves in the history of the game).
+  \item Here ``consistent'' means that in case of removing a bridge, the same component of the graph is chosen.
+  \item The games ends when $G$ becomes trivial, in this case Delayer gets as many points as the maximum length of a sequence used in a replacement by Prover (which is equal $\whardness(T(G,\rho))$).
   \end{enumerate}
 \end{lem}
 
-\begin{quest}\label{que:game}
-????  whd
+\begin{conj}\label{con:whd-gametime}
+The time complexity of the Delayer-Prover game in Lemma \ref{lem:whd-tseitin-game} is polynomial time.
+\end{conj}
+
+\begin{quest}\label{que:game-whd-atm}
+What are the optimal atomic moves for the players in Lemma \ref{lem:whd-tseitin-game}?
+\end{quest}
+
+\begin{quest}\label{que:game-whd-Kn}
+Consider Lemma \ref{lem:whd-tseitin-game}. Can we obtain a formula for $\whardness(T(G,\rho))$ of complete Tseitin graph $G$?
 \end{quest}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
