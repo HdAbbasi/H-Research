@@ -11,7 +11,7 @@
 \usepackage[all]{xy}
 \usepackage{enumerate}
 
-\nc{\Dt}[1]{\mc{F}_{#1}} 
+%\nc{\Dt}[1]{\mc{F}_{#1}} 
 \nc{\tsubres}{\xrightarrow{\text{sfsR}}}
 \nc{\tsubresk}[1]{\xrightarrow{\text{sfsR}}_{\!#1}}
 \DMO{\saturate}{S}
@@ -39,66 +39,52 @@ The second aim of this research is to study the structure of minimally unsatisfi
 \chapter{Introduction}
 \label{cha:intro}
 
-?????????
+There are many interesting relations between combinatorics and the satisfiability problem. In this research, we investigate this relation around two areas: the complexity of resolution proofs for SAT problems and the structure of minimally unsatisfiable clause-sets with small deficiency (the difference of the number of clauses and the number of variables).
 
-The hardness is defined as a measure of complexity (the amount of effort needed to discover unsatisfiability) for a representation $F$ of a boolean function $f$ in SAT solving. Various hardness measures have been investigated in the literature and the relation between these measures is studied in \cite{BeyersdorffGwynneKullmann2013PHPER,BeyersdorffKullmann2014PHP,GwynneKullmann2013GoodRepresentationsIIex}. In this proposal, two measures of the hardness are investigated. The first one is the tree-hardness which is related to the size of resolution proofs. The width-hardness is the second measure and is related to the width of clauses in resolution proofs. We start with defining these measures for unsatisfiable clause-sets and then, we extend the definitions to the satisfiable clause-sets. An overview of these two measure is given in \cite{BeyersdorffGwynneKullmann2013PHPER,BeyersdorffKullmann2014PHP,?? }.
+The hardness is defined as a measure of complexity (the amount of effort needed to discover unsatisfiability) for a representation $F$ of a boolean function $f$ in SAT solving. Various hardness measures have been investigated in the literature and the relation between these measures is studied in \cite{BeyersdorffGwynneKullmann2013PHPER,BeyersdorffKullmann2014PHP,GwynneKullmann2013GoodRepresentationsIIex}. In this proposal, two measures of the hardness are investigated. The first one is the tree-hardness which is related to the size of resolution proofs. The width-hardness is the second measure and is related to the width of clauses in resolution proofs. An overview of these two measure is given in \cite{BeyersdorffGwynneKullmann2013PHPER,BeyersdorffKullmann2014PHP, GwynneKullmann2012Slur}. We start with defining these measures and then, a game characterisation is given for them based on Prover-Delayer game in \cite{BeyersdorffKullmann2014PHP} which has two players.
 
-For representing a boolean function $f$ CNF-clause-sets are defined in Section \ref{sec:Clause-sets}. Here, another representation of $f$ is introduced (called XOR-representation) which is used for extending the hardness game for graphs based on \cite{GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata}. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. 
-????
-The XOR-representation is investigated in \cite{GwynneKullmann2013GoodRepresentations,GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} with the goal of finding a good representation for XOR-constraints.
-???????
+The XOR-representation is investigated in \cite{GwynneKullmann2013GoodRepresentations,GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} with the goal of finding a good representation for XOR-constraints. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. Here, we use this representation for applying the game characterisation of hardness measures for special graphs (Tseitin graph) based on \cite{GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata}. Finding the optimal move of players in this game and also formulation of hardness measures for Tseitin graph are investigated in this research.
 
-One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which are referred as the building block for understanding unsatisfiability in \cite{KullmannZhao2010Extremal}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{KullmannZhao2010Extremal, Kullmann2007HandbuchMU,KullmannZhao2012ConfluenceJ}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency and it is used for classification of minimally unsatisfiable clause-sets. In Section \ref{cha:mucls}, first we give an overview of result regarding clause-sets with small deficiency and then, we discuss open problems and our research themes. So far, the structure of clause-sets in $\Musati{\delta=1}$ is well-known and an overview of them is given in \cite{KullmannZhao2010Extremal, Ku99dK,KleineBuening2000SubclassesMU,DDK98}. For clause-sets in $\Musati{\delta=2}$, \cite{KleineBuening2000SubclassesMU} gives a formula which is isomorphism for each $F' \in \Smusati{\delta=2}$ and further investigation on these clause-sets is presented in \cite{KullmannZhao2010Extremal, KleineBuening2000SubclassesMU, KullmannZhao2012ConfluenceJ}. The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{KullmannZhao2016UHitSAT} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{KullmannZhao2010Extremal} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in this subclass is an open research question.
+The second area of investigation around the connection of combinatorics and satisfiability problems is concerned with minimally unsatisfiable clause-sets which are referred as the building block for understanding unsatisfiability in \cite{KullmannZhao2010Extremal}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{KullmannZhao2010Extremal, Kullmann2007HandbuchMU,KullmannZhao2012ConfluenceJ}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency and it is used for classification of minimally unsatisfiable clause-sets. In this report, we give an overview of results regarding unsatisfiable clause-sets with small deficiency and then, we discuss open problems and our research themes. So far, the structure of clause-sets in $\Musati{\delta=1}$ is well-known and an overview of them is given in \cite{KullmannZhao2010Extremal, Ku99dK,KleineBuening2000SubclassesMU,DDK98}. For clause-sets in $\Musati{\delta=2}$, \cite{KleineBuening2000SubclassesMU} gives a formula which is isomorphism for each $F' \in \Smusati{\delta=2}$ and further investigation on these clause-sets is presented in \cite{KullmannZhao2010Extremal, KleineBuening2000SubclassesMU, KullmannZhao2012ConfluenceJ}. The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{KullmannZhao2016UHitSAT} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{KullmannZhao2010Extremal} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in these subclasses is an open research question (which is investigated in this research).
 
-Some of first results in this report:
+This report is organized as follows. The second chapter is dedicated to explain basic concepts and preliminaries. In chapter three, two hardness measures of clause-sets are introduced. Then, they are characterised by a game. Afterwards, the Tseitin clause-set (which is obtained from the Tseitin graph) is explained and the game is applied to them in order to obtain the hardness. The structure of minimally unsatisfiable clause-sets with small deficiency is investigated in chapter four. Finally, the last chapter contains open questions and research ideas.
 
-In chapter three:
-
-In chapter four: 
-
-The second chapter is dedicated to explain basic concepts and preliminaries. In chapter three, two hardness measures of clause-sets are introduced. Then, they are characterised by a game. Afterwards, the Tseitin clause-set (which is obtained from the Tseitin graph) is explained and the game is applied to them in order to obtain the hardness. Finally, ???
-
-Chapter four explains ?????????
-
-
-
+\section{An overview on initial results}
+\label{sec:init-results}
+ 
 The initial results regarding the hardness measures in Chapter \ref{cha:Hd-TseitinG} are as follows:
   \begin{enumerate}
-  \item Definition \ref{def:var-trb}: new definitions of trouble maker variables and ineffective variables.
-  \item Definition \ref{def:atomicm}: a modified definition for the atomic move in game characterisation of the hardness.
-  \item Lemma \ref{lem:atm-m-D-P}: the optimal atomic move in game characterisation of the hardness.
-  \item Lemma \ref{lem:hd-game-main} and Lemma \ref{lem:gameres1}: a modified version of the asymmetric Prover-Delayer game to obtain the hardness of a clause-set $F \in \Cls$ based on the optimal atomic move.
-  \item Lemma \ref{}: investigation of hardness change????????the effect of applying the sequence of partial assignment on the hardness of the initial clause-set????? during the game
-  \item Lemma \ref{lem:game3}: investigation of the effect removing an edge on distribution of charges in a Tseitin graph.
-  \item Lemma \ref{lem:game-tree}: characterisation of the game-tree for application of the hardness game for a Tseitin graph.
-  \item Example \ref{exp:gg1}: the game-tree for the Tseitin graphs $K_3$.
-  \item Lemma \ref{lem:tseitin-game-bridge}: the optimal atomic move for each players in the presence of a bridge in a Tseitin graph.
+  \item Definition \ref{def:var-trb} : new definitions for trouble maker variables and ineffective variables.
+  \item Definition \ref{def:atomicm} : a modified definition for the atomic move in game characterisation of the hardness.
+  \item Lemma \ref{lem:atm-m-D-P} : the optimal atomic move in game characterisation of the hardness.
+  \item Lemma \ref{lem:hd-game-main} and \ref{lem:gameres1} : a modified version of the asymmetric Prover-Delayer game to obtain the hardness of a clause-set $F \in \Cls$ based on the optimal atomic move.
+  \item Lemma \ref{lem:hdchg} : the effect of each player's move on the hardness of $F$ during the hardness game applied for $F \in \Cls$..
+  \item Lemma \ref{lem:game3} : investigation of the effect removing an edge on distribution of charges in a Tseitin graph.
+  \item Lemma \ref{lem:game-tree} : characterisation of the game-tree for application of the hardness game for a Tseitin graph.
+  \item Example \ref{exp:gg1} : the game-tree for the Tseitin graphs $K_3$.
+  \item Lemma \ref{lem:tseitin-game-bridge} : the optimal atomic move for each players in the presence of a bridge in a Tseitin graph.
   \item Lemma \ref{lem:hd1hd2}: the effect of removing a bridge on the hardness of a Tseitin graph.
-  \item Lemma \ref{lem:troubllemk-hd}: application of the definitions of trouble maker variable for a Tseitin graph.
-  \item Lemma \ref{lem:atmvtseitin}: the optimal atomic move for a Tseitin graph in general.
-  \item Example\ref{exp:hd-K3}, \ref{exp:hd-K4}, \ref{exp:hd-K5}: application of the hardness game for the Tseitin graphs $K_3,K_4,K_2$.
-  \item Conjecture \ref{con:nobridge-pd}: the optimal atomic move of Prover for a Tseitin graph with no bridge.
-  \item Lemma \ref{lem:complete-graph}: a formula for the hardness of a complete Tseitin graph.
-  \item Lemma \ref{graphwithcomplt}: a formula for the hardness of a Tseitin graph if a complete graph $K_n$ is obtained during the game.
-  \item Conjecture \ref{con:hd_game2}: the worst case of the hardness for a Tseitin graph with $n$ vertices.
-  \item Conjecture \ref{con:hd-game-time}: the time complexity of the hardness game for a Tseitin graph. 
-  \item Conjecture \ref{whd-gametime}: the time complexity of the width-hardness game for a Tseitin graph.
+  \item Lemma \ref{lem:troubllemk-hd} : application of the definitions of trouble maker variable for a Tseitin graph.
+  \item Lemma \ref{lem:atmvtseitin} : the optimal atomic move for a Tseitin graph in general.
+  \item Examples \ref{exp:hd-K3}, \ref{exp:hd-K4} and \ref{exp:hd-K5} : application of the hardness game for the Tseitin graphs $K_3,K_4,K_2$.
+  \item Lemma \ref{lem:complete-graph} : a formula for the hardness of a complete Tseitin graph.
+  \item Lemma \ref{lem:graphwithcomplt} : a formula for the hardness of a Tseitin graph if a complete graph $K_n$ is obtained during the game.
   \end{enumerate}
 The initial results regarding the minimally unsatisfiable clause-sets in Chapter \ref{cha:mucls} are as follows:
   \begin{enumerate}
-  \item ???
-  \item Lemma \ref{}: a modified expression of the main property of clause-sets $F \in \Musati{\delta=1}$.
-  \item Lemma \ref{}: a modified description of the structure of saturated minimally unsatisfiable clause-sets with deficiency 1.
-  \item Lemma \ref{lem:smu1tomu1}: a method of obtaining all clause-sets $F' \in \Musati{\delta=1}$ with $\var(F)=\var(F')$ from a clause-set $F \in  \Smusati{\delta=1}$.
-  \item Lemma \ref{}: some methods of obtaining clause-sets $F \in \Smusati{\delta=1}$.
-  \item Lemma \ref{lem:mu1-strc}: investigation of the structure of clause-sets $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$.
-  \item Lemma \ref{}: investigation of the equality relation between two clause-sets $F,F' \in \Smusati{\delta=1}$ by their resolution tree.
-  \item Lemma \ref{}: characterisation of the number of isomorphic trees $T(F)$ for $F \in  \Smusati{\delta=1}$ as the Wedderburn-Etherington numbers.
-  \item Lemma \ref{}: investigation of the saturation stability of $F \in  \Musatnsi{\delta=2}$ ($\Dt{n}$) under splitting.
-  \item Lemma \ref{}: investigation of the structure of clause-sets obtained by splitting $F \in  \Musatnsi{\delta=2}$ ($\Dt{n}$).
-  \item Lemma \ref{}: investigation of how all clause-sets $F' \in \Musati{\delta=2}$ can be obtained from $F \in  \Musatnsi{\delta=2}$.
-  \item Lemma \ref{}: a method to obtain an special clause-sets $F' \in \Musati{\delta=3}$ from any non-full $F \in  \Musati{\delta=2}$.
+  \item Lemma \ref{lem:mu1-refu-tree} : a modified expression of the main property of clause-sets $F \in \Musati{\delta=1}$.
+  \item Lemma \ref{lem:mu1-build} : a modified description of the structure of saturated minimally unsatisfiable clause-sets with deficiency 1.
+  \item Lemma \ref{lem:smu1tomu1} : a method of obtaining all clause-sets $F' \in \Musati{\delta=1}$ with $\var(F)=\var(F')$ from a clause-set $F \in  \Smusati{\delta=1}$.
+  \item Lemma \ref{lem:smu1-uhit1} : a modified description for three methods of obtaining clause-sets $F \in \Smusati{\delta=1}$.
+  \item Lemma \ref{lem:mu1-strc} : investigation of the structure of clause-sets $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$.
+  \item Lemma \ref{lem:mu1-iso} : investigation of the equality relation between two clause-sets $F,F' \in \Smusati{\delta=1}$ by their resolution tree.
+  \item Lemma \ref{lem:mu1-iso-num} : characterisation of the number of isomorphic trees $T(F)$ for $F \in  \Smusati{\delta=1}$ as the Wedderburn-Etherington numbers.
+  \item Lemma \ref{lem:mu2-smu2} : investigation of the saturation stability of $F \in  \Musatnsi{\delta=2}$ ($\Dt{n}$) under splitting.
+  \item Lemma \ref{lem:mu2-horn-tree} : investigation of the structure of clause-sets obtained by splitting $F \in  \Musatnsi{\delta=2}$ ($\Dt{n}$).
+  \item Lemma \ref{lem:mu2-build} : investigation of how all clause-sets $F' \in \Musati{\delta=2}$ can be obtained from $F \in  \Musatnsi{\delta=2}$.
+  \item Lemma \ref{lem:mu2tomu3} : a method to obtain an special clause-sets $F' \in \Musati{\delta=3}$ from any non-full $F \in  \Musati{\delta=2}$.
   \end{enumerate}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Preliminaries}
 \label{cha:Preliminaries}
@@ -174,7 +160,7 @@ Remarks:
   \item  If a resolution proof drives $\bot$, it is called a \textbf{resolution refutation} and $F$ is unsatisfiable.
   \item If a clause $C$ is an implicate of a clause-set $F$, then there is a resolution tree $T : F \vdash C$. A clause $C$ is a prime implicate for $F$ iff there is no tree $T': F \vdash C'$ for some $C \sst C'$.
   \item For an unsatisfiable $F$, it is proved that there is a relation between resolution refutations and decision trees. If $T : F \vdash \bot$ is a resolution refutation for $F \in \Usat$, then there is a decision tree $R$ for $F$ with the same structure of $T$ (by Lemma 1 in \cite{BGL13a}).
-  \item The smallest resolution refutation of $F \in \Usat$ has exactly the same size as the shortest decision tree for $F$ (by Collary 1 in \cite{BGL13a}).
+  \item The smallest resolution refutation of $F \in \Usat$ has exactly the same size as the shortest decision tree for $F$ (by Corollary 1 in \cite{BGL13a}).
   \end{enumerate}
 
 \begin{examp}\label{exp:res1}
@@ -379,7 +365,7 @@ For $F \in \Cls$, there is a sequence of partial assignments $\vp_0, ..., \vp_m 
 \end{defi}
 
 \begin{lem}\label{lem:atm-m-D-P}
-In the case of Prover-Delayer game for obtaining the hardness of $F \in \Cls$, the \textbf{optimal atomic move} for Delayer is removing all trouble makers in Definition \ref{def:var-trb} by assigning them such that $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ (the hardness remains unchanged). If htere is no trouble maker, Delayer defers the assignment to Prover. For Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ such that the hardness decreases exactly one unit.
+In the case of Prover-Delayer game for obtaining the hardness of $F \in \Cls$, the \textbf{optimal atomic move} for Delayer is removing all trouble makers in Definition \ref{def:var-trb} by assigning them such that $\hardness(\pab{v \ra \ve}*F)=\hardness(F)$ (the hardness remains unchanged). If there is no trouble maker, Delayer defers the assignment to Prover. For Prover, the atomic move is assigning exactly one variable $v \in \var(F)$ such that the hardness decreases exactly one unit.
 \end{lem}
 \begin{prf}
 The aim of Delayer is to maximize $\hardness(F)$ for $F \in \Cls$. But since according to Lemma \ref{lem:hd-var} assigning a variable for $F$ does not increase the hardness, Delayer must keep $\hardness(F)$ unchanged. This is achieved by taking no action or just assigning  ineffective variables. On the other hand, Prover wants to minimize $\hardness(F)$ and in each round, tries to choose a variable $v \in \var(F)$ whose assigning reduces the hardness at most (like two or more units). Thus, Delayer must prevent the case that Prover decreases the hardness more than one unit. This is achieves by assigning the trouble makers such that $\hardness(F)$ remains unchanged. If Delayer succeeds in removing all trouble makers in each round, then Prover must decrease $\hardness(F)$ exactly one unit.
@@ -549,7 +535,8 @@ Remarks:
 \section{Application of game characterisation for Tseitin graph}
 \label{sec:appgame}
 
-In Section \ref{sec:game-hdf}, a game is explained to obtain the hardness of a clause-set $F \in \Cls$. In this section, This game is applied to a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). %For this reason, first the concept of atomic move is explained for Tsitin graph. Then, the structure of a tree (game-tree) showing all possible atomic moves for a Tseitin graph is given. Finally, the game is applied for a Tseitin graph. 
+In Section \ref{sec:game-hdf}, a game is explained to obtain the hardness of a clause-set $F \in \Cls$. In this section, this game is applied to a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). 
+%For this reason, first the concept of atomic move is explained for Tsitin graph. Then, the structure of a tree (game-tree) showing all possible atomic moves for a Tseitin graph is given. Finally, the game is applied for a Tseitin graph. 
 
 %In this section based on the game characterisation of the hardness in Section \ref{sec:game-hdf}, a game is explained to obtain the hardness of a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). For this reason, first the concept of atomic move is explained for Tsitin graph. Then, the structure of a tree (game-tree) showing all possible atomic moves for a Tseitin graph is given. Finally, the game is applied for a Tseitin graph.
  
@@ -900,7 +887,7 @@ If $\vp \in \Pass$ is a non-trivial autarky for a clause-set $F \in \Cls$, then 
 \end{defi} 
 Remarks:
   \begin{enumerate}
-  \item If we apply all possible autarky reduction for a clause-set $F$, then we get the \textbf{lean kenrel} of $F$ (Section 11.8.3 in \cite{Kullmann2007HandbuchMU} provides more details of lean kernel). The lean kernel is the largest lean sub-clause-set of $F$.
+  \item If we apply all possible autarky reduction for a clause-set $F$, then we get the \textbf{lean kernel} of $F$ (Section 11.8.3 in \cite{Kullmann2007HandbuchMU} provides more details of lean kernel). The lean kernel is the largest lean sub-clause-set of $F$.
   \item Another equivalent description for lean clause-sets according to \cite{Ku00f} is that if $F \in \Lean \sm \top$ then every clause $C \in F$ is used in at least one resolution refutation for $F$. Thus, the lean kernel of $F$ is the set of all clauses from $F$ that can be used in at least one resolution refutation for $F$ (by Theorem 11.8.1 in \cite{Kullmann2007HandbuchMU}).
   \item The autarky reduction is obtained in a polynomial time, but finding the autarky in polynomial time is still an open question (\cite{KullmannZhao2010Extremal} in Section 10.1 discusses whether the autarky can be found in polynomial time).
   \end{enumerate}
@@ -1063,7 +1050,7 @@ Based on \cite{KleineBuening2000SubclassesMU} if $F \in \Musati{\delta=k}$ then 
 \cite{KleineBuening2000SubclassesMU} If $F \in \Musati{\delta=1}$ with $n(F) > 0$ (i.e. $F \not = \set{\bot}$) then it contains a variable $v \in \var(F)$ occurring positively and negatively exactly once. Thus, $\minvdeg(F) = 2$. Also, $F \in \Musati{\delta=1}$ are solvable in quadratic time.
 \end{lem}
 
-\begin{lem}\label{lem:mu1-sdp}Conside $F \in \Cls$. Then, $F \in \Musati{\delta=1}$ iff by iterated application of singular DP-reduction we get $\set{\bot}$ ($sDP(F) =\set{\bot}$). 
+\begin{lem}\label{lem:mu1-sdp} Consider $F \in \Cls$. Then, $F \in \Musati{\delta=1}$ iff by iterated application of singular DP-reduction we get $\set{\bot}$ ($sDP(F) =\set{\bot}$). 
 \end{lem}
 \begin{prf}
 See Lemma \ref{lem:sDP-infl}.
@@ -1095,7 +1082,7 @@ Based of \cite{KullmannZhao2016UHitSAT}, the structure of resolution trees  for 
 \begin{prf}
 For the first part, by considering the two criteria of the tree (each inner node labeled by a distinct variable $v \in \var(F)$ and the left/right edge of this node labeled by $v$/ $\ol v$) we can get $\set{\bot}$ by only iterated application of singular DP-reduction. Thus, based on Lemma \ref{lem:mu1-sdp} we have $F(T) \in  \Musati{\delta=1}$. Furthermore, based on those two criteria any two different clauses $C,D$ in leaves clash and also any clauses in leaves contains at least one literal occurring exactly one in $F$ (as singular variable). Thus, $F$ is a hitting clause set and we have $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $. Also, there is exactly one full variable (variable occurring in all clauses) which is the variable corresponding to the edges leading to the root of $T:F \vdash \bot$.
  
-For the proof of the second part, if $F'$ is obtained by removing any literal $x \in C$ from a clause $C$ using subsumption resolution then there is a clause $D:D \sm \set{\ol x} \sse C$. If $C':=C \sm \set{x}$ then $D,C'$ do not clash and $F'$ is not a hitting clause-set any more (and also not saturated). But, $F'$ is still minimally saturated according to Section \ref{sec:fsr-e}. Thus, $F'\in  \Musati{\delta=1} \not \in \Smusati{\delta=1}=\Uclashi{\delta=1}$. If we perform more steps of subsumption resolution for $F'\in  \Musati{\delta=1}$, the result is still in $ \Musati{\delta=1}$. %consider $F \in  \Musati{\delta=1}$. if we perform ???
+For the proof of the second part, if $F'$ is obtained by removing any literal $x \in C$ from a clause $C$ using subsumption resolution then there is a clause $D:D \sm \set{\ol x} \sse C$. If $C':=C \sm \set{x}$ then $D,C'$ do not clash and $F'$ is not a hitting clause-set any more (and also not saturated). But, $F'$ is still minimally saturated according to Section \ref{sec:fsr-e}. Thus, $F'\in  \Musati{\delta=1} \not \in \Smusati{\delta=1}=\Uclashi{\delta=1}$. If we perform more steps of subsumption resolution for $F'\in  \Musati{\delta=1}$, the result is still in $ \Musati{\delta=1}$. 
 \end{prf}
 
 \begin{lem}\label{lem:smu1tomu1}
@@ -1296,17 +1283,35 @@ How can we determine the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and a
 \chapter{Research ideas}
 \label{cha:concl}
 
-In this????????
-
-
   \begin{enumerate}
-  \item Question \ref{}: 
+  \item Conjecture \ref{con:nobridge-pd} : the optimal atomic move of Prover for a Tseitin graph with no bridge.
+  \item Conjecture \ref{con:hd_game2} : the worst case of the hardness for a Tseitin graph with $n$ vertices.
+  \item Conjecture \ref{con:hd-game-time} : the time complexity of the hardness game for a Tseitin graph. 
+  \item Conjecture \ref{con:whd-gametime} : the time complexity of the width-hardness game for a Tseitin graph.
+  \item Conjecture \ref{con:mudelta} : the existence of finitely many ``patterns'' for every deficiency $k \in \NN$ that explain the elements of $\Musatnsi{\delta=k}$ and also the saturated and hitting minimally unsatisfiable clause-sets. 
+  \item Question \ref{que:game-move} : investigation of the effect of removing ineffective variables (by Delayer) on the result of the hardness game for $F \in \Cls$.
+  \item Question \ref{que:whdall} : generalisation of the game characterisation for the width-hardness of all clause-sets $F \in \Cls$.
+  \item Question \ref{que:gamehd-move} : investigation of the effect of removing non-bridge edges by Delayer during the hardness game for a Tseitin graph.
+  \item Question \ref{que:gamehd} : the extension of the hardness game for a Tseitin hypergraph.
+  \item Question \ref{que:game-whd-atm} : investigation of the optimal atomic move for game characterisation of the width-hardness for a Tseitin graph.
+  \item Question \ref{que:game-whd-Kn} : formulation of the width-hardness for a complete Tseitin graph.
+  \item Question \ref{ques:nhit-sat} : the complexity of SAT-decision for nearly-hitting clause-sets.
+  \item Question \ref{que:smu-elim} : investigation of minimally unsatisfiability of a clause-set $F' \in \Cls $ obtained by eliminating a literal occurrences in $F \in \Smusat$.
+  \item Question \ref{que:hitnum} : formulation of the number of 1-singular variables in $F(T)$ for a non-trivial binary tree $T$ such that $F(T) \in \Smusati{\delta=1}=\Uclashi{\delta=1}$.
+  \item Question \ref{que:mu-2-horn} : the effect of saturating $F_0, F_1$ in Lemma \ref{lem:mu2-horn-tree} on the structure of their resolution tree.
+  \item Question \ref{que:mu-2-ism} : investigation of the possibility of obtaining isomorphic clause-sets by extending some of clause-sets in $\Dt{n}$ with different $n$.
+%  \item Question \ref{que:mu2-from-mu1} : investigating weather 
+  \item Question \ref{que:mu2-uhit2} : investigation of the structure of subclasses $\Uclashi{\delta=2}$ and $\Smusati{\delta=2}$.
+  \item Question \ref{que:mu2-hardness} : determination of the hardness and the width hardness for $F \in \Musati{\delta=2}$.
+  \item Question \ref{que:mu2-count} : formulation of the number of non-isomorphic elements of $F \in \Musati{\delta=2}$ for a given number of clauses.
+  \item Question \ref{que:str-3} : investigation of the existence of any isomorphic form for $F \in \Musati{\delta=3}$.
+  \item Question \ref{que:smu-3} : determination of the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and also $\Smusatnsi{\delta=3}$.
   \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
 \bibliographystyle{plainurl}
-%\BibliographyOKlibrary
-\bibliography{HA_ResearchRef}
+\BibliographyOKlibrary
+%\bibliography{HA_ResearchRef}
 
 \end{document}
 
