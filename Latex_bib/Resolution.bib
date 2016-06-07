@@ -1,0 +1,864 @@
+% Abschnitte (Sections):
+% - Resolution for predicate logic (praedikatenlogische Resolution)
+% - Propositional resolution (aussagenlogische Resolution)
+% - Extended resolution (Erweiterte Resolution)
+% Dies alles fuer obere Schranken; fuer untere Schranken siehe
+% UntereSchranken.bib.
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Resolution for predicate logic (praedikatenlogische Resolution) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{Eis89,
+  author =       "Norbert Eisinger",
+  title =        "A note on the completeness of resolution without
+                  self-resolution",
+  journal =      "Information Processing Letters",
+  year =         1989,
+  volume =       31,
+  pages =        "323--326",
+  annote =       "Der (Praedikaten-logische) Resolutionskalkuel ist
+                  vollstaendig auch ohne Selbst-Resolutionen.
+                  Selbst-Resolutionen koennen durch das Lifting-Lemma
+                  entstehen. Das sie nicht noetig sind, ist
+                  unmittelbare Folge der Vollstaendigkeit von
+                  Hyperresolution."
+}
+
+@Article{Ro65,
+  author =       "J.A. Robinson",
+  title =        "A Machine-Oriented Logic Based on the Resolution Principle",
+  journal =      "Journal of the ACM",
+  year =         1965,
+  volume =       12,
+  number =       1,
+  pages =        "23--41",
+  month =        "January",
+  doi =          {10.1145/321250.321253},
+  annote =       "Der (praedikatenlogische) Resolutionskalkuel wird
+                  eingefuehrt und seine Vollstaendigkeit wird
+                  bewiesen.
+
+                  An Suchstrategien wird angefuehrt:
+
+                  -- Elimination purer Literale
+                  -- Subsumption
+                  -- ``replacement principle'' (ein Resolutionsschritt
+                     mit nachfolgender Subsumption einer Elternklausel)."
+}
+
+@InProceedings{Ra??,
+  author =       "Arkady Rabinov",
+  title =        "A Restriction of Factoring in Binary Resolution",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  OPTeditor =    "",
+  OPTvolume =    "",
+  OPTnumber =    "",
+  OPTseries =    "9th Conference of Automated Deduction",
+  OPTpages =     "",
+  OPTbooktitle = "",
+  OPTyear =      "",
+  OPTorganization = "",
+  OPTpublisher = "",
+  OPTaddress =   "",
+  OPTmonth =     "",
+  OPTnote =      "",
+  OPTannote =    "Faktorisierung in (binaeren) Resolution-Beweisen kann auf
+                  Mengen von Literalen eingeschraenkt werden, die nur
+                  positive Literale enthalten, und in denen jedes
+                  Literal mittels Umbenennung aus den anderen hervorgeht."
+}
+
+@Article{Le??,
+  author =       "Alexander Leitsch",
+  title =        "On different concepts of resolution",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  OPTjournal =   "",
+  OPTyear =      "",
+  OPTvolume =    "",
+  OPTnumber =    "",
+  OPTpages =     "71-77",
+  OPTmonth =     "",
+  OPTnote =      "",
+  OPTannote =    "Es wird Robinsons Resolutions-Konzept
+                  (Faktorisierung imlizit enthalten) mit dem von Chang,
+                  Lee und Loveland (Faktorisierung explizit plus
+                  ``binaerer Resolution'') im Detail
+                  verglichen: Beide Systeme sind bezueglich
+                  abgeleiteter Klauseln unvergleichbar; wird aber
+                  Robinsons System mit erweiterter Faktorisierung
+                  ausgestattet, dann erhaelt man ein System, dass echt
+                  staerker als jene beiden ist.
+                  Ferner werden die korrekten(!) Versionen des
+                  Lifting-Lemmas genau studiert."
+}
+
+@InCollection{Le88,
+  author =       "Alexander Leitsch",
+  title =        "On some formal problems in resolution theorem proving",
+  year =         1988,
+  OPTseries =    "Jahrbuch 1988 der Kurt-G{\"o}del-Gesellschaft",
+  pages =        "35--52",
+  annote =       "Es werden die Details von verschiedenen
+                  (praedikatenlogischen) Resolutionsvarianten
+                  bzgl. des Liftens besprochen. Siehe \cite{Le??}."
+}
+
+@Article{He76,
+  author =       {Lawrence J. Henschen},
+  title =        {Semantic Resolution for {H}orn Sets},
+  journal =      {IEEE Transactions on Computers},
+  year =         {1976},
+  OPTkey =       {},
+  OPTvolume =    {C-25},
+  OPTnumber =    {8},
+  OPTpages =     {816--822},
+  OPTmonth =     {August},
+  OPTnote =      {},
+  OPTannote =    {Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Article{He74,
+  author =       {Lawrence J. Henschen and Lawrence Wos},
+  title =        {Unit Refutations and {H}orn Sets},
+  journal =      {Journal of the Association for Computing Machinery},
+  year =         1974,
+  volume =       21,
+  number =       4,
+  pages =        {590--605},
+  month =        {October},
+  annote =       {Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Article{Ch70,
+  author =       "C. L. Chang",
+  title =        "The unit proof and the input proof in theorem proving",
+  journal =      "Journal of the Association for Computing Machinery",
+  year =         1970,
+  volume =       17,
+  number =       4,
+  pages =        "698--707",
+  month =        "October",
+  annote =       "Laut \cite{He74} wird die Aequivalenz von Input- und
+                  1-Klauseln-Resolution bzgl. der Ableitung der leeren
+                  Klausel bewiesen."
+}
+
+@InCollection{ZS??,
+  author =       "N. K. Zamov and V. I. Sharonov",
+  title =        "A class of strategies for the determination of
+                  provability by the resolution method",
+  booktitle =    "Studies on Constructive Mathematics and Mathematical
+                  Logic, Part III",
+  editor =       "A. O. Slisenko",
+  annote =       "Wohl nur noch von historischem Interesse."
+}
+
+@Article{CRSW67,
+  author =       "Daniel F. Carson and George A. Robinson and Leon
+                  Shalla and Lawrence Wos",
+  title =        "The Concept of Demodulation in Theorem Proving",
+  journal =      "Journal of the Association for Computing Machinery",
+  year =         1967,
+  volume =       14,
+  number =       4,
+  pages =        "698--709",
+  month =        "October",
+  annote =       "Demodulation ist eine (unvollstaendige) Strategie
+                  zur Behandlung der Gleichheit, die abgeleitete
+                  Gleichungen durch kuerzere ersetzt, die auf
+                  ``einfache'' Weise abgeleitet werden koennen.
+
+                  Ferner wird noch die Set of Support-Strategie in
+                  diesem Kontext diskutiert."
+}
+
+@InProceedings{CRW64,
+  author =       "Daniel F. Carson and George A. Robinson and Lawrence Wos",
+  title =        "The unit preference strategy in theorem proving",
+  volume =       26,
+  pages =        "615--621",
+  booktitle =    "AFIPS Conference Proceedings",
+  year =         1964,
+  annote =       "Die zu der Zeit ganz aktuelle Robinson'sche
+                  Resolutionsmethode wird mit der
+                  1-Klauseln-Praeferenz- und der
+                  Stuetzmengen-Strategie (letzeres wohl ohne Beweis
+                  der Vollstaendigkeit) verfeinert."
+}
+
+@Article{Sl67,
+  author =       "James R. Slagle",
+  title =        "Automatic Theorem Proving With Renamable and
+                  Semantic Resolution",
+  journal =      "Journal of the Association for Computing Machinery",
+  year =         1967,
+  volume =       14,
+  number =       4,
+  pages =        "687--697",
+  month =        "October",
+  annote =       "Semantische Resolution wird eingefuehrt (basierend
+                  auf dem Konzept von ``clash, nucleus, electron'',
+                  was noch eine Ordnung auf den Atomen benutzt).
+                  Hyper-Resolution ist der Speziallfall, der ohne
+                  Ordnung auf den Atomen zur positiven Resolution wird."
+}
+
+@Article{CRW65,
+  author =       "Daniel F. Carson and George A. Robinson and Lawrence Wos",
+  title =        "Efficiency and Completeness of the Set of Support
+                  Strategy in Theorem Proving",
+  journal =      "Journal of the Association for Computing Machinery",
+  year =         1965,
+  volume =       12,
+  number =       4,
+  pages =        "536--541",
+  month =        "October",
+  annote =       "Die Vollstaendigkeit der Stuetzmengen-Resolution
+                  wird bewiesen."
+}
+
+@Article{Ro63,
+  author =       "J. A. Robinson",
+  title =        "Theorem-Proving on the Computer",
+  journal =      "Journal of the Association for Computing Machinery",
+  year =         1963,
+  volume =       10,
+  pages =        "163--174",
+  annote =       "Ein interaktives System, bei dem der Benutzer die
+                  Menge der Substitutionsterme in die
+                  (quantorenfreie) Matrix vorgibt, wird vorgestellt,
+                  und an Hand einiger Beispiele diskutiert. Die
+                  Methode, nach Substitution auf Inkonsistenz zu
+                  ueberpruefen, ist die von Davis-Putnam \cite{DP60}.
+                  Es werden verschiedene Methoden diskutiert, die
+                  Menge der moeglichen Substitutionen in sinnvoller
+                  Weise aufzuzaehlen.
+                  Historisch."
+}
+
+@PhdThesis{Le93,
+  author =       "Reinhold Letz",
+  title =        "First-Order Calculi and Proof Procedures for
+                  Automated Deduction",
+  school =       "Technische Universit{\"a}t M{\"u}nchen",
+  year =         1993,
+  month =        "July",
+  note =         "See \url{http://sunjessen24.informatik.tu-muenchen.de/personen/letz.html}",
+  annote =       "ps-Datei vorhanden.
+                  In Prop. 3.2.29 auf Seite 109 wird bewiesen, dass
+                  lineare Resolution baumartige Resolution linear simuliert."
+}
+
+@InProceedings{May93,
+  author =       "Klaus Mayr",
+  title =        "Refinements and Extensions of Model Elimination",
+  editor =       "Andrei Voronkov",
+  volume =       698,
+  series =       "Lecture Notes in Artificial Intelligence",
+  pages =        "217--228",
+  booktitle =    "Logic Programming and Automated Reasoning (LPAR'93)",
+  year =         1993,
+  publisher =    "Springer",
+  annote =       "Vorhanden.
+                  Es wird behauptet, dass lineare Resolution,
+                  baumartige Resolution und der graphenbasierte
+                  Tableaux-Kalkuel (anstelle von Bauemen koennen in
+                  natuerlicher Weise Graphen verwendet werden)
+                  polynomial aequivalent sind. Bzgl. linearer und
+                  baumartiger Resolution ist dies falsch. Was bleibt,
+                  ist mir nicht klar."
+}
+
+@Misc{May99,
+  author =       "Klaus Mayr",
+  year =         1999,
+  month =        "May",
+  note =         "Personal communication",
+  annote =       "Der Beweis in \cite{Ma93} geht nur fuer
+                  eingeschraenkte Formen von linearer Resolution."
+}
+
+@Article{KK71,
+  author =       "R.~Kowalski and D.~Kuehner",
+  title =        "Linear resolution with selection function",
+  journal =      "Artificial Intelligence",
+  year =         1971,
+  volume =       2,
+  pages =        "227--260",
+  annote =       "Nach Alasdair ist hier (implizit) the polynomiale
+                  Simulation von baumartiger Resolution durch lineare
+                  Resolution enthalten."
+}
+
+@Article{BG2001,
+  author =       {David Basin and Harald Ganzinger},
+  title =        {Automated Complexity Analysis Based on Ordered Resolution},
+  journal =      {Journal of the ACM},
+  year =         {2001},
+  OPTkey =       {},
+  OPTvolume =    {48},
+  number =       {1},
+  pages =        {70--109},
+  month =        {January},
+  OPTnote =      {},
+  annote =       {}
+}
+
+@Book{FLTZ1993,
+  author =       {Christian Ferm{\"{u}}ller and Alexander Leitsch and Tanel Tammet and Nail Zamov},
+  title =        {Resolution Methods for the Decision Problem},
+  publisher =    {Springer},
+  year =         1993,
+  volume =       679,
+  series =       {Lecture Notes in Computer Science},
+  note =         {ISBN 3-540-56732-1}
+}
+
+@Book{Leitsch1997Resolution,
+  author =       {Alexander Leitsch},
+  title =        {The Resolution Calculus},
+  publisher =    {Springer},
+  year =         1997,
+  series =       {Texts in Theoretical Computer Science},
+  note =         {ISBN 3-540-61882-1},
+  annote =       {Zu besorgen.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Propositional resolution (aussagenlogische Resolution) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@PhdThesis{B37,
+  author =       "Archie Blake",
+  title =        "Canonical expressions in Boolean algebra",
+  school =       "Chicago",
+  year =         1937,
+  note =         "See \cite{Ki38}",
+  annote =       "Es wird die starke Vollstaendigkeit des
+                  Resolutions-Kalkuels gezeigt."
+}
+@Article{B46,
+  author =       "Archie Blake",
+  title =        "A {B}oolean derivation of the {M}oore-{O}sgood theorem",
+  journal =      "Journal of Symbolic Logic",
+  year =         1946,
+  volume =       11,
+  pages =        "65--70",
+  annote =       "Kopiert."
+}
+@Article{Br68,
+  author =       "F.M. Brown",
+  title =        "The origin of the method of iterated consensus",
+  journal =      "IEEE Transactions on Computers",
+  year =         1968,
+  volume =       17,
+  pages =        802,
+  annote =       "Kopiert."
+}
+@Misc{Ki38,
+  author =       "J. C. C. McKinsey",
+  title =        "Archie {B}lake: {C}anonical expressions in {B}oolean
+                  algebra",
+  howpublished = "Review, The Journal of Symbolic Logic (3)",
+  year =         1938,
+  pages =        93,
+  annote =       "Im wesentlichen wird das zweite Kapitel aus der
+                  besprochenen Arbeit behandelt:
+
+                  Wesentlich sei der Begriff eines ``syllogistischen
+                  Polynom'' (Polynome entsprechen unmittelbar den
+                  CNF's, und ``syllogistisch'' meint, dass zu jeder
+                  Klausel, die aus jener Klauselmenge folgt, auch
+                  schon eine Teil-Klausel in dieser Klauselmenge
+                  vorhanden ist), und es werden Verfahren vorgestellt,
+                  zu jedem (Booleschen) Polynom ein aequivalentes
+                  syllogistisches zu berechnen --- mit anderen Worten,
+                  es wird der Resolutionskalkuel eingefuehrt, und
+                  seine (starke) Vollstaendigkeit gezeigt.
+                  Ferner werde der allgemeinere Begriff
+                  ``syllogistisch bzgl. einer Variablen'' eingefuehrt,
+                  und einige Theoreme hierzu werden bewiesen (wobei
+                  Theorem 10.8 wohl falsch sei).
+                  (Was koennte das wohl sein?)"
+}
+
+@Article{Qu59,
+  author =       "W.V. Quine",
+  title =        "On cores and prime implicants of truth functions",
+  journal =      "Amer.~Math.~Monthly",
+  year =         1959,
+  volume =       66,
+  pages =        "755--760"
+}
+
+@InProceedings{SH95,
+  author =       "Bruce Spencer and J.D. Horton",
+  title =        "A Dop Down Algorithms to Find Only Minimal Clause Trees",
+  crossref =     "\url{http://www.cs.unb.ca}",
+  booktitle =    "CPL-95",
+  year =         1995,
+  month =        "September",
+  note =         "together with KI-95 (Bielefeld, Germany)",
+  annote =       "Kopiert. 2 Seiten.
+                  Der Algorithmus MinALPOC wird vorgestellt, der nur
+                  minimale Resolutionsbaeume erzeugt (siehe
+                  \cite{SH97}).
+                  Seine Vollstaendigkeit ist offen."
+}
+
+@TechReport{SH97,
+  author =       {Bruce Spencer and J.D. Horton},
+  title =        {Extending the Regular Restriction of Resolution to Non-Linear Subdeductions},
+  institution =  {University of New Brunswick},
+  year =         1997,
+  note =         {To appear at AAAI-97},
+  annote =       {http://www.cs.unb.ca. Auch kopiert. Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@TechReport{SH97b,
+  author =       {Bruce Spencer and J.D. Horton},
+  title =        {Clause Trees: a Tool for Understanding and Implementing Resolution in Automated Reasoning},
+  institution =  {University of New Brunswick},
+  year =         1997,
+  annote =       {http://www.cs.unb.ca. Auch kopiert. 74 Seiten. Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@TechReport{SHF95,
+  author =       "Bruce Spencer and J.D. Horton and Kelsey Francis",
+  title =        "Experiments with the ALPOC Theorem Prover",
+  institution =  "University of New Brunswick",
+  year =         1995,
+  crossref =     "\url{http://www.cs.unb.ca}",
+  annote =       "Kopiert. 18 Seiten.
+                  Wohl ohne Interesse."
+}
+
+@Article{Kr85,
+  author =       "Balakrishnan Krishnamurthy",
+  title =        "Short Proofs for Tricky Formulas",
+  journal =      "Acta Informatica",
+  year =         1985,
+  volume =       22,
+  number =       3,
+  pages =        "253--275",
+  month =        {August},
+  doi =          {10.1007/BF00265682},
+  annote =       "Kopiert. Pdf zu besorgen.
+
+                  Es werden drei Beweissysteme an Beispielen
+                  untersucht:
+
+                  1. Extended Resolution (ER)
+
+                  2. Resolution mit globaler Symmetrie-Regel (SR-I),
+                     wo aus einer abgeleiteten Klausel $C$ auf
+                     $\sigma(C)$ geschlossen werde kann, wobei
+                     $\sigma$ ein Automorphismus der
+                     Ausgangs-Klauselmenge $F$ ist, eine Permutation der
+                     Variablen, die $F$ invariant laesst.
+
+                  3. Resolution mit lokaler Symmetrie-Regel (SR-II),
+                     wo die Permuation $\sigma$ nur die Bedingung
+                     erfuellen muss, das die Klauseln $F' \sse F$, die
+                     zur Ableitung von $C$ benutzt wurden, durch
+                     $\sigma$ in andere Axiome ueberfuehrt werden,
+                     d.h. $\sigma(F') \sse F$.
+
+                  Die Beispiele sind:
+
+                  1. Die Formeln, $GT_m$ in \cite{BG99} genannt, die
+                  den Satz kodieren, dass ein gerichteter Graph, der
+                  transitiv ist und keine Kreise der Laenge 2 hat,
+                  eine Quelle besitzten muss.
+
+                  Fuer diese Formeln werden ER- und SR-I-Widerlegungen
+                  linearer Groesse (bzgl. der Laenge von $GT$)
+                  angegeben (die aber komplizierter sind als der
+                  einfache Resolutionsbeweis in \cite{St96}).
+
+                  2. Formeln $B_m$, die den Satz kodieren, dass eine
+                  Schachbrett der Groesse $2m \times 2m$, bei dem zwei
+                  diagonal gegenueberliegende Ecken entfernt wurden,
+                  keine Parkettierung mit Domino-Steinen (der Groesse
+                  $1 \times 2$) hat.
+
+                  Fuer diese Formeln wird eine (kurze) ER-Widerlegung
+                  angegeben, von der der Autor sagt, dass sie ueber
+                  die Verwendung von ER z.B. zur Wiederlegung von PHP
+                  hinausgehe (die Dissertation von Reckhow zitierend,
+                  wo diese spezielle Anwendung ``limited extension''
+                  genannt werde) --- dies scheint mir Unfug, da
+                  ``limited extensions'' bloss aus der Abkuerzung von
+                  Teiltermen durch Variablen bestehen.
+
+                  Der Autor vermutet, dass diese Formeln keine kurzen
+                  Resolutionsbeweise haben (wobei SR-I hier im
+                  wesentlichen nicht staerker als Resolution ist, da
+                  es nur 4 globale Symmetrien gibt).
+
+                  Wie sehen die Formeln $B_m$ aus?:
+
+                  Man stelle sich die Felder des Schachbrettes als
+                  numeriert von $1$ bis $M := 4 m^2 - 2$ vor. Fuer $1
+                  \le i \le M$ sei $S(i)$ die (aus maximal vier
+                  Elementen bestehende) Mengen von adjazenten
+                  Indizes. Variablen sind $v_{i,j}$ fuer
+                  $i \in \set{1, \ldots, M}$ und $j \in S(i)$,
+                  wobei $v_{i,j}$ und $v_{j,i}$
+                  identifiziert werden, mit der Bedeutung:
+
+                  ``Auf den Feldern $i$ und $j$ liegt ein Dominostein.''
+
+                  Klauseln gibt es 2 Typen:
+
+                  -- (positive) Klauseln der Laenge maximal 4, die
+                  fordern, dass jedes Feld $i$ von mindestens einem
+                  Domino ueberdeckt wird:
+
+                      $ \set{ v_{i,j} : j \in S(i) } $;
+
+                  -- (negative) 2-Klauseln dafuer, dass kein Feld von
+                  mehr als einem Domino ueberdeckt wird.
+
+                  Eine subexponentielle untere Schranke fuer
+                  baumartige Resolution sollte nicht allzu schwer zu
+                  beweisen sein, z,B,
+
+                     $ h(B_m) \ge m$ fuer $m \ge 2$.
+
+                  3. Schliesslich werden ``unkritische
+                  Ramsey-Formeln'' angeboten. Allgemein seinen fuer
+                  natuerliche Zahlen $a, b, m$ die Klauselmengen
+                  $G(a, b, m)$ wie folgt definiert:
+
+                  Sei $[m] := \set{1, \ldots, m}$, und die Menge der
+                  Variablen von $G(a,b,m)$ werde mit den
+                  zweielementigen Teilmengen von $[m]$
+                  indentifiziert. Es gibt nun $\binom{m}{a}$ (Anzahl
+                  der $a$-elementigen Teilmengen von $[m]$) viele
+                  negative Klauseln der Groesse $a * (a - 1)$, die zu
+                  einer $a$-Teilmenge von $[m]$ gerade aus den
+                  komplementierten 2-Teilmengen dieser $a$-Teilmenge
+                  bestehen, und $\binom{m}{b}$ viele positive Klauseln
+                  der Groessse $b * (b - 1)$, die zu einer
+                  $b$-Teilmenge von $[m]$ aus den 2-Teilmengen dieser
+                  $b$-Teilmenge bestehen.
+
+                  $G(a,b,m)$ formalisiert die Aussage, dass es einen
+                  ungerichteten einfachen Graphen mit $m$ Ecken gibt,
+                  so dass keine $a$-Eckenmenge eine Clique ist (alle
+                  diese Ecken waeren untereinander verbunden), und
+                  keine $b$-Eckenmenge ``unabhaengig'' ist (was hier
+                  heisst, dass keine der Ecken miteinander verbunden
+                  waeren).
+
+                  $G(a,b,m)$ ist (nach Definition) genau dann
+                  unerfuellbar, wenn $m \ge R(a, b)$ ist, wobei $R(a,b)$
+                  die ``Ramsey-Zahl'' zu $a, b$ ist. In \cite{KM81}
+                  werden die Formeln
+
+                     $G(a, a, R(a,a))$
+
+                  betrachtet, und es wird gezeigt, dass dafuer jeder
+                  Resolutionsbeweis eine Klausel der Groesse
+
+                     $\Omega(\sqrt{G(a,a,R(a,a))})$
+
+                  aufweisen muss. (Es wird ueberhaupt behauptet, dass
+                  diese Formeln schwer fuer aussagenlogische Kalkuele
+                  sein sollten (???).) Hier wird nun fuer $m$ eine
+                  obere Schranke fuer die Ramsey-Zahlen verwendet:
+
+                      $R(a, b) \le R(a - 1, b) + R(a, b - 1)$
+                      $R(a, 2) = a$, $R(2, b) = b$.
+
+                  Diese so erhaltenen unkritischen Ramsey-Formeln
+                  haben kurze SR-I-Beweise.
+
+                  [Alasdair hat gezeigt (wohl in seinem
+                  SAT'98-Beitrag), dass ER sehr wohl SR-I und SR-II
+                  simuliert (mittels des Ergebnisses, dass ER
+                  Frege-Systeme mit Substitution simuliert).]"
+}
+
+@Article{St96,
+  author =       "Gunnar St{\r{a}}lmarck",
+  title =        "Short resolution proofs for a sequence of tricky formulas",
+  journal =      "Acta Informatica",
+  year =         1996,
+  volume =       33,
+  number =       3,
+  pages =        "277--280",
+  month =        {May},
+  doi =          {10.1007/s002360050044},
+  annote =       "Vorhanden.
+
+                  Es wird gezeigt, dass Krishnamurthy's Formeln
+                  (\cite{Kr85}) doch kurze Resolutionsbeweise haben.
+                  Verwendet werden diese Formeln von mir in
+                  \cite{Ku99b}.
+
+                  Die Formeln sind wie folgt definiert fuer einen
+                  Parameter m:
+
+                  Variablen sind $v_{i,j}$ fuer $1 \le i, j \le m$ und
+                  $i \not= j$. Es gibt drei Typen fuer Klauseln, die
+                  durch (paarweise verschiedene) Indizes $i, j, k$
+                  parametrisiert sind:
+
+                  $ A_{i,j,k} := \set{ \ol{v_{i,j}}, \ol{v_{j,k}},
+                                       v_{i,k} }$,
+
+                  $ B_{i,j} := \set{ \ol{v_{i,j}}, \ol{v_{j,i}} }$,
+
+                  $ C_j^m := \set { v_{i,j} : i \in \set{1, \ldots, m}
+                                              \sm \set{j} }$.
+
+                  In \cite{BG99} werden diese Formeln $GT_m$ genannt.
+                  Stalmarck zeigt nun, das man die Klausel
+
+                    $ C_j^{m-1} $
+
+                  durch einen Eingabe-Resolutionsbeweis aus $GT_m$
+                  herleiten kann (der die Laenge O(m) hat).
+                  Damit ergibt sich (da die Klauseln vom Typ A und B
+                  von m unabhaengig sind), dass mit $O(m^3)$
+                  Resolutions-Schritten die leere Klausel abgeleitet
+                  werden kann.
+
+                  (Es zeigt sich hier das allgemeine Phaenomen, dass
+                  fuer eine verkuerzte Original-Klausel eine kurze
+                  baumartige Resolutionsableitung existiert. Ist dies
+                  allgemein der Fall fuer Formeln mit kurzen
+                  Resolutionsbeweisen ??!)"
+}
+
+@PhdThesis{Du97,
+  author =       "Ulf Dunker",
+  title =        "Zur Effizienz der Beweissuche in der Logikverarbeitung",
+  school =       "Universit{\"a}t Paderborn",
+  year =         1997,
+  month =        "July",
+  annote =       "Als ps-Datei vorhanden.
+
+                  In Def. 6 auf Seite 36 wird eine Transformation
+
+                    $F \ra F^*$
+
+                  angegeben, die eine neue Variable einfuehrt, in
+                  (deterministischer) linearer Zeit durchfuehrbar ist
+                  und fuer die die Komplexitaet von baumartiger und
+                  voller Resolution von $F$ und $F^*$ uebereinstimmen.
+                  Es wird auch eine tautologische Klausel hierbei
+                  hinzugefuegt.
+
+                  In Satz 7 auf Seite 36 wird dann bewiesen, dass
+                  lineare Resoltion mit Eingabe $F^*$ die volle
+                  Resolution mit Eingabe $F$ (oder $F^*$) polynomial
+                  simuliert."
+}
+
+@PhdThesis{Ve89,
+  author =       "Andr{\'{e}} Vellino",
+  title =        "The complexity of automated reasoning",
+  school =       "Department of Philosophy, University of Toronto",
+  year =         1989,
+  annote =       "Hier wird explizit die Simulation von baumartiger
+                  Resolution durch lineare Resolution durchgefuehrt."
+}
+
+@InProceedings{IM95,
+  author =       {Kazuo Iwama and Eiji Miyano},
+  title =        {Intractability of Read-Once Resolution},
+  booktitle =    {Proceedings Structure in Complexity Theory, Tenth Annual Conference},
+  pages =        {29--36},
+  year =         1995,
+  organization = {IEEE},
+  annote =       {Kopiert. Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@InProceedings{Iw97,
+  author =       {Kazuo Iwama},
+  title =        {Complexity of Finding Short Resolution Proofs},
+  booktitle =    {Mathematical Foundations of Computer Science 1997 (MFCS'97), 22nd International Symposium},
+  pages =        {309--318},
+  year =         1997,
+  series =       {Lecture Notes in Computer Science 1295},
+  publisher =    {Springer},
+  annote =       {Kopiert. Kommentar 27.2.2000, siehe "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@InProceedings{Sz2001,
+  author =       {Stefan Szeider},
+  title =        {{NP}-Completeness of Refutability by Literal-Once Resolution},
+  booktitle =    {IJCAR 2001, Proceedings of the International Joint Conference on Automated Reasoning},
+  pages =        {168--181},
+  year =         2001,
+  editor =       {R. Gore and A. Leitsch and T. Nipkow},
+  volume =       2083,
+  series =       {Lecture Notes in Artificial Intelligence},
+  publisher =    {Springer-Verlag},
+  annote =       {Vorhanden. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".
+}
+}
+
+@Book{St1996,
+  ALTauthor =    {Zbigniew Stachniak},
+  ALTeditor =    {},
+  title =        {Resolution Proof Systems (An Algebraic Theory)},
+  publisher =    {Kluwer Academic Publishers},
+  year =         {1996},
+  OPTkey =       {},
+  volume =       {4},
+  OPTnumber =    {},
+  series =       {Automated Reasoning Series},
+  OPTaddress =   {},
+  OPTedition =   {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  annote =       {fuer nicht-klassische Logiken (und nicht-Klauselform)}
+}
+
+@Article{KBZ2002,
+  author =       {Hans {Kleine B\"uning} and Xishun Zhao},
+  title =        {The complexity of read-once resolution},
+  journal =      {Annals of Mathematics and Artificial Intelligence},
+  year =         2002,
+  volume =       36,
+  number =       4,
+  pages =        {419--435},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@InProceedings{FellowsSzeiderWrightson2004KurzeResolution,
+  author =       {Michael R. Fellows and Stefan Szeider and Graham Wrightson },
+  title =        {On Finding Short Resolution Refutations and Small Unsatisfiable Subsets},
+  booktitle =    {Proceedings of the First International Workshop on Parameterized and Exact Computation },
+  pages =        {223--234},
+  year =         2004,
+  editor =       {R. Downey and M. Fellows and F. Dehne},
+  volume =       3162,
+  series =       {Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  annote =       {ps-Datei vorhanden.}
+}
+@Article{FellowsSzeiderWrightson2006ResolutionFPT,
+  author =       {Michael R. Fellows and Stefan Szeider and Graham Wrightson},
+  title =        {On finding short resolution refutations and small unsatisfiable subsets},
+  journal =      {Theoretical Computer Science},
+  year =         2006,
+  volume =       351,
+  number =       3,
+  pages =        {351--359},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Subramani2004Kurze2KNFRes,
+  author =       {K. Subramani},
+  title =        {Optimal length tree-like resolution refutations for {2SAT} formulas},
+  journal =      {ACM Transactions on Computational Logic (TOCL)},
+  year =         2004,
+  volume =       5,
+  number =       2,
+  pages =        {316--320},
+  month =        {April},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{OppenheimMitchell2006Min2CNF,
+  author =       {Joshua Buresh-Oppenheim and David Mitchell},
+  title =        {Minimum Witnesses for Unsatisfiable {2CNFs}},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2006},
+  crossref =     {Seattle2006},
+  pages =        {42--47}
+}
+
+@Article{BeameKautzSabharwal2004Konfliktlernen,
+  author =       {Paul Beame and Henry Kautz and Ashish Sabharwal},
+  title =        {Towards Understanding and Harnessing the Potential of Clause Learning},
+  journal =      {Journal of Artificial Intelligence Research},
+  year =         2004,
+  volume =       22,
+  number =       1,
+  pages =        {319--351},
+  month =        {July},
+  doi =          {10.1613/jair.1410},
+  annote =       {Pdf vorhanden.}
+}
+
+@TechReport{HertelUrquhart2006WidthExptime,
+  author =       {Alexander Hertel and Alasdair Urquhart},
+  title =        {The Resolution Width Problem is {EXPTIME}-complete},
+  institution =  {Electronic Colloquium on Computational Complexity (ECCC)},
+  year =         2006,
+  number =       133,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Hoffmann2009treestructure,
+  author =       {Jan Hoffmann},
+  title =        {Finding a tree structure in a resolution proof is {NP}-complete},
+  journal =      {Theoretical Computer Science},
+  year =         2009,
+  volume =       410,
+  pages =        {2295--2300},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{Cotton2010MinimizingResolution,
+  author =       {Scott Cotton},
+  title =        {Two Techniques for Minimizing Resolution Proofs},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2010},
+  crossref =     {Edinburgh2010},
+  pages =        {306--312},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{DarwichePipatsrisawat2011ClauseLearnRes,
+  author =       {Knot Pipatsrisawat and Adnan Darwiche},
+  title =        {On the power of clause-learning {SAT} solvers as resolution engines},
+  journal =      {Artificial Intelligence},
+  year =         {2011},
+  volume =       {175},
+  number =       {2},
+  pages =        {512--525},
+  doi =          {10.1016/j.artint.2010.10.002},
+  annote =       {Pdf vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Extended resolution (Erweiterte Resolution) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@InProceedings{Co75,
+  author =   "Stephen A. Cook",
+  title =    "Feasibly constructive proofs and the propositional calculus",
+  pages =    "83--97",
+  booktitle = "7th A.C.M. Symposium on the Theory of Computing",
+  year =     1975
+}
+
+@article{Co76,
+ author = {Stephen A. Cook},
+ title = {A Short Proof of the Pigeon Hole Principle Using Extended Resolution},
+ journal = {SIGACT News},
+ issue_date = {October-December 1976},
+ volume = {8},
+ number = {4},
+ month = oct,
+ year = {1976},
+ issn = {0163-5700},
+ pages = {28--32},
+ numpages = {5},
+ url = {http://doi.acm.org/10.1145/1008335.1008338},
+ doi = {10.1145/1008335.1008338},
+ acmid = {1008338},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}

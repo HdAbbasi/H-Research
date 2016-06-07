@@ -1,0 +1,1454 @@
+% Abschnitte (Sections):
+% - 2-SAT
+% - Horn und Verallgemeinerungen (Horn formulas and generalisations)
+% - Algebraische Methoden (algebraic methods)
+% - Allgemeine Untersuchungen (general investigations)
+% - Graphentheoretisches (graph theoretical)
+% - Autarkie-Methoden (autarky methods)
+% - Blockierte Klauseln (blocked clauses)
+% - Resolutions-Methoden
+% - Sporadische Klassen (sporadical classes)
+% - Wissens-Kompilierung (knowledge compilation)
+
+
+% %%%%%%%%%
+% % 2-SAT %
+% %%%%%%%%%
+
+@Article{Krom1967Binary,
+  author =       {M.R. Krom},
+  title =        {The decision problem for a class of first-order formulas in which all disjunctions are binary},
+  journal =      {Zeitschrift f{\"{u}}r mathematische Logik und Grundlagen der Mathematik},
+  year =         1967,
+  volume =       13,
+  number =       8,
+  pages =        {15--20},
+  doi =          {10.1002/malq.19670130104},
+  annote =       {Pdf zu besorgen.}
+}
+
+@Article{EIS76,
+  author =   "S. Even and A. Itai and A. Shamir",
+  title =    "On the complexity of timetable and multicommodity flow problems",
+  journal =  "SIAM Journal Computing",
+  year =     1976,
+  volume =   5,
+  number =   4,
+  pages =    "691--703",
+  doi =      {10.1137/0205048},
+  annote =   "Pdf zu besorgen.
+              Das ``timetable''-Problem (TT) is gegeben durch 4
+		  Datensaetze:
+		  1. eine Menge $ H $ (von Stunden)
+		  2. eine Liste $ (T_1, \ldots, T_n) $ von
+		  Teilmengen von $ H $ (Lehrer $i$ steht fuer die
+		  Stunden $T_i$ zur Verfuegung)
+		  3. eine Liste $ (C_1, \ldots, C_m) $ von Teilmengen
+		  von $ H $ (Klasse $j$ steht fuer die Stunden $C_j$
+		  zur Verfuegung)
+		  4. eine $n \times m$ Matrix $ R $ mit nichtnegativen
+		  ganzen Zahlen ($R_{ij}$ ist die Anzahl von Stunden,
+		  die Lehrer $i$ in Klasse $j$ halten muss).
+
+		  Eine ``meeting''-Funktion ist eine Relation zwischen
+		  Lehrern, Klassen und Stunden, so dass
+		  -- eine Unterrichtsstunde nur dann stattfindet, wenn
+		  sowohl Lehrer und Klasse verfuegbar sind,
+		  -- die Anzahl der Stunden, die Lehrer $i$ bei Klasse
+		  $j$ haelt, ist (genau) $R_{ij}$
+		  -- keine Klasse fuer irgendeine Stunde mehr als
+		  einen Lehrer hat,
+		  -- und kein Lehrer mehr als eine Klasse
+		  gleichzeitig unterrichtet.
+
+		  Das (TT)-Problem ist die Entscheidung ueber die
+		  Existenz eines solchen Studenplans.
+
+		  Ein Lehrer $i$ heisst $k$-Lehrer, wenn $|T_i| = k$,
+		  d.h., wenn er genau $k$ Stunden zur Verfuegung
+		  steht.
+
+		  Ein ``knapper'' Lehrer ist ein solcher, dessen
+		  Stundenzahl $|T_i|$ genau mit seinem Soll $\sum_j
+		  R_{ij}$ uebereinstimmt.
+
+		  Das (RTT)-Problem (``restricted tt'') ist folgenden
+		  Beschraenkungen unterworfen:
+		  1. $|H| = 3$ (nur genau drei Stunden insgesamt)
+		  2. $C_i = H$ fuer alle $i$ (alle Klassen sind immer
+		  verfuegbar)
+		  3. jeder Lehrer ist entweder ein knapper 2- oder ein
+		  knapper 3-Lehrer
+		  4. $R_{ij} \in \{0, 1\}$ (wenn ein Lehrer ein Klasse
+		  unterrichte muss, dann nur eine Stunde).
+
+		  Theorem 1: (RTT) ist NP-vollstaendig.
+		  Beweis: Reduktion von 3-SAT auf (RTT).
+
+		  In Paragraph 2 der Arbeit wird bewiesen, dass
+		  (TT)-Probleme, wo jeder Lehrer ein 2-Lehrer ist,
+		  polynomial geloest werden koennen.
+
+		  Der Algorithmus ist wie folgt:
+
+		  Fuer einen Lehrer wird (falls noetig und moeglich)
+		  eine seiner beiden Stunden vergeben. Dann werden
+		  alle zwingend folgenden Belegungen bestimmt. Ergibt
+		  sich kein Widerspruch (d.h. ein Lehrer kann einer
+		  Verpflichtung nun unmoeglich nachkommen), so wird
+		  dieser Schritt wiederholt. Ansonsten muss nur der
+		  allerletzte Test rueckgaengig gemacht werden, da
+		  alle Lehrer, fuer die sich in frueheren Stufen
+		  irgendwelche Beschraenkungen ergaben, vollstaendig
+		  abgearbeitet worden sind (da 2-Lehrer(!)), so dass die
+		  Ursache des Widerspruches im letzten Test liegen muss.
+
+		  Dieses Argument ist wohl das erste Auftreten des
+		  Autarkie-Argumentes zur schnellen Loesung von 2-CNF
+		  (in verallgemeinerter Form).
+
+		  Theorem 2: Sind fuer ein (TT)-Problem alle Lehrer
+		  und alle Klassen in allen Stunden verfuegbar, und
+		  ueberschreitet nie weder fuer einen Lehrer noch fuer
+		  eine Klasse das vorgesehene Stundendeputat die
+		  Gesamtzahl der vorhandenen Stunden, so hat das
+		  Problem eine Loesung.
+		  Der Beweis (mittels des Heirats-Satzes) liefert auch
+		  einen Polynomialzeit-Algorithmus zur Konstuktion der
+		  Loesung.
+
+		  (Dies scheint mit meinen ``linearen Autarkien''
+		  usw. zusammenzuhaengen.)
+
+		  Schliesslich werden noch Reduktionen von SAT nach
+		  ganzzahligen Mehrfach-Fluss-Problemen besprochen:
+		  Gegeben ein gerichteter Graph mit $m$ Knoten $q_i$,
+		  den ``Quellen'', und $m$ Knoten $s_i$, den
+		  ``Senken'', ganzzahligen nichtnegativen
+		  Kapazitaeten fuer jede Kante, sowie Untergrenzen
+		  $R_i$ fuer den Fluss von $q_i$ nach $s_i$.
+		  Ein ganzzahliger Fluss von $q_i$ nach $s_i$ ordnet
+		  jeder Kante eine nichtnegative ganze Zahl zu, so
+		  dass fuer alle Knoten ausser $q_i$ und $s_i$ der
+		  Zufluss gleich dem Abfluss ist. Der Gesamtfluss ist
+		  die Summe der von $q_i$ abfliessenden Fluesse
+		  abzueglich der wieder zurueckfliessenden.
+		  Das Problem ist nun zu entscheiden, ob es $m$
+		  Fluesse gibt, so dass die jeweiligen Untergrenzen
+		  eingehalten werden, und die Kapazitaeten nicht
+		  ueberschritten werden (d.h. die Summe der $m$
+		  Fluesse pro Kante uebersteigt nicht die Kapazitaet
+		  der Kante).
+		  Einfach-Fluss-Problem sind (mittels des beruehmten
+		  ``max-flow min-cut''-Theorems) polynomial
+		  entscheidbar.
+		  In dieser Arbeit wird nun gezeigt, dass
+		  Zweifach-Fluss-Probleme (ganzzahlig) NP-vollstaendig
+		  sind (wobei alle Kapazitaeten auf $1$ gesetzt werden
+		  koennen.
+		  Dieses Resultat gilt auch fuer die ungerichtete
+		  Version (hierbei hat jeder Fluss fuer jede Kante ein
+		  Vorzeichen, womit die Richtung des Flusses angegeben
+		  wird)."
+}
+
+@Article{AspvallPlassTarjan1979Binary,
+  author =       {Bengt Aspvall and Michael F. Plass and Robert Endre Tarjan},
+  title =        {A linear-time algorithm for testing the truth of certain quantified boolean formulas},
+  journal =      {Information Processing Letters},
+  year =         1979,
+  volume =       8,
+  number =       3,
+  pages =        {121--123},
+  month =        {March},
+  doi =          {10.1016/0020-0190(79)90002-4},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{PS80,
+  author =       {Rosella Petreschi and Bruno Simeone},
+  title =        {A switching algorithm for the solution of quadratic boolean equations},
+  journal =      {Information Processing Letters},
+  year =         1980,
+  volume =       11,
+  number =       {4,5},
+  pages =        {193--198},
+  doi =          {10.1016/0020-0190(80)90049-6},
+  annote =       {Kopiert. 12.2.2000
+Durch Flippen von Variablen wird entweder eine Klauselmenge erreicht, die keine negative Klausel
+enthaelt, oder es wird Unerfuellbarkeit festgestellt. Die Laufzeit ist n_0 * m, wobei m die Anzahl
+der gegebenen 2-Klauseln ist, und n_0 die Anzahl der negativen Klauseln (bei jedem Zyklus wird
+eine negative Klausel eliminiert).
+
+Es sieht so aus, als ob es sich einfach um eine Umformulierung des Autarkie-Algorithmus' handele
+(zuerst in \cite{EIS76}). [ Mit dem erreicht man diese Laufzeit auf jeden Fall (wenn lineare 1-Klauseln-
+Propagation benutzt wird): Teste einfach jeweils eine Variable in einer negativen Klausel. ]
+
+Ist wohl alles recht trivial.
+}
+}
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Horn und Verallgemeinerungen %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{As80,
+  author =       "B. Aspvall",
+  title =        "Recognizing disguised {NR}(1) instances of the satisfiability problem",
+  journal =      "Journal of Algorithms",
+  year =         1980,
+  volume =       1,
+  pages =        "97--103",
+  annote =       "Hier wird bewiesen, dass die Eigenschaft einer
+                  Klauselmenge, in eine Horn-Klauselmenge umbenannt
+                  werden zu koennen, in Linearzeit entschieden werden
+                  kann (mit Ausgabe einer Umbenennung)."
+}
+
+@Article{Ch89,
+  author =       "Bogdan S. Chlebus",
+  title =        "A hierarchy of propositional {H}orn formulas",
+  journal =      "Theoretical Computer Science",
+  year =         1989,
+  volume =       68,
+  pages =        "113--119",
+  annote =       "Mittels eines 2-Personen-Spiels (Parteien FINDFALSE
+                  und SETTRUE) wird die Menge der Horn-Formeln in
+                  Stufen unterteilt, und es wird gezeigt, dass es in
+                  jeder Stufe ausser der ersten eine Formelfamilie
+                  $(F_m)$ gibt, deren Groesse polynomial in $m$ ist,
+                  wo aber jede aequivalente Formel in niedrigeren
+                  Stufen exponentielle Groesse in $m$ hat."
+}
+
+@Article{EKM95,
+  author =       "Thomas Eiter and Pekka Kilpel{\"{a}}inen and Heikki Mannila",
+  title =        "Recognizing renamable generalized propositional {H}orn formulas is {NP}-complete",
+  journal =      "Discrete Applied Mathematics",
+  year =         1995,
+  volume =       59,
+  pages =        "23--31",
+  annote =       "Sei $\Gamma_i$ die Hierarchie von Klauselmengen nach
+                  Gallo/Scutella, wobei $\Gamma_0$ die Klasse der
+                  Horn-Formeln ist.
+
+                  Sei $R\Gamma_i$ die Klasse der umbenannten
+                  $\Gamma_i$ (Umklappungen reichen natuerlich aus).
+
+                  $R\Gamma_0$ ist polynomial entscheidbar, aber
+                  $R\Gamma_i$ fuer $i \geq 1$ ist NP-vollstaendig
+                  (bzgl. Erkennung).
+                  Der Beweis reduziert $R\Gamma_1$ auf das ``Exact
+                  Hitting Problem'':
+                  Gegeben $\{1, \ldots, n\}$ und $F_1, \ldots, F_m
+                  \subseteq \{1, \ldots, n\}$, wobei noch $|F_i| \in
+                  \{2,3\}$. Gesucht ist $H \subseteq \{1, \ldots,
+                  n\}$, so dass $|H \cap F_i| = 1$ fuer alle $i$ gilt.
+                  Der Schlusssatz lautet:
+                  ``An interesting open problem is characterizing the
+                  classes of formulas whose renamed versions can be
+                  recognized in polynomial time.''"
+}
+
+@Article{GS88,
+  author =       "Giorgio Gallo and Maria Grazia Scutell{\`{a}}",
+  title =        "Polynomially solvable satisfiability problems",
+  journal =      "Information Processing Letters",
+  year =         1988,
+  volume =       29,
+  pages =        "221--227",
+  month =        "November",
+  annote =       "Die Klassen
+                     $\Gamma_k \subseteq SAT$
+                  fuer $k \geq 0$ werden eingefuehrt, wobei $\Gamma_0$
+                  die Klasse der erfuellbaren Horn-Klauselmengen ist,
+                  $\Gamma_1$ die Klasse der erfuellbaren
+                  verallgemeinerten Horn-Formeln aus \cite{YD83}, und
+                  allgemein $\Gamma_k$ fuer $k \geq 1$ mit \cite{Kl93}
+                  wie folgt gegeben ist:
+                  Eine erfuellbare Klauselmenge $F$ ist in $\Gamma_k$
+                  gdw es eine Anordnung $F = \{C_1, \ldots, C_m\}$ der
+                  Klauseln sowie Variablenmengen $V_1, \ldots, V_m$
+                  gibt, so dass $V_i \subseteq V_{i+1}$ fuer $i < m$ gilt
+                  ($V_i = \emptyset$ ist natuerlich zugelassen) und
+                  $\{C_1 \setminus V_1, \ldots, C_m \setminus V_m\}
+                  \in \Gamma_{k-1}$.
+                  Es wird bewiesen, dass sowohl Mitgliedschaft in
+                  $\Gamma_k$ als auch Berechnug einer erfuellenden
+                  Belegung fuer $\Gamma_k$ in $O(n^* \cdot n^k)$
+                  Schritten geleistet werden kann, wobei $n^*$ die
+                  Anzahl der Literalvorkommen in der Eingabe ist.
+                  (Aus den Beweisen wird deutlich, dass es sich um
+                  schwache (missglueckte) Formen meiner Formelnklasse
+                  handelt. Ueberhaupt ist die Beschraenkung auf
+                  erfuellbare Klauselmengen ganz unnoetig.)"
+}
+
+@InProceedings{Har96,
+  author =       "John Harrison",
+  title =        "St{\r{a}}lmarck's Algorithm as a {HOL} Derived Rule",
+  series =       "Lecture Notes in Computer Science 1125",
+  pages =        "221--234",
+  booktitle =    "Theorem proving in higher order logics: 9th
+                  International Conference, TPHOLs'96",
+  year =         1996,
+  doi =          {10.1007/BFb0105407},
+  annote =       "Zunaechst wird in den Stalmarck-Algorithmus
+                  eingefuehrt:
+                  1. Allgemeine Formeln
+                  2. ``Reduction to triplets'' (die
+                     Standard(!)-Abkuerzung der Formel durch neue
+                  Variablen)
+                  3. ``Simple rules''
+                  4. ``0-saturation'' (nur die einfachen Regeln werden
+                     benutzt)
+                  5. ``Dilemma Rule'' (kann man sowohl unter der
+                  Annahme $v$ als auch unter $\neg v$ das Literal $l$
+                  ableiten, so ist $l$ ableitbar).
+                  Es werden dann zwei obere Schranken aus
+                  ``G. St{\r{a}}lmarck. A proof theoretic concept of
+                  tautological hardness. Unpublished manuscript, 1994''
+                  zitiert: Eine ``k-easy''-Formel $A$
+                  (d.h. $k$-Saturierung fuehrt zum Beweis) hat einen
+                  Beweis (in welchem System??) der Groesse
+                     $ \le |A|^{k+1} $
+                  und der Entscheidungsalgorithmus hat Laufzeit
+                     $ O( |A|^{2k + 1} ) $.
+                  Dann wird eine Implementation als ``HOL rule''
+                  beschrieben. Dies ist anscheinend eine Art hoeherer
+                  Programmiersprache (es wird behauptet, eine
+                  effiziente Implementation wuerde um den Faktor 50
+                  schneller sein).
+                  Die Laufzeiten auf DIMACS-Beispielen sind:
+                  1-easy:
+                  aim_50_1_6_no_3:    16s
+                                4:     5s
+                         2_0_no_4:    30s
+                                1:    20s
+                                2:    29s
+                                3:    13s
+                      100_2_0_no_1:   12s
+                                 1:   17s
+                  ssa 0432_003:       490s
+                  jnh211             1760s
+                  2-easy:
+                  aim_50_1_6_no_1:      8s
+                                2:     14s
+                      100_1_6_no_3:   135s
+                  dubois 20:          376s
+                  Na ja: Diese aim-Instanzen brauchen bei meinem
+                  Algorthmus (Version OK811) eine kaum messbare Zeit.
+                  Maximal: aim-100-1_6-no-3.cnf mit 0.17s
+                  Das ssa-Bsp. 0.04 Sekunden.
+                  Das jnh-Bsp. 0.000000 Sekunden.
+                  Einzige Ausnahme: dubois 20 bei mir 49s. Hmm."
+}
+
+@InProceedings{SS90,
+  author =       "Gunnar St{\r{a}}lmarck and M. S{\"{a}}flund",
+  title =        "Modeling and verifying systems and software in propositional logic",
+  pages =        "31--36",
+  booktitle =    "Safety of Computer Control Systems (SAFECOMP'90)",
+  editor =       "B.K. Daniels",
+  year =         1990,
+  annote =       "Der Zusammenhang zu den Anwendungen wird wie folgt
+                  hergestellt:
+                  Eine P-Simulation eines Systems ist ein Algorithmus,
+                  der aus den ``Eingaben'' des Systems in
+                  Polynomialzeit seine ``Ausgaben'' berechnet.
+                  Verifikation ist nun die Aufgabe, festzustellen, ob
+                  eine gegebene potentielle Ausgabe auch tatsaechlich
+                  realisiert werden kann.
+                  Also: ``All systems that can be simulated in P can be
+                  verified by checking the satisfiability of some
+                  boolean formula (of size polynomially related to the
+                  system).''
+                  Seine Entscheidungsmethode fuer die Aussagenlogik
+                  baut er nun auf die Teilformel-Eigenschaft
+                  besitzende Beweise der Natuerlichen Deduktion auf,
+                  wobei jeder Teilbeweis hoechstens $k$ verschiedene
+                  Annahmen machen kann: Fuer festes $k$ ist die
+                  Existenz eines solchen Beweises polynomial
+                  entscheidbar.
+                  Er gibt dann einfache Regeln an, die eine sehr
+                  schnelle Entscheidung ermoeglichen, sowie seine
+                  Test-Regel, die es gestattet, unter der
+                  Voraussetzung, dass sowohl mit der Annahme $A$ als
+                  auch mit $\neg A$ $B$ abgeleitet werden kann, dann
+                  $B$ insgesamt abzuleiten.
+                  Eine 0-Formel ist eine, die mit den einfachen Regeln
+                  alleine abgeleitet werden kann, waehrend eine
+                  $i$-Formel eine solche ist, die durch $i$-faches
+                  Schachteln der Test-Regel bewiesen werden kann.
+                  Eine $i$-Formel heisst schliesslich ``$i$-hart'',
+                  wenn sie keine $(i-1)$-Formel ist.
+                  Als Anwendungsbeispiel wird ein ``computer
+                  controlled railway interlocking system used by the
+                  Swedish state railways'' (irgendwie) angedeutet.
+                  Nicht besonders gut aufgeschrieben."
+}
+
+@InProceedings{SSt98,
+  author =       "Mary Sheeran and Gunnar St{\r{a}}lmarck",
+  title =        "A Tutorial on {S}t{\r{a}}lmarck's Proof Procedure for Propositional Logic",
+  volume =       1522,
+  series =       "Lecture Notes in Computer Science",
+  pages =        "82--99",
+  booktitle =    "FMCAD'98",
+  year =         1998,
+  doi =          {10.1007/3-540-49519-3_7},
+  annote =       "Keine Beweise."
+}
+
+@Article{YD83,
+  author =       "Susumu Yamasaki and Shuji Doshita",
+  title =        "The Satisfiability Problem for a Class Consisting of {H}orn Sentences and Some Non-{H}orn Sentences in Propositional Logic",
+  journal =      "Information and Control",
+  year =         1983,
+  volume =       59,
+  pages =        "1--12",
+  annote =       "Die Klasse $S_0$ wird definiert, die mit $H_2$ aus
+                  \cite{Kl93} uebereinstimmt (bis auf die unnoetige
+                  Bedingung hier, dass bei Wegnahme der
+                  Variablenmengen nie die leere Klausel entsteht).
+                  Dann wird ``linear layered resolution'' erklaert:
+                  Dies ist (wohl) aequivalent damit, dass es sich um
+                  einen linearen Resolutionsbeweis handelt, der zwei
+                  Bedingungen genuegt:
+                  1. Sobald an einer Stelle ein Rueckgriff geschieht,
+                  darf kein weiterer Rueckgriff mehr vor dieser Stelle
+                  geschehen. (Im Laufe des Aufbaues des Beweises.)
+                  2. Die Klauseln $C_1, \ldots, C_m$, auf die
+                  zurueckgegriffen wird, zusammen mit der Startklausel
+                  $C_0$ und der Schlussklausel $C_{m+1}$ bilden eine
+                  monoton fallende Folge.
+                  Diese ``LLRI''-Resolution ist vollstaendig fuer
+                  unerfuellbare Klauselmengen in $S_0$.
+                  Der Suchalgorithmus nach einer solchen Widerlegung
+                  ist polynomial, so dass also SAT fuer diese
+                  Formelklasse polynomial entschieden werden kann.
+                  Scheint mir alles recht umstaendlich, und nur noch
+                  von historischem Interesse (wenn ueberhaupt)."
+}
+
+@Article{DE92,
+  author =       "Mukesh Dalal and David W. Etherington",
+  title =        "A hierarchy of tractable satisfiability problems",
+  journal =      "Information Processing Letters",
+  year =         1992,
+  volume =       44,
+  pages =        "173--180",
+  annote =       "Pdf-Datei vorhanden. Die Hierarchie von \cite{GS88} wird
+                  zusaetzlich mit einem Autarkie-Test ausgestattet."
+}
+
+@Article{DG84,
+  author =       "W.F. Dowling and J.H. Gallier",
+  title =        "Linear-time algorithms for testing the satisfiability of propositional {H}orn formulae",
+  journal =      "Journal of Logic Programming",
+  year =         1984,
+  volume =       1,
+  pages =        "267--284"
+}
+
+@Unpublished{Gr97,
+  author =       "Jan Friso Groote",
+  title =        "The propositional formula checker {H}eer{H}ugo",
+  note =         "Preprint",
+  year =         1997,
+  annote =       {Pdf-Datei vorhanden. Enthaelt eine Tabelle mit den
+                  Rechenzeiten zur Primzahl-Entscheidung. Ausgebaut in
+                  \cite{GW99}.}
+}
+@TechReport{GW99,
+  author =       {Jan Friso Groote and Joost P.~Warners},
+  title =        {The popositional formula checker {H}eer{H}ugo},
+  institution =  {Centre for Mathematics and Computer Science (CWI)},
+  year =         1999,
+  number =       {SEN-R9905},
+  address =      {Amsterdam, The Netherlands},
+  month =        {January},
+  annote =       {ps-Datei vorhanden. Ausgearbeitete Version von
+                  \cite{Gr97}; Zeitschriftenversion ist \cite{GW00}.}
+}
+@Article{GW00,
+  author =       {Jan Friso Groote and Joost P.~Warners},
+  title =        {The Propositional Formula Checker {H}eer{H}ugo},
+  journal =      {Journal of Automated Reasoning},
+  year =         2000,
+  volume =       24,
+  number =       {1-2},
+  pages =        {101--125},
+  month =        {February},
+  doi =          {10.1023/A:1006366304347},
+  annote =       {Pdf-Datei vorhanden. Erweiterung von \cite{GW99} (aber wohl ohne Primzahlen).}
+}
+
+@InCollection{Fr96,
+  author =       {John Franco},
+  title =        {Relative Size of Certain Polynomial Time Solvable Subclasses of Satisfiability},
+  booktitle =    {Satisfiability Problem: Theory and Applications (DIMACS Workshop March 11-13, 1996)},
+  crossref =     {DIM96},
+  pages =        {211--223},
+  annote =       {Behandelt diese Varianten von Horn-Formeln.}
+}
+
+@Article{SAFS95,
+  author =       "John S.~Schlipf and Fred S.~Annexstein and John V.~Franco and R.P.~Swaminathan",
+  title =        "On finding solutions for extended {H}orn formulas",
+  journal =      "Information Processing Letters",
+  year =         1995,
+  volume =       54,
+  number =       3,
+  pages =        "133--137",
+  month =        {May},
+  doi =          {10.1016/0020-0190(95)00019-9},
+  annote =       "Pdf vorhanden.
+                  In \cite{CH91} wurden ``extended Horn formulas''
+                  eingefuehrt. In diesem Artikel wird der Algorithmus
+                  SLUR (``single lookahead unit resolution'')
+                  eingefuehrt, ein unvollstaendiger quadratischer
+                  SAT-Algorithmus
+                  (der aber korrekt ist, d.h. wenn ``SAT'' oder
+                  ``UNSAT'' ausgegeben wird, so ist dies korrekt ---
+                  andernfalls ist die Ausgabe ``give up''),
+                  der Eingaben aus der Klasse der ``hidden extended
+                  Horn'' wie ``balanced'' (\cite{CC92}) entscheidet.
+                  Der Algorithmus basiert auf drei Eigenschaften der
+                  betrachteten Klassen:
+                  1. Jede Klauselmenge, die weder die leere Klausel
+                  noch eine 1-Klausel enthaelt, ist erfuellbar.
+                  2. Die Klasse ist abgeschlossen gegen Anwendung
+                  partieller Belegungen.
+                  3. Unerfuellbarkeit kann mit 1-Klauseln-Resolution
+                  bewiesen werden. (Dies folgt mit 1 und 2 (!))
+                  (Eigenschaft 2 ist mir nicht klar fuer die
+                  ``balancierten'' Formeln, aber der Algorithmus
+                  funktioniert in jedem Falle, denn die wesentliche
+                  zugrundeliegende Klasse, wo das zu der IP-Aufgabe
+                  gehoerende Polytop ganzzahlige Eckpunkte hat, ist
+                  abgeschlossen gegen Einsetzungen (!).)
+                  SLUR:
+                  Phase 1: Einer-Klauseln-Reduktion wird
+                  durchgefuehrt. Falls die leere Klausel auftritt, so
+                  Ausgabe ``UNSAT''. (Da der Algorithmus im weiteren
+                  ``raet'' (ohne Ueberpfuefung), kann im weiteren
+                  keine Unerfuellbarkeit mehr festgestellt werden.)
+                  Phase 2: Waehle eine Variable $v$. Setze $F_{0/1}$ als
+                  das Resultat von Belegung von $v$ und
+                  anschliessender 1-Klauseln-Reduktion. Falls sowohl
+                  $F_0$ als auch $F_1$ die leere Klausel enthalten, so
+                  gebe auf. Andernfalls waehle $F_{\ve}$ ohne leere
+                  Klausel, und mache damit weiter.
+                  Ist schliesslich keine Variable mehr vorhanden, so
+                  ist die Ausgabe (natuerlich) ``SAT''.
+                  Eine Formel wird von SLUR ``geloest'', falls fuer
+                  alle Wahlen der Algorithmus niemals aufgibt.
+                  Diese Klasse, die an unerfuellbaren Klauselmengen
+                  genau die enthaelt, die durch 1-Klauseln-Resolution
+                  widerlegbar sind, enthaelt alle umbenannten
+                  ``extended Horn'' und alle ``balanced''
+                  Klauselmengen.
+                  (Fuer ``extended Horn'' folgt dies unmittelbar mit
+                  den obigen zwei Eigenschaften.)
+                  Und, natuerlich, loest der Algorithmus auch
+                  echt mehr als diese beiden Klassen."
+}
+
+@Article{Kl93,
+  author =       "Hans {Kleine B{\"u}ning}",
+  title =        "On generalized {H}orn formulas and {$k$}-resolution",
+  journal =      "Theoretical Computer Science",
+  year =         1993,
+  volume =       116,
+  number =       2,
+  pages =        "405--413",
+  month =        {August},
+  doi =          {10.1016/0304-3975(93)90331-M},
+  annote =       "Pdf-Datei vorhanden.
+                  Erweitert die Klassen $\Gamma_k$ aus \cite{GS88},
+                  die ja nur aus erfuellbaren Klauselmengen bestanden,
+                  einfach durch Weglassen der
+                  Erfuellbarkeits-Einschraenkung zu $H_{k+1}$ (mit der
+                  (iterierten) Bedingung ueber die Existenz von
+                  Variablenmengen-Ketten).
+                  Fuehrt $k$-Resolution ein: Mindestens eine
+                  Elternklausel ist immer eine Klausel der Laenge
+                  hoechstens $k$.
+                  (Dies halte ich fuer zu stark, d.h., nicht mehr
+                  polynomial behandelbar.)
+                  Theorem 3.3: $k$-Resolution ist vollstaendig fuer
+                  $H_k$.
+                  (Dies folgt einfach daraus, dass $k$-Resolution
+                  (meine) $k$-Input-Resolution simuliert, und dass
+                  wiederum $k$-Input-Resolution vollstaendig ist fuer
+                  $H_k$, was einfach daraus folgt, dass dies fuer $k =
+                  1$ (der Horn-Fall) gilt, und fuer eine Formel aus
+                  $H_k$ eine Variable existiert, so dass Belegung mit
+                  richtig gewaehltem Wahrheitswert in einer Formel aus
+                  $H_{k-1}$ resultiert (waehrend die andere Belegung
+                  in $H_k$ bleibt).)
+                  Korollar 3.4: Eine Formel aus $H_k$ ohne $k$-Klausel
+                  ist erfuellbar.
+                  Theorem 3.5: Fuer alle $k > 1$ gibt es $F \in H_K
+                  \setminus SAT$, so dass $(k-1)$-Resolution nicht die
+                  leere Klausel aus $F$ beweisen kann.
+                  Lemma 3.6: Sei $F \in H_k \cap SAT$ und $F \models
+                  L$ fuer ein Literal $L$. Dann gibt es eine
+                  $(k+1)$-Resolution von $L$ aus $F$.
+                  Theorem 4.1 (\cite{YD83}) $F \in H_2$ ist
+                  unerfuellbar gdw es eine
+                  ``LLRI''-Resolutionwiderlegung von $F$ gibt.
+                  (LLRI fuer ``linear-layered-resolution'')
+                  Theorem 4.2 2-Resolution ist echt staerker als
+                  LLRI-Resolution.
+                  Er schliesst mit den Worten:
+                  ``... the set of formulas for which a 2-resolution
+                  refutation can be found is essentially greater than
+                  $H_2$. In order to close this gap and to
+                  characterize the $k$-resolution, one might look for
+                  a natural extension of $H_2$.''
+                  Alles ziemlich simpel."
+}
+
+@Article{BCH90,
+  author =       "Endre Boros and Y. Crama and Peter L. Hammer",
+  title =        "Polynomial-time inference of all valid implications for {H}orn and related formulae",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  journal =      "Annals of Mathematics and Artificial Intelligence",
+  year =         "1990",
+  volume =       "1",
+  OPTnumber =    "",
+  pages =        "21--32",
+  OPTmonth =     "",
+  OPTnote =      "",
+  OPTannote =    ""
+}
+
+@Article{BHS94,
+  author =       "Endre Boros and Peter L. Hammer and Xiaorong Sun",
+  title =        "Recognition of q-{H}orn formulae in linear time",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  journal =      "Discrete Applied Mathematics",
+  year =         "1994",
+  volume =       "55",
+  OPTnumber =    "",
+  pages =        "1--13",
+  OPTmonth =     "",
+  OPTnote =      "",
+  OPTannote =    ""
+}
+
+@Article{BCHS94,
+  author =       "Endre Boros and Y. Crama and Peter L. Hammer and M. Saks",
+  title =        "A complexity index for satisfiability problems",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  journal =      "SIAM Journal on Computing",
+  year =         "1994",
+  volume =       "23",
+  number =       "1",
+  pages =        "45--49",
+  month =        "February",
+  OPTnote =      "",
+  OPTannote =    ""
+}
+
+% Der folgende Eintrag war urspruenglich "KBB96" (umbenannt 28.9.2005).
+@Article{BuroKleineBuening1996ResolutionShortClauses,
+  author =       "Michael Buro and Hans {Kleine B{\"u}ning}",
+  title =        "On Resolution with Short Clauses",
+  journal =      "Annals of Mathematics and Artificial Intelligence",
+  year =         1996,
+  volume =       18,
+  number =       "2-4",
+  pages =        "243--260",
+  doi =          {10.1007/BF02127749},
+  annote =       "ps-Datei vorhanden (nicht die Zeitschriftenversion - diese ist nicht elektronisch verfuegbar). Auch kopiert."
+}
+
+@Article{Pr96,
+  author =       "Daniele Pretolani",
+  title =        "Hierarchies of Polynomially Solvable Satisfiability Problems",
+  journal =      "Annals of Mathematics and Artificial Intelligence",
+  year =         1996,
+  volume =       17,
+  number =       "3-4",
+  pages =        "339--357"
+}
+
+@Article{IbarakiKoganMakino1999DependenciesHorn,
+  author =       {Toshihide Ibaraki and Alexander Kogan and Kazuhisa Makino},
+  title =        {Functional Dependencies in {H}orn Theories},
+  journal =      {Artificial Intelligence},
+  year =         1999,
+  volume =       108,
+  pages =        {1--30},
+  annote =       {pdf-Datei vorhanden. Siehe Bearbeitung in "PolySAT" im Ordner "Genauer".}
+}
+@Article{IKM2000,
+  author =       {Toshihide Ibaraki and Alexander Kogan and Kazuhisa Makino},
+  title =        {On Functional Dependencies in q-{H}orn Theories},
+  journal =      {Artificial Intelligence},
+  year =         2001,
+  volume =       131,
+  pages =        {171--187},
+  annote =       {pdf-Datei vorhanden im Ordner "Ibaraki".}
+}
+
+@InProceedings{CepekKuceraVlcek2012SLUR,
+  author =       {Ond{\v{r}}ej {\v{C}}epek and Petr Ku{\v{c}}era and V{\'{a}}clav Vl{\v{c}}ek},
+  title =        {Properties of {SLUR} Formulae},
+  booktitle =    {SOFSEM 2012: Theory and Practice of Computer Science},
+  pages =        {177--189},
+  year =         2012,
+  editor =       {M{\'{a}}ria Bielikov{\'{a}} and Gerhard Friedrich and Georg Gottlob and Stefan Katzenbeisser and Gy{\"{o}}rgy Tur{\'{a}}n},
+  volume =       7147,
+  series =       {LNCS Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  doi =          {10.1007/978-3-642-27660-6_15},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{BalyoGurskyKuceraVlcek2012SLURHier,
+  author =       {Tom\'{a}\v{s} Balyo and \v{S}tefan Gursk\'{y} and Petr Ku{\v{c}}era and V{\'{a}}clav Vl{\v{c}}ek},
+  title =        {On Hierarchies over the {SLUR} class},
+  booktitle =    {Twelfth International Symposium on Artificial Intelligence and Mathematics (ISAIM 2012)},
+  year =         2012,
+  month =        {January},
+  note =         {Available at \url{http://www.cs.uic.edu/bin/view/Isaim2012/AcceptedPapers}},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{CepekKucera2005GHorn,
+  author =       {Ond{\v{r}}ej {\v{C}}epek and Petr Ku{\v{c}}era},
+  title =        {Known and new classes of generalized {H}orn formulae with polynomial recognition and {SAT} testing},
+  journal =      {Discrete Applied Mathematics},
+  year =         2005,
+  volume =       149,
+  pages =        {14--52},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@TechReport{FrancoSchlipf1997Report,
+  author =       {John Franco and John Schlipf},
+  title =        {1997 Final Report: Describing new results under the research project entitled {C}omplexity of Algorithms for Problems in Propositional Logic. Covering the period January 1, 1994 - March 31, 1997},
+  institution =  {University of Cincinnati and Office of Naval Research},
+  year =         1997,
+  month =        {April},
+  note =         {Available at \url{http://www.dtic.mil/docs/citations/ADA325949}},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@TechReport{HaanKanjSzeider2013Backbones,
+  author =       {Ronald de Haan and Iyad Kanj and Stefan Szeider},
+  title =        {Local Backbones},
+  institution =  {arXiv},
+  year =         2014,
+  number =       {arXiv:1304.5479v3 [cs.CC]},
+  month =        {July},
+  url =          {http://arxiv.org/abs/1304.5479},
+  annote =       {Pdf vorhanden.}
+}
+@inproceedings{HaanKanjSzeider2013BackbonesC,
+  author    = {Ronald de Haan and Iyad A. Kanj and Stefan Szeider},
+  title     = {Local Backbones},
+  booktitle = {Theory and Applications of Satisfiability Testing - SAT 2013},
+  crossref =  {AnnArbor2011},
+  year      = {2013},
+  pages     = {377--393},
+  ee        = {http://dx.doi.org/10.1007/978-3-642-39071-5_28}
+}
+
+@InProceedings{KaufmannKottler2011BeyondUCP,
+  author =       {Michael Kaufmann and Stephan Kottler},
+  title =        {Beyond Unit Propagation in {SAT} Solving},
+  booktitle =    {Experimental Algorithms --- 10th International Symposium, SEA 2011},
+  pages =        {267--279},
+  year =         2011,
+  editor =       {Panos M. Pardalos and Steffen Rebennack},
+  volume =       6630,
+  series =       {Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  doi =          {10.1007/978-3-642-20662-7_23},
+  annote =       {Pdf vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% % Algebraische Methoden %
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+
+@InProceedings{CEI96,
+  author =       "Matthew Clegg and Jeffery Edmonds and Russell Impagliazzo",
+  title =        "Using the {G}roebner basis algorithm to find proofs of unsatisfiability",
+  pages =        "174--183",
+  booktitle =    "Proceedings of the 28th ACM Symposium on Theory of
+                  Computation",
+  year =         1996,
+  doi =          {10.1145/237814.237860},
+  annote =       "Kopiert. Bearbeitung liegt bei."
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Allgemeine Untersuchungen %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{FrGe98,
+  author =       {John Franco and Allen Van Gelder},
+  title =        {A perspective on certain polynomial-time solvable classes of satisfiability},
+  journal =      {Discrete Applied Mathematics},
+  year =         2003,
+  volume =       125,
+  number =       {2-3},
+  pages =        {177--214},
+  doi =          {10.1016/S0166-218X(01)00358-4},
+  annote =       {Die Klasse der ``matched formulas'' (eine
+                  Teilklasse von SAT) wird eingefuehrt, sowie die
+                  ``deficiency delta = c - n''. Eine Klauselmenge
+                  ist ``matched'' falls sie und alle Teilmengen eine
+                  deficiency kleiner-gleich 0 haben.
+                  Es wird eine Analyse des durchschnittlichen
+                  Auftretens dieser und anderer (bereits
+                  bekannter) Klassen von schnell entscheidbaren
+                  Formelklassen fuer zufaellige k-CNF
+                  durchgefuehrt.}
+}
+
+@InProceedings{Szeider2003FPTSAT,
+  author =       {Stefan Szeider},
+  title =        {On Fixed-Parameter Tractable Parameterizations of {SAT}},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {188--202},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{NishimuraRagdeSzeider2004Backdoor,
+  author =       {Naomi Nishimura and Prabhakar Ragde and Stefan Szeider},
+  title =        {Detecting Backdoor Sets with Respect to {H}orn and Binary Clauses},
+  booktitle =    {The Seventh International Conference on Theory and Applications of Satisfiability Testing},
+  crossref =     {Vancouver2004},
+  pages =        {96-103}
+}
+
+@InProceedings{Pretolani2003HypergraphReductions,
+  author =       {Daniele Pretolani},
+  title =        {Hypergraph Reductions and Satisfiability Problems},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {383--397},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{Johannsen2004SATL,
+  author =       {Jan Johannsen},
+  title =        {Satisfiability Problems Complete for Deterministic Logarithmic Space},
+  booktitle =    {21st Annual Symposium on Theoretical Aspects of Computer Science (STACS 2004)},
+  pages =        {317--325},
+  year =         2004,
+  volume =       2996,
+  series =       {Lecture Notes in Computer Science (LNCS)},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@inproceedings{WilliamsGomesSelman2003Backdoors,
+ author =        {Ryan Williams and Carla P. Gomes and Bart Selman},
+ title =         {Backdoors to Typical Case Complexity},
+ booktitle =     {Proceedings of the 18th International Joint Conference on Artificial Intelligence (IJCAI'03)},
+ year =          {2003},
+ pages =         {1173--1178},
+ numpages =      {6},
+ publisher =     {Morgan Kaufmann Publishers Inc.}
+}
+
+@InCollection{GaspersSzeider2012Backdoors,
+  author =       {Serge Gaspers and Stefan Szeider},
+  title =        {Backdoors to Satisfaction},
+  booktitle =    {The Multivariate Algorithmic Revolution and Beyond --- Essays Dedicated to Michael R. Fellows on the Occasion of His 60th Birthday},
+  pages =        {287--317},
+  publisher =    {Springer},
+  year =         2012,
+  editor =       {Hans L. Bodlaender and Rod Downey and Fedor V. Fomin and D{\'{a}}niel Marx},
+  volume =       7370,
+  series =       {Lecture Notes in Computer Science},
+  doi =          {10.1007/978-3-642-30891-8_15},
+  annote =       {Pdf vorhanden.}
+}
+
+@InProceedings{BelovJaervisaloMarquesSilva2013LabelledPreprocessing,
+  author =       {Anton Belov and Matti J{\"{a}}rvisalo and Joao Marques-Silva},
+  title =        {Formula Preprocessing in {MUS} Extraction},
+  booktitle =    {Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2013)},
+  pages =        {108--123},
+  year =         2013,
+  editor =       {Nir Piterman and Scott A. Smolka},
+  volume =       7795,
+  series =       {Lecture Notes in Computer Science (LNCS)},
+  publisher =    {Springer},
+  doi =          {10.1007/978-3-642-36742-7_8},
+  annote =       {Pdf von Vorversion vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%
+% % Graphentheoretisches %
+% %%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{PT82,
+  author =       "Svatopluk Poljak and Daniel Turz{\'{\i}}k",
+  title =        "A polynomial algorithm for constructing a large bipartite subgraph with an application to a satisfiability problem",
+  journal =      "Canadian Journal of Mathematics",
+  year =         1982,
+  volume =       34,
+  number =       3,
+  pages =        "519--524",
+  annote =       "Zunaechst wird ein Polynomialzeit-Algorithmus
+                  angegeben, der eine bestimmte untere Schranke fuer
+                  die maximale Anzahl von Kanten in einem bipartiten
+                  Teilgraphen eines ungerichteten zusammenhaengenden
+                  Graphen ohne Schlingen auch realisiert.
+                  Angewendet wird dieses Ergebnis auf das Problem der
+                  Bestimmung von $s(F)$, der maximalen Anzahl
+                  (simultan) erfuellbarer Klauseln einer
+                  2-Klauselmenge $F$. Allgemein erhalten sie
+                     $ s(F) \geq 3/4 c_2(F) + 1/2 c_1(F) $,
+                  wobei $c_i$ die Anzahl der $i$-Klauseln ist.
+                  {Dieses Resultat erhaelt man auch auf einfache Art
+                  durch den Greedy-Algorithmus.}
+                  Gibt es in $F$ nicht zwei 2-Klauseln mit den
+                  gleichen Variablen, so koennen sie schaerfer
+                     $ s(F) \geq 3/4 c_2(F) + 1/2 c_1(F) +
+                       1/4 \ceil 1/2 (n - k) \rceil $
+                  beweisen, wobei $n$ die Anzahl der Variablen ist,
+                  und $k$ die Anzahl der Zusammenhangskomponenten des
+                  Graphen mit den Variablen als Ecken und einer Kante
+                  zwischen 2 Knoten gdw. es eine 2-Klausel gibt, die
+                  genau diese beiden Variablen enthaelt (1-Klauseln
+                  werden bei dieser Konstruktion anscheinend
+                  ignoriert).
+                  Zum Vergleich zitieren sie das Resultat (wohl
+                  [Garey/Johnson]), wonach die Entscheidung
+                     $ s(F) \geq 7/10 c(F) $
+                  wobei $c = c_1 + c_2$ die Anzahl der Klauseln
+                  insgesamt ist, NP-vollstaendig ist."
+}
+
+@Unpublished{Szei02,
+  author =       {Stefan Szeider},
+  title =        {On Generalizations of Matching Satisfiable {CNF}'s},
+  note =         {Submitted},
+  year =         2002,
+  annote =       {ps-Datei vorhanden.}
+}
+@Article{Sz2002b,
+  author =       {Stefan Szeider},
+  title =        {Generalizations of Matched {CNF} formulas},
+  journal =      {Annals of Mathematics and Artificial Intelligence},
+  year =         2005,
+  volume =       43,
+  number =       {1-4},
+  pages =        {223--238},
+  annote =       {Pdf-Datei vorhanden. Von John Franco zur Begutachtung (SAT 2002) erhalten. Revision von \cite{Szei02}. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer", sowie das Gutachten.}
+}
+
+@Article{Szei2002FixedParam,
+  author =       {Stefan Szeider},
+  title =        {Minimal unsatisfiable formulas with bounded clause-variable difference are fixed-parameter tractable},
+  journal =      {Journal of Computer and System Sciences},
+  year =         2004,
+  volume =       69,
+  number =       4,
+  pages =        {656--674},
+  month =        {December},
+  doi =          {10.1016/j.jcss.2004.04.009},
+  annote =       {pdf-Datei vorhanden.}
+}
+@TechReport{Szei2002bECCCFixedParam,
+  author =       {Stefan Szeider},
+  title =        {Minimal unsatisfiable formulas with bounded clause-variable difference are fixed-parameter tractable},
+  institution =  {Electronic Colloquium on Computational Complexity (ECCC)},
+  year =         2003,
+  number =       {TR03-002, revision 1},
+  month =        {February},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Unpublished{SzeiderAcyclic,
+  author =       {Stefan Szeider},
+  title =        {Acyclic Formulas and Minimal Unsatisfiability},
+  note =         {Unpublished manuscript},
+  month =        {September},
+  year =         2000,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{OrdyniakPaulusmaSzeider2010Acyclic,
+  author =       {Sebastian Ordyniak and Daniel Paulusma and Stefan Szeider},
+  title =        {Satisfiability of Acyclic and Almost Acyclic {CNF} Formulas},
+  booktitle =    {IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science (FSTTCS 2010)},
+  pages =        {84--95},
+  year =         2010,
+  editor =       {Kamal Lodaya and Meena Mahajan},
+  volume =       8,
+  series =       {LIPIcs},
+  publisher =    {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  doi =          {10.4230/LIPIcs.FSTTCS.2010.84},
+  annote =       {Pdf-Datei vorhanden.}
+}
+@InProceedings{OrdyniakPaulusmaSzeider2011Acyclic,
+  author =       {Sebastian Ordyniak and Daniel Paulusma and Stefan Szeider},
+  title =        {Satisfiability of Acyclic and Almost Acyclic {CNF} Formulas ({II})},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2011},
+  crossref =     {AnnArbor2011},
+  pages =        {47--60},
+  year =         2011,
+  doi =          {10.1007/978-3-642-21581-0_6},
+  annote =       {Siehe Gutachten SAT/2011/Szeider_Acyclic (von Vorversion).}
+}
+@Article{OrdyniakPaulusmaSzeider2013Acyclic,
+  author =       {Sebastian Ordyniak and Daniel Paulusma and Stefan Szeider},
+  title =        {Satisfiability of acyclic and almost acyclic {CNF} formulas},
+  journal =      {Theoretical Computer Science},
+  year =         2013,
+  volume =       481,
+  pages =        {85--99},
+  month =        {April},
+  doi =          {10.1016/j.tcs.2012.12.039},
+  annote =       {Siehe die arXiv-Version \cite{OrdyniakPaulusmaSzeider2013AcyclicarXiv}.}
+}
+@TechReport{OrdyniakPaulusmaSzeider2013AcyclicarXiv,
+  author =       {Sebastian Ordyniak and Daniel Paulusma and Stefan Szeider},
+  title =        {Satisfiability of Acyclic and Almost Acyclic {CNF} Formulas},
+  institution =  {arXiv},
+  year =         2013,
+  number =       {arXiv:1104.4279v2 [cs.DS]},
+  month =        {April},
+  annote =       {Die Zeitschriftenversion ist \cite{OrdyniakPaulusmaSzeider2013Acyclic}.}
+}
+
+@Unpublished{SamerSzeider2006Baumweite,
+  author =       {Marko Samer and Stefan Szeider},
+  title =        {{SAT} and {CSP} of bounded treewidth revised},
+  note =         {Preprint},
+  month =        {March},
+  year =         2006,
+  annote =       {Erhalten 13.3.2006 von Stefan Szeider.}
+}
+
+@InProceedings{Szeider2007Matched,
+  author =       {Stefan Szeider},
+  title =        {Matched Formulas and Backdoor Sets},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2007},
+  crossref =     {Lisbon2007},
+  pages =        {94--99},
+  annote =       {Konferenzband vorhanden; pdf-Dateien zu besorgen.}
+}
+@Article{Szeider2008Matched,
+  author =       {Stefan Szeider},
+  title =        {Matched Formulas and Backdoor Sets},
+  journal =      {Journal on Satisfiability, Boolean Modeling and Computation},
+  year =         2008,
+  volume =       6,
+  pages =        {1--12},
+  url =          {http://satassociation.org/jsat/index.php/jsat/article/view/66},
+  annote =       {Pdf vorhanden; wohl fast identisch mit \cite{Szeider2007Matched}}
+}
+
+@Article{GottlobSzeider2008FPT,
+  author =       {Georg Gottlob and Stefan Szeider},
+  title =        {Fixed-Parameter Algorithms For Artificial Intelligence, Constraint Satisfaction and Database Problems},
+  journal =      {The Computer Journal},
+  year =         2008,
+  volume =       51,
+  number =       3,
+  pages =        {303--325},
+  month =        {May},
+  doi =          {10.1093/comjnl/bxm056},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@TechReport{ACLPT2012Treewidth,
+  author =       {Eric Allender and Shiteng Chen and Tiancheng Lou and Periklis A. Papakonstantinou and Bangsheng Tang},
+  title =        {Width-parameterized {SAT}: time-space tradeoffs},
+  institution =  {Electronic Colloquium on Computational Complexity (ECCC)},
+  year =         2012,
+  number =       {TR12-027, revision 2},
+  month =        {August},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%
+% % Autarkie-Methoden %
+% %%%%%%%%%%%%%%%%%%%%%
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%
+% % Blockierte Klauseln %
+% %%%%%%%%%%%%%%%%%%%%%%%
+
+@InProceedings{Kus2002,
+  author =       {G{\'{a}}bor Kusper},
+  title =        {Solving the Resolution-Free {SAT} problem by Hyper-Unit Propagation in Linear Time},
+  booktitle =    {Fifth International Symposium on Theory and Applications of Satisfiability Testing},
+  crossref =     {Cincinnati2002kurz},
+  pages =        {323--332},
+  year =         2002,
+  annote =       {Fast trivial: Resolutions-frei bleibt erhalten unter Anwendung partieller Belegungen, und ist unerf\"ullbar genau dann, wenn die leere Klausel enthalten ist. Es folgt, dass Resolutions-frei in SLUR liegt.}
+}
+
+@InProceedings{Kusper2006Blockiert,
+  author =       {G{\'{a}}bor Kusper},
+  title =        {Finding Models for Blocked 3-{SAT} Problems in Linear Time by Systematical Refinement of a Sub-Model},
+  booktitle =    {KI 2006: Advances in Artificial Intelligence},
+  pages =        {128--142},
+  year =         2006,
+  volume =       4314,
+  series =       {Lecture Notes in Artificial Intelligence},
+  annote =       {Alles trivial.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%
+% % Resolutions-Methoden %
+% %%%%%%%%%%%%%%%%%%%%%%%%
+
+@InProceedings{AlekRaz2002BranchWidth,
+  author =       {Michael Alekhnovich and Alexander A. Razborov},
+  title =        {Satisfiability, Branch-width and {T}seitin Tautologies},
+  booktitle =    {Proceedings of the 43rd IEEE FOCS},
+  pages =        {593--603},
+  year =         2002,
+  annote =       {ps-Datei vorhanden (vorlaeufige Version). Siehe \cite{AlekRaz2011BranchWidth} fuer die Zeitschriftenversion.}
+}
+@Article{AlekRaz2011BranchWidth,
+  author =       {Michael Alekhnovich and Alexander Razborov},
+  title =        {Satisfiability, Branch-Width and {T}seitin tautologies},
+  journal =      {computational complexity},
+  year =         2011,
+  volume =       20,
+  number =       4,
+  pages =        {649--678},
+  month =        {December},
+  doi =          {10.1007/s00037-011-0033-1},
+  annote =       {Vorversion vorhanden (pdf). Die Zeitschriftenversion von \cite{AlekRaz2002BranchWidth}.}
+}
+
+@InProceedings{BroeringLokam2003WidthBasedAlgorithms,
+  author =       {Elizabeth Broering and Satyanarayana V. Lokam},
+  title =        {Width-Based Algorithms for {SAT} and {CIRCUIT-SAT}},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {162--171},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InCollection{RishDechter2000DirectionalResolution,
+  author =       {Irina Rish and Rina Dechter},
+  title =        {Resolution versus Search: Two Strategies for {SAT}},
+  booktitle =    {SAT2000 Highlights of Satisfiability Research in the Year 2000},
+  crossref =     {GMW2000},
+  pages =        {215--259}
+}
+@InCollection{RishDechter2000DirectionalResolution_kurz,
+  author =       {Irina Rish and Rina Dechter},
+  title =        {Resolution versus Search: Two Strategies for {SAT}},
+  booktitle =    {SAT2000 Highlights of Satisfiability Research in the Year 2000},
+  pages =        {215--259}
+}
+
+@InProceedings{BacchusWinter2003HyperBin,
+  author =       {Fahiem Bacchus and Jonathan Winter},
+  title =        {Effective Preprocessing with Hyper-Resolution and Equality Reduction},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {341--355},
+  doi =          {10.1007/978-3-540-24605-3_26},
+  annote =       {Konferenzband und pdf-Datei vorhanden.}
+}
+
+@InProceedings{AnsoteguiBonetLevyManya2008Hardness,
+  author =       {Carlos Ans{\'{o}}tegui and Mar{\'{\i}}a Luisa Bonet and Jordi Levy and Felip Many{\`{a}}},
+  title =        {Measuring the Hardness of {SAT} Instances},
+  booktitle =    {Proceedings of the 23th AAAI Conference on Artificial Intelligence (AAAI-08)},
+  pages =        {222--228},
+  year =         2008,
+  editor =       {Dieter Fox and Carla Gomes},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@TechReport{Bailleux2011ExpressivenessUnitRes,
+  author =       {Olivier Bailleux},
+  title =        {On the expressive power of unit resolution},
+  institution =  {arXiv},
+  year =         2011,
+  number =       {arXiv:1106.3498v1 [cs.AI]},
+  month =        {June},
+  url =          {http://arxiv.org/abs/1106.3498},
+  anote =        {Pdf-Datei vorhanden.}
+}
+@TechReport{Bailleux2012UnitConVsUnitProp,
+  author =       {Olivier Bailleux},
+  title =        {Unit contradiction vs unit propagation},
+  institution =  {arXiv},
+  year =         2012,
+  number =       {arXiv:1204.0731v1 [cs.AI]},
+  month =        {April},
+  url =          {http://arxiv.org/abs/1204.0731},
+  anote =        {Pdf-Datei vorhanden. Wohl identisch mit dem fuer IPL begutachteten Artikel (2011).}
+}
+
+@InProceedings{Val1994UnitResolutionComplete,
+  author =       {Alvaro del Val},
+  title =        {Tractable Databases: How to Make Propositional Unit Resolution Complete Through Compilation},
+  booktitle =    {Proceedings of the 4th International Conference on Principles of Knowledge Representation and Reasoning (KR'94)},
+  pages =        {551--561},
+  year =         1994,
+  annote =       {Vorabdruck als Ps-Datei vorhanden.}
+}
+
+@Article{Val2000UnitResolutionComplete,
+  author =       {Alvaro del Val},
+  title =        {On some tractable classes in deduction and abduction},
+  journal =      {Artificial Intelligence},
+  year =         2000,
+  volume =       116,
+  number =       {1-2},
+  pages =        {297--313},
+  month =        {January},
+  doi =          {10.1016/S0004-3702(99)00088-0},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{BordeauxMarquesSilva2012KnowledgeCompilation,
+  author =       {Lucas Bordeaux and Joao Marques-Silva},
+  title =        {Knowledge Compilation with Empowerment},
+  booktitle =    {SOFSEM 2012: Theory and Practice of Computer Science},
+  pages =        {612--624},
+  year =         2012,
+  editor =       {M{\'{a}}ria Bielikov{\'{a}} and Gerhard Friedrich and Georg Gottlob and Stefan Katzenbeisser and Gy{\"{o}}rgy Tur{\'{a}}n},
+  volume =       7147,
+  series =       {Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  doi =          {10.1007/978-3-642-27660-6_50},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{BordeauxJanotaMarquesSilvaMarquis2012UC,
+  author =       {Lucas Bordeaux and Mikol{\'{a}}{\v{s}} Janota and Joao Marques-Silva and Pierre Marquis},
+  title =        {On Unit-Refutation Complete Formulae with Existentially Quantified Variables},
+  booktitle =    {Knowledge Representation 2012 (KR 2012)},
+  year =      2012,
+  month =        {June},
+  publisher =    {Association for the Advancement of Artificial Intelligence (AAAI Press)},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{BBCGKV2013Propc,
+  author =       {Martin Babka and Tom\'{a}\v{s} Balyo and Ond{\v{r}}ej {\v{C}}epek and \v{S}tefan Gursk\'{y} and Petr Ku{\v{c}}era and V{\'{a}}clav Vl{\v{c}}ek},
+  title =        {Complexity issues related to propagation completeness},
+  journal =      {Artificial Intelligence},
+  year =         2013,
+  volume =       203,
+  pages =        {19--34},
+  doi =          {10.1016/j.artint.2013.07.006},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{HertelUrquhart2009InputResolution,
+  author =       {Alexander Hertel and Alasdair Urquhart},
+  title =        {Algorithms and Complexity Results for Input and Unit Resolution},
+  journal =      {Journal on Satisfiability, Boolean Modeling and Computation},
+  year =         2008,
+  volume =       6,
+  pages =        {141--164},
+  url =          {http://satassociation.org/jsat/index.php/jsat/article/view/73}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%
+% % Sporadische Klassen %
+% %%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{Pa92,
+  author =       "N.A. Parshina",
+  title =        "Satisfiability problem: some polynomial classes of conjunctive normal forms",
+  journal =      "Cybernetics and Systems Analysis",
+  year =         1992,
+  volume =       28,
+  number =       1,
+  pages =        "144--147",
+  annote =       "Ein Hoehepunkt an Trivialitaet:
+                  Das ``Theorem'' beweist, dass eine KNF unerfuellbar
+                  ist gdw alle Vorzeichenkombination vorhanden werden.
+                  In den Korollaren 1-7 werden nun die Faelle als
+                  ``schnell entscheidbare erfuellbare Klauselmengen''
+                  beschrieben, die durch die folgenden (totalen)
+                  Belegungen erfuellt werden:
+                  1. alle Variablen auf 1
+                  2. alle Variablen auf 0
+                  Sei VP (VN) die Vereinigung aller positiven
+                  (negativen) Klauseln:
+                  3. alle Variablen aus VP auf 1, die restlichen
+                  Variablen auf 0
+                  4. alle Variablen aus VN auf 0, die restlichen
+                  Variablen auf 1
+                  Die DP (DN) der Durchschnitt aller positiven
+                  (negativen) Klauseln:
+                  5. alle Variablen aus DP auf 1, der Rest auf 0
+                  6. alle Variablen aus DN auf 0, der Rest auf 1
+                  (diese beiden Faelle sind dazu falsch beschrieben,
+                  da im Fall, dass DP bzw. DN leer sind, diese
+                  Belegungen nur fuer den Fall, dass es ueberhaupt
+                  keine positiven bzw. negativen Klauseln gibt,
+                  erfuellende Belegungen sind!)
+                  Der Fall, dass DP bzw. DN nicht-leer ist, wird mit
+                  folgenden Kor. angefasst:
+                  7. a) eine Variable aus DP auf 1, der Rest auf 0
+                     b) eine Variable aus DN auf 0, der Rest auf 1
+                  Schliesslich bemerkt Cor. 8, dass eine Klm mit einem
+                  Widerspruch in den 1-Klauseln eben unerfuellbar ist.
+                  Tja tja."
+}
+
+@Article{CH91,
+  author =       "",
+  title =        "",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  OPTjournal =   "J. ACM",
+  OPTyear =      "1991",
+  OPTvolume =    "38",
+  OPTnumber =    "",
+  OPTpages =     "205--221",
+  OPTmonth =     "",
+  OPTnote =      "",
+  OPTannote =    ""
+}
+
+@InProceedings{{CC92,
+  author =       "Michele Conforti and G{\'{e}}rard Cornu{\'{e}}jols",
+  title =        "A Class of Logic Problems Solvable by Linear Programming",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  OPTeditor =    "",
+  OPTvolume =    "",
+  OPTnumber =    "",
+  OPTseries =    "",
+  OPTpages =     "670--675",
+  OPTbooktitle = "33rd Annual Symposium on Foundations of Computer Science",
+  OPTyear =      "1992",
+  OPTorganization = "",
+  OPTpublisher = "",
+  OPTaddress =   "",
+  OPTmonth =     "",
+  OPTnote =      "",
+  OPTannote =    ""
+}
+
+@InProceedings{HKBZX2001,
+  author =          {Hans {Kleine B\"uning} and Xishun Zhao},
+  title =          {Satisfiable Formulas Closed Under Replacement},
+  booktitle =          {LICS 2001 Workshop on Theory and Applications of Satisfiability Testing (SAT 2001)},
+  year =         2001,
+  editor =         {Henry Kautz and Bart Selman},
+  volume =         9,
+  series =         {Electronic Notes in Discrete Mathematics (ENDM)},
+  month =         {June},
+  publisher =         {Elsevier Science},
+  annote =         {ps-Datei (urspr\"unglich endm9005.ps) vorhanden. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@InProceedings{LynceSilva2003Preprocessing,
+  author =       {In{\^{e}}s Lynce and Jo{\~{a}}o Marques-Silva},
+  title =        {Probing-Based Preprocessing Techniques for Propositional Satisfiability},
+  booktitle =    {ICTAI'03},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  OPTpages =     {},
+  year =         {2003},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  doi =          {10.1109/TAI.2003.1250177},
+  annote =       {Kopie vorhanden.}
+}
+
+@InProceedings{Val2000TSAT,
+  author =       {Alvaro del Val},
+  title =        {On 2-{SAT} and Renamable {H}orn},
+  booktitle =    {Proceedings of the Seventeenth National Conference on Artificial Intelligence and Twelfth Conference on Innovative Applications of Artificial Intelligence},
+  pages =        {279--284},
+  year =         2000,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{KlerkMaarenWarners2000Relaxations,
+  author =       {Etienne de Klerk and Hans van Maaren and Joost P. Warners},
+  title =        {Relaxations of the Satisfiability Problem Using Semidefinite Programming},
+  journal =      {Journal of Automated Reasoning},
+  year =         2000,
+  volume =       24,
+  pages =        {37--65},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Wissens-Kompilierung (knowledge compilation) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{DarwicheMarquis2002KCmap,
+  author =       {Adnan Darwiche and Pierre Marquis},
+  title =        {A Knowledge Compilation Map},
+  journal =      {Journal of Artificial Intelligence Research},
+  year =         2002,
+  volume =       17,
+  pages =        {229--264},
+  doi =          {10.1613/jair.989},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{FargierMarquis2008Closure,
+  author =       {H{\'{e}}l{\`{e}}ne Fargier and Pierre Marquis},
+  title =        {Extending the Knowledge Compilation Map: Closure Principles},
+  booktitle =    {ECAI 2008: 18th European Conference on Artificial Intelligence},
+  pages =        {50--54},
+  year =         2008,
+  editor =       {Malik Ghallab},
+  annote =       {Pdf-Datei (Vorabdruck) vorhanden.}
+}
+
+@InProceedings{Marquis2011Closures,
+  author =       {Pierre Marquis},
+  title =        {Existential Closures for Knowledge Compilation},
+  booktitle =    {IJCAI'11: Proceeding of the Twenty-Second International joint conference on Artificial Intelligence},
+  pages =        {996--1001},
+  year =         2011,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{Sinz2002Compilation,
+  author =       {Carsten Sinz},
+  title =        {Knowledge Compilation for Product Configuration},
+  booktitle =    {Configuration: Papers from the Workshop at ECAI 2002},
+  pages =        {23--26},
+  year =         2002,
+  editor =       {Michel Aldanondo},
+  note =         {\url{http://www.carstensinz.de/papers/ECAI-Config-WS-2002.pdf}},
+  annote =       {Pdf-Datei vorhanden.}
+}
+

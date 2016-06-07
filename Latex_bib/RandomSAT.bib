@@ -1,0 +1,1154 @@
+@InProceedings{CM96,
+  author =       "Stephen A. Cook and David G. Mitchell",
+  title =        "Finding hard instances of the satisfiability
+                  problem: A survey",
+  crossref =     "DIM96",
+  pages =        "1-17"
+}
+
+@Article{GW94,
+  author =       "I.P. Gent and T. Walsh",
+  title =        "Easy problems are sometimes hard",
+  journal =      "Artificial Intelligence",
+  year =         1994,
+  volume =       70,
+  pages =        "335-345",
+  annote =       "Kopiert."
+}
+
+@Article{Ja92,
+  author =       "Philip C.~Jackson Jr",
+  title =        "Proving unsatisfiability for problems with constant
+                  cubic sparsity",
+  journal =      "Artificial Intelligence",
+  year =         1992,
+  volume =       57,
+  pages =        "125-137",
+  annote =       "Es wird ein wohl recht einfacher Beweis fuer
+                  folgenden Sachverhalt gezeigt:
+
+                  Betrachte zufaellige 3-CNF-Formeln und eine
+                  Konstante r > 0. Der Algorithmus des Artikels ist
+                  wohl einfach DPL mit globaler Variablenreihenfolge
+                  und Breitensuche. Fuer Formeln mit $k >= r * n^3$,
+                  wobei $k$ die Klauselnzahl und $n$ die Variablenzahl
+                  ist, ist mit grosser Wahrscheinlichkeit die Tiefe
+                  des Suchbaumes fest beschraenkt durch
+
+                     $ 1 / \sqrt{r * \log_2 (8 / 7)} $,
+
+                  haengt also nur von $r$ ab.
+
+                  {Dies erinnert an das Hirsch-Resultat \cite{Hi95}:
+                  Dort wird gezeigt, dass Breitensuche fuer eine
+                  ``sehr erfuellbare'' Formel in konstanter Tiefe
+                  resultiert, hier wird konstante Tiefe (allerdings
+                  nur probabilistisch) fuer ``sehr unerfuellbare''
+                  Formeln gezeigt.}
+
+                  Der Artikel ist im typischen AI-Stil, viel
+                  unverstaendliches Geschwaetz, geschrieben. Keine
+                  klar formulierten Resultate.
+
+                  Na ja."
+}
+
+@InProceedings{KKK96,
+  author =       "Lefteris M. Kirousis and Evangelos Kranakis and
+                  Danny Krizanc",
+  title =        "A Better Upper Bound for the Unsatisfiability Threshold",
+  crossref =     "DIM96",
+  pages =        "643-648"
+}
+
+@InProceedings{MSL92,
+  author =       "David Mitchell and Bart Selman and Hector Levesque",
+  title =        "Hard and Easy Distributions of {SAT} Problems",
+  pages =        "459-465",
+  booktitle =    "10th National Conference on Artificial Intelligence (AAAI-92, San Jos{\'e})",
+  year =         1992,
+  annote =       "Ps-Datei vorhanden. Kopiert.
+
+                  Wohl der wesentliche Artikel, der fuer 3-SAT das
+                  Schwellenwert-Phaenomen feststellt, d.h. die
+                  Schwelle, wo zum einen gleich viele erfuellbare wie
+                  unerfuellbare Formeln beobachtet werden, und zum
+                  anderen DP-Algorithmen das Maximum fuer die
+                  Knotenzahl annehmen."
+}
+
+@InProceedings{BKPS98,
+  author =       {Paul Beame and Richard Karp and Toniann Pitassi and Michael Saks},
+  title =        {On the Complexity of Unsatisfiability Proofs for Random $k$-{CNF} Formulas},
+  booktitle =    {Proceedings of the 30th Annual ACM Symposium on Theory of Computing},
+  pages =        {561-571},
+  year =         1998,
+  month =        {May},
+  annote =       {Ps-Datei vorhanden. Zeitschriften-Version ist \cite{BKPS2002ResDP}.}
+}
+
+@Article{Ve99,
+  author =       {Yann Verhoeven},
+  title =        {Random 2-{SAT} and unsatisfiability},
+  journal =      {Information Processing Letters},
+  year =         1999,
+  volume =       72,
+  pages =        {119-123},
+  annote =       {Kopiert. 22.4.2000
+
+Es wird folgendes Modell betrachtet:
+
+Sei 1 <= p(n) <= 1. Nun wird die Menge 2-CLS_t(n) aller Klauselmengen F mit Variablen in
+{v_1, ..., v_n} betrachtet, so dass alle Klauseln von F die Laenge 2 haben, und auch tautologische
+Klauseln zugelassen sind. Es wird auf 2-CLS_t(n) die Wahrscheinlichkeitsverteilung
+
+    P(F) = p(n)^{c(F)} * (1 - p(n))^{\choose{2 n}{2} - c(F)}
+
+betrachtet. Der Erwartungswert fuer die Anzahl c(F) der Klauseln in F ist
+
+    E(c(F)) = p(n) * \choose{2 n}{2}.
+
+Es wird behauptet, dass die Ergebnisse von Goerdt und Chvatal/Reed wie folgt interpretiert
+werden koennen:
+
+Fuer alle e > 0 und konstantes p(n) gilt:
+
+(1) Die bedingte Wahrscheinlichkeit, dass ein F aus 2-CLS_t(n) mit c(F) = (1 - e) * n erfuellbar
+     ist, geht mit n gegen Unendlich gegen 1.
+
+(2) Die bedingte Wahrscheinlichkeit, dass ein F aus 2-CLS_t(n) mit c(F) = (1 + e) * n erfuellbar
+     ist, geht mit n gegen Unendlich gegen 0.
+
+
+Sei w: \NN \ra RR_{> 0} irgendeine Folge mit
+
+                 lim_{n -> \infty} w(n) = \infty.
+
+
+Theorem 1: Sei p(n) konstant. Dann geht die bedingte Wahrscheinlichkeit, dass ein F aus
+2-CLS_t(n) der Groesse
+
+    n * (1 + w(n) / n^{1/4})
+
+unerfuellbar ist, mit n -> \infty gegen 1.
+
+
+Theorem 2: Sei
+
+    e(n) := w(n) / n^{1/4}
+
+    p(n) := (1 + e(n)) / (2 n).
+
+Es ergibt sich
+
+    E(c(F)) = (1 + e(n)) * (n - 1/2)
+
+ergibt, was der Autor grosszuegig zu (1 + e(n)) * n vereinfacht. Nun ist "fast jede" [ ?? ]
+Klauselmenge aus 2-CLS_t(n) unerfuellbar. [ Das heisst wohl, das die Wahrscheinlichkeit
+des Ereignisses "F erfuellbar" mit n -> \infty gegen Null geht.
+}
+}
+
+@InProceedings{AGKS00,
+  author =       {Dimitris Achlioptas and Carla Gomes and Henry Kautz and Bart Selman},
+  title =        {Generating Satisfiable Problem Instances},
+  booktitle =    {Proceedings of the Seventeenth National Conference on Artificial Intelligence (AAAI-00), Austin, Texas},
+  pages =        {??},
+  year =         2000,
+  annote =       {Eingetragen 2.7.2000.
+
+Der folgende Generator fuer erfuellbare Klauselmengen wird vorgestellt:
+
+1. Erzeuge eine zufaellige Quasigruppe (ein "Lateinisches Quadrad") einer
+   vorgegebenen Dimension N. (Die Erzeugung einer solchen uniformen Verteilung
+   wird als nicht-trivial bezeichnet, es gibt aber eine Approximation in
+   der Literatur.)
+
+2. Fuer ein fest vorgegebenes 0 < p < 1 stanze p * N^2 Loecher in die
+   Multiplikationstabelle (das Quadrat), und erhalte ein erfuellbares
+   QCP (quasi-group completion problem).
+
+3. Dies wird dann in eine Klauselmenge transformiert.
+
+Als Test-Algorithmen werden Satz und Walksat benutzt. Beides zeigen
+ein klares Maximum ("leicht-schwer-leicht") bzgl. der Laufzeit.
+
+Begruendet wird dies mit einem Schwellenwert-Verhalten (an der gleichen
+Stelle) der Groesse des "Rueckgrates" (die Anzahl der implizierten
+Einer-Klauseln) --- links vom Schwellenwert (also wenig ausgestanzte
+Loecher) ist das Rueckgrat sehr gross, rechts sehr klein.
+
+Der genauer Wert des Schwellenwertes wandert etwas mit N (also sei
+die Dimension des Problems nicht N^2, sondern kleiner). Wird der
+Quotient p bzgl. N^{1.55} betrachtet, dann erhaelt man einen stabilen
+Ort des Schwellenwertes (p ~= 1.6).
+}
+}
+
+@Article{SGS00,
+  author =       {Josh Singer and Ian P.~Gent and Alan Smaill},
+  title =        {Backbone Fragility and the Local Search Cost Peak},
+  journal =      {Journal of Artificial Intelligence Research},
+  year =         2000,
+  volume =       12,
+  pages =        {235-270},
+  month =        {May},
+  annote =       {Vorhanden.}
+}
+
+@InProceedings{Ach00,
+  author =       {Dimitris Achlioptas},
+  title =        {Setting 2 variables at a time yields a new lower bound for random 3-{SAT}},
+  booktitle =    {Proceedings of the thirty-second Annual ACM Symposium of Theory of Computing (STOC00)},
+  pages =        {28-37},
+  year =         2000,
+  month =        {May},
+  annote =       {Kopiert. Eintrag 18.7.2000
+
+Sei F_k(n, m) die Menge aller Klauselmengen mit genau m Klauseln, deren Variablen unter den ersten n Variablen des Variablenuniversums sind, und deren Klauseln alle die Laenge k haben. Die Wahrscheinlichkeitsverteilung auf F_k(n, m) sei die uniforme.
+
+Die "satisfiability threshold conjecture" besagt nun, dass es eine positive Konstante r_3 gibt, so dass fuer alle r < r_3 die Wahrscheinlichkeit, dass eine zufaellige Klauselmenge aus F_3(n, r * n) erfuellbar ist, mit n gegen 1 konvergiert, und so dass fuer alle r > r_3 die Wahrscheinlichkeit, dass eine zufaellige Klauselmenge aus F_3(n, r * n) unerfuellbar ist, ebenfalls mit n gegen 1 konvergiert.
+
+In dieser Arbeit wird nun r_3 > 3.145 bewiesen.
+
+Wesentliche Hilfsmittel sind
+
+Lemma 1: Sei r < 1, und q(n) <= O( (log n)^K ) fuer eine Konstante K.
+Waehle zufaellig ein F' aus F_2(n, r * n) und ein F'' aus F_1(n, q(n)),
+und betrachte die Vereinigung F von F' und F''. Dann geht die
+Wahrscheinlichkeit, dass F erfuellbar ist, mit n gegen 1.
+
+In \cite{Fr99} wurde bewiesen:
+
+Theorem 2: Fuer alle k >= 2 gibt es eine Folge r_k(n) von reellen Zahlen,
+so dass fuer alle e > 0 die Wahrscheinlichkeit, dass
+
+              F aus F_k(n, (r_k(n) - e) * n)
+
+erfuellbar ist, sowie die Wahrscheinlichkeit, dass
+
+              F aus F_k(n, (r_k(n) + e) * n)
+
+unerfuellbar ist, jeweils mit n gegen 1 geht.
+
+Es folgt unmittelbar
+
+Korollar 1: Sei r irgendeine positive Konstante. Falls es nun ein a > 0
+gibt, so dass fuer fast alle n die Wahrscheinlichkeit, dass ein
+
+              F aus F_k(n, r * n)
+
+erfuellbar ist, mindestens a ist, dann konvergiert in der Tat diese
+Wahrscheinlichkeit gegen 1 mit n gegen Unendlich.
+
+Der Algorithmus, der nun mit positiver Wahrscheinlichkeit eine erfuellende Belegung fuer F aus F_k(n, 3.145 * n) findet, ist wie folgt:
+
+Solange es eine noch nicht belegte Variable gibt:
+
+  Falls es eine 1-Klausel gibt, so waehle eine solche zufaellig,
+  und erfuelle sie.
+  Falls es eine 2-Klausel gibt, dann waehle eine solche zufaellig,
+  und belege die zwei Variablen darin so, dass diese 2-Klausel
+  erfuellt wird, und eine minimale Anzahl von 3-Klauseln zu 2-Klauseln
+  wird (zufaellige Auswahl, falls unter den drei in Frage kommenden
+  Belegungen mehrere es tun).
+  [ Was ist mit erzeugten 1-Klauseln ? ]
+  Andernfalls waehle zufaellig irgendeine noch nicht belegte Variable,
+  und setze sie zufaellig auf 0 oder 1.
+
+Scheint gut lesbar zu sein.
+}
+}
+
+@Article{Fr1999,
+  author =       {E. Friedgut},
+  title =        {Necessary and sufficient conditions for sharp thresholds of graph properties, and the k-{SAT} problem},
+  journal =      {J. Amer. Math. Soc.},
+  year =         1999,
+  volume =       12,
+  pages =        {1017-1054},
+  annote =       {In \cite{Ach00} zitiert.}
+}
+
+@Article{CDSSV2001,
+  author =       {Cristian Coarfa and Demetrios D.~Demopoulos and Alfonso San Miguel Aguirre and Devika Subramanian and Moshe Y.~Vardi},
+  title =        {Random {3-SAT}: The Plot Thickens},
+  journal =      {Constraints},
+  year =         2003,
+  volume =       8,
+  pages =        {243-261},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{AGKRSS2001,
+  author =       {Dimitris Achlioptas and Carla Gomes and Henry Kautz and Yongshao Ruan and Bart Selman and Mark Stickel},
+  title =        {Balance and Filtering in Structured Satisfiable Problems},
+  booktitle =    {Proceedings of the 17th International Joint Conference on Artificial Intelligence (IJCAI-2001)},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  OPTpages =     {},
+  year =         {2001},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  annote =       {pdf-Datei abgespeichert unter "Selman". Siehe Besprechung in "SATAlg" im Ordner "Genauer".}
+}
+
+% War FP2001 (3.12.2005).
+@InProceedings{FrischPeugniez2001NBLocalSearch,
+  author =       {Alan M. Frisch and Timothy J. Peugniez},
+  title =        {Solving Non-Boolean Satisfiability Problems with Stochastic Local Search},
+  booktitle =    {Proceedings of the 17th International Joint Conference on Artificial Intelligence},
+  pages =        {282-288},
+  year =         2001,
+  annote =       {Ps-Datei vorhanden. Sie praesentieren einen Generator fur "Random Non-Boolean CNF Formulas", wobei die Formeln "positiv" genannt werden, und Konjunktionen von Klauseln sind, waehrend eine "positive Klausel" eine Disjunktion von Literalen der Form (v,e) ist, die ausdruecken "v = e" (nicht "v <> e" wie bei den verallgemeinerten Klauselmengen). Die negativen Literale druecken dann gerade v <> e aus, und somit sind die "negativen CNF formulas" gerade die verallgemeinerten Klauselmengen.}
+}
+
+@Article{ML1996,
+  author =       {David G. Mitchell and Hector J. Levesque},
+  title =        {Some Pitfalls for Experimenters with Random {SAT}},
+  journal =      {Artificial Intelligence},
+  year =         1996,
+  volume =       81,
+  number =       {1-2},
+  pages =        {111-125},
+  month =        {March},
+  annote =       {Vorhanden. Siehe Besprechung in "SATAlg" im Ordner "Genauer".}
+}
+
+@Article{GU1989,
+  author =       {Giorgio Gallo and Giampaolo Urbani},
+  title =        {Algorithms for testing the satisfiability of propositional formulae},
+  journal =      {Journal of Logic Programming},
+  year =         1989,
+  volume =       7,
+  pages =        {45-61},
+  annote =       {Wird in \cite{MS1996} zitiert wegen der (schlechten) Verwendung von zufaelligem [1,7]-SAT.}
+}
+
+@Article{KMSTZ1999,
+  author =       {Scott Kirkpatrick and R{\'{e}}mi Monasson and Bart Selman and Lidror Troyansky and Ricardo Zecchina},
+  title =        {Determining computational complexity from characteristic 'phase transitions'},
+  journal =      {Nature},
+  year =         1999,
+  volume =       400,
+  pages =        {133-137},
+  month =        {July},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "SATAlg" im Ordner "Genauer".}
+}
+
+@Article{AKKK2001,
+  author =       {Dimitris Achlioptas and Lefteris M. Kirousis and Evangelos Kranakis and Danny Krizanc},
+  title =        {Rigorous results for random $(2+p)$-{SAT}},
+  journal =      {Theoretical Computer Science},
+  year =         2001,
+  volume =       265,
+  pages =        {109-129},
+  annote =       {pdf-Datei vorhanden. Zitiert in \cite{ABM2001}.}
+}
+
+@Article{Ve2001,
+  author =       {W. Fernandez de La Vega},
+  title =        {Random 2-{SAT}: results and problems},
+  journal =      {Theoretical Computer Science},
+  year =         2001,
+  volume =       265,
+  pages =        {131-146},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{Ach2001,
+  author =       {Dimitris Achlioptas},
+  title =        {Lower bounds for random 3-{SAT} via differential equations},
+  journal =      {Theoretical Computer Science},
+  year =         2001,
+  volume =       265,
+  pages =        {159-185},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{Goe1996,
+  author =       {Andreas Goerdt},
+  title =        {A threshold for unsatisfiability},
+  journal =      {Journal of Computer and System Sciences},
+  year =         {1996},
+  OPTkey =       {},
+  volume =       {53},
+  OPTnumber =    {},
+  pages =        {469-486},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Misc{Wi2002,
+  author =       {David Wilson},
+  month =        {February},
+  year =         2002,
+  note =         {Personal Communication},
+  annote =       {E-Brief vorhanden.}
+}
+
+@InProceedings{KMSTZ1996,
+  author =       {Scott Kirkpatrick and R{\'{e}}mi Monasson and Bart Selman and Lidror Troyansky and Ricardo Zecchina},
+  title =        {Phase transition and search cost in the $(2+p)$-{SAT} model},
+  booktitle =    {4th Workshop in Physics and Computation},
+  year =         1996,
+  address =      {Boston, MA},
+  annote =       {Die erste Version von \cite{KMSTZ1999}.}
+}
+
+@Unpublished{Mo2002,
+  author =       {R{\'{e}}mi Monasson},
+  title =        {Threshold phenomena and complexity: a statistical physics analysis of the random Satisfiability problem},
+  note =         {School on complexity, CIRM, Marseille, January 28 -  February 1, 2002},
+  annote =       {ps-Datei vorhanden. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Article{KS1994,
+  author =       {Scott Kirkpatrick and Bart Selman},
+  title =        {Critical Behaviour in the Satisfiability of Random Boolean Expressions},
+  journal =      {Science},
+  year =         1994,
+  volume =       264,
+  pages =        {1297-1301},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Unpublished{Ta1998a,
+  author =       {Michel Talagrand},
+  title =        {Spin Glasses: A New Direction for Probability Theory?},
+  note =         {Available from \url{http://www.math.ohio-state.edu/~talagran/}},
+  OPTkey =       {},
+  OPTmonth =     {},
+  OPTyear =      {},
+  OPTannote =    {}
+}
+
+@Article{Ta1998b,
+  author =       {Michel Talagrand},
+  title =        {Huge Random Structures and Mean Field Models for Spin Glasses},
+  journal =      {Documenta Mathematica, J. DMV},
+  year =         {1998},
+  OPTkey =       {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {},
+  OPTnote =      {Extra Volume ICM 1998},
+  OPTannote =    {}
+}
+
+@InProceedings{CR1992,
+  author =       {V. Chv{\'{a}}tal and Bruce Reed},
+  title =        {Mick gets some (the odds are on his side)},
+  booktitle =    {Proc. 33th Annual Symposium on Foundations of Computer Science (Pittsburgh, PA)},
+  pages =        {620-627},
+  year =         1992,
+  organization = {IEEE Comput. Soc. Press},
+  annote =       {}
+}
+
+% war Wil2002a
+@Article{Wilson2002CriticalExponents,
+  author =       {David Wilson},
+  title =        {On the Critical Exponents of Random $k$-{SAT}},
+  journal =      {Random Structures and Algorithms},
+  year =         2002,
+  volume =       21,
+  number =       2,
+  pages =        {182-195},
+  month =        {August},
+  annote =       {pdf-Datei vorhanden; auch die ps-Datei einer vorlaeufigen Version vorhanden (unter dem Titel "The empirical values for the critical $k$-{SAT} exponents are wrong"); siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Article{Fr2001,
+  author =       {John Franco},
+  title =        {Results related to threshold phenomena research in satisfiability: lower bounds},
+  journal =      {Theoretical Computer Science},
+  year =         2001,
+  volume =       265,
+  pages =        {147-157},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Article{FP1983,
+  author =       {John Franco and M. Paull},
+  title =        {Probabilistic analysis of the {D}avis-{P}utnam procedure for solving the satisfiability problem},
+  journal =      {Discrete Applied Math.},
+  year =         {1983},
+  OPTkey =       {},
+  volume =       {5},
+  OPTnumber =    {},
+  pages =        {77-87},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{CF1986,
+  author =       {M.-T. Chao and John Franco},
+  title =        {Probabilistic analysis of two heuristis for the 3-satisfiability problem},
+  journal =      {SIAM J. Comput.},
+  year =         {1986},
+  OPTkey =       {},
+  volume =       {15},
+  number =       {4},
+  pages =        {1106-1118},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{FS1996,
+  author =       {A.M. Frieze and S. Suen},
+  title =        {Analysis of two simple heuristics on a random instance of $k$-{SAT}},
+  journal =      {J. Algorithms},
+  year =         {1996},
+  OPTkey =       {},
+  volume =       {20},
+  number =       {2},
+  pages =        {312-355},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InProceedings{AS2000,
+  author =       {Dimitris Achlioptas and Gregory B. Sorkin},
+  title =        {Optimal myopic algorithms for random 3-{SAT}},
+  booktitle =    {41st Annual Symposium on Foundations of Computer Science},
+  pages =        {590-600},
+  year =         2000,
+  publisher = {IEEE Computer Society Press},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{Du2001,
+  author =       {Olivier Dubois},
+  title =        {Upper bounds on the satisfiability threshold},
+  journal =      {Theoretical Computer Science},
+  year =         2001,
+  volume =       265,
+  pages =        {187-197},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{Fr1986,
+  author =       {John Franco},
+  title =        {On the probabilistic performance of algorithms for the satisfiabilith problem},
+  journal =      {Information Processing Letters},
+  year =         {1986},
+  OPTkey =       {},
+  volume =       {23},
+  OPTnumber =    {},
+  pages =        {103-106},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{BBCKW2001,
+  author =       {B{\'{e}}la Bollob{\'{a}}s and Christian Borgs and Jennifer T. Chayes and Jeong Han Kim and David B. Wilson},
+  title =        {The scaling window of the 2-{SAT} transition},
+  journal =      {Random Structures and Algorithms},
+  year =         2001,
+  volume =       18,
+  number =       3,
+  pages =        {210-256},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{FW2002,
+  author =       {Alan Frieze and Nicholas C. Wormald},
+  title =        {Random $k$-{SAT}: A tight threshold for moderately growing $k$},
+  booktitle =    {Fifth International Symposium on Theory and Applications of Satisfiability Testing},
+  crossref =     {Cincinnati2002},
+  year =         2002,
+  OPTpages =     {},
+  OPTyear =      {},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  OPTannote =    {ps-Datei vorhanden.}
+}
+
+@InProceedings{CM2002,
+  author =       {Simona Cocco and R{\'{e}}mi Monasson},
+  title =        {Restart method and exponential acceleration of random 3-{SAT} instances resolution: a large deviation analysis of the {D}avis-{P}utnam-{L}oveland-{L}ogemann algorithm},
+  booktitle =    {Fifth International Symposium on Theory and Applications of Satisfiability Testing},
+  OPTcrossref =  {Cincinnati2002},
+  OPTkey =       {},
+  OPTpages =     {},
+  year =         {2002},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Article{CM2001,
+  author =       {Simona Cocco and R{\'{e}}mi Monasson},
+  title =        {Trajectories in phase diagrams, growth processes and computational complexity: how search algorithms solve the 3-{S}atisfiability problem},
+  journal =      {Phys. Rev. Lett.},
+  year =         {2001},
+  OPTkey =       {},
+  volume =       {86},
+  OPTnumber =    {},
+  pages =        {1654},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InProceedings{BFU1993,
+  author =       {Andrei Z. Broder and Alan M. Frieze and Eli Upfal},
+  title =        {On the Satisfiability and Maximum Satisfiability of Random 3-{CNF} Formulas},
+  booktitle =    {4th Annual ACM-SIAM Symposium on Discrete Algorithms},
+  pages =        {322-330},
+  year =         1993,
+  organization = {Association for Computing Machinery (ACM)},
+  annote =       {Kopie vorhanden. Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@TechReport{Mi1997,
+  author =       {Michael Mitzenmacher},
+  title =        {Tight Thresholds for The Pure Literal Rule},
+  institution =  {Systems Research Center},
+  year =         1997,
+  number =       {SRC Technical Note 1997-011},
+  address =      {130 Lytton Avenue, Palo Alto, California 94301, USA},
+  month =        {June},
+  annote =       {Datei vorhanden. Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@InProceedings{GHKRS2002,
+  author =       {Carla Gomes and Eric Horvitz and Henry Kautz and Yongshao Ruan and Bart Selman},
+  title =        {Dynamic Restart Policies},
+  booktitle =    {Proceedings of the Eighteenth National Conference on Artificial Intelligence},
+  year =         2002,
+  address =      {Edmonton, Alberta},
+  month =        {July},
+  publisher =    {AAAI Press},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@InProceedings{CGHKRS2002,
+  author =       {David Maxwell Chickering and Carla P. Gomes and Eric Horvitz and Henry Kautz and Yongshao Ruan and Bart Selman},
+  title =        {A Bayesian Approach to Tackling Hard Computational Problems},
+  booktitle =    {Proceedings of the Seventeenth Conference on Uncertainty and Artificial Intelligence},
+  pages =        {235-244},
+  year =         2001,
+  address =      {Seattle, WA},
+  month =        {August},
+  publisher =    {Morgan Kaufmann Publishers (San Francisco)},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Article{KS1996,
+  author =       {Scott Kirkpatrick and Bart Selman},
+  title =        {Critical behavior in the computational cost of satisfiability testing},
+  journal =      {Artificial Intelligence},
+  year =         {1996},
+  OPTkey =       {},
+  volume =       {81},
+  OPTnumber =    {},
+  pages =        {273-295},
+  OPTmonth =     {},
+  OPTnote =      {},
+  annote =       {Kopiert.}
+}
+
+ @InProceedings{GMPW1998,
+  author =       {Ian Gent and Ewan MacIntyre and Patrick Prosser and Toby Walsh},
+  title =        {The Scaling of Search Cost},
+  booktitle =    {Proceedings of AAAI-97},
+  pages =        {315-320},
+  year =         1997,
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Article{LMS1996,
+  author =       {Hector J. Levesque and David G. Mitchell and Bart Selman},
+  title =        {Generating hard satisfiability problems},
+  journal =      {Artificial Intelligence},
+  year =         1996,
+  volume =       81,
+  pages =        {17-29},
+  annote =       {Zeitschriften-Version von \cite{MSL92}.}
+}
+
+@Article{CH1996,
+  author =       {Scott H. Clearwater and Tad Hogg},
+  title =        {Problem structure heuristics and scaling behavior for genetic algorithms},
+  journal =      {Artificial Intelligence},
+  year =         {1996},
+  OPTkey =       {},
+  volume =       {81},
+  OPTnumber =    {},
+  pages =        {327-347},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{GW1996,
+  author =       {Ian P. Gent and Toby Walsh},
+  title =        {The satisfiability constraint gap},
+  journal =      {Artificial Intelligence},
+  year =         {1996},
+  OPTkey =       {},
+  volume =       {81},
+  OPTnumber =    {},
+  pages =        {59-80},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{BPP1989,
+  author =       {Khaled M. Bugrara and Y.F. Pan and Paul W. Purdom},
+  title =        {Exponential average time for the pure literal rule},
+  journal =      {SIAM Journal on Computing},
+  year =         {1989},
+  OPTkey =       {},
+  volume =       {18},
+  OPTnumber =    {},
+  pages =        {409-418},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{Pu1990,
+  author =       {Paul W. Purdom},
+  title =        {A Survey of Average Time Analysis of Satisfiability Algorithms},
+  journal =      {Journal of Information Processing},
+  year =         {1990},
+  OPTkey =       {},
+  volume =       {13},
+  OPTnumber =    {},
+  pages =        {449-455},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{HP1997,
+  author =       {G.N. Haven and Paul W. Purdom},
+  title =        {Probe order backtracking},
+  journal =      {SIAM Journal on Computing},
+  year =         {1997},
+  OPTkey =       {},
+  volume =       {26},
+  OPTnumber =    {},
+  pages =        {456-483},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{BP1981,
+  author =       {Cynthia A. Brown and Paul W. Purdom},
+  title =        {An Average Time Analysis of Backtracking},
+  journal =      {SIAM Journal on Computing},
+  year =         {1981},
+  OPTkey =       {},
+  volume =       {10},
+  OPTnumber =    {},
+  pages =        {583-593},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{BB1986,
+  author =       {Khaled M. Bugrara and Cynthia A. Brown},
+  title =        {The Average Case Analysis of Some Satisfiability Model Problems},
+  journal =      {Information Sciences},
+  year =         {1986},
+  OPTkey =       {},
+  OPTvolume =    {40},
+  OPTnumber =    {},
+  OPTpages =     {21-38},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{MMR1996,
+  author =       {Henri M. M{\'{e}}jean and Henri Morel and G{\'{e}}rard Reynaud},
+  title =        {A Variational Method for Analysing Unit Clause Search},
+  journal =      {SIAM Journal on Computing},
+  year =         1995,
+  volume =       24,
+  number =       3,
+  pages =        {621-649}
+}
+
+@Article{CoccoMonasson2004AverageCaseAnalysis,
+  author =       {Simona Cocco and R{\'{e}}mi Monasson},
+  title =        {Heuristic average-case analysis of the backtrack resolution of random 3-satisfiability instances},
+  journal =      {Theoretical Computer Science},
+  year =         2004,
+  volume =       320,
+  pages =        {345-372},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{CKT1991,
+  author =       {Peter Cheeseman and Bob Kanefsky and William M. Taylor},
+  title =        {Where the Really Hard Problems Are},
+  booktitle =    {Proceedings IJCAI-91},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  pages =        {163-169},
+  year =         {1991},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InProceedings{WilliamsGomesSelman2003BackdoorsHeavyTails,
+  author =       {Ryan Williams and Carla Gomes and Bart Selman},
+  title =        {On the connections between backdoors, restarts, and heavy-tailedness in combinatorial search},
+  booktitle =    {Sixth International Conference on Theory and Applications of Satisfiability Testing},
+  OPTcrossref =  {SantaMargherita2003},
+  OPTkey =       {},
+  pages =        {222-230},
+  year =         {2003},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+% war BraunsteinMezardZecchina2003SurveyProp
+@Article{BraunsteinMezardZecchina2005SurveyProp,
+  author =       {A. Braunstein and M. M{\'{e}}zard and R. Zecchina},
+  title =        {Survey propagation: An algorithm for satisfiability},
+  journal =      {Random Structures and Algorithms},
+  year =         2005,
+  volume =       27,
+  number =       2,
+  pages =        {201-226},
+  month =        {March},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{Goldberg1979AveragePolynomial,
+  author =       {A. Goldberg},
+  title =        {On the complexity of the satisfiability problem},
+  booktitle =    {4th Workshop on Automated Deduction (Austin, Texas)},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  pages =        {1-6},
+  year =         {1979},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  annote =       {Jener beruechtigte Polynomialzeit-Artikel.}
+}
+
+@InProceedings{Parisi2003ProbApproach,
+  author =       {Giorgio Parisi},
+  title =        {On the Probabilistic Approach to the Random Satisfiability Problem},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {203-213},
+  annote =               {pdf-Datei vorhanden.}
+}
+
+@InProceedings{BraunsteinZecchina2003SurveyPropagation,
+  author =       {Alfredo Braunstein and Riccardo Zecchina},
+  title =        {Survey and Belief Propagation on Random $K$-{SAT}},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {519-528},
+  annote =               {pdf-Datei vorhanden.}
+}
+
+@Unpublished{NudelmanDevkarHoosleytonbrown2004BeyondDensities,
+  author =       {Eugene Nudelman and Alex Devkar and Holger Hoos and Kevin Leyton-Brown},
+  title =        {Understanding random SAT: Beyond the clauses-to-variables ratio},
+  note =         {Under review},
+  year =         2004
+}
+
+@Unpublished{MaarenNorden2004Hornanteil,
+  author =       {Hans van Maaren and Linda van Norden},
+  title =        {Correlations between Horn fractions, satisfiability and solver performance for fixed density random {3-CNF} instances},
+  note =         {Gutachter-Exemplar (Endre Boros, Annals of Mathematics and Artificial Intelligence)},
+  year =         2004,
+  annote =       {pdf-Dateien vorhanden.}
+}
+
+@Article{AchlioptasPeres2003ThresholdNahe,
+  author =       {Dimitris Achlioptas and Yuval Peres},
+  title =        {The Threshold for Random $k$-{SAT} is {$2^k \log 2 - O(k)$}},
+  journal =      {Journal of the American Mathematical Society},
+  year =         2004,
+  volume =       17,
+  number =       4,
+  pages =        {947-973},
+  annote =       {pdf-Datei vorhanden.}
+}
+@Article{AchlioptasNaorPeres2005ThresholdNahe,
+  author =       {Dimitris Achlioptas and Assaf Naor and Yuval Peres},
+  title =        {Rigorous location of phase transitions in hard optimization problems},
+  journal =      {Nature},
+  year =         2005,
+  volume =       435,
+  pages =        {759-764},
+  month =        {June},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{AchlioptasMoore2005ZweiMomente,
+  author =       {Dimitris Achlioptas and Cristopher Moore},
+  title =        {Random $k$-{SAT}: Two Moments Suffice to Cross a Sharp Threshold},
+  journal =      {SIAM Journal on Computing},
+  year =         {to appear},
+  OPTkey =       {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {pdf-Datei vorhanden.}
+}
+
+@Unpublished{JiaMoore2004Backtracking,
+  author =       {Haixia Jia and Cristopher Moore},
+  title =        {How much backtracking does it take to color random graphs? {R}igorous results on heavy tails},
+  note =         {Available from \url{http://www.arxiv.org/abs/cond-mat/0412489}},
+  month =        {December},
+  year =         2004,
+  annote =       {ps-Datei vorhanden.}
+}
+
+@PhdThesis{Monson2004ZaehlenSAT,
+  author =       {R.C. Monson},
+  title =        {The Computer-Aided Verification of Mathematical Reasoning in Education and the Counting of Satisfiable Instances of $k$-{SAT}.},
+  school =       {School of Mathematics and Statistics, The University of Western Australia},
+  year =         2004,
+  month =        {February},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{Istrate2002PhasenuebergangHorn,
+  author =       {Gabriel Istrate},
+  title =        {The Phase Transition in Random {H}orn Satisfiability and Its Algorithmic Implications},
+  journal =      {Random Structures and Algorithms},
+  year =         2002,
+  volume =       20,
+  number =       4,
+  pages =        {483-506},
+  month =        {April},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{MertensMezardZecchina2005Schwellenwerte,
+  author =       {Stephan Mertens and Marc M{\'{e}}zard and Riccardo Zecchina},
+  title =        {Threshold Values of Random $K$-{SAT} from the Cavity Method},
+  journal =      {Random Structures and Algorithms},
+  year =         2006,
+  note =         {In press},
+  annote =       {pdf-Datei der Vorabversion vorhanden.}
+}
+
+@Article{MonassonZecchinaKirkpatrickSelmanTroyansky1999TypischerFall,
+  author =       {R{\'{e}}mi Monasson and Ricardo Zecchina and Scott Kirkpatrick and Bart Selman and Lidror Troyansky},
+  title =        {$(2+p)$-{SAT}: Relation of Typical-Case Complexity to the Nature of the Phase Transition},
+  journal =      {Random Structures and Algorithms},
+  year =         1999,
+  volume =       15,
+  number =       {3-4},
+  pages =        {414-435},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{Molloy2005PureLiterale,
+  author =       {Michel Molloy},
+  title =        {Cores in Random Hypergraphs and Boolean Formulas},
+  journal =      {Random Structures and Algorithms},
+  year =         2005,
+  volume =       27,
+  number =       1,
+  pages =        {124-135},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InCollection{PercusIstrateMoore2006ComplexityPhysicsIntroduction,
+  author =       {Allon G. Percus and Gabriel Istrate and Cristopher Moore},
+  title =        {Introduction: Where Statistical Physics Meets Computation},
+  booktitle =    {Computational Complexity and Statistical Physics},
+  crossref =     {PercusIstrateMoore2006ComplexityPhysics},
+  pages =        {3-24}
+}
+@Book{PercusIstrateMoore2006ComplexityPhysics,
+  editor =       {Allon G. Percus and Gabriel Istrate and Cristopher Moore},
+  title =        {Computational Complexity and Statistical Physics},
+  publisher =    {Oxford University Press},
+  year =         2006,
+  series =       {Santa Fe Institute Studies in the Sciences of Complexity},
+  note =         {ISBN 0-19-517738-X; QA267.7.C683},
+  annote =       {Vorhanden.}
+}
+
+@Article{XuLi2006Phasenuebergang,
+  author =       {Ke Xu and Wei Li},
+  title =        {Many hard examples in exact phase transitions},
+  journal =      {Theoretical Computer Science},
+  year =         2006,
+  volume =       355,
+  pages =        {291-302},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@PhdThesis{Maneva2006Ansichtsausbreitung,
+  author =       {Elitza Nikolaeva Maneva},
+  title =        {Belief propagation algorithms for constraint satisfaction problems},
+  school =       {University of California, Berkeley},
+  year =         2006,
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{Papadimitriou1991RandomWalk,
+  author =       {Christos H. Papadimitriou},
+  title =        {On selecting a satisfying truth assignment (extended abstract)},
+  booktitle =    {Proceedings of the 32nd annual symposium on Foundations of computer science  },
+  pages =        {163-169},
+  year =         1991,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Unpublished{ArdilaManeva2007SatKonvex,
+  author =       {Federico Ardila and Elitza Maneva},
+  title =        {Convex geometries in k-{SAT} problems},
+  note =         {arXiv:0706.3750v2 [math.CO]},
+  month =        {June},
+  year =         2007,
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{TompkinsHoos2004Ubcsat,
+  author =       {Dave A.D. Tompkins and Holger H. Hoos},
+  title =        {{UBCSAT}: An Implementation and Experimentation Environment for {SLS} Algorithms for {SAT} and {MAX-SAT}},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2004},
+  crossref =     {Vancouver2004b},
+  pages =        {306-320},
+  annote =       {Pdf-Datei vorhanden, muss aber noch umbenannt werden.}
+}
+
+@InProceedings{HsuMcIlraith2006Propagation,
+  author =       {Eric I. Hsu and Sheila A. McIlraith},
+  title =        {Characterizing Propagation Methods for Boolean Satisfiability},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2006},
+  crossref =     {Seattle2006},
+  pages =        {325-338},
+  annote =       {Pdf-Datei zu besorgen.}
+}
+
+@Article{DeroulersMonasson2006UP,
+  author =       {C. Deroulers and R. Monasson},
+  title =        {Criticality and universality in the unit-propagation search rule},
+  journal =      {The European Physical Journal B},
+  year =         2006,
+  volume =       49,
+  pages =        {339-369},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Franco1991InfrequentVariables,
+  author =       {John Franco},
+  title =        {Elimination Of Infrequent Variables Improves Average Case Performance Of Satisfiability Algorithms},
+  journal =      {SIAM Journal on Computing},
+  year =         1991,
+  volume =       20,
+  number =       6,
+  pages =        {1119-1127},
+  annote =       {Vorabdruck vorhanden.}
+}
+
+@Article{CojaOghlanGoerdtLanka2007RandRef,
+  author =       {Amin Coja-Oghlan and Andreas Goerdt and Andre Lanka},
+  title =        {Strong Refutation Heuristics for Random $k$-{SAT}},
+  journal =      {Combinatorics, Probability and Computing},
+  year =         2007,
+  volume =       16,
+  number =       1,
+  pages =        {5-28},
+  month =        {January},
+  annote =       {Pdf-Vorabdruck vorhanden.}
+}
+
+@TechReport{WuZhouAlavaAurellOrponen2013RandRef,
+  author =       {Lu-Lu Wu and Hai-Jun Zhou and Mikko Alava and Erik Aurell and Pekka Orponen},
+  title =        {Witness of unsatisfiability for a random 3-satisfiability formula},
+  institution =  {arXiv},
+  year =         2013,
+  number =       {arXiv:1303.2413 [cs.CC]},
+  month =        {March},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Unpublished{Tzameret2013RandRef,
+  author =       {Iddo Tzameret},
+  title =        {On Sparser Random {3SAT} Refutation Algorithms and Feasible Interpolation},
+  note =         {NICHT ZUR VEROEFFENTLICHUNG.},
+  month =        {May},
+  year =         2013,
+  annote =       {Gutachterexamplar fuer CSL2013.}
+}
+
+@Article{Chao2015SLUR,
+  author =       {D. Chao},
+  title =        {The {H}orn renamability, q-{H}orn and {SLUR} threshold for random $k$-{CNF} formulas},
+  journal =      {Discrete Applied Mathematics},
+  year =         {2015},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {},
+  note =      {In press},
+  doi =          {10.1016/j.dam.2014.12.014},
+  annote =    {Pdf vorhanden.}
+}

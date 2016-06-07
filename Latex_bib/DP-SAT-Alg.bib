@@ -1,0 +1,1401 @@
+% Abschnitte (Sections):
+% - Extended Resolution
+% - Cube and Conquer
+
+@InProceedings{BE95,
+  author =       "Richard Beigel and David Eppstein",
+  title =        "3-Coloring in time {$O(1.3446^n)$}: a no-{MIS} algorithm",
+  pages =        "444-452",
+  booktitle =    "36th Symposium on Foundations of Computer Science
+                  (FOCS' 95)",
+  year =         1995,
+  annote =       "Kopiert."
+}
+@Article{BeigelEppstein2005Coloring,
+  author =       {Richard Beigel and David Eppstein},
+  title =        {3-coloring in time {$O(1.3289 n)$}},
+  journal =      {Journal of Algorithms},
+  year =         2005,
+  volume =       54,
+  number =       2,
+  pages =        {168-2004},
+  month =        {February},
+  annote =       {Zeitschriftenversion von \cite{BE95}. PDF-Datei vorhanden.}
+}
+
+@Article{CA96,
+  author =       {James M. Crawford and Larry D. Auton},
+  title =        {Experimental Results on the Crossover Point in Random {3SAT}},
+  journal =      {Artificial Intelligence},
+  year =         1996,
+  volume =       81,
+  number =       {1-2},
+  pages =        {31-57},
+  month =        {April},
+  annote =       {Vorhanden als ps-Datei. Siehe Bearbeitung in SATAlg im Ordner Genauer.}
+}
+
+@Unpublished{DGHK98,
+  author =       "Evgeny Dantsin and Michael Gavrilovich and Edward Hirsch and Boris Konev",
+  title =        "Approximation algorithms for {MAX SAT}: a better
+                  performance ratio at the cost of a longer running time",
+  note =         "Preprint; \url{http://logic.pdmi.ras.ru/~hirsch/index.html}",
+  year =         1998,
+  annote =       "Vorhanden. "
+}
+
+@Article{DLL62,
+  author =       "Martin Davis and George Logemann and Donald Loveland",
+  title =        "A machine program for theorem-proving",
+  journal =      "Communications of the ACM",
+  year =         1962,
+  volume =       5,
+  number =       7,
+  month =        {July},
+  pages =        "394-397",
+  doi =          {10.1145/368273.368557},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{DP60,
+  author =       "Martin Davis and Hilary Putnam",
+  title =        "A Computing procedure for quantification theory",
+  journal =      "Journal of the ACM",
+  year =         1960,
+  volume =       7,
+  number =       3,
+  pages =        "201-215",
+  doi =          {doi.acm.org/10.1145/321033.321034},
+  annote =       "Zuerst wird die Reduktion nach KNF besprochen (unter
+                  Benutzung von direkter, schubweiser Substitution).
+                  Dann der Algorithmus fuer KNF's mit drei Regeln:
+
+                  1. 1-Klauseln-Elimination
+
+                  2.  Elimination purer Literale
+                  (``affirmative-negative rule'')
+                  (die erste Anwendung dieser Regel scheint in einem
+                  Artikel von Paris, 1959: Dunham, Frisdal, Sward, A
+                  nonheuristic program for proving elementary logical
+                  theorems, vorzuliegen)
+
+                  3. Das ``Ausmultiplizieren'' (es wird die erste
+                  Variable aus der ersten Klausel minimaler Laenge
+                  gewaehlt, und tautologische Klauseln werden
+                  eliminiert)."
+}
+
+@Article{Da83,
+  author =       "Evgeny Y. Dantsin",
+  title =        "Two systems for proving tautologies, based on the
+                  split method",
+  journal =      "Journal Soviet Math.",
+  year =         1983,
+  volume =       22,
+  pages =        "1293-1305",
+  annote =       "Vorhanden."
+}
+
+@Article{Du91,
+  author =       "Olivier Dubois",
+  title =        "Counting the number of solutions for instances of satisfiability",
+  journal =      "Theoretical Computer Science",
+  year =         1991,
+  volume =       81,
+  pages =        "49-64",
+  annote =       "(Es wird eine Quelle angegeben, wo ``unique SAT'' fuer
+                  2-CNF in $O(k)$ entschieden wird. (Eine einfache
+                  Methode ist, zuerst auf Erfuellbarkeit zu testen,
+                  und dann im positiven Falle alle $n$ Variablen
+                  mittels Flippen auf Kritizitaet zu testen.))
+
+                  ``Independent clauses'' werden eingefuehrt: Es gibt
+                  komplementaere Literale. Fuer unabhaengige Klauseln
+                  kann die Anzahl erfuellender Belegungen leicht
+                  berechnet werden.
+
+                  Unter Verwendung von $NBS(F)$ fuer die Anzahl der
+                  erfuellenden Belegungen von $F$ und der Formel
+
+                  $NBS(F_1 \und F_2) = NBS(F_1) + NBS(F_2) -
+                                       NBS(F_1 \oder F_2)$
+
+                  wird eine allgemeine Formel fuer $NBS$ angegeben
+                  (eine offensichtliche Form der
+                  ``Ein-Ausschalt-Formel'').
+
+                  Falls $\sum_{C \in F} 2^{-|C|} < 1$, so ist $F$
+                  erfuellbar.
+
+                  Es werden zwei Prozeduren zur
+                  ``Unabhaengig-Machung'' vorgestellt:
+
+                  -- Die erste macht die Klauseln der gegebenen
+                  Klauselmenge sukzessive unabhaengig voneinander, und
+                  produziert so eine monotone konvergente Folge oberer
+                  Schranken fuer die Anzahl der Loesungen.
+
+                  -- Die zweite macht die leere Klausel sukzessive
+                  unabhaengig von den gegebenen, und produziert so
+                  eine monotone konvergente Folge unterer Schranken.
+
+                  Fuer beide Prozeduren ergibt sich als Zeit-Schranke
+                  gerade die Zeit-Schranke $\tau(1, \ldots, p)^n$ fuer
+                  $p$-CNF --- was kein Wunder ist, da die
+                  Unabhaengigmachung in beiden Formen ganz analog zur
+                  Verzweigung ueber einer Klausel der Laenge $p$ in
+                  $p$ Teilprobleme gehandhabt wird.
+                  (Sukzessives Anfuegen von eben diesen
+                  unerfuellbaren Horn-Formeln
+                  $\{x_1\}, \{\ol{x_1}, x_2\}, ...$ fuer die bisher
+                  noch nicht betrachteten Literale $\ol{x_1}, \ldots$
+                  einer Klausel, von der die anderen Klauseln (an die
+                  angefuegt wird) unabhaengig zu
+                  machen sind.)
+
+                  (Jener (elementare) Algorithmus mittels Verzweigung
+                  ergibt auch direkt eine Zaehlung der Loesungen mit der
+                  gewuenschten Komplexitaet, wobei die
+                  Platz-Komplexitaet polynomial bleibt, wohl im
+                  Gegensatz zum Vorgehen in diesem Artikel!)
+
+                  Schliesslich vergleicht er noch experimentelle
+                  Ergebnisse mit von ihm erzielten theoretischen
+                  Resultaten und bemerkt Uebereinstimmung.
+
+                  Wohl nichts interessantes hierin."
+}
+
+@PhdThesis{Free95,
+  author =       "Jon William Freeman",
+  title =        "Improvements to propositional satisfiability search algorithms",
+  school =       "University of Pennsylvania",
+  year =         1995,
+  annote =       "Vorhanden."
+}
+
+@Article{GU89,
+  author =       "Giorgio Gallo and Giampaolo Urbani",
+  title =        "Algorithms for testing the satisfiability of propositional formulae",
+  journal =      "Journal of Logic Programming",
+  year =         1989,
+  volume =       7,
+  pages =        "45-61",
+  annote =       "In Kap.3 wird der ``Davis-Putnam-Algorithmus'' (DPL)
+                  eingefuehrt, aber ohne jede Heuristik.
+
+                  Dann werden zwei Verzweigungs-Schemata besprochen:
+
+                  -- \cite{Pur84}
+
+                  -- \cite{MoSp85}.
+
+                  Das Purdom-Schema wird wiedergegeben:
+
+                  Zum zweiten Zweig wird die Bedingung hinzugefuegt,
+                  dass mindestens eine der gekuerzten Klauseln, die im ersten
+                  Zweig entstanden, nun nicht erfuellt wird.
+
+                  Als Spezialfall wird genannt, dass die
+                  Verzweigungsvariable in einem Vorzeichen nur einmal
+                  vorkommt.
+
+                  Ein ganzes Kapitel wird auf einen
+                  Linear-Zeit-Algorithmus fuer Horn-SAT verschwendet,
+                  wobei als Vergleichsalgorithmus ``Unit Resolution''
+                  (UR) verwendet wird, der einfach als quadratisch
+                  gesetzt wird (womit natuerlich der eigene
+                  Algorithmus glaenzend dasteht).
+
+                  [Die zwei Quellen fuer Nicht-Linearitaet in QR sind:
+
+                  1. Suche nach 1-Klauseln
+
+                  Dies kann natuerlich dadurch behandelt werden, dass
+                  anfaenglich eine Tabelle der 1-Klauseln erstellt
+                  wird, in die weitere 1-Klauseln zum Zeitpunkt des
+                  Entstehens (Suche ist also nicht noetig) eingetragen
+                  werden.
+
+                  So haben wir schon Linearzeit (gesetzt, die
+                  Variablen-Vorkommen werden ueber Zeiger erreicht),
+                  wenn die maximale Klauselnlaenge als konstant
+                  gesetzt wird.
+
+                  2. Suche in den Klauseln, ob die Klausel schon
+                  erfuellt wurde oder eine 1-Klausel geworden ist.
+
+                  Hierfuer legen wir einfach eine Tabelle an, die fuer
+                  jede Klausel (bzw. ihre Nummer) ihre aktuelle Laenge
+                  enthaelt (0 falls erfuellt): Nur falls die Laenge 2
+                  vorliegt, und ein weiteres Literal gekuerzt wird,
+                  muessen wir ueber die Klausel laufen, um die neue
+                  1-Klausel in die Liste einzutragen.
+                  (Beim Eintragen wird auf Inkonsistenz geprueft.)]
+
+                  Kapitel 5: Horn relaxations of SAT
+
+                  Eine Relaxation ist eine Transformation eines
+                  Entscheidungsproblems in ein anderes, so dass
+                  Zugehoerigkeit zur Sprache erhalten bleibt.
+
+                  Die triviale Relaxation von SAT nach HORN-SAT ist
+                  das Weglassen der Nicht-Horn-Klauseln. Hier wird
+                  dies ``verfeinert'' durch Aufspalten einer
+                  Nicht-Horn-Klausel in zwei Klauseln, wobei das
+                  positive Vorkommen der neuen Variablen den
+                  negativen Literalen zugeschlagen wird (die
+                  Relaxation besteht dann aus den alten Horn-Klauseln
+                  plus den Horn-Teilen der ehemaligen
+                  Nicht-Horn-Klauseln). Es besteht in der Tat kein
+                  Unterschied (!) zur trivialen Transformation.
+
+                  Der folgende SAT-Algorithmus wird vorgeschlagen:
+
+                  1. Loese den Horn-Teil der obigen Relaxation.
+
+                  2. Falls dieser Teil schon unerfuellbar ist, so
+                  fertig.
+
+                  3. Falls die (kanonische) erfuellende Belegung (das
+                  ``Durchschnitts-Modell'') die ganze Formel erfuellt,
+                  so fertig.
+
+                  4. Verzweige a-la Monien-Speckenmeyer auf einer
+                  kuerzesten Nicht-Horn-Klausel, die nicht von der
+                  erfuellenden Belegung fuer den Horn-Teil erfuellt
+                  wird.
+
+                  Hm. Ist da was dran??
+
+                  Es wird dann die Beobachtung gemacht, dass dieser
+                  Algorithmus polynomial [in der Tat linear] auf der
+                  Klasse der Klauselmengen mit fest beschraenkter
+                  Anzahl von Nicht-Horn-Klauselmengen laeuft, anders
+                  als DPL. Ist dies wahr??
+
+                  Experimente:
+
+                  Es wird (im wesentlichen) obiger Algorithmus mit
+                  DPL (ohne Auswahl-Kriterium(!)) plus die beiden
+                  Varianten von DPL ``a la'' [Purdom] (falls eine
+                  Variable in einem Vorzeichen nur einmal vorkommt, so
+                  verzweige nach dieser, und addiere im zweiten Zeig
+                  die zusaetzlichen Belegungen), und a la [MoSp].
+                  Beispiele sind zufaelliges 3-CNF (mit (n = 10, k =
+                  50), ..., (n = 50, k = 200) (Quotient stetig
+                  fallend(?))), und zufaelligem (1-7)-CNF (alle
+                  Klausellaengen von 1 - 7 gleich wahrscheinlich).
+
+                  Es werden nur die Rechenzeiten betrachtet(!), und hier
+                  ``outperforms'' (natuerlich(!)) obiger Algorithmus
+                  die anderen (maximal um den Faktor 3).
+
+                  Dies liegt wohl an der trivialen Wahl der
+                  DPL-Vertreter (schlechte Auswahl, und schlechtere
+                  Datenstruktur zur Behandlung von
+                  1-Klauseln-Elimination (wohl entscheident!)).
+
+                  Der ganze Artikel ist ein Skandal."
+}
+
+@InProceedings{GeTs96,
+  author =       {Allen Van Gelder and Yumi K. Tsuji},
+  title =        {Satisfiability Testing with More Reasoning and Less Guessing},
+  booktitle =    {Cliques, Coloring, and Satisfiability},
+  crossref =     {DIM93},
+  pages =        {559-586},
+  annote =       {Vorhanden (als ps-datei). Siehe Besprechung in "SATAlg" im Ordner "Genauer"}
+}
+
+@Article{Hi95,
+  author =       "Edward Hirsch",
+  title =        "A Fast Deterministic Algorithm for Formulas That Have Many Satisfying Assignments",
+  journal =      "Logic Journal of the IGPL",
+  year =         1998,
+  volume =       6,
+  number =       1,
+  pages =        "59-71",
+  annote =       "Vorhanden als ps-Datei.
+
+                  Es wird gezeigt, dass fuer die Klasse von p-CNF,
+                  fuer die ein fester Anteil der Belegungen die Formel
+                  erfuellt, ein Linear-Zeit-Algorithmus existiert,
+                  der eine erfuellende Belegung auch findet.
+                  Alle solche Formeln haben notwendigerweise kurze
+                  erfuellende Belegungen.
+                  Der Algorithmus ist der einfache ``Testen einer
+                  kuerzesten Klausel'', aber mit Breitensuche."
+}
+
+@InProceedings{Hi97,
+  author =       "Edward Hirsch",
+  title =        "Two new upper bounds for {SAT}",
+  pages =        "521-530",
+  booktitle =    "Proceedings SODA'98",
+  year =         1998,
+  annote =       "Vorhanden.
+                  Es werden die beiden neuen oberen Schranken
+                  $\tau(6,7,6,7)^K = 2^{0.3089.. \cdot K}$ und
+                  $\tau(9,10)^L = 2^{0.1053.. \cdot L}$ fuer SAT
+                  bewiesen, wobei $K$ die Anzahl der Klauseln und $L$
+                  die Anzahl der Literalvorkommen ist.
+
+                  Ein neues Hilfsmittel ist das sogenannte ``property
+                  principle'': Waehrend sich das ``generalized sign
+                  principle'' daraus ergibt, wann die partielle
+                  Belegung $\langle l \ra 0 : P(l, F) \rangle$ fuer
+                  fest vorgegebene Eigenschaft $P$ eine
+                  erfuellende Belegung ist, ist das ``property
+                  principle'' die ausformulierte Bedingung, dass jene
+                  Belegung eine autarke sein soll.
+
+                  Die Algorithmen sind Verfeinerungen der
+                  entsprechenden Algorithmen aus \cite{KuLu97}.
+                  Die Anwendung des ``property principle'' ist wohl
+                  (zumindest im Prinzip) entbehrlich."
+}
+
+@Unpublished{Hi98,
+  author =       "Edward Hirsch",
+  title =        "Separating signs in the propositional satisfiability
+                  problem",
+  note =         "Preprint; \url{http://logic.pdmi.ras.ru/~hirsch/index.html}",
+  year =         1998
+}
+
+@Article{HoVi95,
+  author =       "John N. Hooker and V. Vinay",
+  title =        "Branching rules for satisfiability",
+  journal =      "Journal of Automated Reasoning",
+  year =         1995,
+  volume =       15,
+  pages =        "359-383",
+  annote =       "Pdf-Datei vorhanden."
+}
+
+@Article{Hooker1995TestingHeuristics,
+  author =       {John N. Hooker},
+  title =        {Testing Heuristics: We Have It All Wrong},
+  journal =      {Journal of Heuristics},
+  year =         1995,
+  volume =       1,
+  number =       1,
+  pages =        {33-42},
+  month =        {September},
+  annote =       {Pdf-Vorversion vorhanden.}
+}
+
+@MastersThesis{Le97,
+  author =       "Marc-Andr{\'e} Lemburg",
+  title =        "{Methoden zur L{\"o}sung von Formeln der Aussagenlogik in reiner Implikations- und konjunktiver Normalform}",
+  school =       "Heinrich Heine-Universit{\"a}t D{\"u}sseldorf",
+  year =         1997,
+  annote =       "Vorhanden.
+
+                  2 Themen: Formeln in reiner Implikations-Form, und
+                  der Algorithmus aus \cite{MoSp85}.
+
+                  Formeln in reiner Implikations-Form: Es werden die
+                  bekannten Resultate ueber polynomial-loesbare
+                  Klassen besprochen, einige neue Klassen eingefuehrt,
+                  und ein SAT-Algorithmus analysiert.
+
+                  Der Algorithmus aus \cite{MoSp85}: Es wird fuer
+                  3-CNF bewiesen, dass die obere Schranke auch scharf
+                  ist (allerdings nur fuer eine feste Reihenfolge des
+                  Testens der Literale einer (kuerzesten) Klausel).
+                  Und fuer 2-CNF wird eine untere Schranke $2^{n/3}$
+                  bewiesen (``lexikografische Anordnung der Klauseln'').
+                  Schliesslich wird der Autarkie-Test auf die mittels
+                  1-Klauseln-Huelle erweiterten Test-Belegungen
+                  angewandt, was 2-CNF polynomial entscheidet.
+
+                  Die ``schwere'' Formel aus 3-CNF:
+
+                  \[ \{ \{x_1, x_2\},
+
+                      \{ \ol{x_1}, x_2, x_3\},
+                      \{ x_1, x_3, x_4\},
+
+                      \{ \ol{x_2}, x_3, x_4\},
+                      \{ x_2, x_4, x_5\},
+
+                      \mbox{usw.; abschliessend eine volle CNF ueber
+                            drei (neuen) Variablen}
+                     \}
+                  \]
+
+                  Der Algorithmus testet $\{x_1,x_2\}$ mit
+                  $x_1 = 1; x_1 = 0, x_2 = 1$, was immerzu den
+                  gleichen Formelntyp reproduziert
+                  (``Resolutionsbaum-Interpretation'' wuerde dies
+                  erkennen).
+
+                  So entsteht tatsaechlich das Wachstum $1.618..^n$.
+                  Allerdings nicht bei ``beliebiger'' Wahl der
+                  Reihenfolge (d.h.~nicht bei $x_2 = 1; x_2 = 0, x_1 =
+                  1$). So bleibt also offen, ob bei
+                  nicht-deterministischer (d.h.~bester) Wahl auch
+                  dieses Maximal-Wachstum zu erreichen ist.
+
+                  Fuer die ``schwere'' Formel aus 2-CNF wird eine
+                  bestimmte Wahl der 2-Klausel vorgeschrieben
+                  (``lexikografische Ordnung''), so dass sich ebenso
+                  der Formelntyp staendig reproduzieren muss, und der
+                  triviale Widerspruch (eine volle 2-CNF in zwei
+                  Variablen) erst ``am Ende'' erkannt wird, da diese
+                  Variablen die letzten in der Ordnung sind."
+}
+
+@InProceedings{Lu84,
+  author =       "Horst Luckhardt",
+  title =        "{O}bere {K}omplexit{\"a}ts\-schranken f{\"u}r {TAUT}-{E}ntschei\-dun\-gen",
+  pages =        "331--337",
+  booktitle =    "Frege Conference 1984, Schwerin",
+  year =         1984,
+  publisher =    "Akademie-Verlag Berlin",
+  annote =       "Kopiert."
+}
+
+@InProceedings{Maa96,
+  author =       "Hans van Maaren",
+  title =        "On the use of second order derivatives for the satisfiability problem",
+  crossref =     "DIM96"
+}
+
+@Article{MaaWa98,
+  author =       {Hans van Maaren and Joost Warners},
+  title =        {Solving satisfiability problems using elliptic approximations -- Effective branching rules},
+  journal =      {Discrete Applied Mathematics},
+  year =         2000,
+  volume =       107,
+  pages =        {241-259},
+  annote =       {Ps-Datei vorhanden.}
+}
+
+@TechReport{MoSp79,
+  author =       "B. Monien and Ewald Speckenmeyer",
+  title =        "3-satisfiability is testable in {$O(1.62^r)$} steps",
+  institution =  "Universit{\"a}t-Gesamthochschule-Paderborn",
+  year =         1979,
+  number =       "Bericht Nr. 3/1979",
+  note =         "Reihe Theoretische Informatik",
+  annote =       "Kopiert."
+}
+
+@TechReport{MoSp80,
+  author =       "B. Monien and Ewald Speckenmeyer",
+  title =        "Upper bounds for covering problems",
+  institution =  "Universit{\"a}t-Gesamthochschule-Paderborn",
+  year =         1980,
+  number =       "Bericht Nr. 7/1980",
+  note =         "Reihe Theoretische Informatik",
+  annote =       "Kopiert."
+}
+
+@Article{MoSp85,
+  author =       "B. Monien and Ewald Speckenmeyer",
+  title =        "Solving satisfiability in less than $2^n$ steps",
+  journal =      "Discrete Applied Mathematics",
+  year =         1985,
+  volume =       10,
+  number =       3,
+  pages =        "287-295",
+  month =        {March},
+  doi =          {10.1016/0166-218X(85)90050-2},
+  annote =       "Pdf vorhanden. Einfuehrung des Autarkie-Konzeptes, Beweis
+                  der Schranke $O(|F| * \alpha^n)$ mit $\alpha =
+                  \tau(1, ..., k - 1)$ fuer $F \in k\mbox{-KNF}$ und
+                  $k \ge 3$ (uebliche Benutzung von
+                  Rekursionsgleichungen usw.) . "
+}
+
+@InProceedings{PPZ97,
+  author =       "Ramamohan Paturi and Pavel Pudlak and Francis Zane",
+  title =        "Satisfiability Coding Lemma",
+  pages =        "566-574",
+  booktitle =    "Proc. 38th Annual Symp. Foundations of Computer
+                  Science (FOCS 97)",
+  year =         1997,
+  annote =       "{Kopiert. Auch als ps-Datei vorhanden.
+                  Eine ausfuehrliche Bearbeitung ist dem Artikel beigelegt.}"
+}
+
+@Article{Pur84,
+  author =       "Paul W. Purdom",
+  title =        "Solving Satisfiability with Less Searching",
+  journal =      "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+  year =         1984,
+  volume =       6,
+  number =       4,
+  pages =        "510-513",
+  annote =       "Kopiert."
+}
+
+@Unpublished{RoSch97,
+  author =       {Robert Rodosek and Ingo Schiermeyer},
+  title =        {Binary Decisions for Solving 3-Satisfiability Problems},
+  note =         {Erhalten von Francis Zane/Toni Pitassi auf FOCS'99},
+  month =        {August},
+  year =         1997,
+  annote =       {Schlicht falsch. Aus Lemma 2 wuerde die Schranke 1.415^n zur 3-SAT-Entscheidung fast direkt folgen (der Rest ist einfacher Standard), und dieses Lemma behauptet mittels einfacher Reduktionen (die fortgeschrittenste Reduktion eliminiert eine 2-Klausel {x, y}, wenn sowohl x als auch y nur einmal vorkommen (schon dies ist Unsinn --- einfaches x-Vorkommen reicht)) zu erreichen, dass zu jeder 2-Klausel {x,y} eine 3-Klausel {non x, non y, z} existiert, was (natuerlich) sehr stark waere --- sie scheinen einfach uebersehen zu haben (wollten uebersehen(!)), dass ja noch ein zweites x-Vorkommen in einer 3-Klausel existieren kann.}
+}
+
+@TechReport{SaSi96,
+  author =       "Joao P. Marques Silva and Karem A. Sakallah",
+  title =        "{GRASP}---A New Search Algorithm for Satisfiability",
+  institution =  "University of Michigan, Department of Electrical Engineering and Computer Science",
+  year =         1996,
+  number =       "CSE-TR-292-96",
+  annote =       "Vorhanden.
+
+                  Der DPLL-Algorithmus wird mit einer ``Konflikt-Diagnose'' versehen:
+
+                  1. ``Failure-Driven Assertions'': Dies ist wohl
+                  gerade ``meine'' verallgemeinerte
+                  1-Klauseln-Elimination, wobei jedoch (anscheinend)
+                  nicht systematisch danach gesucht wird (kein ``look-ahead'').
+
+                  2. ``Conflict-Directed Backtracking'': Dies sollte
+                  gerade den Beschneidungen des Such-Baumes
+                  entsprechen, wenn der zugehoerige Resolutions-Baum
+                  konstruiert wird.
+
+                     Die abgeleiteten Resolventen werden der
+                  Klauselmenge zugefuegt, wenn ihre Laenge eine
+                  vorgegebene Laenge nicht ueberschreitet (ohne
+                  Einschraenkung erhielten wird so volle Resolution).
+
+                  (Ganz klar ist es mir nicht, ob tatsaechlich das
+                  zugrundeliegende Konzept des Resolutionsbaumes
+                  (von den Autoren nicht als solches erkannt) voll
+                  realisiert wird, oder doch nur ein Teil:
+                  Auf S. 11 ist von moeglichen ``stronger implicates''
+                  die Rede ?!
+
+                  Die experimentellen Resultate zeigen, dass auf
+                  vielen DIMACS-Beispielen drastische Einsparungen
+                  erreicht werden."
+}
+@InProceedings{MarquesSilvaSakallah1996GRASP,
+  author =       {Joao P. Marques Silva and Karem A. Sakallah},
+  title =        {{GRASP}---A New Search Algorithm for Satisfiability},
+  booktitle =    {Proceedings of the International Conference on Computer-Aided Design},
+  pages =        {220-227},
+  year =         1996,
+  month =        {November},
+  annote =       {}
+}
+@Article{MarquesSilvaSakallah1999GRASP,
+  author =       {Joao P. Marques Silva and Karem A. Sakallah},
+  title =        {{GRASP}: A Search Algorithm for Propositional Satisfiability},
+  journal =      {IEEE Transactions on Computers},
+  year =         1999,
+  volume =       48,
+  number =       5,
+  pages =        {506-521},
+  month =        {May}
+}
+
+@InProceedings{Sch92,
+  author =       "Ingo Schiermeyer",
+  title =        "Solving 3-satisfiability in less than $1.579^n$ steps",
+  volume =       702,
+  series =       "Lecture Notes Computer Science",
+  pages =        "379-394",
+  booktitle =    "Selected papers from Computer Science Logic '92",
+  year =         1992,
+  annote =       "Vorhanden."
+}
+
+@InProceedings{Sch96,
+  author =       "Ingo Schiermeyer",
+  title =        "Pure literal look ahead: An {$O(1,497^n)$}
+                  3-satisfiability algorithm",
+  pages =        "127-136",
+  crossref =     "Siena96",
+  note =         "Extended abstract"
+}
+
+@InProceedings{Wa96,
+  author =       "Jinchang Wang",
+  title =        "Branching Rules for Propositional Satisfiability Test",
+  crossref =     "DIM96",
+  pages =        "351-364",
+  annote =       "Vorhanden.
+                  Unter dem Gewicht $W(F)$ einer Klauselmenge $F$ wird
+
+                      $ W(F) := \sum_{C \in F} 2^{-|C|}$
+
+                  verstanden.
+
+                  $W(F) \cdot 2^n$ ist eine obere Schranke fuer die
+                  Anzahl falsifizierender Belegungen
+                  (Disjunktheits-Annahme). Falls $W(F) < 1$, so ist
+                  $F$ erfuellbar.
+
+                  Also sollte man auf der Suche nach erfuellenden
+                  Belegungen $W(F)$ zu minimieren suchen.
+
+                  Die ``1st-order branching rule'' (jene JW-rule)
+                  sucht nun einfach ein Literal $l$ mit
+
+                      $W( \langle l \ra 1 \rangle * F)$ minimal,
+
+                  und verzweigt dann mit $l \ra 1, l \ra 0$.
+                  Das Auswahlkriterium ist gleichbedeutend mit
+
+                     maximiere $W(F_l) - W(F_{\ol{l}})$
+                     $F_l := \{ C \in F : l \in C \}$.
+
+                  Der Autor schlaegt nun einfach vor, dies mit der
+                  Auswahlregel
+
+                     maximiere $\#_{\ol{l}}^2(F)$
+
+                  (die Anzahl der unmittelbar durch 1-Kl.-Elim. frei werdenden
+                  Variablen) durch Benutzung eines Gewichtes $\alpha$
+                  zu kombinieren:
+
+                  Waehle ein Literal $l$ mit
+
+                     $W(F_l) - W(F_{\ol{l}}) +
+                      \alpha \cdot \#_{\ol{l}}^2(F)$ maximal.
+
+                  Fuer $\alpha$ wird nach Experimenten ein Wert von
+                  0.2 bis 0.35 vorgeschlagen.
+
+                  Ich glaube ja, dass hier Aepfel mit Birnen
+                  zusammengeworfen werden, und ein weiterer
+                  entscheidender Mangel ist die ``Einseitigkeit''!"
+}
+
+@InProceedings{Z97,
+  author =       "Hantao Zhang",
+  title =        "{SATO}: an Efficient Propositional Prover",
+  booktitle =    "Proc. of International Conference on Automated
+                  Deduction (CADE-97)",
+  year =         1997,
+  annote =       "Vorhanden. Kommentar 17.8.1998:
+
+                  Es wird der DPLL-artige SAT-Algorithmus SATO
+                  vorgestellt. (Genauer: SATO 3.0. die verbesserte
+                  Version von SATO aus \cite{ZB96}; neu sind die im
+                  folgenden genannten Komponenten des Algorithmus
+                  (Heuristik und Konfliktanalyse).)
+
+                  Die Heuristik:
+
+                    Sei $k$ die Laenge einer kuerzesten
+                    Nicht-Horn-Klausel und $n$ die Anzahl derartiger
+                    Klauseln. Betrachte nun die Variablen,
+                    die in ersten (?) $a \cdot n$ dieser Klauseln
+                    vorkommen, wobei $a$ der Anteil von
+                    Nicht-Horn-Klauseln (ueberhaupt) in der
+                    (urspruenglichen) Eingabe ist. Waehle unter diesen
+                    Variablen eine mit maximalem
+
+                        $(1 + \#_v^2) \cdot (1 + \#_{\ol{v}}^2)$.
+
+                  Intelligentes Backtracking:
+
+                  Beim Zurueckgehen werden die Variablen berechnet,
+                  die an der Erzeugung der leeren Klausel beteiligt
+                  waren, und in Verzweigungen, wo die
+                  Verzweigungsvariable nicht dazu gehoert, wird der
+                  zweite Zweig nicht mehr betrachtet.
+
+                  Neue Klauseln:
+
+                  Bekommt man z.B. heraus, das die Variablen $a, b, c$
+                  mit den Belegungen $a \ra 0, b \ra 1, c \ra 0$ fuer
+                  die Erzeugung der leeren Klausel verantwortlich
+                  waren, so kann man zur Eingabe-Klauselmenge die
+                  Klausel $\{a, \ol{b}, c\}$ hinzufuegen.
+                  Es werden nur Klauseln bis zu einer beschraenkten
+                  Laenge hinzugefuegt (immer zur Eingabe-Klm, oder
+                  ``lokal''?).
+
+                  Rechenzeiten:
+
+                  Ergebnisse werden fuer die DIMACS-Benchmarks
+                  genannt, einschliesslich Vergleichszeiten mit
+                  aktuellen SAT-Algorithmen. SATO ist fast immer mit
+                  weitem Abstand der Beste (auf aim-200, dubois und
+                  pret z.B. werden extrem gute Ergebnisse erzielt)."
+}
+
+@InProceedings{ZH94,
+  author =       "Hantao Zhang and Jieh Hsiang",
+  title =        "Solving Open Quasigroup Problems by Propositional Reasoning",
+  booktitle =    "Proceedings of International Computer Symposium, Hsinchu, Taiwan",
+  year =         1994,
+  annote =       "Vorhanden. Zusammenfassung, die nur auf Quasigruppen
+                  und ihre Propositionalisierung eingeht. Wird
+                  vollstaendig erfasst von \cite{ZBH96}."
+}
+
+@TechReport{ZS94,
+  author =       "Hantao Zhang and Mark E. Stickel",
+  title =        "Implementing the {D}avis-{P}utnam Algorithm by Tries",
+  institution =  "University of Iowa, Department of Computer Science",
+  year =         1994,
+  annote =       "Vorhanden. Kommentar 29.8.1998:
+
+                  Es wird die Trie-Datenstruktur zur Darstellung von
+                  Klauselmengen $F$ vorgeschlagen: Die Klauselmenge wird
+                  dargestellt durch einen Baum, dessen Kanten mit
+                  Literalen markiert sind -- die Klauseln entsprechen
+                  den Pfaden im Baum.
+                  Genauer: Die Variablen werden linear geordnet. Sei
+                  $v$ die erste Variable. Die Wurzel hat nun drei
+                  ausgehende Kanten mit der Bedeutung $v$, $\ol{v}$
+                  und ``$v$ kommt nicht vor''. An den drei Knoten
+                  haengen die Baeume fuer die Klauselmengen $F_0, F_1,
+                  F_2$, die die Klauseln aus $F$ enthalten, die $v$
+                  bzw. $\ol{v}$ bzw. keines von beiden enthalten,
+                  wobei in $F_0$ und $F_1$ jeweils die Literale $v$
+                  bzw. $\ol{v}$ entfernt werden.
+
+                  Der wesentliche Vorzug dieser Darstellung von
+                  Klauselmengen scheint in der schnellen
+                  Implementierbarkeit von Subsumption zu liegen.
+                  (Ob sich dies lohnt?)
+
+                  Alternativ wird eine Listen-basierte Implementation
+                  von DPLL vorgestellt, in der jede Klausel zum einen
+                  die Listen ihrer positiven und ihrer negativen
+                  Literale enthaelt, zum anderen eine Variable, die
+                  anzeigt, ob die Klausel im aktuellen Zustande auf
+                  Wahr gesetzt ist (im positiven Falle wird die
+                  verantwortliche Variable angegeben), und
+                  schliesslich die Anzahlen aktiver positiver und
+                  negativer Literale.
+                  Zu jeder Variablen wird der aktuelle Zustand
+                  angegeben (belegt mit 0/1 oder unbelegt), sowie
+                  Listen von Zeigern auf die Klauseln, in denen diese
+                  Variable positiv bzw. negativ vorkommt.
+                  (Im Vergleich zur Boehm-Datenstruktur muessen in auf
+                  Wahr gesetzten Klauseln nur der Indikator gesetzt
+                  werden, und in Klauseln, in denen ein Literal
+                  eliminiert wurde, nur der entsprechende Zaehler
+                  heruntergesetzt werden, mit entsprechender Reaktion,
+                  falls die Laenge 0 bzw. 1 erreicht wurde.
+                  Jedoch muessen die Klauseln im weiteren immer
+                  wieder inspiziert werden, was fuer den
+                  ``look ahead'' ein entscheidender Nachteil ist.)
+
+                  SATO2 nun basiert auf dem
+                  1-Klauseln-Eliminations-Algorithmus aus \cite{ZS96},
+                  wo Klauseln zweifach verkettete Listen sind, und wir
+                  zu Variablen nur die Vorkommen angeben, wo die
+                  Variable erstes bzw. letztes Element ist. Die
+                  zweifach verketteten Listen sind in Form eines
+                  ``tries'' angeordnet (mit zusaetzlichen
+                  Rueckwaerts-Zeigern).
+                  Der Witz aus \cite{ZS96} ist, das Wahr-Werden von
+                  Klauseln gar nicht extra zu markieren. (Denn, anders
+                  als bei Boehm, verschwinden diese Klauseln ja
+                  sowieso nicht). Und da wir erst die Erzeugung
+                  einer 1-Klauseln zu bemerken brauchen, koennen wir
+                  Klauseln ignorieren, in denen ein eliminertes
+                  Literal irgendwo in der ``Mitte'' steht (solche
+                  Klauseln sind ja mindestens 3-Klauseln)."
+}
+
+@InProceedings{ZS96,
+  author =       "Hantao Zhang and Mark E. Stickel",
+  title =        "An Efficient Algorithm for Unit Propagation",
+  booktitle =    "Proc. of the Fourth International Symposium on Artificial Intelligence and
+                  Mathematics. Ft. Lauderdale, Florida",
+  year =         1996,
+  annote =       "Vorhanden. Kommentar 28.7.1998:
+
+                  Es wird eine Datenstruktur zur Darstellung von
+                  Klauselmengen und eine darauf aufbauende
+                  Implementation von 1-Klauseln-Elimination
+                  vorgestellt, die
+
+                  -- Erzeugung der leeren Klausel
+
+                  -- sowie Erzeugung einer neuen 1-Klausel
+
+                  entdeckt. (Wie komplexere Daten fuer Heuristiken
+                  bereitgestellt werden, wird nicht diskutiert. Eine
+                  ``Rueckgaengig-Machung'' wie im Boehm-Algorithmus gibt
+                  es nicht.)
+
+                  Datenstruktur:
+
+                  Anfaenglich gibt es die Liste von Klauseln, jede
+                  Klausel mit einem Zeiger auf ihr erstes und ihr
+                  letztes Literal versehen (die Literale einer Klausel
+                  werden also durch zweifach verkettete Listen
+                  verwaltet, oder, was hier einfacher ist, da diese
+                  Listen nicht dynamisch veraendert werden muessen,
+                  durch unmittelbar aufeinander folgende Zellen).
+
+                  Dynamisch werden zu jeder Variablen v die folgenden
+                  vier Listen verwaltet:
+
+                    1/2: Klauseln mit erstem/letztem Literal v
+
+                    3/4: Klauseln mit erstem/letztem Literal not v.
+
+                  Ferner wird zu jeder Variablen ihr Status ``true,
+                  false, unassigned'' gespeichert.
+
+                  Wird nun v auf true gesetzt, so geschieht folgendes:
+
+                  Neu ist, dass Klauseln mit erstem/letztem Literal v
+                  erst gar nicht betrachtet werden, und auch nicht
+                  alle Klauseln mit not v, sondern nur die mit erstem
+                  oder letztem Literal not v.
+
+                  Solche Klauseln werden nun vollstaendig durchsucht
+                  (die maximale Klauselnlaenge wird als konstant
+                  angesehen), ob
+
+                  -- sie schon auf true gesetzt worden sind (durch ein
+                     auf true gesetztes Literal in ihnen),
+
+                  -- oder ob nur noch ein unbelegtes Literal uebrig
+                     ist (eine neue 1-Klausel),
+
+                  -- oder gar keins (die leere Klausel wurde erzeugt).
+
+                  Andernfalls wird das erste unbelegte Literal a wie
+                  das letzte unbelegte Literal b bestimmt, und die
+                  Listen 1/3 bzw. 2/4 um die aktuelle Klausel
+                  erweitert.
+
+                  Kurz gesagt: Es wird also auf moeglichst einfache
+                  Weise mit der Eingabe-Klauselmenge verfahren, im
+                  wesentlichen werden nur die Variablen-Zustaende
+                  gespeichert (was ja schon ausreichen wuerde (!)),
+                  und zum schnelleren Zugriff wird zu jeder Variable
+                  die Liste ihrer Vorkommen angelegt, aber, und dies
+                  ist die einzige Idee, nicht aller Vorkommen, sondern
+                  nur derer, wo die Variable zuerst bzw. zuletzt in
+                  der (vorgegebenen) Reihenfolge der Literale in der
+                  jeweiligen Klausel steht.
+                  (Das mit beiden Enden gearbeitet wird, ist noetig zur
+                  Erkennung von neu erzeugten 1-Klauseln (v muss sich
+                  entweder am Anfang oder am Ende einer 2-Klausel
+                  befinden).)
+
+                  Der Umstand, dass die v-Vorkommen nicht betrachtet
+                  werden muessen, versteht sich in diesem Aufzuge von
+                  selbst.
+
+                  Meine Implementation des look-ahead guckt
+                  demgegenueber auch die v-Vorkommen an, da ja auch
+                  die eliminierten Klauseln gezaehlt werden muessen
+                  (nicht bloss die gekuerzten). Und zur vollstaendigen
+                  Zaehlung der gekuerzten Klauseln muss ich auch alle
+                  (not v)-Vorkommen anschauen.
+
+                  Insgesamt scheint mir dieser Artikel also trivial
+                  und nicht weiter nuetzlich."
+}
+
+@Article{Zh96,
+  author =       "Wenhui Zhang",
+  title =        "Number of models and satisfiability of sets of clauses",
+  journal =      "Theoretical Computer Science",
+  year =         1996,
+  volume =       155,
+  pages =        "277-288",
+  annote =       "{Kopiert.
+                  Beweist die Schranke $ 1.571^n $, wobei er jedoch
+                  mit seinen algorithmischen Methoden sogar
+                  $\tau_{1,2,1} = 1.5630958996..$ haette erreichen
+                  koennen. Die Analyse benutzt eine Art Vorlaeufer
+                  meiner Methoden: Man startet an der Wurzel mit der
+                  leeren Menge Variablen-disjunkter 2-Klauseln, und
+                  addiert oder subtrahiert nur solche 2-Klauseln, die
+                  in der Analyse bekannt sind. Dabei wird auch ein
+                  (kleines) ``Budget'' fuer neue, aber ``nicht
+                  Variablen-disjunkte'' 2-Klauseln bereitgestellt.
+
+                  Alle algorithmischen Methoden sind Spezialfaelle von
+                  meinen (u.a. auch eine Form blockierter Klauseln),
+                  und wohl auch die Analysemethode.}"
+}
+
+@Article{Li2000,
+  author =       {Paolo Liberatore},
+  title =        {On the complexity of choosing the branching literal in {DPLL}},
+  journal =      {Artificial Intelligence},
+  year =         2000,
+  volume =       116,
+  pages =        {315-326},
+  annote =       {Als ps-Datei vorhanden. Siehe Bearbeitung in "SATAlg" im Ordner "Genauer".}
+}
+
+@Unpublished{DZB00,
+  author =       {Li Dafa and Hantao Zhang and Maria Paola Bonacina},
+  title =        {Polynomial Reductions and One-true-literal Model},
+  note =         {Von J. Krajicek zur Begutachtung (CSL 2000) bekommen (Maerz 2000)},
+  year =         2000,
+  annote =       {Ps-Datei vorhanden. Siehe das Gutachten im Gutachten-Ordner.
+
+Das einzig interessante hier ist die Frage, wann wir von einer Klausel sicher sein koennen,
+dass wenn es ueberhaupt eine erfuellende Belegung gibt, dann eine solche, die genau
+ein Literal in dieser Klausel wahr macht. Fuer eine solche Klausel der Laenge p koennte
+man mit dem Verzweigungs-Tupel (p, ..., p) (der Breite p) verzweigen.
+
+Sind nun blockierte Klauseln Beispiele dafuer?!
+}
+}
+
+@Unpublished{MW98,
+  author =       {Hans van Maaren and Joost P. Warners},
+  title =        {Solving Satisfiability Problems Using Elliptic Approximations --- A Note on Volumes and Weights},
+  note =         {Submitted to Annals of Mathematics and Artificial Intelligence},
+  month =        {September},
+  year =         1998,
+  annote =       {Von Speckenmeyer zur Begutachtung Januar 2000 bekommen. Siehe das Gutachten im AIM-Ordner.
+
+Es werden Gewichte fuer die Klauseln in der elliptischen Approximation einer Klauselmenge eingefueht, und versucht, ein Zusammenhang zwischen den optimalen Gewichten, die das Volumen der Approximation minimieren, und den Gewichten fuer Klauseln verschiedener Laenge, die in DLL-Heuristiken verwendet werden, herzustellen.
+}
+}
+
+@Article{Hi00UB,
+  author =       {Edward Hirsch},
+  title =        {New Worst-Case Upper Bounds for {SAT}},
+  journal =      {Journal of Automated Reasoning},
+  year =         2000,
+  volume =       24,
+  number =       4,
+  pages =        {397-420},
+  annote =       {Im wesentlichen \cite{Hi97}, nur die k-Schranke in jener Weise verbessert.}
+}
+
+@Unpublished{PPSZ2000,
+  author =       {Ramamohan Paturi and Pavel Pudl\'ak and Michael E. Saks and Francis Zane},
+  title =        {An Improved Exponential-time Algorithm for $k$-{SAT}},
+  note =         {Submitted to JACM. Not for distribution},
+  year =         2000,
+  annote =       {Zur Begutachtung erhalten. Siehe Bearbeitung in "SATAlg" im Ordner "Genauer".}
+}
+@Unpublished{PPSZ2003,
+  author =       {Ramamohan Paturi and Pavel Pudl\'ak and Michael E. Saks and Francis Zane},
+  title =        {An Improved Exponential-time Algorithm for $k$-{SAT}},
+  note =         {Submitted to JACM. Revised version of \cite{PPSZ2000}. Not for distribution},
+  year =         2003,
+  month =        {May},
+  annote =       {Zur Begutachtung erhalten. Verbesserte Version von \cite{PPSZ2000}.}
+}
+
+@InProceedings{LA1996,
+  author =       {Chu Min Li and Anbulagan},
+  title =        {Heuristics Based on Unit Propagation for Satisfiability Problems},
+  booktitle =    {Proceedings of 15th International Joint Conference on Artificial Intelligence (IJCAI'97)},
+  pages =        {366--371},
+  year =         1997,
+  publisher =    {Morgan Kaufmann Publishers},
+  annote =       {Vorhanden. Siehe Bearbeitung in "SATAlg" im Ordner "Genauer".}
+}
+
+@PhdThesis{Ou1999,
+  author =       {Ming Ouyang},
+  title =        {Implementations of the {DPLL} algorithm},
+  school =       {Graduate School---New Brunswick; Rutgers, The State University of New Jersey},
+  year =         1999,
+  annote =       {Ps-Datei vorhanden. Siehe Bearbeitung in "SATAlg" im Ordner "Genauer".}
+}
+
+@Article{PG2000,
+  author =       {Tai Park and Allen Van Gelder},
+  title =        {Partitioning methods for satisfiability testing on large formulas},
+  journal =  {Information and Computation},
+  year =         2000,
+  volume =       162,
+  number =       {1/2},
+  pages =        {179-184},
+  month =        {October},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "SATAlg" im Ordner "Genauer".}
+}
+
+@Unpublished{GN2002,
+  author =       {Evgueni Goldberg and Yakov Novikov},
+  title =        {{BerkMin}: a Fast and Robust {S}at-Solver},
+  note =         {Can be obtained from ??},
+  OPTkey =       {},
+  OPTmonth =     {},
+  year =         {2002},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "SATAlg" im Ordner "Genauer".}
+}
+
+@Article{Fr1996,
+  author =       {Jon W. Freeman},
+  title =        {Hard random 3-{SAT} problems and the {D}avis-{P}utnam procedure},
+  journal =      {Artificial Intelligence},
+  year =         {1996},
+  OPTkey =       {},
+  volume =       {81},
+  OPTnumber =    {},
+  pages =        {183-198},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InProceedings{LS2002,
+  author =       {In{\^{e}}s Lynce and Jo{\~{a}}o Marques-Silva},
+  title =        {Efficient Data Structures for Backtrack Search {SAT} Solvers},
+  booktitle =    {Fifth International Symposium on Theory and Applications of Satisfiability Testing},
+  crossref =     {Cincinnati2002},
+  year =         2002,
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Unpublished{AroraHsiao2003EquivalenceChecking,
+  author =       {Rajat Arora and Michael S. Hsiao},
+  title =        {Using Global Structural Relationships for {SAT} Solvers to Boost the Performance of Combinational Equivalence Checking},
+  note =         {Gutachter Exemplar fuer JUCS 2003 (von Miroslav Velev).},
+  month =        {November},
+  year =         2003
+}
+
+@InProceedings{SubbarayanPradhan2004LDP,
+  author =       {Sathiamoorthy Subbarayan and Dhiraj K. Pradhan},
+  title =        {{NiVER}: Non-increasing Variable Elimination Resolution for Preprocessing {SAT} instances},
+  booktitle =    {The Seventh International Conference on Theory and Applications of Satisfiability Testing},
+  crossref =     {Vancouver2004b},
+  pages =        {276-291},
+  annote =       {Pdf-Datei vorhanden. Experimentelle Resultate f\"ur l-neutrale DP-Reduktion.}
+}
+
+@MastersThesis{Heule2004Diplom,
+  author =       {Marijn J.H. Heule},
+  title =        {March: Towards a lookahead {S}at solver for general purposes},
+  school =       {Delft University of Technology, Faculty of Electrical Engineering, Mathematics and Computer Science},
+  year =         2004,
+  month =        {March},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@PhdThesis{Nadel2002BacktrackReview,
+  author =       {Alexander Nadel},
+  title =        {Backtrack Search Algorithms for Propositional Logic Satisfiability: Review and Innovations},
+  school =       {Hebrew University of Jerusalem},
+  year =         2002,
+  type =         {Master of {S}cience},
+  month =        {November},
+  annote =       {Vorhanden.}
+}
+
+@Unpublished{MaarenVelden2004Stabilisation,
+  author =       {Hans van Maaren and Tom van der Velden},
+  title =        {Stabilization of parameter based look-ahead {S}at solvers},
+  note =         {Zur Begutachtung fuer JAR bekommen von Toby Walsh},
+  month =        {February},
+  year =         2004,
+  annote =       {Siehe "JAR_200403_MaarenVelden.pdf".}
+}
+
+@InProceedings{BjesseKukulaDamianoStanionZhu,
+  author =       {Per Bjesse and James Kukula and Robert Damiano and Ted Stanion and Yunshan Zhu},
+  title =        {Guiding {SAT} Diagnosis with Tree Decompositions},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {315-329},
+  annote =               {pdf-Datei vorhanden.}
+}
+
+@inproceedings{AloulMarkovSakallah2001,
+    author = {Fadi A. Aloul, Igor L. Markov, Karem A. Sakallah},
+    title = {MINCE: A Static Global Variable-Ordering for SAT
+              and BDD},
+    booktitle = {International Workshop on Logic & Synthesis},
+    organization = {University of Michigan},
+    month = {June},
+    year = {2001},
+    URL = {http://www.gigascale.org/pubs/129.html}
+}
+
+@Unpublished{Robson2005Towards3SAT,
+  author =       {J.M. Robson},
+  title =        {Towards a more efficient {3SAT} Algorithm},
+  note =         {ACHTUNG: NICHT ZUR VEROEFFENTLICHUNG},
+  month =        {November},
+  year =         2005,
+  annote =       {Von Rod Downey zur Begutachtung erhalten; siehe Gutachten TOCS_2006_02_Robson. ps-Datei: ps/ZurBegutachtung/TheoryCompSys200511.ps}
+}
+
+@Article{DahlloefJonssonWahlstroem,
+  author =       {Vilhelm Dahll{\"{o}}f and Peter Jonsson and Magnus Wahlstr{\"{o}}m},
+  title =        {Counting models for {2SAT} and {3SAT} formulae},
+  journal =      {Theoretical Computer Science},
+  year =         2005,
+  volume =       332,
+  pages =        {265-291},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{HeuleMaaren2007Seitenwahl,
+  author =       {Marijn J.H. Heule and Hans van Maaren},
+  title =        {Whose side are you on? {F}inding solutions in a biased search-tree},
+  journal =      {Journal on Satisfiability, Boolean Modeling and Computation},
+  year =         2008,
+  volume =       4,
+  pages =        {117-148},
+  url =          {http://satassociation.org/jsat/index.php/jsat/article/view/47},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{EenSoerensson2003Minisat,
+  author =       {Niklas E{\'{e}}n and Niklas S{\"{o}}rensson},
+  title =        {An Extensible {SAT}-solver},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {502-518},
+  annote =       {Pdf-Datei und Konferenzband vorhanden.}
+}
+
+@InProceedings{DershowitzHannaNadel2007ConflictDriven,
+  author =       {Nachum Dershowitz and Ziyad Hanna and Alexander Nadel},
+  title =        {Towards a Better Understanding of the Functionality of a Conflict-Driven {SAT} Solver},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2007},
+  crossref =     {Lisbon2007},
+  pages =        {287-293},
+  annote =       {Konferenzband vorhanden.}
+}
+
+@InProceedings{ZhangMadiganMoskewiczMalik2001UIP,
+  author =       {Lintao Zhang and Conor F. Madigan and Matthew H. Moskewicz and Sharad Malik},
+  title =        {Efficient Conflict Driven Learning in a Boolean Satisfiability Solver},
+  booktitle =    {Proceedings of the International Conference on Computer Aided Design (ICCAD)},
+  pages =        {279-285},
+  year =         2001,
+  publisher =    {IEEE Press},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{MahajanFuMalik2004Chaff,
+  author =       {Yogesh S. Mahajan and Zhaohui Fu and Sharad Malik},
+  title =        {Zchaff2004: An Efficient {SAT} Solver},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2004},
+  crossref =     {Vancouver2004b},
+  pages =        {360-375},
+  annote =       {Konferenzband vorhanden.}
+}
+
+@InProceedings{DuboisDequen2001Kcnfs,
+  author =       {Olivier Dubois and Gilles Dequen},
+  title =        {A backbone-search heuristic for efficient solving of hard 3-{SAT} formulae},
+  booktitle =    {International Joint Conferences on Artificial Intelligence (IJCAI)},
+  pages =        {248--253},
+  year =         2001,
+  annote =       {Ps-Datei vorhanden.}
+}
+@InProceedings{DequenDubois2003Kcnfs,
+  author =       {Gilles Dequen and Olivier Dubois},
+  title =        {kcnfs: An Efficient Solver for Random $k$-{SAT} Formulae},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {486--501},
+  doi =          {10.1007/978-3-540-24605-3_36},
+  annote =       {Pdf-Datei und Konferenzband vorhanden.}
+}
+
+@InProceedings{Zhang2005Subsumption,
+  author =       {Lintao Zhang},
+  title =        {On Subsumption Removal and On-the-Fly {CNF} Simplification},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2005},
+  crossref =     {StAndrews2005},
+  pages =        {482-489},
+  annote =       {Konferenzband und pdf-Datei vorhanden.}
+}
+
+@InProceedings{HeuleDufourvanZwietenMaaren2004Reasoning,
+  author =       {Marijn Heule and Mark Dufour and Joris van Zwieten and Hans van Maaren},
+  title =        {March\_eq: Implementing Additional Reasoning into an Efficient Look-Ahead {SAT} Solver},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2004},
+  crossref =     {Vancouver2004b},
+  pages =        {345-359},
+  annote =       {Konferenzband und pdf-Datei vorhanden.}
+}
+
+@InProceedings{HeulevanMaaren2007DoubleLookAhead,
+  author =       {Marijn Heule and Hans van Maaren},
+  title =        {Effective Incorporation of Double Look-Ahead Procedures},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2007},
+  crossref =     {Lisbon2007},
+  pages =        {258-271},
+  annote =       {Konferenzband und pdf-Datei vorhanden.}
+}
+
+@Article{JeroslowWang1990Heuristik,
+  author =       {Robert G. Jeroslow and Jinchang Wang},
+  title =        {Solving propositional satisfiability problems},
+  journal =      {Annals of Mathematics and Artificial Intelligence},
+  year =         1990,
+  volume =       1,
+  pages =        {167-187},
+  annote =       {Kopie vorhanden.}
+}
+
+@Article{FKSWDV2004SBSAT,
+  author =       {John Franco and Michal Kouril and John Schlipf and Sean Weaver and Michael Dransfield and W. Mark Vanfleet},
+  title =        {Function-Complete Lookahead in Support of Efficient {SAT} Search Heuristics},
+  journal =      {Journal of Universal Computer Science},
+  year =         2004,
+  volume =       10,
+  number =       12,
+  pages =        {1655-1692},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{DABC96,
+  author =       {Olivier Dubois and P. Andre and Y. Boufkhad and C. Carlier},
+  title =        {{SAT} versus {UNSAT}},
+  booktitle =    {Cliques, Coloring, and Satisfiability},
+  crossref =     {DIM93},
+  pages =        {415-436},
+  annote =       {Datei zu besorgen. Siehe Bearbeitung in "SATAlg" im Ordner "Genauer".}
+}
+
+@PhdThesis{Wahlstroem2007ObereSchranken,
+  author =       {Magnus Wahlstr{\"{o}}m},
+  title =        {Algorithms, Measures and Upper Bounds for Satisfiability and Related Problems},
+  school =       {Link{\"{o}}pings universitet, Department of Computer and Information Science},
+  year =         2007,
+  address =      {SE-581 83 Link{\"{o}}ping, Sweden},
+  note =         {ISBN 978-91-85715-55-8},
+  annote =       {Vorhanden.}
+}
+
+@Article{Li1999Satz,
+  author =       {Chu Min Li},
+  title =        {A constraint-based approach to narrow search trees for satisfiability},
+  journal =      {Information Processing Letters},
+  year =         1999,
+  volume =       71,
+  number =       2,
+  pages =        {75--80},
+  doi =          {10.1016/S0020-0190(99)00088-5},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Li2003Equivalences,
+  author =       {Chu-Min Li},
+  title =        {Equivalent literal propagation in the {DLL} procedure},
+  journal =      {Discrete Applied Mathematics},
+  year =         2003,
+  volume =       130,
+  pages =        {251-276},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@PhdThesis{Nadel2008PhD,
+  author =       {Alexander Nadel},
+  title =        {Understanding and Improving a Modern SAT Solver},
+  school =       {Tel Aviv University},
+  year =         2008,
+  month =        {September},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Gelder2001ResSATsolver,
+  author =       {Allen Van Gelder},
+  title =        {Combining Preorder and Postorder Resolution in a Satisfiability Solver},
+  journal =      {Electronic Notes in Discrete Mathematics (ENDM)},
+  year =         2001,
+  volume =       9,
+  pages =        {115-128},
+  month =        {June},
+  annote =       {Vorversion vorhanden (endm9012.ps).}
+}
+
+@InProceedings{EenBiere2005Satelite,
+  author =       {Niklas E{\'{e}}n and Armin Biere},
+  title =        {Effective Preprocessing in {SAT} Through Variable and Clause Elimination},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2005},
+  crossref =     {StAndrews2005},
+  pages =        {61-75},
+  doi =          {10.1007/11499107_5},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{HanSomenzi2009,
+  author =       {Hyojung Han and Fabio Somenzi},
+  title =        {On-the-Fly Clause Improvement},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2009},
+  crossref =     {Swansea2009},
+  pages =        {209-222},
+  doi =          {10.1007/978-3-642-02777-2_21},
+  annote =       {Pdf-Datei von Vorversion vorhanden.}
+}
+
+@Article{JanotaLycneMarquesSilva2012Backbones,
+  author =       {Mikol{\'{a}}{\v{s}} Janota and In{\^{e}}s Lynce and Joao Marques-Silva},
+  title =        {Algorithms for computing backbones of propositional formulae},
+  journal =      {AI Communications},
+  year =         2015,
+  volume =       {28},
+  number =       {2},
+  pages =        {161--177},
+  doi =          {10.3233/AIC-140640},
+  annote =       {Vorversion vorhanden.}
+}
+
+@InProceedings{AudemardSimon2009Glucose,
+  author =       {Gilles Audemard and Laurent Simon},
+  title =        {Predicting Learnt Clauses Quality in Modern {SAT} Solvers},
+  booktitle =    {{IJCAI} 2009, Proceedings of the 21st International Joint Conference on Artificial Intelligence, Pasadena, California, USA, July 11-17, 2009},
+  pages =        {399--404},
+  year =         2009,
+  url =          {http://ijcai.org/papers09/Papers/IJCAI09-074.pdf},
+  annote =       {Pdf vorhanden.}
+}
+
+@InProceedings{MijndersWildeHeule2010March,
+  author =       {Sid Mijnders and Boris de Wilde and Marijn J.H. Heule},
+  title =        {Symbiosis of Search and Heuristics for Random 3-{SAT}},
+  booktitle =    {Third International Workshop on Logic and Search (LaSh 2010)},
+  year =         2010,
+  editor =       {David Mitchell and Eugenia Ternovska},
+  url =          {http://arxiv.org/abs/1402.4455},
+  annote =       {Pdf vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%
+% % Extended Resolution %
+% %%%%%%%%%%%%%%%%%%%%%%%
+
+@InProceedings{AudemardKatsirelosSimon2010ERCDCL,
+  author =       {Gilles Audemard and George Katsirelos and Laurent Simon},
+  title =        {A Restriction of Extended Resolution for Clause Learning {SAT} Solvers},
+  booktitle =    {Proceedings of the Twenty-Fourth AAAI Conference on Artificial Intelligence, AAAI 2010},
+  pages =        {10-15},
+  year =         2010,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%
+% % Cube and Conquer %
+% %%%%%%%%%%%%%%%%%%%%
+
+@InProceedings{TakHeuleBiere2012CC,
+  author =       {Peter van der Tak and Marijn J. H. Heule and Armin Biere},
+  title =        {Concurrent {C}ube-and-{C}onquer},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2012},
+  crossref =     {Trento2012},
+  pages =        {475-476},
+  annote =       {Pdf-Datei von erweiterter Version vorhanden (vom workshop).}
+}
+@TechReport{TakHeuleBiere2012CCarxiv,
+  author =       {Peter van der Tak and Marijn J. H. Heule and Armin Biere},
+  title =        {Concurrent {C}ube-and-{C}onquer},
+  institution =  {arXiv},
+  year =         2014,
+  number =       {arXiv:1402.4465v1 [cs.DS]},
+  month =        {February},
+  annote =       {Zugrundeliegender Bericht von \cite{TakHeuleBiere2012CC}.}
+}

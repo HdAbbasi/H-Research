@@ -1,0 +1,559 @@
+@Book{BF93,
+  author =       "Richard Beigel and Robert Floyd",
+  title =        "The Language of Machines: An Introduction to
+                  Computability and Formal Languages",
+  publisher =    "Computer Science Press, New York",
+  year =         1993
+}
+
+@InProceedings{Co71,
+  author =       "Stephen A. Cook",
+  title =        "The Complexity of theorem-proving procedures",
+  pages =        "151--158",
+  booktitle =    "Proceedings 3rd Annual ACM Symposium on Theory of Computing (STOC '71)",
+  year =         1971,
+  doi =          {10.1145/800157.805047},
+  annote =       {Pdf von Vorversion vorhanden.}
+}
+@InProceedings{Co71kurz,
+  author =       "S.~A.~Cook",
+  title =        "The complexity of theo\-rem-\-proving procedures",
+  booktitle =    "Proc.~ACM Symp.~Theory Comp.~(STOC)",
+  year =         1971
+}
+
+@Book{GJ79,
+  author =       {Michael R. Garey and David S. Johnson},
+  title =        {Computers and Intractability / A Guide to the Theory of NP-Completeness},
+  publisher =    {W.H. Freeman and Company},
+  year =         1979,
+  isbn =         {0-7167-1045-5}
+}
+
+@Book{Pap94,
+  author =       {Christos H. Papadimitriou},
+  title =        {Computational Complexity},
+  publisher =    {Addison-Wesley Publishing Company},
+  year =         1994,
+  note =         {ISBN 0-201-53082-1},
+  annote =       {Vorhanden.}
+}
+
+% War Schoe95
+@Book{Schoening1995Perlen,
+  author =       {Uwe Sch{\"o}ning},
+  title =        {Perlen der theoretischen Informatik},
+  publisher =    {BI-Wissenschaftsverlag},
+  year =         1995,
+  note =         {ISBN 3-411-17331-9},
+  annote =       {Vorhanden.}
+}
+
+@InProceedings{FFNR96,
+  author =       {Stephen A. Fenner and Lance Fortnow and Ashish V. Naik and John D. Rogers},
+  title =        {Inverting Onto Functions},
+  booktitle =    {Proceedings of the 11th IEEE Conference on Computational Complexity},
+  pages =        {213--222},
+  year =         1996,
+  note =         {See \url{http://www.neci.nj.nec.com/homepages/fortnow/}},
+  annote =       {Bearbeitet.}
+}
+
+@Unpublished{,
+  author =       {O. V. German},
+  title =        {On polynomial insolubility of the satisfiability language},
+  note =         {Zur Begutachtung von "Constraints" erhalten (Oktober 1999).},
+  OPTkey =       {},
+  OPTmonth =     {},
+  OPTyear =      {},
+  OPTannote =    {}
+}
+
+@Book{DF97,
+  author =       {R.G. Downey and M.R. Fellows},
+  title =        {Parameterized Complexity},
+  publisher =    {Springer},
+  year =         1997,
+  series =       {Monographs in Computer Science},
+  note =         {ISBN 0-387-94883-X},
+  annote =       {Vorhanden.}
+}
+
+@InProceedings{KSS00,
+  author =       {Jeff Kahn and Michael Saks and Cliff Smyth},
+  title =        {A Dual Version of {R}eimer's Inequality and a Proof of {R}udich's Conjecture},
+  booktitle =    {Proceedings of the 15th Annual IEEE Conference on Computational Complexity},
+  year =         2000,
+  month =        {July},
+  pages =        {98--103},
+  annote =       {Eingetragen 5.7.2000
+
+Fuer eine Klauselmenge F sei U(F) die Wahrscheinlichkeit, dass eine
+(totale) Belegung exakt eine Klausel von F falsifiziert. Und fuer eine
+Klausel C von F sei N_F(C) die Menge der Klauseln D in F mit var(C)
+geschnitten var(D) nicht-leer.
+
+Rudich's Vermutung: Es gibt epsilon, delta > 0 so dass fuer alle
+Klauselmengen F gilt:
+
+Falls U(F) >= 1 - epsilon, dann gibt es C in F mit U(N(C)) >= delta.
+
+Hier wird nun gezeigt, dass diese Vermutung korrekt ist (und zwar mit
+epsilon = delta = 1 / 7).
+
+[ Die Behauptung gilt trivial fuer ausgezeichnete KNF's A(V), und wohl ist
+dies ein typisches Beispiel. ]
+
+Der Beweis basiert auf dem Beweis von "Reimers Ungleichung":
+
+Theorem 4: Fuer zwei beliebige Klauselmengen F, G gilt
+
+  Pr( phi : es gibt C in F und D in G mit phi(C) = phi(D) = 0 und
+            var(C) und var(D) disjunkt )
+  <=
+
+  Pr( (phi, psi) : phi(F) = psi(G) = 0 ),
+
+wobei var(F), var(G) <= V und phi, psi uniform ueber alle (totalen)
+Belegungen von V laufen.
+
+Mit analogen Mitteln nun wird die "duale Ungleichung" bewiesen:
+
+Theorem 5: Fuer zwei beliebige Klauselmengen F, G gilt
+
+  Pr( (phi, psi) : es gibt C in F und D in G mit phi(C) = psi(D) = 0 und
+                   var(C) und var(D) disjunkt )
+  <=
+
+  Pr( phi : phi(F) = phi(G) = 0 ).
+
+Mit Theorem 5 folgt dann Rudich's Vermutung und
+
+Theorem 6: Fuer jedes epsilon > 0 gibt es delta > 0 so dass fuer alle
+Klauselmengen F, G, die
+
+  Pr( phi : phi(F) = 0 ), Pr( phi : phi(G) = 0 ) >= epsilon
+
+erfuellen, entweder
+
+  Pr( phi : phi(F) = 0 und phi(G) = 0 ) >= delta
+
+oder
+
+  Pr( (phi, psi) : es gibt Klauseln C in F und D in G mit phi(C) = psi(D) = 0
+                   und var(C) geschnitten var(D) nicht-leer )
+  >= delta
+
+oder beides erfuellen.
+
+
+Der Beweis von Theorem 5 basiert auf Reimers "Schmetterlings-Lemma",
+dessen Formulierung wie folgt ist:
+
+Ein "Schmetterling" ist ein Paar (phi, psi) von (totalen) Belegungen.
+Der "Koerper" dabei ist phi, der "Fuehler" psi, der "rote Fluegel"
+die Menge der (totalen) Belegungen, die Teilmengen von phi vereinigt
+psi sind, und der "gelbe Fluegel" die Menge der (totalen) Belegungen,
+die Teilmengen von phi vereinigt mit dem Komplement von psi sind (alle
+Belegungen geflippt).
+
+Lemma 1 [Schmetterlings-Lemma] Sei B eine Menge von Schmetterlingen,
+so dass alle je zwei Fuehler verschieden sind. Dann ist die Maechtigkeit
+von B nach oben beschraenkt durch die Maechtigkeit des Durchschnittes
+der Vereinigung aller roten Fluegel in B mit der Vereinigung aller
+gelben Fluegel in B.
+}
+}
+
+@Article{Li2001,
+  author =       {Paolo Liberatore},
+  title =        {Monotonic Reductions, Representative Equivalence, and Compilation of Intractable Problems},
+  journal =      {Journal of the ACM},
+  year =         {2001},
+  OPTkey =       {},
+  volume =       {48},
+  number =       {6},
+  pages =        {1091--1125},
+  month =        {November},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{Melkebeek2001ZeitPlatzSAT,
+  author =       {Dieter van Melkebeek},
+  title =        {Time-Space Lower Bounds for Satisfiability},
+  journal =      {Bulletin of the European Association for Theoretical Computer Science},
+  year =         2001,
+  volume =       73,
+  pages =        {57--77},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Book{Rei1999,
+  author =       {K. R{\"{u}}diger Reischuk},
+  title =        {Komplexit{\"{a}}tsheorie, Band 1: Grundlagen},
+  publisher =    {B.G. Teubner},
+  year =         1999,
+  series =       {Leitf\"aden der Informatik},
+  address =      {Stuttgart},
+  note =         {ISBN 3-519-12275-8; zweite, v\"ollig neubearbeitete und erweiterte Auflage},
+  annote =       {Vorhanden.}
+}
+
+@Book{HM2002,
+  author =       {Lane A. Hemaspaandra and Mitsunori Ogihara},
+  title =        {The Complexity Theory Companion},
+  publisher =    {Springer-Verlag},
+  year =         2002,
+  series =       {Texts in Theoretical Computer Science},
+  address =      {Berlin},
+  note =         {ISBN 3-540-67419-5},
+  annote =       {Vorhanden.}
+}
+
+@Book{Immerman1998DescriptiveComplexity,
+  author =       {Neil Immerman},
+  title =        {Descriptive Complexity},
+  publisher =    {Springer},
+  year =         1998,
+  series =       {Graduate Texts in Computer Science},
+  address =      {New York},
+  note =         {ISBN 0-387-98600-6; QA267.7.I46 1998},
+  annote =       {Vorhanden.}
+}
+
+@Article{StockmeyerMeyer2002CosmologicalLowerBound,
+  author =       {Larry Stockmeyer and Albert R. Meyer},
+  title =        {Cosmological Lower Bound on the Circuit Complexity fo a Small Problem in Logic},
+  journal =      {Journal of the ACM},
+  year =         2002,
+  volume =       49,
+  number =       6,
+  pages =        {753--784},
+  month =        {November},
+  annote =       {Fuer eine bestimmte Sprache wird gezeigt, dass mindestens 10^125 logische Gatter benoetigt werden.}
+}
+
+@InProceedings{GareyGrahamJohnson1976NPGeometrie,
+  author =       {M.R. Garey and R.L. Graham and D.S. Johnson},
+  title =        {Some {NP}-complete geometric problems},
+  booktitle =    {Proceedings of the eighth annual ACM symposium on Theory of computing},
+  pages =        {10--22},
+  year =         1976,
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Book{FlumGrohe2006ParCompTh,
+  author =       {J{\"{o}}rg Flum and Martin Grohe},
+  title =        {Parameterized Complexity Theory},
+  publisher =    {Springer},
+  year =         2006,
+  series =       {Texts in Theoretical Computer Science},
+  note =         {ISBN 3-540-29952-1},
+  annote =       {Vorhanden.}
+}
+
+@InCollection{Rudich2004Sammelband,
+  author =       {Steven Rudich},
+  title =        {Complexity Theory: From {G}{\"{o}}del to {F}eynman},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {7--87}
+}
+@InCollection{Wigderson2004Sammelband,
+  author =       {Avi Wigderson},
+  title =        {Average Case Complexity},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {91--98}
+}
+@InCollection{Arora2004Sammelband,
+  author =       {Sanjeev Arora},
+  title =        {Exploring Complexity through Reductions},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {103--126}
+}
+@InCollection{Raz2004Sammelband,
+  author =       {Ran Raz},
+  title =        {Quantum Computation},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {129--155}
+}
+@InCollection{Raz22004Sammelband,
+  author =       {Ran Raz},
+  title =        {Circuit and Communication Complexity},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {161--197}
+}
+@InCollection{Beame2004Sammelband,
+  author =       {Paul Beame},
+  title =        {Proof Complexity},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {201--246}
+}
+@InCollection{Goldreich2004Sammelband,
+  author =       {Oded Goldreich},
+  title =        {Pseudorandomness -- Part {I}},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {255--285}
+}
+@InCollection{Trevisan2004Sammelband,
+  author =       {Luca Trevisan},
+  title =        {Pseudorandomness -- Part {II}},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {289--314}
+}
+@InCollection{Vadhan2004Sammelband,
+  author =       {Salil Vadhan},
+  title =        {Probabilistic Proof Systems -- Part {I}},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {317--348}
+}
+@InCollection{Sudan2004Sammelband,
+  author =       {Madhu Sudan},
+  title =        {Probabilistically Checkable Proofs},
+  booktitle =    {Computational Complexity Theory},
+  crossref =     {RudichWigderson2004Complexity},
+  pages =        {351--389}
+}
+@Book{RudichWigderson2004Complexity,
+  editor =       {Steven Rudich and Avi Wigderson},
+  title =        {Computational Complexity Theory},
+  booktitle =    {Computational Complexity Theory},
+  publisher =    {American Mathematical Society},
+  year =         2004,
+  volume =       10,
+  series =       {IAS/Park City Mathematics Series},
+  note =         {ISBN 0-8218-2872-X; QA267.7 .C685},
+  annote =       {Vorhanden.}
+}
+
+@Article{CenzerRemmel2006KomplexitaetLogic,
+  author =       {Douglas Cenzer and Jeffrey B. Remmel},
+  title =        {Complexity, decidability and completeness},
+  journal =      {The Journal of Symbolic Logic},
+  year =         2006,
+  volume =       71,
+  number =       2,
+  pages =        {399--424},
+  month =        {June},
+  annote =       {Zeitschrift vorhanden.}
+}
+
+@Book{Buergisser2000AlgebraischesNP,
+  author =       {Peter B{\"{u}}rgisser},
+  title =        {Completeness and Reduction in Algebraic Complexity Theory},
+  publisher =    {Springer},
+  year =         2000,
+  volume =       7,
+  series =       {Algorithms and Computation in Mathematics},
+  note =         {ISBN 3-540-66752-0},
+  annote =       {Vorhanden.}
+}
+
+@Article{ValiantVazirani1986NPEindeutig,
+  author =       {L.G. Valiant and V.V. Vazirani},
+  title =        {{NP} is as easy as detecting unique solutions},
+  journal =      {Theoretical Computer Science},
+  year =         1986,
+  volume =       47,
+  pages =        {85--93},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{Toda1989PPundZaehlen,
+  author =       {Seinosuke Toda},
+  title =        {On the computational power of {PP} and $\oplus${P}},
+  booktitle =    {30th Annual Symposium on Foundations of Computer Science (FOCS)},
+  pages =        {514--519},
+  year =         1989,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Book{SpeckerStrassen1976Komplexitaet,
+  author =       {Ernst Specker and Volker Strassen},
+  title =        {Komplexit\"at von Entscheidungsproblemen},
+  publisher =    {Springer-Verlag},
+  year =         1976,
+  volume =       43,
+  series =       {Lecture Notes in Computer Science},
+  address =      {Berlin},
+  note =         {ISBN 3-540-07805-3},
+  annote =       {Vorhanden.}
+}
+
+@Book{Wegener2005Komplexitaetstheorie,
+  author =       {Ingo Wegener},
+  title =        {Complexity Theory: Exploring the Limits of Efficient Algorithms},
+  publisher =    {Springer},
+  year =         2005,
+  note =         {ISBN 3-540-21045-8},
+  annote =       {Vorhanden.}
+}
+
+@InProceedings{Sipser1983Borelmengen,
+  author =       {Michael Sipser},
+  title =        {Borel sets and circuit complexity},
+  booktitle =    {15th Annual ACM Symposium on Theory of Computing},
+  pages =        {61--69},
+  year =         1983,
+  annote =       {Kopie vorhanden.}
+}
+
+@InProceedings{Reingold2005LSL,
+  author =       {Omer Reingold},
+  title =        {Undirected {ST}-Connectivity in Log-Space},
+  booktitle =    {Proceedings of the thirty-seventh annual ACM symposium on Theory of computing (STOC 2005)},
+  pages =        {376--385},
+  year =         2005,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Mahajan2007NC1AC1,
+  author =       {Meena Mahajan},
+  title =        {Polynomial size log depth circuits: between $\mr{NC}^1$ and $\mr{AC}^1$},
+  journal =      {Bulletin of the EATCS},
+  year =         2007,
+  volume =       91,
+  pages =        {42--56},
+  annote =       {Gesamt-pdf vorhanden.}
+}
+
+@Book{KushilevitzNisan1997Communication,
+  author =       {Eyal Kushilevitz and Noam Nisan},
+  title =        {Communication Complexity},
+  publisher =    {Cambridge University Press},
+  year =         1997,
+  note =         {ISBN-10 0-521-02983-X; digitally printed first paperback version 2006},
+  annote =       {Vorhanden.}
+}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@InCollection{EmdeBoas1990MachineModels,
+  author =       {Peter van Emde Boas},
+  title =        {Machine Models and Simulations},
+  booktitle =    {Handbook of Theoretical Computer Science, Volume A: Algorithms and Complexity},
+  crossref =     {Leeuwen1990HandbuchTCSA},
+  pages =        {1--66}
+}
+@InCollection{Johnson1990Catalog,
+  author =       {David S. Johnson},
+  title =        {A Catalog of Complexity Classes},
+  booktitle =    {Handbook of Theoretical Computer Science, Volume A: Algorithms and Complexity},
+  crossref =     {Leeuwen1990HandbuchTCSA},
+  pages =        {67--161}
+}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Book{Kozen2006Computation,
+  author =       {Dexter C. Kozen},
+  title =        {Theory of Computation},
+  publisher =    {Springer},
+  year =         2006,
+  series =       {Texts in Computer Science},
+  note =         {ISBN-10 1-84628-297-7},
+  annote =       {Vorhanden.}
+}
+
+@Book{Rothe2005Complexity,
+  author =       {J{\"{o}}rg Rothe},
+  title =        {Complexity Theory and Cryptology},
+  publisher =    {Springer},
+  year =         2005,
+  series =       {Texts in Theoretical Computer Science},
+  note =         {ISBN-10 3-540-22147-6},
+  annote =       {Vorhanden.}
+}
+
+@Book{Goldreich2008Complexity,
+  author =       {Oded Goldreich},
+  title =        {Computational Complexity: A Conceptual Perspective},
+  publisher =    {Cambridge University Press},
+  year =         2008,
+  note =         {ISBN 978-0-521-88473-0},
+  annote =       {Vorhanden.}
+}
+
+@Unpublished{BovetCrescenzi2006Complexity,
+  author =       {Daniel Pierre Bovet and Pierluigi Crescenzi},
+  title =        {Introduction to the theory of complexity},
+  note =         {\url{http://piluc.algoritmica.org/books/itlcc}},
+  month =        {June},
+  year =         2006,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Book{Goldreich2010NPC,
+  author =       {Oded Goldreich},
+  title =        {P, NP, and NP-Completeness: The basics of computational complexity},
+  publisher =    {Cambridge University Press},
+  year =         2010,
+  note =         {ISBN 978-0-521-12254-2},
+  annote =       {Vorhanden.}
+}
+
+@Book{AroraBarak2009ComputationalComplexity,
+  author =       {Sanjeev Arora and Boaz Barak},
+  title =        {Computational Complexity: A Modern Approach},
+  publisher =    {Cambridge University Press},
+  year =         2009,
+  note =         {ISBN 978-0-521-42426-4},
+  annote =       {Vorhanden.}
+}
+
+@Article{Goldschlager1977MCVP,
+  author =       {Leslie M. Goldschlager},
+  title =        {The monotone and planar circuit value problems are log space complete for {P}},
+  journal =      {ACM SIGACT News},
+  year =         1977,
+  volume =       9,
+  number =       2,
+  pages =        {25--29},
+  doi =          {10.1145/1008354.1008356},
+  annote =       {Text auf \url{http://academic.odysci.com/article/1010112994376184/the-monotone-and-planar-circuit-value-problems-are-log-space-complete-for-p}.}
+}
+
+@Article{Krentel1988Optimisation,
+  author =       {Mark W. Krentel},
+  title =        {The complexity of optimization problems},
+  journal =      {Journal of Computer and System Sciences},
+  year =         1988,
+  volume =       36,
+  number =       3,
+  pages =        {490--509},
+  month =        {June},
+  doi =          {10.1016/0022-0000(88)90039-6},
+  annote =       {Pdf vorhanden.}
+}
+
+@TechReport{MarquesSilvaJanota2014QueryComplexity,
+  author =       {Joao Marques-Silva and Mikol{\'{a}}{\v{s}} Janota},
+  title =        {On the Query Complexity of Selecting Few Minimal Sets},
+  institution =  {Electronic Colloquium on Computational Complexity (ECCC)},
+  year =         2014,
+  number =       {TR14-031},
+  month =        {March},
+  url =          {http://eccc.hpi-web.de/report/2014/031/},
+  annote =       {Pdf vorhanden.}
+}
+
+@InProceedings{StockmeyerMeyer1973ExpTime,
+  author =       {Larry J. Stockmeyer and Albert R. Meyer},
+  title =        {Word Problems Requiring Exponential Time (Preliminary Report)},
+  booktitle =    {STOC '73 Proceedings of the fifth annual ACM symposium on Theory of computing},
+  pages =        {1--9},
+  year =         1973,
+  doi =          {10.1145/800125.804029},
+  url =          {http://www.diku.dk/hjemmesider/ansatte/henglein/papers/stockmeyer1973.pdf},
+  annote =       {Pdf von Vorversion vorhanden.}
+}
+

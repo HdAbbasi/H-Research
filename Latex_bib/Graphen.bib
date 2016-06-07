@@ -1,0 +1,2405 @@
+% Abschnitte (Sections):
+% - Verschiedenes (Miscellaneous)
+% - BICLIQUE-ZERLEGUNGEN / BICLIQUE PARTITIONS
+% - PEBBLING (inkl. Horton-Strahler-Zahl)
+% - Zuordnungen (matchings)
+% - Baumweite (treewidth)
+% - Faerbung von Graphen und Hypergraphen
+
+
+@InProceedings{LT77,
+  author =       {Richard J. Lipton and Robert Endre Tarjan},
+  title =        {Applications of a planar separator theorem},
+  booktitle =    {18th Annual Symposium on Foundations of Computer Science (FOCS)},
+  pages =        {162-170},
+  year =         1977,
+  annote =       {Kopiert. Siehe Bearbeitung "Graphentheorie" im Ordner "Genauer". Volle Version \cite{LiptonTarjan1980AnwendungenPlanareTrennung}.
+}
+}
+
+@Article{LiptonTarjan1979PlanareTrennung,
+  author =       {Richard J. Lipton and Robert Endre Tarjan},
+  title =        {A Separator Theorem for Planar Graphs},
+  journal =      {SIAM Journal on Applied Mathematics},
+  year =         1979,
+  volume =       36,
+  number =       2,
+  pages =        {177-189},
+  month =        {April},
+  annote =       {Kopie vorhanden.}
+}
+
+@Article{LiptonTarjan1980AnwendungenPlanareTrennung,
+  author =       {Richard J. Lipton and Robert Endre Tarjan},
+  title =        {Applications of a planar separator theorem},
+  journal =      {SIAM Journal on Computing},
+  year =         1980,
+  volume =       9,
+  number =       3,
+  pages =        {615-627},
+  month =        {August},
+  annote =         {Kopie vorhanden. Zeitschriftenversion von \cite{LT77}.}
+}
+
+@Article{FRS87,
+  author =       {Harvey Friedman and Neil Robertson and Paul D. Seymour},
+  title =        {The metamathematics of the graph minor theorem},
+  journal =      {Contemporary Mathematics},
+  year =         {1987},
+  OPTkey =       {},
+  volume =       {65},
+  OPTnumber =    {},
+  pages =        {229-261},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{Go00,
+  author =       {F. G{\"o}ring},
+  title =        {Short proof of {M}enger's Theorem},
+  journal =      {Discrete Mathematics},
+  year =         2000,
+  volume =       219,
+  pages =        {295-296},
+  note =         {Communication},
+  annote =       {Kopiert. Siehe Ordner "Genauer", darin "Graphentheorie".}
+}
+
+@Book{Di2000,
+  author =       {Reinhard Diestel},
+  title =        {Graph Theory},
+  publisher =    {Springer},
+  year =         2000,
+  volume =       173,
+  series =       {Graduate Texts in Mathematics},
+  address =      {New York},
+  edition =      {Second},
+  note =         {ISBN 0-387-98976-5; QA166.D51413 2000},
+  annote =       {Vorhanden. Siehe Bearbeitung in "GraphenD" im Ordner "Genauer".
+
+1. The Basics
+2. Matching
+3. Connectivity
+4. Planar Graphs
+5. Colouring
+6. Flows
+7. Substructures in Dense Graphs
+8. Substructures in Sparse Graphs
+9. Ramsey Theory for Graphs
+10. Hamilton Cycles
+11. Random Graphs
+12. Minors, Trees, and WQO
+}
+}
+
+@Book{BB1972,
+  author =       {U. Bertele and F. Brioschi},
+  title =        {Nonserial Dynamic Programming},
+  publisher =    {Academic Press},
+  year =         1972,
+  address =      {New York},
+  annote =       {Nach \cite{Ar85} findet sich hier wohl die Definition von "Dimension" eines Graphen.}
+}
+
+@Article{DT1997,
+  author =       {Dorit Dor and Michael Tarsi},
+  title =        {Graph Decomposition is {NP}-Complete: A Complete Proof of {H}olyer's Conjecture},
+  journal =      {SIAM Journal on Computing},
+  year =         1997,
+  volume =       26,
+  number =       4,
+  pages =        {1166-1187},
+  annote =       {pdf-Datei vorhanden (unter "Graphen")}
+}
+
+@Book{GR2001,
+  author =       {Chris Godsil and Gordon Royle},
+  title =        {Algebraic Graph Theory},
+  publisher =    {Springer},
+  year =         2001,
+  volume =       207,
+  series =       {Graduate Texts in Mathematics},
+  address =      {New York},
+  note =         {ISBN 0-387-95220-9, QA166 .G63 2001},
+  annote =       {Vorhanden. Siehe Besprechung in "AlgGraphTh" im Ordner "Genauer".}
+}
+@Book{GR2001kurz,
+  author =       {Chris Godsil and Gordon Royle},
+  title =        {Algebraic Graph Theory},
+  publisher =    {Springer},
+  year =         2001
+}
+
+@Unpublished{Wa2002,
+  author =       {Magnus Wahlstr{\"{o}}m},
+  title =        {An algorithm for finding minimum transversals in rank-3 hypergraphs},
+  note =         {Gutachter-Exemplar.},
+  annote =       {Zur Begutachtung f\"ur Journal of Algorithms. Siehe Besprechung in "Kombinatorik" im Ordner "Genauer", und das Gutachten.}
+}
+@Unpublished{Wa2002b,
+  author =       {Magnus Wahlstr{\"{o}}m},
+  title =        {Exact algorithms for finding minimum transversals in rank-3 hypergraphs},
+  note =         {Gutachter-Exemplar.},
+  annote =       {Zur Begutachtung f\"ur Journal of Algorithms. Zweite Version vom 20.3.2003; pdf-Datei vorhanden.}
+}
+
+@Book{Bo2001,
+  author =       {B{\'{e}}la Bollob{\'{a}}s},
+  title =        {Random Graphs},
+  publisher =    {Cambridge University Press},
+  year =         2001,
+  series =       {Cambridge Studies in Advanced Mathematics},
+  edition =      {Second},
+  note =         {ISBN 0 521 79722 5; QA166.17.B66 2001},
+  annote =       {Vorhanden.}
+}
+
+@Article{dCa1983,
+  author =       {D. de Caen},
+  title =        {Extensions of a theorem of {M}oon and {M}oser on complete subgraphs},
+  journal =      {Ars Combinatoria},
+  year =         {1983},
+  OPTkey =       {},
+  volume =       {16},
+  OPTnumber =    {},
+  pages =        {5-10},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Book{Berge1989,
+  author =       {Claude Berge},
+  title =        {Hypergraphs: Combinatorics of Finite Sets},
+  publisher =    {North Holland},
+  year =         1989,
+  volume =       45,
+  series =       {North-Holland Mathematical Library},
+  address =      {Amsterdam},
+  note =         {ISBN 0 444 87489 5; QA166.23.B4813 1989},
+  annote =       {Vorhanden.}
+}
+@Book{Berge1989kurz,
+  author =       {Claude Berge},
+  title =        {Hypergraphs},
+  publisher =    {North Holland},
+  year =         1989,
+  address =      {Amsterdam},
+  annote =       {Vorhanden.}
+}
+
+@Book{Kolchin1999,
+  author =       {V.F. Kolchin},
+  title =        {Random Graphs},
+  publisher =    {Cambridge University Press},
+  year =         1999,
+  volume =       53,
+  series =       {Encyclopedia of Mathematics and its Applications},
+  note =         {ISBN 0 521 44081 5 hardback; QA166.17.K65 1999},
+  annote =       {Arbeiten russischer Mathematiker. Zufaellige Gleichungssysteme ueber GL(2).}
+}
+
+@InProceedings{BrightwellWinkler2002BetheLattic,
+  author =       {Graham R. Brightwell and Peter Winkler},
+  title =        {Hard Constraints and the {B}ethe Lattice: Adventures at the Interface of Combinatorics and Statistical Physics},
+  booktitle =    {Proc.~Int'l.~Congress of Mathematicians Vol.~IIIi},
+  pages =        {605-624},
+  year =         2002,
+  editor =       {Li Tatsien},
+  publisher =    {Higher Education Press, Beijing},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@TechReport{EiterGottlob1995MinimalTransversalsTR,
+  author =       {Thomas Eiter and Georg Gottlob},
+  title =        {Identifying the Minimal Transversals of a Hyper\-graph and Related Problems},
+  institution =  {Christian Doppler Laboratory for Expert Systems},
+  year =         1991,
+  number =       {CD-TR 91/16},
+  address =      {TU Vienna, Austria},
+  month =        {January},
+  annote =       {ps-Datei vorhanden.}
+}
+@Article{EiterGottlob1995MinimalTransversals,
+  author =       {Thomas Eiter and Georg Gottlob},
+  title =        {Identifying the minimal transversals of a hyper\-graph and related problems},
+  journal =      {SIAM Journal on Computing},
+  year =         1995,
+  volume =       24,
+  number =       6,
+  pages =        {1278-1304},
+  doi =          {10.1137/S0097539793250299},
+  annote =       {ps-Datei vorhanden. Kurzversion von \cite{EiterGottlob1995MinimalTransversalsTR}.}
+}
+
+@Article{Eiter1994ExactTransversal,
+  author =       {Thomas Eiter},
+  title =        {Exact Transversal Hypergraphs and Application to Boolean $\mu$-Functions},
+  journal =      {Journal of Symbolic Computation},
+  year =         1994,
+  volume =       17,
+  number =       3,
+  pages =        {215-225},
+  doi =          {10.1006/jsco.1994.1013},
+  annote =       {Pdf vorhanden. Siehe Besprechung in "Kombinatorik" im Ordner "Genauer".}
+}
+
+@Book{BrandstaedtLeeSpinrad1999GraphClasses,
+  author =       {Andreas Brandst{\"a}dt and Van Bang Lee and Jeremy P. Spinrad},
+  title =        {Graph Classes},
+  publisher =    {SIAM (Society for Industrial and Applied Mathematics},
+  year =         1999,
+  series =       {Monographs on Discrete Mathematics and Applications},
+  note =         {ISBN 0-89871-432-X; QA166.B73 1999},
+  annote =       {Vorhanden.}
+}
+
+@Book{CvetkovicDoobSachs1980Spectra,
+  author =       {Drago{\u{s}} M. Cvetkovi{\'c} and Michael Doob and Horst Sachs},
+  title =        {Spectra of Graphs, Theory and Applications},
+  publisher =    {Academic Press},
+  year =         1980,
+  address =      {New York},
+  note =         {ISBN 0-12-195 150-2; QA166 CVE},
+  annote =       {Zu kopieren.}
+}
+
+@Book{CvetkovicDoobGutmanTorgasev1988Spectra,
+  author =       {Drago{\v{s}} M. Cvetkovi{\'c} and Michael Doob and Ivan Gutman and Aleksandar Torga{\v{s}}ev},
+  title =        {Recent Results in the Theory of Graph Spectra},
+  publisher =    {North-Holland},
+  year =         1988,
+  volume =       36,
+  series =       {Annals of Discrete Mathematics},
+  address =      {Amsterdam},
+  note =         {ISBN 0-444-70361-6; QA166.R43 1988},
+  annote =       {Kopiert.}
+}
+
+@Book{CvetkovicRowlinsonSimic2010GraphSpectra,
+  author =       {Drago{\u{s}} Cvetkovi{\'c} and Peter Rowlinson and Slobodan Simi{\'{c}}},
+  title =        {An Introduction to the Theory of Graph Spectra},
+  publisher =    {Cambridge University Press},
+  year =         2010,
+  volume =       75,
+  series =       {London Mathematical Society Student Texts},
+  note =         {ISBN 978-0-521-13408-8},
+  annote =       {Vorhanden.}
+}
+
+@MastersThesis{Petrovic1981Diplom,
+  author =       {M.M. Petrovi{\'{c}}},
+  title =        {The spectrum of an infinite labelled graph},
+  school =       {University Beograd, Faculty of Science},
+  year =         {1981},
+  OPTkey =       {},
+  OPTtype =      {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  annote =       {Zitiert in \cite{CvetkovicDoobSachs1988Spectra}.}
+}
+
+@PhdThesis{Petrovic1984Dissertation,
+  author =       {M.M. Petrovi{\'{c}}},
+  title =        {Contributions to the spectral theory of graphs (Serbo-Croatian)},
+  school =       {University Beograd, Faculty of Science},
+  year =         {1984},
+  OPTkey =       {},
+  OPTtype =      {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  annote =       {Zitiert in \cite{CvetkovicDoobSachs1988Spectra}.}
+}
+
+@InProceedings{Smith1970SomeSpectrum,
+  author =       {John H. Smith},
+  title =        {Some properties of the spectrum of a graph},
+  booktitle =    {Combinatorial Structures and Their Applications},
+  pages =        {403-406},
+  year =         1970,
+  editor =       {Richard Guy and Haim Hanani and Norbert Sauer and Johanan Sch{\"o}nheim},
+  address =      {New York},
+  publisher =    {Gordon and Breach, Science Publishers},
+  note =         {Held at the University of Calgary, 1969},
+  annote =       {Kopie vorhanden. Aus \cite{CvetkovicDoobSachs1980Spectra}.}
+}
+
+@Article{Torgasev1984ReducedSpectrum,
+  author =       {Aleksandar Torga{\v{s}}ev},
+  title =        {Graphs with the reduced spectrum in the unit interval},
+  journal =      {Publ. Inst. Math. (Beograd)},
+  year =         1984,
+  volume =       {36(50)},
+  pages =        {15-26},
+  annote =       {Zitiert in \cite{CvetkovicDoobSachs1988Spectra}.}
+}
+
+@Book{BergeGraphsHyp1973,
+  author =       {Claude Berge},
+  title =        {Graphs and Hypergraphs},
+  publisher =    {North-Holland},
+  year =         1973,
+  note =         {ISBN 0 7204 2453 4},
+  annote =       {Es scheint, dass im Hypergraphen-Teil vieles dabei ist, was in \cite{Berge1989} nicht mehr dabei ist.}
+}
+
+@Book{GraverWatkins1977Combinatorics,
+  author =       {Jack E. Graver and Mark E. Watkins},
+  title =        {Combinatorics with Emphasis on the Theory of Graphs},
+  publisher =    {Springer-Verlag},
+  year =         1977,
+  volume =       54,
+  series =       {Graduate Texts in Mathematics},
+  address =      {New York},
+  note =         {ISBN 0-387-90245-7; QA164.G7},
+  annote =       {Vorhanden.}
+}
+
+@Book{HoltonSheehan93PetersenGraph,
+  author =       {D.A. Holton and J. Sheehan},
+  title =        {The Petersen Graph},
+  publisher =    {Cambridge University Press},
+  year =         1993,
+  volume =       7,
+  series =       {Australian Mathematical Society Lectrue Series},
+  note =         {ISBN 0 521 43594; QA 166 Hol (Swansea)},
+  annote =       {"... much of this book deals with the properties of cubic 3-connected graphs and the ideas that generalize from them."}
+}
+
+@InProceedings{HararyRead1973Nullgraph,
+  author =       {Frank Harary and Ronald C. Read},
+  title =        {Is the null-graph a pointless concept?},
+  booktitle =    {Graphs and Combinatorics: Proceedings of the Capital Conference on Graph Theory and Combinatorics at the George Washington University June 18-22, 1973},
+  pages =        {???},
+  year =         1974,
+  editor =       {Ruth A. Bari and Frank Harary},
+  volume =       406,
+  series =       {Lecture Notes in Mathematics},
+  publisher =    {Springer-Verlag}
+}
+
+@InCollection{Schwenk1974CharakteristischesPolynom,
+  author =       {Allen J. Schwenk},
+  title =        {Computing the characteristic polynomial of a graph},
+  booktitle =    {Graphs and Combinatorics},
+  pages =        {153-172},
+  publisher =    {Springer-Verlag},
+  year =         1974,
+  editor =       {Ruth A. Bari and Frank Harary},
+  volume =       406,
+  series =       {Lecture Notes in Mathematics},
+  annote =       {Kopie vorhanden.}
+}
+
+@Article{AlberFellowsNiedereier2004DominatingSet,
+  author =       {Jochen Alber and Michael R. Fellows and Rolf Niedermeier},
+  title =        {Polynomial-Time Data Reduction for {DOMINATING SET}},
+  journal =      {Journal of the ACM},
+  year =         2004,
+  volume =       51,
+  number =       3,
+  pages =        {363-384},
+  month =        {May},
+  annote =       {Dominating set = vertex cover; Vorverarbeitung mittels Reduktionsregeln verkleinert Graphen (besonders planare).}
+}
+
+@Article{JustinPirillo1986JacobsRang,
+  author =       "Jacques Justin and Giuseppe Pirillo",
+  title =        "On a Natural Extension of Jacob's Ranks",
+  journal =      "Journal of Combinatorial Theory",
+  year =         1986,
+  volume =       "A 43",
+  pages =        "205-???",
+  annote =       "Zu besorgen."
+}
+
+@Article{DemetrescuItaliano2004DynamicShortestPaths,
+  author =       {Camil Demetrescu and Giuseppe F. Italiano},
+  title =        {A New Approach to Dynamic All Pairs Shortest Paths},
+  journal =      {Journal of the ACM},
+  year =         2004,
+  volume =       51,
+  number =       6,
+  pages =        {968-992},
+  month =        {November}
+}
+
+@TechReport{ChlebikChlebikova2004Crowns,
+  author =       {Miroslav Chleb\'{\i}k and Janka Chleb\'{\i}kov{\'{a}}},
+  title =        {Crown reductions for the Minimum Weighted Vertex Cover problem},
+  institution =  {Electronic Colloquium on Computational Complexity},
+  year =         2004,
+  number =       {TR04-101},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Book{Knuth1993GraphBase,
+  author =       {Donald E. Knuth},
+  title =        {The Stanford GraphBase},
+  publisher =    {Addison-Wesley},
+  year =         1993,
+  note =         {ISBN 0-201-54275-7; QA164.K6},
+  annote =       {Im wesentlichen eine dokumentierte Programmsammlung fuer Graphen-Datenstrukturen, Graph-Generatoren und Graph-Algorithmen. Enthaelt sicherlich viel interessantes, aber im typischen Knuth-Stil, versetzt mit tausend Anekdoten und winzigsten Details, ohne Blick fuer's Ganze.}
+}
+
+@InProceedings{LokshtanovSloper2005SetSplitting,
+  author =       {Daniel Lokshtanov and Christian Sloper},
+  title =        {Fixed Parameter Set Splitting, Linear Kernel and Improved Running Time},
+  booktitle =    {Algorithms and Complexity in Durham 2005},
+  crossref =     {ACID2005},
+  pages =        {105-113}
+}
+
+@InProceedings{CaldwellKahngKenningsMarkov1999HypergraphPartitioning,
+  author =       {Andrew E. Caldwell and Andrew B. Kahng and Andrew A. Kennings and Igor L. Markov},
+  title =        {Hypergraph Partitioning for {VLSI} {CAD}: Methodology for Heuristic Development, Experimentation and Reporting},
+  booktitle =    {36th Annual Conference on Design Automation (DAC'99)},
+  pages =        {349-354},
+  year =         1999,
+  annote =       {pdf-Datei vorhanden (wohl nicht ganz die Konferenzversion).}
+}
+
+@InProceedings{SelvakkumaranKarypis2003HypergraphPartitioning,
+  author =       {Navaratnasothie Selvakkumaran and George Karypis},
+  title =        {Multi-Objective Hypergraph Partitioning Algorithms for Cut and Maximum Subdomain Degree Minimization},
+  booktitle =    {Proceedings of IEEE/ACM International Conference on Computer Aided Design (ICCAD)},
+  pages =        {726-733},
+  year =         2003,
+  annote =       {pdf-Datei vorhanden (wohl nicht ganz die Konferenzversion).}
+}
+
+@InProceedings{BuntineSuNewtonMayer1997NetlistPartitioning,
+  author =       {Wray L. Buntine and Lixin Su and A. Richard Newton and Andrew Mayer},
+  title =        {Adaptive methods for netlist partitioning},
+  booktitle =    {International Conference on Computer-Aided Design (ICCAD '97)  },
+  pages =        {356 - 363},
+  year =         1997,
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InCollection{GrossYellen2003Graphbegriffe,
+  author =       {Jonathan L. Gross and Jay Yellen},
+  title =        {Fundamentals of graph theory},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {2-19}
+}
+@InCollection{Beinecke2003Graphfamilien,
+  author =       {Lowell W. Beinecke},
+  title =        {Families of Graphs and Digraphs},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {20-28}
+}
+@InCollection{Wilson2003Graphgeschichte,
+  author =       {Robin J. Wilson},
+  title =        {History of Graph Theory},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {29-49}
+}
+@InCollection{Aho2003Graphrepraesentationen,
+  author =       {Alfred V. Aho},
+  title =        {Computer Representation of Graphs},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {57-67}
+}
+@InCollection{Goldberg2003Graphisomorphismen,
+  author =       {Mark Goldberg},
+  title =        {The Graph Isomorphism Problem},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {68-78}
+}
+@InCollection{Lauri2003Graphreconstruction,
+  author =       {Josef Lauri},
+  title =        {The Reconstruction Problem},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {79-98}
+}
+@InCollection{BorieParkerTovey2003Graphrecursion,
+  author =       {R.B. Borie and R. Gary Parker and C.A. Tovey},
+  title =        {Recursively Constructed Graphs},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {99-118}
+}
+@InCollection{Tuza2003Coloring,
+  author =       {Zsolt Tuza},
+  title =        {Graph Coloring},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {341-364}
+}
+@InCollection{Tuza2003FurtherColoring,
+  author =       {Zsolt Tuza},
+  title =        {Further Topics in Graph Coloring},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {365-388}
+}
+@InCollection{Gutin2003IndependentSetsCliques,
+  author =       {Gregory Gutin},
+  title =        {Independent Sets and Cliques},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {389-402}
+}
+@InCollection{Plummer2003Factors,
+  author =       {Michael Plummer},
+  title =        {Factors and Factorization},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {403-430}
+}
+@InCollection{Tucker2003Perfect,
+  author =       {Alan Tucker},
+  title =        {Perfect Graphs},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {431-444}
+}
+@InCollection{BurkeWerraKingston2003Timetabling,
+  author =       {Edmund Burke and Dominique de Werra and Jeffrey Kingston},
+  title =        {Applications to Timetabling},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {445-474}
+}
+@InCollection{Wormald2003TimetablingRandomGraphs,
+  author =       {Nicholas Wormald},
+  title =        {Random Graphs},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {817-836}
+}
+@InCollection{BorieParkerTovey2003Graphrecursionalgorithms,
+  author =       {R.B. Borie and R. Gary Parker and C.A. Tovey},
+  title =        {Algorithms on Recursively Constructed Graphs},
+  booktitle =    {Handbook of Graph Theory},
+  crossref =     {GrossYellen2003Graphhandbuch},
+  pages =        {1046-1066}
+}
+
+@Article{Erdoes1976Graphen,
+  author =       {Paul Erd{\"{o}}s},
+  title =        {Problems and results in Graph Theory},
+  journal =      {Congressus Numerantium},
+  year =         1976,
+  volume =       15,
+  pages =        {169-192},
+  annote =       {Zu besorgen.}
+}
+
+@Article{CaenGregory1985CliqueZerlegungen,
+  author =       {Dominique de Caen and David A. Gregory},
+  title =        {Partitions of the edge-set of a multigraph by complete graphs},
+  journal =      {Congressus Numerantium},
+  year =         1985,
+  volume =       47,
+  pages =        {255-263},
+  annote =       {Kopie vorhanden.}
+}
+
+@Book{Spinrad2003Graphrepraesentationen,
+  author =       {Jeremy P. Spinrad},
+  title =        {Efficient Graph Representations},
+  publisher =    {American Mathematical Society},
+  year =         2003,
+  series =       {Fields Institute Monographs},
+  note =         {ISBN 0-8218-2815-0; QA166.242.S65},
+  annote =       {Zu besorgen.}
+}
+
+@Book{Berge1962Graphen,
+  author =       {Claude Berge},
+  title =        {The Theory of Graphs},
+  publisher =    {Dover Publications, Inc.},
+  year =         2001,
+  note =         {ISBN 0-486-41975-4; QA166 .B413; originally publised 1962},
+  annote =       {Vorhanden.}
+}
+
+@Book{GrossTucker1987TopologischeGraphentheorie,
+  author =       {Jonathan L. Gross and Thomas W. Tucker},
+  title =        {Topological Graph Theory},
+  publisher =    {Dover Publications, Inc.},
+  year =         2001,
+  note =         {ISBN 0-486-41741-7; QA166.195 .G76; originally published 1987},
+  annote =       {Vorhanden.}
+}
+
+@Book{BangJensenGutin2006Digraphs,
+  author =       {J{\o}rgen Bang-Jensen and Gregory Gutin},
+  title =        {Digraphs: Theory, Algorithms and Applications},
+  publisher =    {Springer},
+  year =         2006,
+  note =         {ISBN 1-85233-611-02; 2nd printing},
+  annote =       {Vorhanden.}
+}
+
+@InProceedings{KavvadiasStavropoulos1999EmpirischeTransversalen,
+  author =       {D.J. Kavvadias and E. Stavropoulos},
+  title =        {Evaluation of an algorithm for the transversal hypergraph problem},
+  booktitle =    {Proc. 3rd WAE},
+  pages =        {72-84},
+  year =         1999,
+  volume =       1668,
+  series =       {Lecture Notes in Computer Science},
+  annote =       {Zu besorgen.}
+}
+
+@Book{Bollobas1998ModerneGraphen,
+  author =       {B{\'{e}}la Bollob{\'{a}}s},
+  title =        {Modern Graph Theory},
+  publisher =    {Springer},
+  year =         1998,
+  volume =       184,
+  series =       {Graduate Texts in Mathematics},
+  note =         {ISBN 0-387-98488-7; third printing (2002)},
+  annote =       {Vorhanden.}
+}
+
+% #######################################
+
+@InCollection{BeinekeWilsonCameron2004Bezeichnungen,
+  author =       {Lowell W. Beineke and Robin J. Wilson and Peter Cameron},
+  title =        {Introduction},
+  booktitle =    {Topics in Algebraic Graph Theory},
+  crossref =     {BeinekeWilson2004AlgebraischeGraphentheorie},
+  pages =        {1-29}
+}
+@InCollection{Doob2004Eigenwerte,
+  author =       {Michael Doob},
+  title =        {Eigenvalues of graphs},
+  booktitle =    {Topics in Algebraic Graph Theory},
+  crossref =     {BeinekeWilson2004AlgebraischeGraphentheorie},
+  pages =        {30-55},
+  chapter =      {1}
+}
+@InCollection{BrualdiShader2004Graphsmatrices,
+  author =       {Richard A. Brualdi and Bryan L. Shader},
+  title =        {Graphs and matrices},
+  booktitle =    {Topics in Algebraic Graph Theory},
+  crossref =     {BeinekeWilson2004AlgebraischeGraphentheorie},
+  pages =        {56-87},
+  chapter =      {2}
+}
+
+% #######################################
+
+@TechReport{EiterGottlobMakino2002Transversalen,
+  author =       {Thomas Eiter and Georg Gottlob and Kazuhisa Makino},
+  title =        {New results on monotone dualization and generating hypergraph transversals},
+  institution =  {Technische Universit\"at Wien},
+  year =         2002,
+  number =       {INFSYS Research Report 1843-02-05},
+  month =        {April},
+  annote =       {Ps-Datei vorhanden.}
+}
+@Article{EiterGottlobMakino2003Transversalen,
+  author =       {Thomas Eiter and Georg Gottlob and Kazuhisa Makino},
+  title =        {New results on monotone dualization and generating hypergraph transversals},
+  journal =      {SIAM Journal on Computing},
+  year =         2003,
+  volume =       32,
+  number =       2,
+  pages =        {514-537},
+  doi =          {10.1137/S009753970240639X},
+  annote =       {Pdf-Datei vorhanden. Wohl mit \cite{EiterGottlobMakino2002Transversalen} im wesentlichen identisch.}
+}
+
+@InCollection{BergeAlfonsin2001Origins,
+  author =       {C. Berge and J.L. Ram{\'{\i}}rez Alfons{\'{\i}}n},
+  title =        {Origins and Genesis},
+  booktitle =    {Perfect Graphs},
+  crossref =     {AlfonsinReed2001PerfekteGraphen},
+  pages =        {1-12},
+  chapter =      1
+}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{SandersonDriskellReeEulensteinLangley2003Bicliques,
+  author =       {Michael J. Sanderson and Amy C. Driskell and Richard H. Ree and Oliver Eulenstein and Sash Langley},
+  title =        {Obtaining Maximal Concatenated Phylogenetic Data Sets from Large Sequence Databases},
+  journal =      {Molecular Biology and Evolution},
+  year =         2003,
+  volume =       20,
+  number =       7,
+  pages =        {1036-1042},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{McKayRadziszowski1997RamseyNumbers,
+  author =       {Brendan D. McKay and Stanis{\l}aw P. Radziszowski},
+  title =        {Subgraph Counting Identities and {R}amsey Numbers},
+  journal =      {Journal of Combinatorial Theory, Series B},
+  year =         1997,
+  volume =       69,
+  number =       2,
+  pages =        {193-209},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Fagin1983Azyklisch,
+  author =       {Ronald Fagin},
+  title =        {Degrees of Acyclicity for Hypergraphs and Relational Database Schemes},
+  journal =      {Journal of the Association for Computer Machinery},
+  year =         1983,
+  volume =       30,
+  number =       3,
+  pages =        {514-550},
+  month =        {July},
+  doi =          {10.1145/2402.322390},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % BICLIQUE-ZERLEGUNGEN / BICLIQUE PARTITIONS %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{Pe1984,
+  author =       {G.W. Peck},
+  title =        {A new proof of a theorem of {G}raham and {P}ollak},
+  journal =      {Discrete Mathematics},
+  year =         1984,
+  volume =       49,
+  pages =        {327-328},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@InCollection{CGP1993,
+  author =       {Dominique de Caen and David A. Gregory and Daniel Pritikin},
+  title =        {Minimum Biclique Partitions of the Complete Multigraph and Related Designs},
+  booktitle =    {Graphs, Matrices and Designs},
+  crossref =  {Rees1993GraphsMatricesDesigns},
+  pages =        {93-119},
+  publisher =    {Marcel Dekker, Inc.},
+  year =         1993,
+  editor =       {Rolf S. Rees},
+  volume =       139,
+  series =       {Lecture notes in pure and applied mathematics},
+  address =      {New York},
+  annote =       {Kopie vorhanden.}
+}
+@InCollection{HLM1993,
+  author =       {Kim A.S. Hefner and J. Richard Lundgren and John S. Maybee},
+  title =        {Biclique Covers and Partitions of Unipathic Digraphs},
+  booktitle =    {Graphs, Matrices and Designs},
+  crossref =     {Rees1993GraphsMatricesDesigns},
+  pages =        {93-119},
+  publisher =    {Marcel Dekker, Inc.},
+  year =         1993,
+  editor =       {Rolf S. Rees},
+  volume =       139,
+  series =       {Lecture notes in pure and applied mathematics},
+  address =      {New York},
+  annote =       {Kopie vorhanden. Siehe Besprechung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{BoSh1995BicliqueComptpartite,
+  author =       {Elizabeth D. Boyer and Bryan L. Shader},
+  title =        {On Biclique Decompositions of Complete $t$-partite Graphs},
+  journal =      {Linear Algebra and its Applications},
+  year =         1995,
+  volume =       217,
+  pages =        {31-40},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{ABS1991MulticoloredForests,
+  author =       {Noga Alon and Richard A. Brualdi and Bryan L. Shader},
+  title =        {Multicolored Forests in Bipartite Decompositions of Graphs},
+  journal =      {Journal of Combinatorial Theory, Series B},
+  year =         1991,
+  volume =       53,
+  pages =        {143-148},
+  annote =       {Kopie vorhanden. Siehe Bearbeitung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{Prit1986BipartiteDecompositionsMultigraphs,
+  author =       {Daniel Pritikin},
+  title =        {Applying a Proof of {T}verberg to Complete Bipartite Decompositions of Digraphs and Multigraphs},
+  journal =      {Journal of Graph Theory},
+  year =         1986,
+  volume =       10,
+  pages =        {197-201},
+  annote =       {Kopie vorhanden. Siehe Bearbeitung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{Shader1993BicliquePartitions,
+  author =       {Bryan L. Shader},
+  title =        {On biclique partitions of the complete graph},
+  journal =      {Discrete Mathematics},
+  year =         1993,
+  volume =       117,
+  pages =        {197-213},
+  annote =       {pdf-Datei vorhanden. Siehe Bearbeitung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{SchZh1998Starfree,
+  author =       {Allen J. Schwenk and Ping Zhang},
+  title =        {Starfree biclique decompositions of complete graphs},
+  journal =      {Bulletin of the ICA},
+  year =         {1998},
+  OPTkey =       {},
+  volume =       {23},
+  OPTnumber =    {},
+  pages =        {33-62},
+  OPTmonth =     {},
+  OPTnote =      {},
+  annote =       {Kopie vorhanden. Siehe Bearbeitung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{GH1971,
+  author =       {Ronald L. Graham and H.O. Pollak},
+  title =        {On the addressing problem for loop switching},
+  journal =      {Bell System Technical Journal},
+  year =         1971,
+  volume =       50,
+  number =       8,
+  pages =        {2495-2519},
+  annote =       {Pdf vorhanden. Die urspruengliche Arbeit zur Bicliquen-Zerlegung ...}
+}
+
+@Article{LS1994NumberMulticoloredTrees,
+  author =       {Jiuqiang Liu and Allen J. Schwenk},
+  title =        {The Color-Degree Matrix and the Number of Multicolored Trees in Star Decompositions},
+  journal =      {Journal of Combinatorial Theory, Series B},
+  year =         1994,
+  volume =       60,
+  pages =        {207-221},
+  annote =       {Kopie vorhanden. Siehe Bearbeitung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{KRW1988EigensharpGraphs,
+  author =       {Thomas Kratzke and Bruce Reznik and Douglas West},
+  title =        {Eigensharp Graphs: Decompositions into Complete Bipartite Subgraphs},
+  journal =      {Transactions of the American Mathematical Society},
+  year =         1988,
+  volume =       308,
+  number =       2,
+  pages =        {637-653},
+  month =        {August},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{LS1991Acyclic,
+  author =       {Jiuqiang Liu and Allen J. Schwenk},
+  title =        {The number of multicolored trees in acyclic multiclique decompositions},
+  journal =      {Congr. Numer.},
+  year =         {1991},
+  OPTkey =       {},
+  volume =       {81},
+  OPTnumber =    {},
+  pages =        {129-142},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {Zu besorgen.}
+}
+
+@Article{GW1985IsometricEmbeddings,
+  author =       {Ronald L. Graham and Peter M. Winkler},
+  title =        {On Isometric Embeddings of Graphs},
+  journal =      {Transactions of the American Mathematical Society},
+  year =         1985,
+  volume =       288,
+  number =       2,
+  pages =        {527-536},
+  month =        {April},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@InCollection{Win1987MetricStructGraphs,
+  author =       {Peter M. Winkler},
+  title =        {The metric structure of graphs: theory and applications},
+  booktitle =    {Surveys in Combinatoris 1987 (Invited papers for the Eleventh British Combinatorial Conference)},
+  pages =        {197-221},
+  publisher =    {Cambridge University Press},
+  year =         1987,
+  editor =       {C. Whitehead},
+  volume =       123,
+  series =       {London Mathematical Society Lecture Note Series},
+  address =      {Cambridge},
+  note =         {ISBN 0 521 34805 6; QA 164},
+  annote =       {Kopie vorhanden. Siehe Besprechung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{Wink1983Squashed,
+  author =       {Peter M. Winkler},
+  title =        {Proof of the squashed cube conjecture},
+  journal =      {Combinatorica},
+  year =         1983,
+  volume =       3,
+  number =       1,
+  pages =        {135-139},
+  doi =          {10.1007/BF02579350},
+  annote =       {Kopie vorhanden. Siehe Besprechung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{Wink1984Isometric,
+  author =       {Peter M. Winkler},
+  title =        {Isometric embedding in products of complete graphs},
+  journal =      {Discrete Applied Mathematics},
+  year =         1984,
+  volume =       7,
+  pages =        {221-225},
+  annote =       {Kopie vorhanden. Siehe Besprechung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{CGW1985AddressingDirected,
+  author =       {Fan R.K. Chung and Ronald L. Graham and Peter M. Winkler},
+  title =        {On the Addressing Problem for Directed Graphs},
+  journal =      {Graphs and Combinatorics},
+  year =         1985,
+  volume =       1,
+  pages =        {41-50},
+  annote =       {Kopie vorhanden. Siehe Besprechung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@InCollection{Win1985GraphsMetricNegative,
+  author =       {Peter M. Winkler},
+  title =        {On graphs which are metric spaces of negative type},
+  booktitle =    {Graph Theory and its Applications to Algorithms and Computer Science},
+  pages =        {801-810},
+  publisher =    {John Wiley \& Sons},
+  year =         1985,
+  editor =       {Y. Alavi},
+  note =         {ISBN 0471816353},
+  annote =       {Kopie vorhanden. Siehe Besprechung in "KombMatrix" im Ordner "Genauer".}
+}
+
+@Article{BrandenburgGopinathKurshan1972Addressing,
+  author =       {L.H. Brandenburg and B. Gopinath and R.P. Kurshan},
+  title =        {On the Addressing Problem of Loop Switching},
+  journal =      {The Bell System Technical Journal},
+  year =         1972,
+  volume =       51,
+  number =       7,
+  pages =        {1445-1469},
+  month =        {September},
+  annote =       {Kopie vorhanden.}
+}
+
+% War EGM1996
+@InProceedings{EGM1996Petersen,
+  author =       {Randall J. Elzinga and David A. Gregory and Kevin N. Vander Meulen},
+  title =        {Addressing the {P}etersen graph},
+  booktitle =    {The Ninth Quadrennial International Conference on Graph Theory, Combinatorics, Algorithms and Applications},
+  year =         2002,
+  editor =       {Yousef Alavi and Dawn Jones and Don R. Lick and Jiuqiang Liu},
+  volume =       11,
+  series =       {Electronic Notes in Discrete Mathematics},
+  annote =       {"EGM1996" resultierte aus falscher Quellenangabe; pdf-Datei im Ordner "UmfeldAdressing". Siehe Besprechung im Ordner "Genauer" in "KombMatrix".}
+}
+
+@Article{Hoffman1972PartitioningsGraph,
+  author =       {A.J. Hoffman},
+  title =        {Eigenvalues and Partitionings of the Edges of a Graph},
+  journal =      {Linear Algebra and its Applications},
+  year =         1972,
+  volume =       5,
+  number =       2,
+  pages =        {137-146},
+  doi =          {10.1016/0024-3795(72)90023-7},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{GregoryMeulen1996RPartiteDecompositions,
+  author =       {David A. Gregory and Kevin N. Vander Meulen},
+  title =        {Sharp Bounds for Decompositions of Graphs into Complete $r$-Partite Subgraphs},
+  journal =      {Journal of Graph Theory},
+  year =         1996,
+  volume =       21,
+  number =       4,
+  pages =        {393-400},
+  month =        {April},
+  doi =          {10.1002/(SICI)1097-0118(199604)21:4<393::AID-JGT4>3.3.CO;2-9},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@PhdThesis{VanderMeulen1995Multicliquezerlegung,
+  author =       {Kevin N. Vander Meulen},
+  title =        {Covers and Decompositions of Graphs by Complete Multipartite Subgraphs},
+  school =       {Queen's University},
+  year =         1995,
+  address =      {Kingston, Ontario, Canada},
+  month =        {August},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{AlexeAlexeCramaFoldesHammerSimeone2004MaxBCs,
+  author =       {Gabriela Alexe and Sorin Alexe and Yves Crama and Stephan Foldes and Peter L. Hammer and Bruno Simeone},
+  title =        {Consensus algorithms for the generation of all maximal bicliques},
+  journal =      {Discrete Applied Mathematics},
+  year =         2004,
+  volume =       145,
+  number =       1,
+  pages =        {11-21},
+  month =        {December},
+  doi =          {10.1016/j.dam.2003.09.004},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Peeters2003MaxBC,
+  author =       {Ren{\'{e}} Peeters},
+  title =        {The maximum edge biclique problem is {NP}-complete},
+  journal =      {Discrete Applied Mathematics},
+  year =         2003,
+  volume =       131,
+  pages =        {651-654},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{FleischnerMujuniPaulusmaSzeider2009bipartitesubgraphs,
+  author =       {Herbert Fleischner and Egbert Mujuni and Dani\"el Paulusma and Stefan Szeider},
+  title =        {Covering graphs with few complete bipartite subgraphs},
+  journal =      {Theoretical Computer Science},
+  year =         2009,
+  volume =       410,
+  pages =        {2045-2053},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{NeighborlyCubesZaks1985,
+  author =       {Joseph Zaks},
+  title =        {How Does a Complete Graph Split into Bipartite Graphs and How are Neighborly Cubes Arranged?},
+  journal =      {American Mathematical Monthly},
+  year =         1985,
+  volume =       92,
+  number =       8,
+  pages =        {568-571},
+  month =        {October},
+  annote =       {Pdf vorhanden.}
+}
+
+@InCollection{Alon2013Neighborly,
+  author =       {Noga Alon},
+  title =        {Neighborly Families of Boxes and Bipartite Coverings},
+  booktitle =    {The Mathematics of Paul Erd{\"{o}}s II},
+  pages =        {15-20},
+  publisher =    {Springer},
+  year =         2013,
+  editor =       {Ronald L. Graham and Jaroslav Ne\v{s}et\v{r}il and Steve Butler},
+  isbn =         {978-1-4614-7253-7},
+  doi =          {10.1007/978-1-4614-7254-4_2},
+  annote =       {Pdf von Vorversion vorhanden.}
+}
+
+@Article{HuangSudakov2012AlonSaksSeymourConjecture,
+  author =       {Hao Huang and Benny Sudakov},
+  title =        {A counterexample to the {A}lon-{S}aks-{S}eymour conjecture and related problems},
+  journal =      {Combinatorica},
+  year =         2012,
+  volume =       32,
+  number =       2,
+  pages =        {205-219},
+  month =        {March},
+  doi =          {10.1007/s00493-012-2746-4},
+  annote =       {Pdf von arXiv-Version vorhanden (http://arxiv.org/abs/1002.4687).}
+}
+
+@Article{CioabaTait2013GrahamPollak,
+  author =       {Sebastian M. Cioab{\u{a}} and Michael Tait},
+  title =        {Variations on a theme of {G}raham and {P}ollak},
+  journal =      {Discrete Mathematics},
+  year =         2013,
+  volume =       313,
+  number =       5,
+  pages =        {665-676},
+  month =        {March},
+  doi =          {10.1016/j.disc.2012.12.001},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{Vishwanathan2008GrahamPollak,
+  author =       {Sundar Vishwanathan},
+  title =        {A polynomial space proof of the {G}raham-{P}ollak theorem},
+  journal =      {Journal of Combinatorial Theory, Series A},
+  year =         2008,
+  volume =       115,
+  number =       4,
+  pages =        {674-676},
+  month =        {May},
+  doi =          {10.1016/j.jcta.2007.07.006},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{Vishwanathan2013GrahamPollak,
+  author =       {Sundar Vishwanathan},
+  title =        {A counting proof of the {G}raham-{P}ollak Theorem},
+  journal =      {Discrete Mathematics},
+  year =         2013,
+  volume =       313,
+  number =       6,
+  pages =        {765-766},
+  month =        {March},
+  doi =          {10.1016/j.disc.2012.12.017},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{GWS1999,
+  author =       {David A. Gregory and Valerie L. Watts and Bryan L. Shader},
+  title =        {Biclique decompositions and Hermitian rank},
+  journal =      {Linear Algebra and its Applications},
+  year =         1999,
+  volume =       292,
+  pages =        {267-280},
+  doi =          {10.1016/S0024-3795(99)00042-7},
+  annote =       {Pdf vorhanden. Siehe Besprechung im Ordner "Genauer" in "KombMatrix".}
+}
+
+
+
+% %%%%%%%%%%%%
+% % PEBBLING %
+% %%%%%%%%%%%%
+
+@InProceedings{FRV77,
+  author =       "P. Flajolet and J.C. Raoult and J. Vuillemin",
+  title =        "On the average number of registers required for evaluating arithmetic expressions",
+  pages =        "196-205",
+  booktitle =    "18th Annual Symposium on Foundations of Computer
+                  Science",
+  year =         1977,
+  annote =       "Es wird die Eingabe-Hoehe $h(T)$ fuer binaere Baeume
+                  betrachtet. Es wird die obere Schranke
+                     $ h(T) \le \log_2 \nlvs(T) $
+                  angegeben.  Sei $M_m$ die Menge aller binaeren
+                  Baeume mit $m$ inneren Knoten (also mit $m+1$
+                  Blaettern). Betrachte die Gleichverteilung auf
+                  $M_m$. Fuer die erwartete oder durchschnittliche
+                  Eingabe-Hoehe
+                    $ A_m = \sum_{T \in M_m} h(T) / |M_m| $
+                  wird gezeigt:
+                    $ A_m = \log_4 m + 0.292.. +E(\log_4 m) + o(1) $
+                  wobei $E$ eine stetige Funktion mit Periode 1 ist,
+                  deren Durchschnittswert $0$ ist, und deren Amplitude
+                  weniger als $0.05$ ist.
+                  Unabhaengig wurde das gleiche Ergebnis in
+                  \cite{Ke77} erzielt."
+}
+
+@TechReport{Ke77,
+  author =       "Rainer Kemp",
+  title =        "The average number of registers needed to evaluate a binary tree optimally",
+  institution =  "University of Saarbr{\"u}cken, Germany",
+  year =         1977,
+  number =       "A 77/04",
+  annote =       "Zitiert in \cite{FRV77}."
+}
+
+@Article{Na67,
+  author =       "I. Nakata",
+  title =        "On Compiling Algorithms for Arithmetic Expressions",
+  journal =      "Communications of the ACM",
+  year =         1967,
+  volume =       10,
+  pages =        "492-494",
+  annote =       "Die ``Eingabe-Hoehe'' $h(T)$ wird erklaert fuer
+                  binaere Baeume, die arithmetische Berechnungen
+                  kodieren, und ist die ``number of accumulators
+                  necessary to calculate the expression''."
+}
+
+@Article{PTC77,
+  author =       {Wolfgang J. Paul and Robert Endre Tarjan and James R. Celoni},
+  title =        {Space Bounds for a Game on Graphs},
+  journal =      {Mathematical Systems Theory},
+  year =         1976,
+  volume =       10,
+  number =       1,
+  pages =        {239--251},
+  month =        {December},
+  doi =          {10.1007/BF01683275},
+  annote =       {Hier werden Graphen mit $m$ Knoten und $\Omega(m / \log m)$ benoetigten Pebbles konstruiert. Zu besorgen.}
+}
+@Article{PTC77Corr,
+  author =       {Wolfgang J. Paul and Robert Endre Tarjan and James R. Celoni},
+  title =        {Correction to ``{S}pace Bounds for a Game on Graphs'' by {W}olfgang {J}. {P}aul, {R}obert {E}ndre {T}arjan and {J}ames {R}. {C}eloni},
+  journal =      {Mathematical Systems Theory},
+  year =         1977,
+  volume =       11,
+  number =       1,
+  pages =        {85--85},
+  month =        {December},
+  doi =          {10.1007/BF01768470},
+  annote =       {Zu besorgen.}
+}
+
+@TechReport{Pi80,
+  author =       "Nicholas Pippenger",
+  title =        "Pebbling",
+  institution =  "Mathematical Sciences Department, IBM Thomas
+                  J.~Watson Research Center",
+  year =         "1980",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  OPTtype =      "",
+  OPTnumber =    "",
+  address =      "Yorktown Heights, New York 10598",
+  OPTmonth =     "",
+  OPTnote =      "",
+  OPTannote =    ""
+}
+
+@Article{Re69,
+  author =       "R.R. Redziejowski",
+  title =        "On Arithmetic Expressions and Trees",
+  journal =      "Communications of the ACM",
+  year =         1969,
+  volume =       12,
+  pages =        "81-84",
+  annote =       "Aufbauend auf \cite{Na67}, wird eine alternative
+                  Definition der Eingabe-Hoehe $h(T)$ gegeben, die
+                  fuer beliebige Baeume (beliebigen Grades) anwendbar
+                  ist.
+                  Sei $T$ ein (Wurzel-)Baum (gerichtet von den Blaettern
+                  her). Sei $(v_1, \ldots, v_m)$ eine topologische
+                  Sortierung der Knoten von $T$. Fuer $1 \le i \le m$
+                  sei $w_i$ die Anzahl der Kanten $(v_j, v_k)$ in $T$
+                  mit $j < i < k$ (entspricht zu speichernden
+                  Zwischenergebnissen). Sei die Breite (``width'') der
+                  Sortierung das Maximum der $w_i$. Die relevante
+                  Groesse ist nun die minimale Breite fuer $T$ ueber
+                  alle moeglichen topologischen Sortierungen.
+                  Fuer binaere Baeume $T$ ist diese minimale Breite gerade
+                  die Eingabe-Hoehe $h(T)$.
+                  Es wird noch ein Algorithmus zur Berechnung einer
+                  topologischen Sortierung minimaler Breite (fuer
+                  Baeume) angegeben.
+                  (Die minimale Breite macht fuer beliebige gerichtete
+                  azyklische Graphen Sinn: Ist sie gleich der
+                  Pebbling-Komplexitaet (bzgl. Platz) des Graphen??
+                  Ich glaube schon.)"
+}
+
+@Article{LT80,
+  author =       {Thomas Lengauer and Robert E. Tarjan},
+  title =        {The space complexity of pebble games on trees},
+  journal =      {Information Processing Letters},
+  year =         1980,
+  volume =       10,
+  number =       {4, 5},
+  pages =        {184-188},
+  month =        {July},
+  annote =       {Kopiert. Kommentar 29.2.2000
+
+Kapitel 1: Introduction
+
+Das "black & white pebble game" (kurz bw-Spiel) geht auf einem gerichteten azklischen Graph
+vor sich, und wird mit weissen und schwarzen Marken gespielt, die die Knoten des Graphen
+markieren. Bei jedem Zug wird entweder eine Marke entfernt oder eine Marke hinzugefuegt.
+
+(Ein Knoten des Graphen heisst "unmarkiert", wenn sich weder eine weisse noch eine schwarze
+Marke darauf befindet, andernfalls heisst er "markiert".)
+
+Zu Anfang ist kein Knoten "evaluiert". Sobald eine Marke auf einen Knoten gelegt wird, heisst
+der Knoten "evaluiert" (dieser Status aendert sich nicht mehr).
+Das Spiel endet, wenn jeder Knoten evaluiert ist.
+
+Zu Anfang ist kein Knoten markiert.
+Zuege sind wie folgt:
+
+ (i) eine schwarze Marke kann jederzeit von einem Knoten entfernt werden,
+     eine weisse Marke kann jederzeit auf einen unmarkierten Knoten gesetzt werden;
+
+ (ii) sind alle direkten Vorgaenger eines Knotens markiert, so ist folgendes moeglich:
+    -- ist der Knoten unmarkiert, so kann eine schwarze Marken auf ihn gesetzt werden,
+    -- ist der Knoten mit einer weissen Marke belegt, so kann diese entfernt werden;
+
+ (iii) sind alle direkten Vorgaenger eines unmarkierten Knotens markiert, so kann eine der
+       schwarzen Marken dieser Vorgaenger (falls vorhanden) auf diesen unmarkierten Knoten
+       verschoben werden;
+       sind von den direkten Vorgaengern eines weiss markierten Knotens alle bis auf einen markiert,
+       so kann diese weisse Marke auf diesen unmarkierten direkten Vorgaenger verschoben werden.
+
+peb_bw(G) ist die minimale Anzahl von Marken, die noetig ist, um ein vollstaendiges Spiel zu spielen.
+Werden nur schwarze oder nur weisse Marken verwendet, so schreiben wir peb_b(G) bzw. peb_w(G).
+
+Gegeben ein vollstaendiges bw-Spiel: Umkehren der Reihenfolge und Vertauschung von Schwarz und
+Weiss ergibt ebenfalls ein vollstaendiges bw-Spiel. Also ist peb_w(G) = peb_b(G).
+
+% Die Verwendung von schwarzen Marken entspricht dem Beweisen von den Axiomen her, die
+% Verwendung von weissen Marken dem Beweisen von der Behauptung her.
+
+Kapitel 2: Known results and statement of the problem
+
+Sei T ein gerichteter Wurzelbaum (die Kanten sind zur Wurzel hin gerichtet).
+
+Lemma 2.1: peb_b(T) kann wie folgt rekursiv berechnet werden:
+
+    Besteht T nur aus der Wurzel, so ist peb_b(T) = 1.
+    Andernfalls seien T_1, ..., T_d die Teilbaeume an der Wurzel, geordnet, so dass
+    peb_b(T_1) >= ... >= peb_b(T_d) gilt. Nun ist
+
+      peb_b(T) = \max_{1 <= i <= d} ( peb_b(T_i) + i - 1 ).
+
+
+Lemma 2.2: Sei T_{h,d} der vollstaendige Baum der Hoehe h und vom Innengrad d. Dann
+
+             peb_bw(T_{h,d}) = \floor 1/2 ( peb_b(T_{h,d}) + d ) \rfloor
+
+fuer h > 0.
+
+Korollar 2.5: Fuer beliebige T gilt peb_bw(T) >= \lceil 1/2 peb_b(T) \rceil.
+
+Kapitel 3: The lower bound
+
+Beweis von Theorem 2.4, dass unmittelbar zu Korollar 2.5 fuehrt.
+
+Kapitel 4: Conclusions and remarks
+
+Fuer allgemeine gerichtete azyklische G scheint nur
+
+            peb_bw(G) >= \Omega( \sqrt{ peb_b(G) } )
+
+bekannt zu sein. Der Autor vermutet, dass Korollar 2.5 sogar fuer alle G gilt.
+
+% Interessant; eine Art "Geometrie des Beweisens"
+}
+}
+
+@Article{Lo80,
+  author =       {Michael C. Loui},
+  title =        {A note on the pebble game},
+  journal =      {Information Processing Letters},
+  year =         1980,
+  volume =       11,
+  number =       1,
+  pages =        {24-26},
+  month =        {August},
+  annote =       {Kopiert. Kommentar 6.3.2000
+
+Es wird das einfache Pebble-Spiel betrachtet, wobei Verschiebung von Marken nicht
+erlaubt wird (da hier daraus kein Nutzen gezogen werden kann).
+
+Sei G ein gerichteter azyklischer Graph. Eine "Schichtung" fuer W <= V(G) ist eine Folge
+(W_1, ... W_m) von Teilmengen von W, die eine Zerlegung von W bilden (es sind aber leere
+W_i erlaubt), so dass in G keine Kante von W_i nach W_j fuer ein i > j existiert.
+
+% Betrachtet man fuer irgendein Pebble-Spiel die (kumulative) Folge M_i der bereits markierten
+% Knoten, so sind alle (M_i, V(G) \ M_i) Schichtungen von V(G).
+
+Sei omega(W) das Maximum von |E(W_1, W_2)| fuer Schichtungen (W_1, W_2) von W.
+
+Lemma 1: G kann mit omega(V(G)) + 1 vielen Marken in 2 * |V(G)| vielen Schritten gepebbelt werden.
+
+% Betrachten wir einfache Markierungs-Strategien (wird einmal eine Marke von einem Knoten
+% entfernt, so wird dieser Knoten nicht mehr neu markiert).
+% Ohne Verlust ist eine einfache Strategie als "irredundant" anzunehmen, d.h., von einem markierten
+% Knoten entfernen wir seine Marke sobald alle seine direkten Nachfolger markiert sind.
+% Eine irredundante einfache Strategie ist eindeutig beschrieben durch eine Sortierung
+% (v_1, ..., v_n) der Ecken von G (genau die topologischen Sortierungen von G),
+% die die sukzessive Markierung der Knoten von G angibt. Betrachten wir irgendeine topologische
+% Sortierung. Sei W_i = {v_1, ...., v_i} fuer 0 <= i <= n.
+% (W_i, V(G) \ W_i) ist eine Schichtung von V(G). Die zugrundeliegende
+% einfache irredundante Strategie benutzt im Zeitpunkt, wo gerade v_i neu markiert wird,
+% genau |E(W_i, V(G) \ W_i)| viele Marken (danach werden Marken von Knoten in W_i, die
+% keinen Nachfolger in W_{i+1}, ..., W_n mehr haben, entfernt, und v_{i+1} wird neu markiert).
+% Es benutzt die Strategie insgesamt also genau max_{1 <= i <= n} |E(W_i, V(G) \ W_i)| + 1
+% viele Marken.
+
+Lemma 2: Sei (W_1, ..., W_m) eine Schichtung von V(G). Dann kann G mit
+
+                    sum_{1 <= i <= m} ( omega(W_i) + d )
+
+vielen Marken gepebbelt werden, wobei d das Maximum des maximale Innengrad von G und 1 ist.
+
+% winzige Verbesserung bzgl. "+1"
+
+Bew.: Induktion nach m. Fuer m = 1 haben wir Lemma 1.
+Nun nehmen wir an, dass der von W_1 + ... + W_{m-1} induzierte Untergraph mit
+
+             (*)    sum_{1 <= i <= m - 1} ( omega(W_i) + d )
+
+vielen Marken gepebbelt werden kann. Zum Pebbeln von W_m benutzen wir nun irgendeine
+einfache irredundante Strategie, wobei zur Neu-Markierung eines Knoten v, der direkte Vorgaenger
+in W_1, ..., W_{m-1} hat, diese jeweils mittels maximal (*)-vieler Marken markiert werden, wobei
+nun maximal d - 1 Zusatzmarken verwendet werden, die auf diesen direkten Vorgaengern
+liegenbleiben (eine Marke kann aus (*) genommen werden). Nach Pebbeln von v werden dann
+alle Marken ausserhalb von W_m entfernt.
+
+Lemma 3: Fuer jedes natuerliche r >= 1 gibt es eine Schichtung (W_1, ..., W_m) von V(G) mit
+
+               m <= 2^{ceil{d * n / r}}  und  sum_{1 <= i <= m} omega(W_i) <= r,
+
+wobei n := |V(G)|.
+
+% Sei k := ceil{d * n / r}. Es werden nun k + 1 Schichtungen S_0, S_1, ..., S_k von V(G) der Laenge
+% 2^0, ..., 2^k gebildet wie folgt:
+%
+% S_0 := ( V(G) );
+% gegeben S_i = (W_1^i, ..., W_m^i), waehle fuer W_j^i eine Schichtung (W_j^i', W_j^i'') mit
+%
+%                omega(W_j^i) = | E(W_j^i', W_j^i'') |.
+%
+% S_{i+1} := (W_1^i', W_1^i'', ..., W_m^i', W_m^i'').
+%
+% Setze   E_j^i := E(W_j^i', W_j^i'') fuer i < k. Also | E_j^i | = omega(W_j^i), und fuer (i, j) != (p, q)
+% gilt
+%
+%             E_j^i und E_q^p sind disjunkt.
+% Also
+%             sum_{i = 1}^{k - 1}  sum_{j = 1}^{2^i}  omega(W_j^i)  <=  | E(G) | <= d * n.
+%
+% Damit existiert ein 1 <= i < k mit   sum_{j = 1}^{2^i}  omega(W_j^i)  <= d * n / k <= r.
+
+Theorem 1: Jedes G mit n := |V(G)| und beschraenktem maximalen Innengrad kann mit hoechstens
+
+                        O( n / log n)  Marken gepebbelt werden.
+
+% Sei d der maximale Innengrad von G. Dann kann G mit hoechstens 3d * n / log_2 n Marken
+% gepebbelt werden. Zum Beweis setze r := 2d * n / log_2 n (wobei n>= 2 und d >= 1
+% vorausgesetzt wird).
+% Mit Lemma 3 gibt es eine Schichtung (W_1, ..., W_m) von V(G) mit
+%
+%  m <= 2^{1/2 log_2 n} = n^{1/2}  und  sum_{1 <= i <= m} omega(W_i) <= r.
+%
+% Mit Lemma 2 kann nun V(G) mit maximal
+%
+%     r + n^{1/2} * d = n / log_2 n * (2d + log_2 n / n^{1/2} * d) <= n / log_2 n * (2d + d)
+%
+% vielen Marken gepebbelt werden.
+
+Theorem 2: Betrachte G mit n = |V(G)|, Innengrad d und eine natuerliche Zahl S mit
+
+      (3 d + 4) * n / log_2 n <= S <= n.
+
+Dann kann G mit S Marken in maximal S * 2^{2^{O(n / S)}} vielen Zuegen gepebbelt werden.
+}
+}
+
+@InProceedings{Viennot1990Trees,
+  author =       {Xavier G{\'{e}}rard Viennot},
+  title =        {Trees everywhere},
+  booktitle =    {5th Colloquium on Trees in Algebra and Programming (CAAP '90)},
+  pages =        {18-41},
+  year =         1990,
+  editor =       {A. Arnold},
+  volume =       431,
+  series =       {Lecture Notes In Computer Science},
+  publisher =    {Springer},
+  doi = {10.1007/3-540-52590-4_38},
+  annote =       {Pdf zu besorgen.}
+}
+
+@InProceedings{EsparzaLuttenbergerSchlund2014Strahler,
+  author =       {Javier Esparza and Michael Luttenberger and Maximilian Schlund},
+  title =        {A Brief History of {S}trahler Numbers},
+  booktitle =    {LATA 2014: Language and Automata Theory and Applications, 8th International Conference},
+  pages =        {1-13},
+  year =         2014,
+  editor =       {Adrian-Horia Dediu and Carlos Mart{\'{\i}}n-Vide and Jos{\'{e}}-Luis Sierra and Bianca Truthe},
+  volume =       8370,
+  series =       {Lecture Notes in Computer Science (LNCS)},
+  publisher =    {Springer},
+  doi = {10.1007/978-3-319-04921-2_1},
+  annote =       {In LATA2014.pdf.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Zuordnungen (matchings) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{GJLR96,
+  author =       "Osca Garrido and Stefan Jarominek and Andrzej Lingas
+                  and Wojciech Rytter",
+  title =        "A simple randomized parallel algorithm for maximal f-matchings",
+  journal =      "Information Processing Letters",
+  year =         1996,
+  volume =       57,
+  pages =        "83-87",
+  annote =       "Gegeben ein ungerichteter Graph und eine Markierung
+                  $f$ der Knoten des Graphen mit nicht-negativen
+                  ganzen Zahlen. Eine $f$-Zuordnung ist eine Menge von
+                  Kanten, so dass jeder Knoten $v$ mit hoechstens
+                  $f(v)$ dieser Kanten inzidiert. Maximal heisst eine
+                  solche Zuordnung, wenn Hinzufuegung irgendeiner
+                  Kante aus dem Bereich der $f$-Zuordnungen
+                  herausfuehrt.
+                  Mittels eines ``greedy''-Algorithmus' kann das
+                  Problem in Linearzeit geloest werden. Hier wird dies
+                  verfeinert."
+}
+
+% War KH78
+@InProceedings{KH1978,
+  author =       "David G. Kirkpatrick and Pavol Hell",
+  title =        "On the completeness of a generalized matching problem",
+  pages =        "240-245",
+  booktitle =    "Proceedings of the 10th Annual ACM Symposium on
+                  Theory of Computing (STOC'78), San Diego",
+  year =         1978,
+  month =        "May",
+  annote =       "Gegeben ein Graph G (ungerichtet), so wird eine
+                  G-Zerlegung eines Graphen H als eine Familie von
+                  Teilgraphen von H definiert, so dass jedes Element
+                  isomorph zu G ist, und die Eckenmengen paarweise
+                  disjunkt sind.
+                  Der Fall einer perfekten Zuordnung ist der
+                  Spezialfall, wenn G gerade eine Kante ist.
+                  Es wird gezeigt, dass wenn G eine
+                  Zusammenhangskomponente mit mindestens 3 Ecken
+                  enthaelt, so ist das Problem, zu entscheiden, ob ein
+                  Graph H eine G-Zerlegung zulaesst, NP-vollstaendig,
+                  waehrend es andernfalls polynomial loesbar ist.
+                  Es wird noch die Verallgemeinerung auf eine Familie
+                  von Graphen (G_i) betrachtet: Auch hier liegt
+                  (natuerlich) haeufig NP-Vollstaendigkeit vor.
+                  Zwei polynomial-loesbare Faelle werden genannt:
+                  -- Alle Graphen $K_{1,m}$ sind zulaessig ($K_{a,b}$
+                  ist der vollstaendige bipartite Graph mit $a$ Ecken
+                  auf der einen Seite, $b$ auf der anderen).
+                  -- Alle Zyklen mit mindestens 2 Ecken sind zulaessig."
+}
+
+@Article{LP77,
+  author =       {L{\'a}szl{\'o} Lov{\'a}sz and Michael D. Plummer},
+  title =        {On Minimal Elementary Bipartite Graphs},
+  journal =      {Journal of Combinatorial Theory, Series B},
+  year =         {1977},
+  OPTkey =       {},
+  volume =       {23},
+  OPTnumber =    {},
+  pages =        {127-138},
+  OPTmonth =     {},
+  OPTnote =      {},
+  annote =       {Refererat in MR58#16122. Kopiert. Siehe Ordner "Genauer", darin "Graphentheorie".}
+}
+
+@Book{LP86,
+  author =       {L{\'a}szl{\'o} Lov{\'a}sz and Michael D. Plummer},
+  title =        {Matching Theory},
+  publisher =    {North-Holland},
+  year =         1986,
+  volume =       121,
+  series =       {Mathematics Studies},
+  annote =       {Neu Auflage \cite{LP86neu}.}
+}
+@Book{LP86neu,
+  author =       {L{\'a}szl{\'o} Lov{\'a}sz and Michael D. Plummer},
+  title =        {Matching Theory},
+  publisher =    {AMS Chelsea Publishing},
+  year =         2009,
+  note =         {ISBN 978-0-8218-4759-6; first published 1986, here with an additional appendix and with errata},
+  annote =       {Vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% % Baumweite (treewidth) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{Bo93,
+  author =       {Hans L. Bodlaender},
+  title =        {A Tourist Guide through Treewidth},
+  journal =      {Acta Cybernetica},
+  year =         1993,
+  volume =       11,
+  pages =        {1-21},
+  annote =       {Heruntergeladen von \url{http://www.cs.uu.nl/~hansb/mypapers.html}}
+}
+
+@Unpublished{CMR99,
+  author =       {B. Courcelle and Janos A. Makowsky and Udi Rotics},
+  title =        {Linear Time Solvable Optimization Problems on Graphs of Bounded Clique Width},
+  note =         {Can be obtained from \url{http://www.cs.technion.ac.il/~janos/}},
+  year =         1999,
+  annote =       {
+Kapitel 2: Background
+
+2.1 Graphs as logical structures
+
+Def. 7: Sei $\tau_1$ das Vokabular $\set{E}$, bestehend aus einem zweistelligen Relationssymbol
+$E$. Fuer einen Graphen $G$ sei $G(\tau_1)$ die Darstellung als Struktur $(V, E)$, wobei $V$
+die Menge der Knoten ist, und $E$ die Kantenrelation (symmetrisch und irreflexiv (da Schlingen
+hier nicht erlaubt werden)).
+Sei $\tau_{1,p}$ fuer $p \ge 1$ das Vokabular $E, U_1, \ldots, U_p$, wobei E zweistelliges
+Relationssymbol ist, und die $U_i$ einstellige Relationssymbole. Fuer einen $p$-Graphen $G$
+(d.h. einen Graphen zusammen mit eine Eckenmarkierung mit Zahlen aus $\set{1, \ldots, p}$)
+sei $G(\tau_{1,p})$ die Darstellung als Struktur $(V, E, U_1, \ldots, U_p)$, wobei $U_i(w)$ genau
+dann gilt, wenn Knoten $w$ die Markierung $i$ traegt.
+
+Anmerkung: Als $\tau_{1,p}$-Struktur werden nur solche Strukturen betrachtet, wo $E$ symmetrisch
+(und irreflexiv) ist, und wo die $U_i$ eine Zerlegung von $V$ bilden (dies alles ist durch Formeln
+der ersten Stufe ausdrueckbar).
+
+Def. 8: (Analog Def. 7, nun aber fuer Graphen, wo Kanten und Ecken markiert sind.)
+Sei $\tau_2$ das Vokabular $\set{R, P_E, P_V}$, wobei R zweistelliges, und $P_E, P_V$ einstellige
+Relationssymbole sind. Fuer einen Graphen $G$ sei $G(\tau_2)$ die Darstellung als
+$(V \cup E, R, P_E, P_V)$, wobei $(e, v) \in R$ gdw $v$ Ecke von $G$ inzident mit der Kante $e$
+ist, und $P_E$ und $P_V$ angeben, ob eine Kante oder eine Ecke vorliegt.
+Sei $\tau_{2,p}$ das Vokabular $\set{R, P_E, P_V, U_1, \ldots, U_p}$ analog zu Def. 7.
+
+2.2 Monadic Second Order Logic decision and optimization problems
+
+Logik zweiter Stufe (SOL) erlaubt Quantifikation ueber Relational-Variablen, waehrend monadische
+Logik zweiter Stufe (MSOL) nur Quantifikation ueber monadische Relational-Variablen (das sind
+Mengenvariablen) zulaesst.
+
+Alle Strukturen seien im weiteren endlich. Fuer ein Vokabular $\tau$ sei $Str(\tau)$ die Klasse
+aller (endlichen) $\tau$-Strukturen.
+
+Def. 9: Ein Entscheidungs-Problem ist ein "$MSOL(\tau)$-Entscheidungsproblem ueber $K$,
+wobei $K$ eine Klasse von $\tau$-Stukturen ist, falls es eine geschlossene monadische
+Formel $\phi$ der zweiten Stufe existiert, so dass das Entscheidungsproblem wie folgt
+dargestellt werden kann:
+
+Gegeben: Eine $\tau$-Struktur $\mc{A}$.
+
+Entscheide: $\mc{A} \models \phi$.
+
+Ohne Bezug auf $K$ ist $K = Str(\tau)$ gemeint.
+
+In Def. 10 werden Optimisierungsprobleme betrachtet. Hierfuer wird folgende Notation
+verwendet:
+
+Seien $f_1, f_m$ Funktionssymbole. Fuer eine Mengenvariable $X$ und eine Belegung $z$
+der Mengenvariablen (mit Mengen) sei
+
+    $ |z(X)|_j := \sum_{a \in z(X)} f_j(a) $
+
+(ist $f_j$ die konstante 1-Funktion, so ist $|z(X)|_j = |z(X)|$).
+
+Def. 10: Ein Optimisierungsproblem ist ein $LinEMSOL(\tau)$-Optimisierungsproblem ueber $K$,
+wobei $K$ wieder eine Klasse von $\tau$-Strukturen ist, falls es Konstanten $m, l$ und eine
+monadische Formel $\theta$ der zweiten Stufe mit freien Mengenvariablen $X_1, \ldots, X_l$,
+sowie ganze Zahlen $a_{i,j}$ fuer $1 \le i \le l$ und $1 \le j \le m$ gibt, so dass das Optimisierungs-
+problem wie folgt ausgedrueckt werden kann:
+
+Gegeben: Eine $\tau$-Struktur $\mc{A}$, und Abbildungen $f_1, \ldots, f_m$ vom Bereich von
+$\mc{A}$ in die ganzen Zahlen.
+
+Finde: Eine Belegung $z: \set{X_1, \ldots, X_l} \ra \PP(A)$ ($A$ sei der Bereich von $\mc{A}$) der
+freien Mengenvariablen, so dass
+
+   $ \sum_{1 \le i \le l, 1 \le j \le m}  a_{i,j} * | z(X_i) |_j $
+
+gleich dem Maximum bzw. dem Minimum von
+
+   $  \sum_{1 \le i \le l, 1 \le j \le m}  a_{i,j} * | z'(X_i) |_j $
+
+fuer Belegungen $z'$ mit $(\mc{A}, z') \models \theta(X_1, \ldots, X_l)$ ist.
+
+2.3 MSOL translation schemes and transductions
+
+Hier geht es um Uebersetzungen zwischen $\tau$- und $\sigma$-Strukturen.
+
+Def. 11: Seien $\tau$ und $\sigma = \set{R_1, \ldots, R_m}$ Vokabulare, wobei $\rho(R_i)$
+die Stelligkeit von $R_i$ ist. Nun heisst ein Tupel $\Phi = (\phi, \psi_1, \ldots, \psi_m)$ von
+MSOL-Formeln ueber $\tau$ "wohl-geformt" fuer $\sigma$ ueber $\tau$, falls $\phi$ eine
+freie Variable der ersten Stufe und keine freien Variablen der zweiten Stufe hat, und jedes
+$\psi_i$ wiederum $\rho(R_i)$-viele freie Variablen erster Stufe und keine zweiter Stufe.
+$\Phi$ heisst auch $\tau$-$\sigma$-Uebersetzungs-Schema. $\Phi$ heisst "quantorfrei",
+falls $\phi$ die triviale allgemeingueltige Formel ist und alle $\psi_i$ Quantor-frei sind.
+
+Def. 12: Die induzierte Transduktion $\Phi^*$
+
+Sei $\Phi$ ein $\tau$-$\sigma$-Uebersetzungsschema. Fuer eine $\tau$-Struktur $\mc{A}$
+mit Universum $A$ sei die $\sigma$-Struktur $\mc{A}_{\Phi}$ wie folgt definiert:
+
+ - Das Universum von $\mc{A}_{\Phi}$ ist die Menge der $a \in A$ mit $\mc{A} \models \phi(a)$.
+
+ - Die Interpretation von $R_i$ in $\mc{A}_{\Phi}$ ist die Menge
+
+               $ \mc{A}_{\Phi}(R_i) := \set{ a \in A_{\Phi}^{\rho(R_i)} : \mc{A} \models \psi(a) } $
+
+Die partielle Abbildung $\Phi^*: Str(\tau) \ra Str(\sigma)$ ist definiert fuer Strukturen $\mc{A}$
+mit $\mc{A} \models \exists x \phi(x)$ durch $\Phi^*(\mc{A}) := \mc{A}_{\Phi}$.
+
+Ist $\Phi$ Quantor-frei, so ist $\Phi^*$ total.
+
+Def. 13: Nun wird eine Formeln-Uebersetzung in die andere Richtung definiert.
+
+Sei $\Phi$ ein $\tau$-$\sigma$-Uebersetzungsschema. Fuer eine Formel $\theta \in MSOL(\sigma)$
+sei die Formel $\theta_{\Phi} \in MSOL(\tau)$ induktiv wie folgt erklaert:
+
+(i) Ist $\theta$ von der Form $x_1 = x_2$, so ist $\theta_{\Phi}$ von der Form
+
+            $ x_1 = x_2 \und \phi(x_1) \und \phi(x_2) $.
+
+(ii) Ist $\theta$ von der Form $R_i(x_1, \ldots, x_p)$, so sei $\theta_{\Phi}$ von der Form
+
+            $ \psi_i(x_1, \ldots, x_p) \und \bw_i \phi(x_i) $.
+
+(iii) Ist $\theta$ von der Form $U(y)$ fuer eine Mengenvariable $U$, so sei $\theta_{\Phi}$
+      von der Form
+
+            $ U(y) \und \phi(y) $.
+
+(iv) Die aussagenlogischen Verknuepfungen werden homomorph behandelt.
+
+(v) Ist $\theta$ von der Form $\exists y \theta_1$, wobei $y$ von erster Stufe, so sei
+     $\theta_{\Phi}$ von der Form
+
+            $ \exists y ({\theta_{1}}_{\Phi} \und \phi(y)) $.
+
+(vi) Existenzquantoren zweiter Stufe werden homomorph behandelt.
+
+Nun wird $\Phi^-: MSOL(\sigma) \ra MSOL(\tau)$ durch
+
+        $ \Phi^-(\theta) := \theta_{\Phi} \und \theta_{\phi} $
+
+        $ \theta_{\Phi} := \bw_{1 \le i \le p} \forall y (X_i(y) \ra \phi(y)) $
+
+definiert, wobei $X_1, \ldots, X_p$ die freien Mengenvariablen in $\theta$ sind.
+
+Falls $\Phi$ Quantor-frei ist, so ist $\Phi^-(\theta)$ aequivalent zu $\theta_{\Phi}$.
+
+Beobachtung 14: Ist $\Phi$ Quantor-frei, so hat $\Phi(\theta)$ die gleiche Quantortiefe
+wie $\theta$.
+
+Theorem 15: $\theta$ kann freie Variablen (erster Stufe und Mengenvariablen) haben.
+Sei $\mc{A}$ eine $\tau$-Struktur, fuer die $\Phi^*(\mc{A})$ definiert ist, und sei $z$
+eine Belegung (der freien Variablen) innerhalb des Universums von $\Phi^*(\mc{A})$.
+Dann gilt
+
+   $ ( \mc{A}, z ) \models \Phi^-(\theta) \iff (\Phi^*(\mc{A}), z) \models \theta $.
+
+[ Dies sollte eine Galois-Korrespondenz ergeben. ]
+
+Nun geht es um Rueckwaerts-Translationen fuer Optimisierungsprobleme.
+
+
+Def. 16: Ein $LinEMSOL(\sigma)$-Optimisierungsproblem $P$ ist gegeben durch (siehe Def. 10)
+Konstanten $l, m$, Gewichte $a_{ij}$ und eine $MSOL(\sigma)$-Formel $\theta$.
+Fuer ein $\tau$-$\sigma$-Uebersetzungsschema $\Phi$ wird das $LinEMSOL(\tau)$-
+Optimisierungsproblem $\Phi^+(P)$ dadurch definiert, dass $\theta$ durch $\Phi^-(\theta)$
+ersetzt wird.
+
+Theorem 17: Es wird die Galois-Korrespondenz aus Theorem 15 verallgemeinert auf Optimisierungs-
+Probleme. Gegeben sei ein $LinEMSOL(\sigma)$-Optimierungsproblem, und sei $\mc{A}$ eine
+$\tau$-Struktur, fuer die $\Phi^*(\mc{A})$ definiert ist.
+
+Eine Belegung $z$ ist Loesung von $\mc{A}$ mit Bewertungsfunktionen $f_i$ bzgl. $\Phi^+(P)$
+($z$ ist also optimal, und bewegt sich innerhalb des Universums von $\Phi^*(\mc{A})$)
+genau dann, wenn $z$ eine Loesung von $\Phi^*(\mc{A})$ mit entsprechend eingeschraenkten
+$f_i$ bzgl. $P$ ist.
+
+2.4 The modular decomposition of $P_4$-sparse graphs
+
+Kapitel 3: Linear Algorithms for optimization problems on $P_4$-sparse graphs
+
+Zitiert wird
+
+Theorem 27: Seien $p, k$ Konstanten. Jedes $LinEMSOL(\tau_{1,p})$-Optimierungsproblem
+auf der Klasse der "partiellen $k$-Baeume" (wohl Baeume mit Baumbreite $k$ ?!) kann in
+Linearzeit bzgl. der Anzahl der Knoten geloest werden. (Der Algorithmus kann auch konstruiert
+werden.)
+
+(Es wird bemerkt, dass dies auch fuer $\tau_2$ moeglich ist.)
+
+Hier wird nun bewiesen:
+
+Theorem 2: Sei $p$ konstant. Jedes $LinEMSOL(\tau_{1,p})$-Optimierungsproblem auf der Klasse
+der "$P_4$-duennen Graphen" kann in Linearzeit in der Summe der Anzahl der Ecken und Kanten
+geloest werden.
+
+Ein Graph heisst $P_4$-duenn, falls fuer jede Menge von 5 Knoten von den 5 induzierten
+Untergraphen mit 4 Knoten hoechtstens einer zu $P_4$, dem Weg mit 4 Knoten (und 3 Kanten)
+isomorph ist.
+
+Ein Spezialfall hiervon sind die "Kographen", Graphen, so dass kein induzierter Untergraph
+isomorph zu $P_4$ ist. (Z.B. sind Cliquen Kographen.)
+}
+}
+@String{ FortsetzungCMR99 =
+{Kapitel 4: Linear algorithms for optimization problems on graphs of bounded clique-width
+
+Fuer $p$-Graphen, das sind Graphen mit $p$ einstelligen Praedikaten, die eine Zerlegung
+der Eckenmenge ergeben (wobei aber Praedikate leer sein koennen), werden drei Operationen
+definiert:
+
+ - Summe von zwei p-Graphen: die Eckenmengen werden diskunkt gemacht, und dann werden
+    beide Graphen einfach vereinigt, wobei die Markierungen uebernommen werden;
+
+ - neue Kanten stiften (eine Familie von einstelligen Operationen): Gegeben ein p-Graph
+    und zwei Marken $1 \le i, j \le p$ mit $i \not= j$, werden zum Graphen alle Kanten, die
+    einen Knoten mit Markierung $i$ mit einem Knoten mit Markierung $j$ verbinden, hinzu-
+    gefuegt;
+
+ - Umbenennung (eine Familie von einstelligen Operationen): Gegeben ein p-Graph
+    und zwei Marken $1 \le i, j \le p$ mit $i \not= j$, wird die Markierung aller Knoten
+    mit Marke $i$ auf die Marke $j$ umgesetzt.
+
+Ein "$p$-Ausdruck" sei hier ein Term in der Algebra, die mittels dieser drei Operationen von
+den einelementigen $p$-Graphen erzeugt wird.
+
+Def. 28: $\mc{C}(k)$ sei die Klasse aller $p$-Graphen $G$ fuer $1 \le p \le k$, so dass es einen
+$k$-Ausdruck gibt, der einen $k$-Graphen $G'$ ergibt, aus dem durch Streichen von leeren
+Praedikaten  ein Graph isomorph zu $G$ gemacht werden kann.
+
+Fuer einen Graphen $G$ sei seine "Cliquen-Weite", kurz $cwd(G)$, dass minimale $k$ mit
+$G \in \mc{C}(k)$.
+
+Beispiele ("reine" Graphen (ohne Markierung) werden als Graphen, wo jeder Knoten mit 1 markiert
+ist, interpretiert):
+
+- Graphen der Cliquen-Weite 1 sind genau die kantenlosen Graphen;
+
+- Graphen der Cliquen-Weite 2 sind genau die Kographen;
+
+- Alle Baeume (und damit auch alle Waelder) haben eine Cliquen-Weite von hoechtens 3.
+
+Es ist unbekannt, ob $\mc{C}_k$ fuer $k \ge 4$ polynomial entscheidbar ist.
+
+Lemma 30: Ein $p$-Graph, dessen zugrundeliegender unmarkierter Graph eine Cliquen-Weite
+von hoechtens $k$ hat, hat eine Cliquen-Weite von hoechstens $p * k$.
+
+4.2 $P_4$-tidy graphs are of $cwd \le 4$, and ...
+
+4.3 The Feferman-Vaught Theorem
+
+Def. 34: Fuer eine $\tau$-Stuktur $\mc{A}$ mit Universum $A$ und eine $MSOL(\tau)$-Formel
+$\phi$ mit freien Mengen-Variablen $X_1, \ldots, X_n$ (und sonst wohl keinen freien Variablen)
+sei $sat(\mc{A}, \phi)$ die Menge der $n$-Tupeln von Teilmengen von $A$, so dass mit dieser
+Belegung $\vp$ in $\mc{A}$ erfuellt ist.
+
+Lemma 35: Fuer konstante $p, h, n$ enthaelt die Menge der $MSOL(\tau_{1,p})$-Formeln mit
+freien Variablen $X_1, \ldots, X_n$ und Quantor-Tiefe hoechstens $h$ modulo Aequivalenz
+nur endlich viele Elemente.
+
+Lemma 36: Die Operationen "Hinzufuegen von Verbindungs-Kanten" und "Umbenennung" aus
+Abschnitt 4 sind durch ein Quantor-freies Uebersetzungsschema ausdrueckbar.
+
+Fuer eine Menge $D$ und zwei disjunkte Teilmengen $E, F$ sei $A \sse \PP(E)^n$ und
+$B\sse \PP(F)^n$. Dann wird die Kombination [ anderes Zeichen im Text ] $A + B \sse \PP(D)^n$
+durch komponentenweise Vereinigung erklaert.
+
+Theorem 37: Fuer jedes $p$ und jede $MSOL(\tau_{1,p})$-Formel $\theta$ mit freien Mengen-
+Variablen $X_1, \ldots X_n$ koennen zwei Listen $\vp_1, \ldots, \vp_m$ und $\psi_1, \ldots,
+\psi_m$ von $MSOL(\tau_{1,p})$ Formeln in den gleichen freien Variablen und einer Quantortiefe
+hoechstens der von $\theta$ konstruiert werden, so dass fuer beliebige eckendisjunkte $p$-Graphen
+gilt:
+
+   $ sat( G \cup H, \theta) = \bc_{1 \le i \le m} ( sat(G, \phi_i) + sat(H, \psi_i)) $
+
+(wobei $G \cup H$ die Vereinigung ("Summe") der Graphen ist).
+
+4.4 The linear time algorithms
+
+Theorem 4: Sei $\mc{C} \sse \mc{C}(k)$ eine Klasse von $p$-Graphen fuer konstantes $k$ und $p$.
+Es gebe einen Algorithmus, der fuer $G in \mc{C}$ in Zeit $O(f(|E|, |V|))$ einen definierenden
+$k$-Ausdruck berechnet.
+Dann kann jedes $LinEMSOL(\tau_{1,p})$-Problem ueber $\mc{C}$ in Zeit $O(f(|E|, |V|))$ geloest
+werden.
+
+Kapitel 5: Results that do not extend to $MSOL(\tau_2)$
+
+Es wird gezeigt, dass Theorem 2 und 4 nicht auf $\tau_2$ ausgedehnt werden koennen.
+
+Theorem 6: Falls $P_1 \not NP_1$ (die Versionen von P und NP ueber einem einstelligen
+Alphabet), dann gibt es ein $MSOL(\tau_2)$-definierbares Entscheidungsproblem ueber
+der Klasse der Cliquen, das nicht in polynomial-Zeit loesbar ist.
+}}
+
+@Article{Ram97,
+  author =       {Siddharthan Ramachandramurthi},
+  title =        {The structure and number of obstructions to treewidth},
+  journal =      {SIAM Journal on Discrete Mathematics},
+  year =         {1997},
+  OPTkey =       {},
+  OPTvolume =    {10},
+  OPTnumber =    {1},
+  OPTpages =     {146-157},
+  OPTmonth =     {February},
+  OPTnote =      {},
+  OPTannote =    {Kopiert.
+
+Kapitel 2: Preliminaries
+
+Betrachtet werden endliche, einfache und ungerichtete Graphen.
+
+Def.: Eine "Baum-Zerlegung" eines Graphen G ist ein Baum T, dessen Ecken mit Teilmengen
+von V(G) markiert sind, so dass
+
+ (a) ganz V(G) ueberdeckt wird;
+ (b) zu jeder Kante zwischen Ecken x, y in G gibt es eine Ecke von T, so dass sowohl x als auch y
+      in der zugehoerigen Eckenmenge liegen;
+ (c) betrachtet man Ecken i, k in T, so ist der Durchschnitt der Eckenmengen von i und k enthalten
+     in jeder Eckenmenge eines j, das auf dem Weg von i nach k liegt.
+
+Die "Breite" der Zerlegung ist das Maximum der Groesse der Eckenmengen minus 1.
+Die "Baumbreite" von G ist die minimale Breite einer Baumzerlegung von G.
+
+Eine "Pfad-Zerlegung" von G ist eine Baum-Zerlegung T, so dass T ein Pfad ist (alle Knoten haben
+Grad hoechstens 2). Die "Pfadbreite" von G ist die minimale Breite einer Pfadzerlegung.
+
+Allgemein gilt: 0 <= Baumbreite(G) <= Pfadbreite(G) <= |V(G)| - 1.
+
+Ferner" Baumbreite(G) = |V(G)| - 1 <=> G = K_n fuer n = |V(G)|.
+
+Def.: Eine "glatte Baum-Zerlegung" von G ist eine Baumzerlegung, in der alle Eckenmengen die
+gleiche Groesse haben, und fuer jede Kante zwischen Ecken x, y in G beim Uebergang von der
+Eckenmenge von x zu der Eckenmenge von y genau eine Ecke heraus- und eine (andere) Ecke
+hereingenommen wird.
+
+Aus jeder Baumzerlegung kann (in Polynomialzeit) eine glatte Baumzerlegung der gleichen Breite
+konstruiert werden.
+
+Lemma 2.1 Fuer eine glatte Baumzerlegung T von G der Breite w gilt: |V(T)| = |V(G)| - w.
+
+[ Beispiele:
+
+ - Baumbreite(G) = 0 <=> G hat keine Kanten; eine glatte Baumzerlegung von G ist irgendein
+    Baum mit |V(G)|-vielen Ecken, die jeweils mit einer Ecke von G markiert sind.
+
+ - Baumbreite(G) = 1 <=> G ist ein Baum mit mindestens 2 Ecken; eine glatte Baumzerlegung
+    von G ist ein Baum mit |E(G)| = |V(G)| - 1 vielen Ecken, die den Kanten von G entsprechen.
+
+]
+
+Kapitel 3: A new lower bound for treewidth
+
+Lemma 3.1 Sei n := |V(G)|, e := |E(G)|: Baumbreite(G) >= (2n - 1 - \sqrt{(2n - 1)^2 - 8e}) / 2.
+
+Lemma 3.2 Falls G kein vollstaendiger Graph ist, dann gibt es ein Paar von nichtadjazenten Ecken,
+deren Grad jeweils hoechstens die Baumbreite von G ist.
+
+Def.: \gamma(G) := n - 1                                                                                        falls G der K_n ist,
+        \gamma(G) := \min_{nicht-adjazente Ecken x, y in G} \max( Grad(x), Grad(y)) sonst.
+
+Lemma 3.3 Baumbreite(G) >= \gamma(G).
+
+
+Kapitel 4: Obstructions of order w + 3 for treewidth w.
+
+(Mit Ordnung ist die Anzahl der Ecken gemeint.)
+
+Fuer w >= wird mit TW(w) die Klasse aller Graphen von Baumbreite hoechstens w, und mit PW(w)
+die aller Graphen von Pfadbreite hoechstens w bezeichnet. (PW(w) <= TW(w))
+
+Lemma 4.1, 4.2 Baumbreite(G) = |V(G)| - 2 <=> \gamma(G) = |V(G)| - 2 <=> Pfadbreite(G) = |V(G)| - 2.
+
+Fuer jede Minor-abgeschlossene Klasse K von Graphen sei obs(K) die Menge der minimalen Elemente
+der Klasse der Graphen nicht in K modulo Isomorphie bzgl. der von der Minorrelation induzierten
+partiellen Ordnung. obs(K) ist endlich.
+
+obs(TW(w)) ist die Menge der minimalen Graphen von Baumbreite >= w + 1.
+
+obs(TW(w)) enthaelt keine Graphen einer Ordnung <= w + 1, und genau einen Graphen der Ordnung
+w + 2, naemlich K_{w + 2}.
+Nun geht es um die Bestimmung der Graphen der Ordnung w + 3 in obs(TW(w)).
+
+[ Es folgt doch nun schon aus Lemmata 4.1, 4.2, das die Menge der Graphen der Ordnung w + 3
+in obs(TW(w)) und obs(PW(w)) uebereinstimmen --- wozu dann der Beweis von Lemma 4.4 ?! ]
+
+Theorem 4.3 gibt nun eine strukturelle Charakterisierung der Graphen der Ordnung w + 3 in
+obs(TW(w)). [ Es ergibt sich eine polynomiale Entscheidungsprozedur.]
+
+
+Kapitel 5: Enumerating the obstructions
+
+Hier wird nun gezeigt, dass die Anzahl der Graphen der Ordnung w + 3 in obs(TW(w)) mindestens
+2^{\Omega(\sqrt{w})} ist.
+
+Kapitel 6: Conclusions
+
+Fuer w > 0 gibt es keinen Baum in obs(TW(w)), jedoch gibt es eine grosse Anzahl in obs(PW(w)).
+Also ist obs(PW(w)) nicht enthalten in obs(TW(w)).
+
+Der Autor vermutet nun, dass auch fuer alle w >= 3 obs(TW(w)) nicht in obs(PW(w)) enthalten ist.
+Einen Beweis kann der Autor nur fuer w = 3 erbringen.
+}
+}
+
+@Article{Ar85,
+  author =       {Stefan Arnborg},
+  title =        {Efficient algorithms for combinatorial problems on graphs with bounded decomposability - a survey},
+  journal =      {BIT},
+  year =         1985,
+  volume =       25,
+  pages =        {2-23},
+  doi =          {10.1007/BF01934985},
+  annote =       {Kopiert. Siehe Bearbeitung in "Graphentheorie" im Ordner "Genauer".}
+}
+
+@Article{Ro1970,
+  author =       {Donald J. Rose},
+  title =        {Triangulated Graphs and the Elimination Process},
+  journal =      {Journal of Mathematical Analysis and Applications},
+  year =         1970,
+  volume =       32,
+  pages =        {597-609},
+  annote =       {Kopiert. Siehe Bearbeitung in "Graphentheorie" im Ordner "Genauer".}
+}
+
+@Article{Bo1996,
+  author =       {Hans L. Bodlaender},
+  title =        {A partial $k$-arboretum of graphs with bounded treewidth},
+  journal =      {Theoretical Computer Science},
+  year =         1998,
+  volume =       209,
+  pages =        {1-45},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@TechReport{KosterBodlaenderHoesel2001ExperimenteBaumweite,
+  author =       {Arie M.C.A. Koster and Hans L. Bodlaender and Stan P.M. van Hoesel},
+  title =        {Treewidth: Computational Experiments},
+  institution =  {Konrad-Zuse-Zentrum f {\"{u}}r Informationstechnik Berlin},
+  year =         2001,
+  number =       {ZIB-Report 01-38},
+  month =        {December},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InCollection{HicksKosterKolotoglu2005TWTutorium,
+  author       = "Illya V. Hicks and Arie M. C. A. Koster and Elif Koloto{\u{g}}lu",
+  editor       = "J. Cole Smith",
+  booktitle    = "TutORials 2005",
+  title        = "Branch and Tree Decomposition Techniques for Discrete Optimization",
+  chapter      = "1",
+  publisher    = "INFORMS Annual Meeting, New Orleans",
+  pages        = "1-33",
+  year         = "2005",
+  series       = "INFORMS TutORials in Operations Research Series",
+  annote       = {pdf-Datei vorhanden.}
+}
+
+@INPROCEEDINGS{GogateDechter2004Treewidth,
+AUTHOR = "Vibhav Gogate and Rina Dechter",
+TITLE = "A Complete Anytime Algorithm for Treewidth",
+BOOKTITLE = "Proceedings of the 20th Annual Conference on Uncertainty in Artificial Intelligence (UAI-04)",
+PUBLISHER = "AUAI Press",
+ADDRESS = "Arlington, Virginia",
+YEAR = "2004",
+PAGES = "201-208"
+}
+
+@InProceedings{GottlobGroheMusliuSamerScarcello2005HypertreeDecomposition,
+  author =       {Georg Gottlob and Martin Grohe and Nysret Musliu and Marko Samer and Francesco Scarcello},
+  title =        {Hypertree Decompositions: Structure, Algorithms, and Applications},
+  booktitle =    {Graph-Theoretic Concepts in Computer Science: 31st International Workshop (WG 2005)},
+  crossref =     {Kratsch2005WG},
+  pages =        {1-15}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Faerbung von Graphen und Hypergraphen %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{KMR2002ChannelAssignment,
+  author =       {Sven O. Krumke and Madhav V. Marathe and S.S. Ravi},
+  title =        {Models and Approximation Algorithms for Channel Assignment in Radio Networks},
+  journal =      {Wireless Networks},
+  year =         2001,
+  volume =       7,
+  pages =        {575-584},
+  annote =       {Faerbungs-Probleme fuer verschiedene spezielle Graphklassen.}
+}
+
+@Book{MR2002,
+  author =       {Michael Molloy and Bruce Reed},
+  title =        {Graph Colouring and the Probabilistic Method},
+  publisher =    {Springer},
+  year =         2002,
+  volume =       23,
+  series =       {Algorithms and Combinatorics},
+  address =      {Berlin},
+  note =         {ISBN 3-540-42139-4},
+  annote =       {Vorhanden. Siehe Besprechung in "Colouring" im Ordner "Genauer".}
+}
+
+@Article{Albertson2002Coloring,
+  author =       {Michael O. Albertson},
+  title =        {Coloring, computational complexity, and culture},
+  journal =      {DMV-Mitteilungen},
+  year =         2002,
+  volume =       1,
+  pages =        {26-20}
+}
+
+@Article{LinialTarsi1985HResolution,
+  author =       {Nathan Linial and Michael Tarsi},
+  title =        {Deciding hypergraph 2-colourability by {H}-resolution},
+  journal =      {Theoretical Computer Science},
+  year =         1985,
+  volume =       38,
+  pages =        {343-347},
+  doi =          {10.1016/0304-3975(85)90227-0},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{AchlioptasMoore2002RandomHypergraphs,
+  author =       {Dimitris Achlioptas and Cristopher Moore},
+  title =        {On the 2-colorability of Random Hypergraphs},
+  booktitle =    {Randomization and Approximation Techniques : 6th International Workshop, RANDOM 2002},
+  pages =        {78-90},
+  year =         2002,
+  editor =       {J.D.P. Rolim and S. Vadhan},
+  volume =       2483,
+  series =       {Lecture Notes in Computer Science},
+  address =      {Heidelberg},
+  publisher =    {Springer Verlag},
+  note =         {ISSN 0302-9743},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{Woodall1972EigenschaftB,
+  author =       {D.R. Woodall},
+  title =        {Property B and the four colour problem},
+  booktitle =    {Proc.~Oxford Conf.~On Combinatorial Math.},
+  pages =        {322-340},
+  year =         1972,
+  address =      {Southend-on-Sea, United Kingdom},
+  annote =       {Kopie vorhanden.}
+}
+
+@Article{Seymour19742Faerbung,
+  author =       {Paul D. Seymour},
+  title =        {On the two-colouring of hypergraphs},
+  journal =      {The Quarterly Journal of Mathematics (Oxford University Press)},
+  year =         1974,
+  volume =       25,
+  pages =        {303-312},
+  doi =          {10.1093/qmath/25.1.303},
+  annote =       {Pdf vorhanden.}
+}
+@Misc{Seymour2006Proof,
+  author =       {Paul D. Seymour},
+  howpublished = {Personal communication},
+  month =        {October},
+  year =         2006,
+  note =         {Proof that a critical $k$-colourable hypergraph for some $k \ge 4$ must have strictly more hyperedges than vertices},
+  annote =       {E-Brief Oktober 2006.}
+}
+
+@Article{Seymour1974Note,
+  author =       {Paul D. Seymour},
+  title =        {A note on a combinatorial problem of {Erd{\"{o}}s} and {Hajnal}},
+  journal =      {Journal of the London Mathematical Society},
+  year =         1974,
+  volume =       8,
+  number =       2,
+  pages =        {681-682},
+  annote =       {Kopie vorhanden..}
+}
+
+@Article{SeymourThomassen1987GeradeGerichteteGraphen,
+  author =       {Paul D. Seymour and Carsten Thomassen},
+  title =        {Characterization of even directed graphs},
+  journal =      {Journal of Combinatorial Theory Series B},
+  year =         1987,
+  volume =       42,
+  pages =        {36-45},
+  annote =       {Kopie vorhanden.}
+}
+
+@PhdThesis{Koster1999FrequenzZuweisung,
+  author =       {Arie M.C.A. Koster},
+  title =        {Frequency Assignment: Models and Algorithms},
+  school =       {Universiteit Maastricht},
+  year =         1999,
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@TechReport{ZIB2001FAP,
+  author =       {Karen I. Aardal and Stan P.M. van Hoesel and Arie M.C.A. Koster and Carlo Mannino and Antonio Sassano},
+  title =        {Models and Solution Techniques for Frequency Assignment Problems},
+  institution =  {Konrad-Zuse-Zentrum f\"ur Informationstechnik Berlin (ZIB)},
+  year =         2001,
+  number =       {ZIB-Report 01-40},
+  month =        {December},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{Toft1974KritischGefaerbt,
+  author =       {Bjarne Toft},
+  title =        {Color-critical graphs and hypergraphs},
+  journal =      {Journal of Combinatorial Theory, Series B},
+  year =         1974,
+  volume =       16,
+  number =       2,
+  pages =        {145-161},
+  month =        {April},
+  doi =          {10.1016/0095-8956(74)90057-4},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{MuellerRoedelTurzik1977Critical3chromatic,
+  author =       {V. M{\"{u}}ller and V. R{\"{o}}dl and D. Turz{\'{\i}}k},
+  title =        {On critical 3-chromatic hypergraphs},
+  journal =      {Acta Mathematica Academiae Scientiarum Hungaricae},
+  year =         1977,
+  volume =       29,
+  number =       {3-4},
+  pages =        {273-281},
+  doi =          {10.1007/BF01895846},
+  annote =       {Zu besorgen.}
+}
+
+@Article{AbbottZhouHare1994KritischOhneKreise,
+  author =       {H.L. Abbott and B. Zhou and D.R. Hare},
+  title =        {Sparse Color-Critical Graphs and Hypergraphs with No Short Cycles},
+  journal =      {Journal of Graph Theory},
+  year =         1994,
+  volume =       18,
+  number =       4,
+  pages =        {373-388},
+  annote =       {Kopie vorhanden.}
+}
+
+@Article{AbbottHareZhou1998Colorcritical,
+  author =       {H.L. Abbott and D.R. Hare and B. Zhou},
+  title =        {Color-critical graphs and hypergraphs with few edges and no short cycles},
+  journal =      {Discrete Mathematics},
+  year =         1998,
+  volume =       182,
+  number =       {1-3},
+  pages =        {3-11},
+  month =        {March},
+  doi =          {10.1016/S0012-365X(97)00137-4},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{AbbottHare1999SquareColor3critical,
+  author =       {H.L. Abbott and D.R. Hare},
+  title =        {Square critically 3-chromatic hypergraphs},
+  journal =      {Discrete Mathematics},
+  year =         1999,
+  volume =       {197-198},
+  number =       {},
+  pages =        {3-13},
+  month =        {February},
+  doi =          {10.1016/S0012-365X(99)90031-6},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{KostochkaStiebitz2000KritischeFaerbung,
+  author =       {A.V. Kostochka and M. Stiebitz},
+  title =        {On the number of edges in colour-critical graphs and hypergraphs},
+  journal =      {Combinatorica},
+  year =         2000,
+  volume =       20,
+  number =       4,
+  pages =        {521-530},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{KostochkaStiebitz2003ColourCriticalGraphs,
+  author =       {Alexandr V. Kostochka and Michael Stiebitz},
+  title =        {A new lower bound on the number of edges in colour-critical graphs},
+  journal =      {Journal of Combinatorial Theory, Series B},
+  year =         2003,
+  volume =       87,
+  number =       2,
+  pages =        {374-402},
+  month =        {March},
+  doi =          {10.1016/S0095-8956(02)00035-7},
+  annote =       {Pdf vorhanden.}
+}
+
+@InCollection{Kostochka2006UebersichtKritischeFaerbung,
+  author =       {Alexandr Kostochka},
+  title =        {Color-Critical Graphs and Hypergraphs with Few Edges: A Survey},
+  booktitle =    {More Sets, Graphs and Numbers},
+  crossref =     {GyoeriKatonaLovasz2006GraphenZahlen},
+  pages =        {175-197},
+  doi =          {10.1007/978-3-540-32439-3_9},
+  annote =       {Ps-Version vorhanden.}
+}
+
+@Book{JensenToft1995Graphenfaerbung,
+  author =       {Tommy R. Jensen and Bjarne Toft},
+  title =        {Graph Coloring Problems},
+  publisher =    {John Wiley \& Sons},
+  year =         1995,
+  series =       {Wiley-Interscience Series in Discrete Mathematics and Optimization},
+  doi =          {10.1002/9781118032497},
+  note =         {ISBN 0-471-02865-7, QA612.18J46; problem status updated at \url{http://www.imada.sdu.dk/Research/Graphcol}},
+  annote =       {Vorhanden.}
+}
+
+@Article{Thomassen1985GeradeKreise,
+  author =       {Carsten Thomassen},
+  title =        {Even cycles in directed graphs},
+  journal =      {European Journal of Combinatorics},
+  year =         1985,
+  volume =       6,
+  pages =        {85-89},
+  annote =       {Kopie vorhanden.}
+}
+
+@Article{Thomassen1992GeradeKreise,
+  author =       {Carsten Thomassen},
+  title =        {The even cycle problem for directed graphs},
+  journal =      {Journal of the American Mathematical Society},
+  year =         1992,
+  volume =       5,
+  number =       2,
+  pages =        {217-229},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{RobertsonSeymourThomas1999GeradeKreise,
+  author =       {Neil Robertson and Paul D. Seymour and Robin Thomas},
+  title =        {Permanents, {P}faffian orientations, and even directed circuits},
+  journal =      {Annals of Mathematics},
+  year =         1999,
+  volume =       150,
+  number =       3,
+  pages =        {929-975},
+  doi =          {10.2307/121059},
+  annote =       {Pdf vorhanden.}
+}
+
+@InProceedings{Thomas2006PfaffianUebersicht,
+  author =       {Robin Thomas},
+  title =        {A survey of {P}faffian orientations of graphs},
+  booktitle =    {Proceedings of the International Congress of Mathematicians, Madrid, Spain},
+  year =         2006,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{McCuaig2004PolyasProblem,
+  author =       {William McCuaig},
+  title =        {P{\'{o}}lya's Permanent Problem},
+  journal =      {The Electronic Journal of Combinatorics},
+  year =         2004,
+  volume =       11,
+  note =         {\#R79, 83 pages},
+  url =          {http://www.combinatorics.org/ojs/index.php/eljc/article/view/v11i1r79},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{HerzbergMurty2007SudokoZaehlen,
+  author =       {Agnes M. Herzberg and M. Ram Murty},
+  title =        {Sudoku Squares and Chromatic Polynomials},
+  journal =      {Notices of the AMS},
+  year =         2007,
+  volume =       54,
+  number =       6,
+  pages =        {708-717},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{HellNesetril1990HColoring,
+  author =       {Pavol Hell and  Jaroslav Nesetril},
+  title =        {On the complexity of {$H$}-coloring},
+  journal =      {Journal of Combinatorial Theory, Series B},
+  year =         1990,
+  volume =       48,
+  number =       1,
+  pages =        {92-110},
+  annote =       {Ausdruck vorhanden.}
+}
+
+@MastersThesis{Brundage1996EvenCycles,
+  author =       {Michael Brundage},
+  title =        {From the Even Cycle Mystery to the {L}-Matrix Problem and Beyond},
+  school =       {University of Washington},
+  year =         1996,
+  annote =       {Pdf-Datei vorhanden.}
+}
+

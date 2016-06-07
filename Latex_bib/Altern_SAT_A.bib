@@ -1,0 +1,214 @@
+% Abschnitte (Sections):
+% - Verschiedenes (Miscellaneous)
+% - Einschluss-Ausschluss (Inclusion-Exclusion)
+
+
+@Article{GP95,
+  author =       "Giorgio Gallo and Daniele Pretolani",
+  title =        "A new algorithm for the propositional satisfiability
+                  problem",
+  journal =      "Discrete Applied Mathematics",
+  year =         1995,
+  volume =       60,
+  pages =        "159--179",
+  annote =       "Erfuellbarkeit einer KNF wird als
+                  Hypergraphen-Problem formuliert (erfuellende
+                  Belegungen entsprechen bestimmten ``Schnitten'').
+
+                  Es wird ein Algorithmus vorgestellt, aufbauend auf
+                  diesem Zusammenhang, der (irgendwie) die Behandlung
+                  von Horn-Klauselmengen verallgemeinert.
+
+                  Scheint mir uninteressant."
+}
+
+@Unpublished{MaMo2002,
+  author =       {DoRon B. Motter and Igor L. Markov},
+  title =        {Resolution Cannot Polynomially Simulate Compressed-{BFS}},
+  note =         {Gutachten-Exemplar fuer SAT 2002 (John Franco)},
+  OPTkey =       {},
+  OPTmonth =     {},
+  year =         {2002},
+  annote =       {ps-Datei vorhanden. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer", sowie das Gutachten.}
+}
+@Unpublished{MaMo2002CassettPHP,
+  author =       {DoRon B. Motter and Igor L. Markov},
+  title =        {Resolution Cannot Polynomially Simulate Compressed-{BFS}},
+  note =         {Manuscript},
+  month =        {July},
+  year =         2002,
+  annote =       {Siehe \cite{MaMo2002}.}
+}
+
+@InProceedings{MarkovMotter2002CompressedBFS,
+  author =       {DoRon B. Motter and Igor L. Markov},
+  title =        {A Compressed Breadth-First Search for Satisfiability},
+  booktitle =    {Proceedings 4th Workshop on Algorithms Engineering and Experiments},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  OPTpages =     {},
+  year =         {2002},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InProceedings{NudelmanDevkarHoosLeytonbrownShoham,
+  author =       {Eugene Nudelman and Alex Devkar and Holger Hoos and Kevin Leyton-Brown and Yoav Shoham},
+  title =        {{SATzilla}: An Algorithmic Portfolio for {SAT}},
+  booktitle =    {SAT 2004 Competition: Solver Descriptions},
+  crossref =     {SAT2004Comp},
+  pages =        {13--14}
+}
+
+@InProceedings{LobjoisLemaitre1998Auswahl,
+  author =       {L. Lobjois and M. Lemaitre},
+  title =        {Branch and bound algorithm selection by performance prediction},
+  booktitle =    {AAAI},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  OPTpages =     {},
+  OPTyear =      {1998},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InProceedings{GummadiNarayanaswamyVenkatakrishnan2004Independent,
+  author =       {Ravi Gummadi and N.S. Narayanaswamy and Venkatakrishnan R},
+  title =        {Algorithms for Satisfiability using Independent Sets of Variables},
+  booktitle =    {The Seventh International Conference on Theory and Applications of Satisfiability Testing},
+  crossref =     {Vancouver2004},
+  pages =        {56--63}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Einschluss-Ausschluss (Inclusion-Exclusion) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{Iw89,
+  author =   {Kazuo Iwama},
+  title =    {{CNF} satisfiability test by counting and polynomial average time},
+  journal =  {SIAM Journal on Computing},
+  year =     1989,
+  volume =   18,
+  number =   2,
+  pages =    {385--391},
+  month =    {April},
+  doi =      {10.1137/0218026},
+  annote =   {Kopiert. Kommentar 28.2.2000
+
+Kapitel 2: Algorithm IS
+
+Eine Klauselmenge S heisse "unabhaengig", wenn alle ihre Literale pur sind.
+Bzgl. einer gegebenen Klauselmenge F sei SIZE_F(S) fuer eine unabhaengige
+Teilmenge S von F definiert als 2^{n(F) - n(S)}.
+
+SIZE_F(S) ist die Anzahl der totalen Belegungen fuer F, die alle Klauseln von F falsch
+machen, denn dies sind genau die Belegungen, die alle Literale von F auf 0 setzen,
+und sonst beliebig sind.
+
+Fuer Klauselmenge F und 0 <= i <= c(F) sei IND_F(i) die Menge aller unabhaengigen S <= F
+mit c(S) = i.
+
+Sei m_F das minimale i mit IND_F(i) = 0 (damit IND_F(i) = 0 fuer alle i >= m_F, da jede Teilmenge
+einer unabhaengigen Klauselmenge wieder unabhaengig ist).
+
+Nun ist
+
+  \sum_{i = 1}^{m_F}  (-1)^{i-1}  \sum_{S \in IND_F(i)}  SIZE_F(S)
+
+gleich der Anzahl der totalen Belegungen, die F falsifizieren, denn:
+
+Fuer C \in F sei fals(C) die Menge der totalen Belegungen, die C falsifizieren.
+Es soll
+
+              | \bc_{C \in F} fals(C) |
+
+berechnet werden (die Groesse der Menge der Belegungen, die mindestens eine Klausel
+falsifizieren). Nach "Ein-Ausschalt-Formel" ist dies gleich
+
+  \sum_{i = 1}^{c(F)}  (-1)^{i-1}  \sum_{S <= F, c(S) = i}  | \bca_{C \in S} fals(C) |.
+
+Nun ist IND_F(1) genau die Menge der einelementigen Teilmengen von F, und fuer
+zwei Klauseln C, D ist fals(C) \cap fals(D) = 0 genau dann der Fall, wenn C, D ein
+komplementaeres Literal enthalten, d.h., genau dann wenn {C, D} nicht unabhaengig ist.
+
+Die Beschraenkung auf IND_F(i) (anstelle alle Teilmengen S von F mit (c(F) = i zu benutzen)
+eliminiert also nur einige Faelle, von denen wir sofort sehen, dass der Durchschnitt leer ist,
+also nichts zur Summe beitraegt.
+
+% Interessant ist es nun, die Klassen Z_k von Klauselmengen F mit m_F <= k zu betrachten.
+% Dies gibt eine totale Hierarchie, die die Anzahl der erfuellenden Belegungen zaehlt.
+
+Die Anzahl der Schritte zur Berechnung obiger Summe ist O( \ell(F) * N_F ), wobei
+N_F := \sum_{i = 1}^{m_F} | IND_F(i) | ist.
+
+
+Kapitel 3: Polynomial average time
+
+Es wird das variable-Klauselnlaenge-Modell benutzt.
+
+
+Kapitel 4: Clause reduction
+
+Falls eine Klausel aus anderen folgt, so kann sie elimiert werden. % sehr tiefsinnig
+
+Es wird ein komplementaerer Zusammenhang zwischen IS und DLL behauptet. % waere interessant!
+}
+}
+
+@Article{HaiJiguiYimin2003Ext,
+  author =       {Lin Hai and Sun Jigui and Zhang Yimin},
+  title =        {Theorem Proving Based on the Extension Principle},
+  journal =      {Journal of Automated Reasoning},
+  year =         2003,
+  volume =       31,
+  number =       1,
+  pages =        {11--21},
+  month =        {September},
+  doi =          {10.1023/A:1027339205632},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{LinialNisan1990IncExc,
+  author =       {Nathan Linial and Noam Nisan},
+  title =        {Approximate Inclusion-Exclusion},
+  journal =      {Combinatorica},
+  year =         1990,
+  volume =       10,
+  number =       4,
+  pages =        {349--365},
+  month =        {December},
+  doi =          {10.1007/BF02128670},
+  annote =       {Pdf-Version vom 22.12.1993 vorhanden, wohl mit kleinen Korrekturen.}
+}
+
+@Article{KahnLinialSamorodnitsky1996IncExc,
+  author =       {Jeff Kahn and Nathan Linial and Alex Samorodnitsky},
+  title =        {Inclusion-exclusion: Exact and approximate},
+  journal =      {Combinatorica},
+  year =         1996,
+  volume =       16,
+  number =       4,
+  pages =        {465--477},
+  month =        {December},
+  doi =          {10.1007/BF01271266},
+  annote =       {Pdf von Vorversion vorhanden.}
+}
+

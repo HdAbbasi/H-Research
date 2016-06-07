@@ -1,0 +1,394 @@
+% Abschnitte (Sections):
+% - Verschiedenes (Miscellaneous)
+% - DNNF
+
+
+@Article{AGO95,
+  author =       "Gabriel Aguilera and Inma P. de {Guzm\'an} and Manuel Ojeda",
+  title =        "Increasing the efficiency of automated theorem proving",
+  journal =      "Journal of Applied Non-Classical Logics",
+  year =         1995,
+  volume =       5,
+  number =       1,
+  annote =       "Vorhanden. (Als ps-Datei.) Schwer zu lesen durch ein
+                  Uebermass an Definitionen. Es scheint mit, dass sie
+                  einfach den elementaren DPL-Algorithmus: ``Testen
+                  einer Variable und 1-Klauseln-Elimination'' so
+                  formuliert haben, dass man es auf allgemeine (und,
+                  oder, nicht)-Formeln und auch auf mehrwertige
+                  Logiken uebertragen kann. Ohne Branching rule. Wohl
+                  uninteressant."
+}
+
+@InProceedings{Ge84,
+  author =       "Allen Van Gelder",
+  title =        "A satisfiability tester for non-clausal propositional calculus",
+  series =       "LN Comp.~Science 170",
+  pages =        "101-113",
+  booktitle =    "7th International Conference on Automated Deduction",
+  year =         1984,
+  note =         "Preliminary version of \cite{Ge88}"
+}
+@Article{Ge88,
+  author =       "Allen Van Gelder",
+  title =        "A satisfiability tester for non-clausal propositional calculus",
+  journal =      "Information and Computation",
+  year =         1988,
+  volume =       79,
+  pages =        "1-21",
+  note =         "Extended version of \cite{Ge84}",
+  annote =       "Kopiert."
+}
+
+@Article{Gu94,
+  author =       "Jun Gu",
+  title =        "Global Optimizations for Satisfiability Problems",
+  journal =      "IEEE Transaction on Knowledge and Data Engineering",
+  year =         1994,
+  volume =       6,
+  pages =        "361-381"
+}
+
+@Article{St89,
+  author =       "Gunnar St{\r{a}}marck",
+  title =        "A note on the computational complexity of the pure classical implicational calculus",
+  journal =      "Information Processing Letters",
+  year =         1989,
+  volume =       31,
+  pages =        "277-278",
+  annote =       "Hauptergebniss:
+
+                  Jede Formel ueber $\neg, \und, \or, \la$ kann in
+                  Polynomial-Zeit in eine TAUT-equivalente Formel
+                  ueber $\la$ transformiert werden.
+
+                  Hilfsmittel:
+
+                  Lemma: Jede Formel ueber $\neg, \und, \or, \la$ kann
+                  in Poly-Zeit in eine aequivalente Formel ueberfuehrt
+                  werden, die, wenn sie ueberhaupt ein
+                  Negationszeichen enthaelt, dann als aeusserste
+                  Verknuepfung. (Hierfuer ist $\la$ noetig.)
+
+                  In der gewoehnlichen Weise wird eine Formel in eine
+                  Konjunktion von Aequivalenzen ueberfuehrt (mit neuen
+                  Variablen).
+
+                  $(P \oder Q) \lra ((P \ra Q) \ra Q)$.
+
+                  Der Umgang mit $\und$ und $\la$ ist offensichtlich,
+                  und schliesslich
+                  $((a \und b) \ra v) \lra (a \la (\b \ra v))$."
+}
+
+@Article{Vl93,
+  author =       "Frank Vlach",
+  title =        "Simplification in a Satisfiability Checker for {VLSI} Applications",
+  journal =      "Journal of Automated Reasoning",
+  year =         1993,
+  volume =       10,
+  number =       1,
+  pages =        "115-136",
+  month =        "February",
+  annote =       "Eine Fortfuehrung von \cite{Ge88}. Es werden mehr
+                  Regeln zur Vereinfachung gegeben, fuer beliebige
+                  aussagenlogische Formeln ueber einer erweiterten
+                  Basis (u.a. um ``at least two'' zur schnellen
+                  Bearbeitung von PHP).
+
+                  Leider findet sich keine genaue Formulierung von
+                  ``simplification'' (entsprechend einem positiven
+                  Abstand), aber gemeint koennte das folgende sein:
+
+                  Notwendig ist, dann sich fuer keine Variable die
+                  Anzahl ihrer Vorkommen erhoeht. Hinreichend ist zum
+                  einen, dass sich fuer eine Variable diese Anzahl in
+                  der Tat vermindert, oder dass sich fuer eine
+                  Variable die Anzahl ``polarisierter'' Vorkommen
+                  erhoeht.
+
+                  Polarisiert heisst hier, dass das Vorkommen entweder
+                  positiv oder negativ ist, ansonsten heisst das
+                  Vorkommen ``neutral'' (z.B. sind $a,b$ in $ a \lra b$
+                  neutral).
+
+                  Moeglichst viele Verknuepfungen wurden inkorporiert,
+                  um moeglichst viele Vereinfachungen aufgrund
+                  struktureller Eigenschaften einzufangen.
+
+                  Gegenueber \cite{Ge88} ist jedoch der
+                  Verzweigungsteil nicht diskutiert (es wird auf einen
+                  anderen Artikel ueber ``gerichtetes Backtracking''
+                  verwiesen).
+
+                  Die Reduktionsregeln gruppieren sich wie folgt:
+
+                  1. Wahrheitswert-Ausrechnungen
+
+                  2. Vereinfachungen, die sich auf Variablen mit genau
+                  einem Vorkommen beziehen (bringt nur etwas fuer die
+                  Aequivalenz)
+
+                  3. Vereinfachungen fuer Variablen mit nur wenigen
+                  Vorkommen (neben wiederum Regeln fuer die
+                  Aequivalenz nur die ``(1,1)-DP'')
+
+                  4. Vereinfachungen, die sich auf Polaritaet beziehen
+                  (z.B. die entsprechenden Verallgemeinerungen purer
+                  Literale).
+
+                  Fuer CNF ergeben sich wohl nur die altbekannten
+                  Reduktionen.
+
+                  Auf dass der im Artikel vorgestellte Algorithmus
+                  ``INSTEP'' die Schubfachformeln polynomial
+                  entscheiden kann, wird ein ``mindestens
+                  zwei''-Operator in die Sprache integriert, und die
+                  Zurueckfuehrung vom Niveau $n$ auf Niveau $n-1$
+                  geschieht mittels einer Variante von Bibels
+                  ``WLG''-Regel (``without loss of generality''):
+
+                  Theorem 12: Seien $v,w$ Variablen, $\psi$ eine
+                  Formel, und $\Gamma$ eine Formelmenge (konjunktiv
+                  gelesen). Existiert dann eine Umbenennung $f$ der
+                  Variablen, so dass $f(v) = w$, und fuer jedes $\phi
+                  \in \Gamma$ das Bild $f(\phi)$ nach Umordnung wieder
+                  $\phi$ ergibt, so sind die Formeln $(v \oder w \oder
+                  \psi) \und \Gamma$ und $(w \oder \psi) \und \Gamma$
+                  SAT-aequivalent.
+
+                  Fuer CNF sehr wahrscheinlich nichts Neues, und wohl
+                  auch fuer allgemeine Formeln, hier aber immerhin eine
+                  konsequente Sammlung."
+}
+
+@Unpublished{DP2001,
+  author =       {Limor Drori and David Peleg},
+  title =        {Improved Solutions for Exact Hitting Set and Exact {SAT}},
+  note =         {Manuscript},
+  month =        {February 12},
+  year =         2001,
+  annote =       {Von DAM zur Begutachtung erhalten (nur als Ausdruck). Siehe Bearbeitung in "SATAlg" im Ordner "Genauer".}
+}
+
+@Unpublished{DJ2002,
+  author =       {Vilhelm Dahll{\"{o}}f and Peter Jonsson},
+  title =        {The Counting Problem of Exact Satisfiability},
+  note =         {Fuer Soda 2002 zur Begutachtung},
+  year =         2002,
+  annote =       {ps-Datei vorhanden. Siehe Besprechung in "SATAlg" im Ordner "Genauer".}
+}
+
+@InProceedings{PRS2002,
+  author =       {Stefan Porschen and Bert Randerath and Ewald Speckenmeyer},
+  title =        {{X3SAT} is decidable in time {$O(2^{n/5})$}},
+  booktitle =    {Fifth International Symposium on Theory and Applications of Satisfiability Testing},
+  crossref =     {Cincinnati2002},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Article{DrPe2002,
+  author =       {Limor Drori and David Peleg},
+  title =        {Faster exact solutions for some {NP}-hard problems},
+  journal =      {Theoretical Computer Science},
+  year =         2002,
+  volume =       287,
+  pages =        {473-499},
+  annote =       {pdf-Datei vorhanden. Siehe Besprechung in "SATAlg" im Ordner "Genauer".}
+}
+
+@Unpublished{Kul2002,
+  author =       {Alexander S. Kulikov},
+  title =        {A $2^{n/6.15}$ Algorithm for {X3SAT}},
+  note =         {Not for distribution},
+  OPTkey =       {},
+  OPTmonth =     {},
+  year =         {2002},
+  OPTannote =    {Von Edward Hirsch zur Begutachtung bekommen (Oktober 2002; Computational Complexity subseries of the journal "Notes of Mathematical Seminars of St.Petersburg Department of Steklov Institute of Mathematics"). Siehe Besprechung in "SATAlg" im Ordner "Genauer", und das Gutachten.}
+}
+
+@Article{NiRo2001,
+  author =       {Rolf Niedermeier and Peter Rossmanith},
+  title =        {An Efficient Fixed Parameter Algorithm for 3-Hitting Set},
+  journal =      {Journal Discrete Algorithms},
+  year =         {to appear},
+  OPTkey =       {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InProceedings{PorschenRanderathSpeckenmeyer2003NAESAT,
+  author =       {Stefan Porschen and Bert Randerath and Ewald Speckenmeyer},
+  title =        {Linear Time Algorithms for some Not-All-Equal Satisfiability Problems},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {172-187},
+  doi =          {10.1007/978-3-540-24605-3_14},
+  annote =       {Pdf vorhanden. Siehe Besprechung in "SATAlg" im Ordner "Genauer".}
+}
+
+
+@Article{DahlloefJonssonBeigel2004XSAT,
+  author =       {Vilhelm Dahll{\"{o}}f and Peter Jonsson and Richard Beigel},
+  title =        {Algorithms for four variants of the exact satisfiability problem},
+  journal =      {Theoretical Computer Science},
+  year =         2004,
+  volume =       320,
+  pages =        {373-394},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{ByskovMadsenSkjernaa2004XSAT,
+  author =       {Jesper Makholm Byskov and Bolette Amiitzb{\o}ll Madsen and Bjarke Skjernaa},
+  title =        {New Algorithms for Exact Satisfiability},
+  journal =      {Theoretical Computer Science},
+  year =         {2004},
+  OPTkey =       {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {May},
+  OPTnote =      {Zur Begutachtung erhalten.},
+  OPTannote =    {pdf-Datei vorhanden.}
+}
+
+@InProceedings{GomesSabharwalSelman2006SATZaehlen,
+  author =       {Carla P. Gomes and Ashish Sabharwal and Bart Selman},
+  title =        {Model Counting: A New Strategy for Obtaining Good Bounds},
+  booktitle =    {Proceedings of the 21st National Conference on Artificial Intelligence (AAAI-06)},
+  pages =        {54-61},
+  year =         2006,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{DixonGinsbergParkes2004GruppenklauselnI,
+  author =       {Heidi E. Dixon and Matthew L. Ginsberg and Andrew J. Parkes},
+  title =        {Generalizing Boolean Satisfiability {I}: Background and Survey of Existing Work},
+  journal =      {Journal of Artificial Intelligence Research},
+  year =         2004,
+  volume =       21,
+  pages =        {193-243},
+  annote =       {pdf-Datei vorhanden.}
+}
+@Article{DixonGinsbergLuksParkes2004GruppenklauselnII,
+  author =       {Heidi E. Dixon and Matthew L. Ginsberg and Eugende M. Luks and Andrew J. Parkes},
+  title =        {Generalizing Boolean Satisfiability {II}: Theory},
+  journal =      {Journal of Artificial Intelligence Research},
+  year =         2004,
+  volume =       22,
+  pages =        {481-534},
+  annote =       {pdf-Datei vorhanden.}
+}
+@Article{DixonGinsbergHoferLuksParkes2004GruppenklauselnIII,
+  author =       {Heidi E. Dixon and Matthew L. Ginsberg and David Hofer and Eugende M. Luks and Andrew J. Parkes},
+  title =        {Generalizing Boolean Satisfiability {III}: Implementation},
+  journal =      {Journal of Artificial Intelligence Research},
+  year =         2005,
+  volume =       23,
+  pages =        {441-531},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+
+@Unpublished{Sebastiani2007SMTUebersicht,
+  author =       {Roberto Sebastiani},
+  title =        {Lazy Satisfiability Modulo Theories},
+  note =         {To appear in JSAT},
+  month =        {Mai},
+  year =         2007,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{Porschen2005XSAT,
+  author =       {Stefan Porschen},
+  title =        {On Some Weighted Satisfiability and Graph Problems},
+  booktitle =    {SOFSEM 2005: Theory and Practice of Computer Science},
+  pages =        {278-287},
+  year =         2005,
+  volume =       3381,
+  series =       {Lecture Notes in Computer Science (LNCS)},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+@InProceedings{JainBartzisClarke2006Matings,
+  author =       {Himanshu Jain and Constantinos Bartzis and Edmund Clarke},
+  title =        {Satisfiability Checking on Non-clausal Formulas Using General Matings},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2006},
+  crossref =     {Seattle2006},
+  pages =        {75-89},
+  annote =       {Pdf-Datei zu besorgen.}
+}
+
+@InProceedings{ManoliosVroon2007BAT,
+  author =       {Panagiotis Manolios and Daron Vroon},
+  title =        {Efficient Circuit to {CNF} Conversion},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2007},
+  crossref =     {Lisbon2007},
+  pages =        {4-9},
+  annote =       {Pdf-Datei zu besorgen.}
+}
+
+@InProceedings{EenMishchenkoSoerensson2007Dags,
+  author =       {Niklas Een and Alan Mishchenko and Niklas S{\"{o}}rensson},
+  title =        {Applying Logic Synthesis for Speeding Up {SAT}},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2007},
+  crossref =     {Lisbon2007},
+  pages =        {272-286},
+  annote =       {Pdf-Datei zu besorgen.}
+}
+
+@InProceedings{DSilvaHallerKroening2014Satisfaction,
+  author =       {Vijay D'Silva and Leopold Haller and Daniel Kroening},
+  title =        {Abstract satisfaction},
+  booktitle =    {Proceedings of the 41st ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL'14)},
+  pages =        {139--150},
+  year =         2014,
+  doi =          {10.1145/2535838.2535868},
+  annote =       {Pdf vorhanden.}
+}
+
+@InProceedings{ThakurReps2012Stalmarck,
+  author =       {Aditya Thakur and Thomas Reps},
+  title =        {A Generalization of {S}t{\aa}lmarck's Method},
+  booktitle =    {Static Analysis},
+  pages =        {334--351},
+  year =         2012,
+  editor =       {Antoine Min{\'{e}} and David Schmidt},
+  volume =       7460,
+  series =       {Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  doi =          {10.1007/978-3-642-33125-1_23},
+  annote =       {Pdf von Vorversion vorhanden.}
+}
+
+
+% %%%%%%%%
+% % DNNF %
+% %%%%%%%%
+
+% War "Da2001" (22.8.2006).
+@Article{Darwiche2001DNNF,
+  author =       {Adnan Darwiche},
+  title =        {Decomposable Negation Normal Form},
+  journal =      {Journal of the ACM},
+  year =         2001,
+  volume =       48,
+  number =       4,
+  pages =        {608-647},
+  month =        {July},
+  doi =          {10.1145/502090.502091},
+  annote =       {pdf-Datei vorhanden. Eine NNF ist eine Und-Oder-Formel aus Literalen. Eine DNNF ist eine NNF, wo in einer Konjunktion die Glieder keine Variablen gemeinsam haben (beispielsweise ist eine DNF eine DNNF). Erfuellbarkeit und andere Sachen sind schnell testbar, und hat eine Klauselmenge eine beschraenkte Baumweite, so kann sie in Linearzeit in DNNF ueberfuehrt werden.}
+}
+
+@Misc{BarahonaJungKatsirelosWalsh2008EncodingDNNF,
+  author =       {Jean Christoph Jung and Pedro Barahona and George Katsirelos and Toby Walsh},
+  title =        {Two Encodings of {DNNF} Theories},
+  month =        {July},
+  year =         {2008},
+  note =         {Presented at ECAI'08 Workshop on Inference methods based on Graphical Structures of Knowledge. Proceedings at \url{http://www.irit.fr/LC/}.}
+}

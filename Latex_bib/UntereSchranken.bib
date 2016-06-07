@@ -1,0 +1,1968 @@
+% Abschnitte (Sections):
+% - Tableaux (Tableaus)
+% - Propositional resolution (aussagenlogische Resolution)
+% - Frege systems (Fregesysteme)
+% - Andere Systeme (Other systems)
+% - Arithmetisierung (Arithmetisation)
+% - Schaltkreise etc. (Circuits etc.)
+% Bzgl. oberer Schranken fuer Resolution siehe Resolution.bib.
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%
+% % Tableaux (Tableaus) %
+% %%%%%%%%%%%%%%%%%%%%%%%
+
+@Unpublished{Co73,
+  author =       {Stephen A. Cook},
+  title =        {An exponential example for analytic tableaux},
+  note =         {Manuscript (see \cite{Urq95}, page 432)},
+  year =         1973
+}
+
+@InProceedings{AraiPitassiUrquhart2001Tableaux,
+  author =       {Noriko H. Arai and Toniann Pitassi and Alasdair Urquhart},
+  title =        {The Complexity of Analytic Tableaux},
+  booktitle =    {STOC'01},
+  pages =        {356--363},
+  year =         2001,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Propositional resolution (aussagenlogische Resolution) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{BEGJ98,
+  author =       "Maria Luisa Bonet and Juan Luis Esteban and Nicola Galesi and Jan Johannsen",
+  title =        "Exponential Separation between Restricted Resolution and Cutting Planes Proof Systems",
+  journal =      "Electronic Colloquium on Computational Complexity (ECCC)",
+  year =         1998,
+  volume =       035,
+  annote =       "Folgende Hauptresultate werden bewiesen:
+
+                  Theorem 13: Fuer eine bestimmte Familie von
+                  Klauselmengen mit $n^{c_1}$ Variablen und $n^{c_2}$
+                  Klauseln der maximalen Laenge $n$ brauchen
+                  baumartige CP-Beweise (also auch baumartige
+                  Resolutionsbeweise) mindestens
+
+                           $2^{\Omega(n^{c_3})}$
+
+                  Knoten ($c_3 < 1$).
+
+                  Theorem 14: Fuer die gleiche Familie braucht regulaere
+                  Resolution nur $n^{c_4}$ Klauseln. (In der Tat ist
+                  der Beweis ein DP-Beweis).
+
+                  Anmerkung: Inspektion des Beweises zeigt, dass es
+                  sich sogar um 6-Resolution in meinem Sinne
+                  (Elternklauseln einer Laenger > 6 muessen
+                  Eingabe-Klauseln sein) handelt.
+
+                  Proposition 15: Fuer eine andere Familie mit
+                  Groessenverhaeltnissen analog zu denen in Theorem 13
+                  gibt es polynomiale Resolutionsbeweise (wiederum
+                  volle Resolution).
+
+                  Anmerkung: Auch hierbei scheint es sich um eine
+                  6-Resolution (in meinem Sinne) zu handeln.
+
+                  Theorem 16: Fuer diese Familie bracht DP-Resolution
+                  mindestens
+
+                           $\Omega(2^{(1/4) * n^{1/3}})$
+
+                  viele Klauseln.
+
+                  Es werden also regulaere Resolution und baumartiges
+                  CP sowie Resolution und DP-Resolution
+                  (sub)exponentiell getrennt (vorige Trennungen waren
+                  bloss super-polynomial).
+
+                  Beweismethoden:
+
+                  Fundamental ist ein Interpolations-Satz von Pudlak:
+
+                  Theorem 9: Man betrachte zwei Mengen A und B von
+                  ganzzahligen Ungleichungen. Die Menge der
+                  uebereinstimmenden Variablen sei P. Es gelte, dass
+                  die Variablen aus P nur nicht-negativ in A, und nur
+                  nicht-positiv in B vorkommen. Sei R eine
+                  CP-Widerlegung von A + B. Dann gibt es einen
+                  monotonen reellwertigen Schaltkreis C ueber V mit
+                  linear in R beschraenkter Groesse, der jeweils
+                  angibt, ob A oder B unerfuellbar sind. Falls R
+                  baumartig ist, so ist C sogar eine Formel (``fan-out
+                  hoechstens 1'').
+
+                  Ein monotoner reellwertiger Schaltkreis ist hierbei
+                  ein Schaltkreis von Eingangsgrad (``fan-in'') 2, der
+                  mit reellen Zahlen rechnet, und wo jedes Gatter eine
+                  monoton steigende reelle Funktion berechnet. Ferner
+                  wird vorausgesetzt, dass fuer Eingaben 0,1 auch die
+                  Eingaben nur 0,1 sind (womit die reellen monotonen
+                  Schaltkreise eine (echte) Verstaerkung der monotonen
+                  booleschen Schaltkreise sind).
+
+                  Untere Schranken fuer die minimale Tiefe
+                  bzw. minimale Formelngroesse eines reellwertigen
+                  monotonen Schaltkreises wird mit der ``reellwertigen
+                  Kommunikations-Komplexitaet'' nach einem Satz von
+                  Krajicek bewerkstelligt:
+
+                  Lemma 2: Fuer eine monotone boolesche Funktion ist
+                  die minimale Tiefe eines sie berechnenden
+                  reellwertigen monotonen Schaltkreises mindestens die
+                  reellwertige Kommunikationskomplexitaet, und die
+                  minimale Formelngroesse mindestens $1.5 ^ {diese
+                  Kommunikationskomplexitaet}$.
+
+                  Diese Kommunikationskomplexitaet (``Komplexitaet des
+                  Karchmer-Wigderson-Spieles'') fuer eine monotone
+                  boolesche Funktion $f$ ist die minimale Anzahl von
+                  Runden, die in jedem Falle zur Bestimmung einer
+                  Position $i$ mit $x_i = 1$ und $y_i = 0$ noetig
+                  sind, wobei $f(x) = 1$ und $f(y) = 0$ gilt, und zwei
+                  Spieler eine Bitkette $w$ (aus der dann $i$
+                  bestimmbar sein muss) sukzessive mittels ihrer
+                  Spielfunktion, die von $x$ bzw. $y$ und der
+                  aktuellen Bitkette abhaengt, dadurch bilden, dass
+                  eine $0$ angehaengt wird, wenn die Funktion des
+                  ersten Spielers groesser ist als die des zweiten,
+                  und ansonst eine $1$.
+
+                  In Theorem 4 wird in Adaption einer Methode von Raz
+                  und McKenzie fuer eine spezielle Klasse von
+                  sogenannten ``DART-Spielen'' gezeigt, dass spezielle
+                  ``strukturierte Protokolle'' hier nur kaum
+                  schlechter sind als die allgemeinen Protokolle.
+
+                  Fuer ein spezielles DART-Spiel schliesslich kann
+                  diese strukturierte Komplexitaet hinreichend nach
+                  unten abgeschaetzt werden.
+
+                  Die Ungleichungssysteme A+B fuer Theoreme 13, 14
+                  sind recht direkte Uebertragungen der Formeln, die
+                  jene untere Schranken ergeben. Die untere Schranke
+                  ergibt sich dann aus Theorem 9 (der Baum-Fall).
+
+                  Fuer die unteren Schranken fuer DP (Theorem 16)
+                  werden die Formeln wiederum nur modifiziert, aber
+                  die untere Schranke muss mit einem
+                  Goerdt-Haken-Beweis erledigt werden."
+}
+
+
+
+@InProceedings{BP97,
+  author =       "Sam Buss and Toniann Pitassi",
+  title =        "Resolution and the Weak Pigeonhole Principle",
+  editor =       "Mogens Nielsen and Wolfgang Thomas",
+  volume =       "1414",
+  series =       "Lecture Notes in Computer Science",
+  pages =        "149--156",
+  booktitle =    " Computer Science Logic (CSL) 97",
+  year =         1998,
+  annote =       "Vorhanden.
+
+                  Es wird die Komplexitaet von Resolution fuer
+                  $PHP_n^m$, $m > n$ studiert.
+
+                  Zunaechst werden ``monotone Resolutionsbeweise''
+                  fuer PHP definiert.
+
+                  Theorem 1 beweist, dass fuer PHP Resolution und
+                  monotone Resolution polynomial aequivalent sind.
+
+                  Es folgt Theorem 2, dass die Hinzufuegung der
+                  ``orthogonalen langen Klauseln'', die die
+                  Surjektivitaet der Abbildung codieren, polynomial
+                  simuliert werden kann.
+
+                  [Diese Klauseln sind der eine Typ von blockierten
+                  Klauseln fuer PHP --- kann nun auch fuer den anderen
+                  Typ (und fuer beide zusammen) die polynomiale
+                  Simulation bewiesen werden?
+                  Ist vielleicht auch jener Kalkuel der ``semantischen
+                  kritischen Resolution'' aus \cite{Ku96c} polynomial
+                  aequivalent mit Resolution fuer PHP??]
+
+                  Theorem 3 beweist, dass fuer
+
+                        $m \ge 2^{\sqrt{n \cdot \log n}}$
+
+                  $PHP_n^m$ polynomiale Resolutionsbeweise besitzt.
+                  Der Beweis benutzt folgendes Lemma:
+
+                  $PHP_n^{n+1}$ hat einen monotonen Resolutionsbeweis
+                  der Laenge $O(n \cdot 2^n)$.
+
+                  Schliesslich wird in Theorem 5 bewiesen, dass jeder
+                  baumartige Resolutionsbeweis von $PHP_n^m$
+                  mindestens $2^n$ Schritte benoetigt.
+
+                  [Dies folgt ja einfacher mit meinem Satz ueber
+                  verallgemeinerte Input-Resolution.]
+
+                  Als offenes Problem wird genannt, exponentielle
+                  untere Schranken fuer PHP mit polynomiallem $m$,
+                  z.B. $m = n^3$, zu beweisen."
+}
+
+@Article{BT88,
+  author =       "Sam Buss and G. Tur{\'{a}}n",
+  title =        "Resolution Proof of generalized Pigeonhole principles",
+  journal =      "Theoretical Computer Science",
+  year =         1988,
+  volume =       62,
+  pages =        "311--317",
+  annote =       "Beweist die untere Schranke
+
+                     $ 2^{n^2 / m}$
+
+                  fuer $PHP_n^m$."
+}
+
+@InProceedings{BeP96,
+  author =       "Paul Beame and Toniann Pitassi",
+  title =        "Simplified and Improved Resolution Lower Bounds",
+  pages =        "274--282",
+  booktitle =    "37th Symposium on Foundations of Computer
+                  Science (FOCS' 96)",
+  year =         1996,
+  annote =       "Kopiert. Bearbeitung liegt dem Artikel bei, und ist
+                  auch in \cite{Ku96c} geschehen.
+
+                  Zunaechst wird die Beweissuche aus \cite{CEI96},
+                  diesmal aber schon fuer Resolution, besprochen.
+
+                  Dann wird die Idee, ``lange Resolutionsbeweise
+                  werden durch lange Klauseln bedingt'', als
+                  Ausgangspunkt fuer ihre verbesserte untere Schranke
+                  fuer $PHP_n^{n+1}$ verwendet.
+                  Diese Schranke habe ich in \cite{Ku96c} dargestellt
+                  (und verallgemeinert).
+
+                  [Obige Intuition scheint mir nicht zutreffend: die
+                  rekursive Struktur von PHP ist entscheident.]
+
+                  Die neuen Ueberlegungen zu unteren Schranken werden
+                  schliesslich auch auf die
+                  Chavatal/Szemeredi-Schranke fuer zufaellige
+                  $k$-CNF-Formeln angewendet und ergeben einfachere
+                  Beweise und bessere Schranken."
+}
+
+@Article{Cl94,
+  author =       "David J. McClurkin",
+  title =        "A lower bound for tree resolution",
+  journal =      "Discrete Applied Mathematics",
+  year =         1994,
+  volume =       54,
+  pages =        "37--53",
+  annote =       {Vorhanden. Siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Unpublished{Co71b,
+  author =       "Stephen A. Cook",
+  title =        "Examples for the {D}avis-{P}utnam procedure",
+  note =         "Unpublished manuscript",
+  year =         1971,
+  month =        "June"
+}
+
+@Article{CoPi90,
+  author =       "Stephen A. Cook and Toniann Pitassi",
+  title =        "A feasibly constructive lower bound for resolution proofs",
+  journal =      "Information Processing Letters",
+  year =         1990,
+  volume =       34,
+  pages =        "81--85",
+  month =        "March",
+  annote =       "Kopiert.
+
+                  Es wird der ``greedy-algorithm'' zum Erfuellen der
+                  Axiome eines zu kleinen Beweises fuer PHP
+                  eingefuehrt. Die Methode ist auch auf
+                  verallgemeinertes PHP und den Beweis von
+                  Chvatal/Szemeredi anwendbar (und auch auf Tseitins
+                  Formeln)."
+}
+
+
+@Article{Eg98,
+  author =       "Uwe Egly",
+  title =        "An answer to an open problem of Urquhart",
+  journal =      "Theoretical Computer Science",
+  year =         1998,
+  volume =       198,
+  pages =        "201--209",
+  annote =       "Es werden drei Kalkuele betrachtet:
+
+                  1. Resolution mit ``eingeschraenkter Erweiterung'',
+                  die die Ueberfuehrung der Aequivalenz und der
+                  Implikation in konjunktive Normalform gestattet.
+
+                  2. Gentzen-Systeme ueber der Basis ``nicht, und,
+                  oder, Implikation, Aequivalenz'', einmal ohne
+                  Schnitt, und einmal mit ``analytischem Schnitt''
+                  (Schnitte sind zugelassen, die die
+                  ``Teilformel-Eigenschaft'' erhalten).
+                  Axiome sind hier von der Form ``Formel impliziert
+                  Formel'', und es werden nur verschiedene
+                  Formeln gezaehlt.
+
+                  Ergebnis:
+
+                  Hier sind Gentzen mit analytischem Schnitt und
+                  Resolution polynomial aequivalent, waehrend Gentzen
+                  ohne Schnitt echt schwaecher ist.
+
+                  Alasdair Urquhart bewies in \cite{Urq95} die
+                  Aequivalenz der drei Systeme, wenn nur reine
+                  Aequivalenzformeln betrachtet werden.
+                  Jedoch die Frage, der er stellte, bezog sich auf
+                  Systeme, die nur ``nicht, und, oder'' enthalten!
+                  Er betrachtet die Egly-Arbeit als trivial (und
+                  wertlos), was wohl auch begruendet ist:
+
+                  1. Die polynomialen Simulationen von Resolution mit
+                  beschraenkter Erweiterungen und Gentzen mit
+                  analytischen Schnitt sind sehr einfach.
+
+                  2. Die Separierung von Gentzen mit/ohne analytischem
+                  Schnitt geschieht einfach dadurch, dass die von
+                  Alasdair (\cite{Urq89}) bewiesene Separierung von
+                  Gentzen mit/ohne Schnitt durch triviale Hinzufuegung
+                  jener Schnittformeln benutzt wird, die hier fuer
+                  Gentzen durch ein pures Literal nutzlos gemacht
+                  wurden, aber dann die urspruenglichen Schnitte durch
+                  ihre blosse Anwesenheit in analytische verwandeln.
+
+                  (Hm, erinnert sehr an das, was ich in meinem
+                  3-SAT-Artikel mit den blockierten Klauseln gemacht
+                  habe.)
+
+                  Die gesamte Argumentation von Egly reduziert sich im
+                  wesentlichen auf das sehr einfache Argument, womit
+                  die Trennung von Gentzen mit/ohne analytischen
+                  Schnitt gezeigt wird. Wohl gerade deshalb hat
+                  Alasdair in seiner Problem-Stellung die Aequivalenz
+                  herausgelassen (die Separierung in \cite{Urq89}
+                  geschieht mit reinen Aequivalenzen (eben Tseitins
+                  Formeln))."
+}
+
+@InProceedings{Ga75,
+  author =       "Zvi Galil",
+  title =        "On the validity and complexity of bounded resolution",
+  pages =        "72--82",
+  booktitle = "Proceedings of seventh annual ACM Symposium on
+                  Theory of Computing",
+  year =         1975,
+  month =        "May",
+  annote =       "Kopiert.
+
+                  In Abschnitt 2 werden drei Prozeduren betrachtet,
+                  die nach k-beschraenkten Resolutions-Widerlegungen
+                  suchen:
+
+                  Verwendet werden EXPAND(k) und RESOLVE(k), wobei
+                  EXPAND alle Klauseln auf Laenge k ``aufblaeht'', und
+                  RESOLVE die k-beschraenkte Resolutionshuelle
+                  bildet. Zwei Prozeduren verwenden EXPAND (entweder
+                  ``staendig'' oder ``am Ende'') und sagen ``UNSAT''
+                  falls alle Klauseln der Laenge k vorhanden sind,
+                  waehrend die dritte nur RESOLVE verwendet, und
+                  ``UNSAT'' sagt, wenn die leere Klausel abgeleitet
+                  wurde. Alle dieser Formen sind aequivalent.
+                  [Na ja]
+
+                  Abschnitt 3 fuehrt Tseitins Klauselmengen ein:
+
+                  Gegeben sei ein einfacher (ungerichteter) Graph G
+                  zusammen mit einer 0-1-Eckenmarkierung und einer
+                  Markierung der Kanten mit (variablen-verschiedenen)
+                  Literalen. Zu jeder Ecke mit Grad d werden die
+                  2^(d-1) vielen Klauseln ueber den Literalen im
+                  ``Stern'' betrachtet, so dass die Anzahl
+                  komplementierter Literale die entgegengesetzte
+                  Paritaet zur Eckenmarkierung hat. Vereinigung ueber
+                  alle Ecken ergibt dann Tseitins Klauselmenge.
+
+                  Lemma 3.2 beweist, dass fuer zusammenhaengendes G
+                  die Klauselmenge erfuellbar ist gdw die Summe der
+                  Eckengewichte gerade ist.
+
+                  Lemma 3.3 beweist, dass im unerfuellbaren Falle von
+                  jeder Ecke mindestens eine Klausel (``logisch'')
+                  benoetigt wird.
+
+                  Abschnitt 4 beweist drei allgemeine Resultate:
+
+                  Lemma 4.1 (``Correspondence Lemma'') beweist durch
+                  Induktion ueber die Resolutionsschritte, dass jede
+                  ``regulaer abgeleitete'' Klausel C zu einem
+                  zusammenhaengenden Teil-Graphen G' von G gehoert:
+
+                  Der ``innere Rand'' von G' seinen alle Kanten in
+                  G, die nicht zu G' gehoeren, aber zwei Ecken aus G'
+                  verbinden. Der ``aussere Rand'' seien alle Kanten
+                  aus G ohne G', die eine Ecke aus G' mit einer Ecke
+                  aus G ohne G' verbinden.
+
+                  Die Variablen von C sind nun genau die Variablen im
+                  Rand von G', und die Paritaet der Anzahl der
+                  komplementierten Literale aus dem ausseren Rand von
+                  G' ist entgegengesetzt zur Summe der Eckengewichte
+                  in G' (die Ausgangsklauseln gehoeren gerade zu den
+                  einpunktigen Teilgraphen).
+
+                  (In \cite{Ga77} wird wohl auch die Eindeutigkeit von
+                  G' gezeigt.)
+
+                  Lemma 4.2 (``Regularity Lemma'') zeigt, wie durch
+                  Beschneiden eines beliegigen Resolutionsbaumes ein
+                  regulaerer Resolutionsbaum entsteht, dessen
+                  Konklusion Teilklausel der urspruenglichen
+                  Konklusion ist.
+                  [Die Anzahl der verschiedenen Klauseln wie die
+                  Groesse ``innere Klauseln'' kann anwachsen.]
+
+                  Lemma 4.3 (``Substitution Lemma'') beschreibt, wie
+                  ein Teilbaum eines Resolutionsbaumes durch einen
+                  anderen ersetzt werden kann, dessen Konklusion
+                  Teilklausel der urspruenglichen Konklusion ist. (Von
+                  der ``Ersetzungsstelle'' bis zur Wurzel des gesamten
+                  Baumes fallen hierbei u.U. Aeste weg.)
+
+                  Abschnitt 5 stellt die speziellen Graphen vor:
+
+                  k-dimensionale Wuerfel, die durch Zwischenecken in
+                  Graphen vom Grad 3 transformiert werden.
+
+                  Lemma 5.1 beweist (mittels eines
+                  ``Mittelungs-Argumentes'' wie beim heute
+                  gebraeuchlichen ``1/3 - 2/3''-Argument), dass jeder
+                  Resolutionsbaum eine Klausel enthaelt, zu deren
+                  Herleitung ``sehr viele'' Axiome gebracht werden
+                  (aber ``nicht zu viele'' --- sonst waere diese
+                  Klausel ja nicht notwendig eine lange).
+
+                  Lemma 5.2 beweist, dass der korrespondierende
+                  Teilgraph einen ``grossen'' aeusseren Rand hat,
+                  und zwar fuer den urspruenglichen Wuerfel, waehrend
+                  Lemma 5.3 ein entsprechenden Resultat (``etwas
+                  weniger gross'') fuer den transformierten Wuerfel zeigt.
+
+                  Abschnitt 6.2 beweist nun, das jeder Resolutionsbaum
+                  eine ``lange'' Klausel enthaelt. Fuer regulaere
+                  Resolutionsbaeume folgt dies unmittelbar aus Lemma
+                  5.3. Der Punkt hier ist, das Regularitaet
+                  nicht vorausgesetzt wird.
+
+                  Der Beweis (Theorem 6.1) ist wie folgt:
+
+                  Es werden Klauseln im Beweis-Baum gemaess Lemma 5.1
+                  betrachtet, so dass ``unter ihnen'' (zu den Axiomen
+                  hin) keine solche Klauseln mehr existieren (sie also
+                  die ``ersten'' sind). Regularisiere deren
+                  (Teil-)Beweise gemaess Lemma 4.2 und ersetze den
+                  urspruenglichen (Teil-)Beweis gemaess Lemma 4.3. Mit
+                  Lemma 5.3 wird nun argumentiert, dass so die Anzahl
+                  solcher ``ersten Klauseln'' verringert wurde, oder,
+                  falls eine neue solche Klausel entstanden ist, es
+                  sich hoechstens um eine Klausel handelt, die nun strikt
+                  naeher zur Wurzel liegt.
+
+                  Iteration dieses Prozesses eliminiert schliesslich
+                  alle solchen Klauseln, im Widerspruch zu Lemma 5.1.
+
+                  Abschnitt 7 gibt ``some related results'':
+
+                  Theorem 7.1 folgert die (fast-)exponentielle untere
+                  Schranke fuer regulaere Resolution.
+
+                  Theorem 7.2 sagt, dass Regularisierung unter
+                  Benutzung von Extended Resolution harmloss wird auch
+                  fuer die Anzahl der verschiedenen Klauseln.
+
+                  Theorem 7.3 stellt ueberdies noch fest, dass so
+                  keine groesseren Klauseln als die Ursprungsklauseln
+                  benoetigt werden.
+
+                  Theorem 7.4 sagt schliesslich mit Tseitin, das die
+                  Tseitin-Formeln kurze ER-Beweise haben."
+}
+
+@Article{Ga77,
+  author =       "Z. Galil",
+  title =        "On the complexity of regular resolution and the {D}avis-{P}utnam-procedure",
+  journal =      "Theoretical Computer Science",
+  year =         1977,
+  volume =       4,
+  pages =        "23--46"
+}
+
+@InProceedings{Ge97,
+  author =       "Allen Van Gelder",
+  title =        "Propositional Search with $k$-Clause Introduction Can be Polynomially Simulated by Resolution",
+  booktitle =    "Fifth International Symposium on Artificial
+                  Intelligence and Mathematics ",
+  year =         1998,
+  month =        "January",
+  note =         "URL: \url{http://rutcor.rutgers.edu/~amai/}"
+}
+
+@Article{Goe92,
+  author =       "Andreas Goerdt",
+  title =        "Davis-Putnam resolution versus unrestricted resolution",
+  journal =      "Annals of Mathematics and Artificial Intelligence",
+  year =         1992,
+  volume =       6,
+  pages =        "169--184",
+  annote =       "Kopiert. Eine Familie unerfuellbarer Klauselmengen
+                  mit polynomialen Resolutionsbeweisen, aber nur
+                  (sub-)exponentiellen DP-Resolutions-Beweisen (fuer
+                  alle Reihenfolgen) wird gegeben. Die Formeln sind
+                  modifizierte Schubfachformeln. Scheint lesbar."
+}
+
+@Article{Goe93,
+  author =       "Andreas Goerdt",
+  title =        "Regular Resolution Versus Unrestricted Resolution",
+  journal =      "SIAM Journal on Computing",
+  year =         1993,
+  volume =       22,
+  number =       4,
+  pages =        "661--683",
+  month =        "August"
+}
+
+@Misc{Goe96,
+  author =       "Andreas Goerdt",
+  year =         1996,
+  month =        "August",
+  note =         "Personal communication. The hard
+                  formulas from ``Unrestricted resolution versus N-resolution'',
+                  Theoretical Computer Science 93 (1992), 159--167, have polynomial
+                  DP-resolution proofs as (implicitly) shown in the article, but have
+                  only exponential DP-resolution proofs for the reverse order."
+}
+
+@Article{Ha85,
+  author =       "Armin Haken",
+  title =        "The intractability of resolution",
+  journal =      "Theoretical Computer Science",
+  year =         1985,
+  volume =       39,
+  pages =        "297--308",
+  annote =       "Kopiert."
+}
+
+@InProceedings{RWY97,
+  author =       "Alexander Razborov and Avi Wigderson and Andrew Yao",
+  title =        "Read-Once Branching Programs, Rectangular Proofs of the Pigeonhole Principle and the Transversal Calculus",
+  pages =        "739--748",
+  booktitle =    "29th A.C.M. Symposium on the Theory of Computing",
+  year =         1997,
+  annote =       "Im wesentlichen wird fuer bestimmte zusaetzliche
+                  Einschraenkungen die Komplexitaet regulaerer
+                  Resolution auf $PHP_n^m$ fuer beliebiges $m \geq n +
+                  1$ bestimmt.
+                  Der Artikel \cite{BP97} wird weiterentwickelt.
+                  Die Verbindung regulaerer Resolution mit Branching
+                  programs (bp) basiert auf \cite{LNNW91}.
+
+                  Im einzelnen:
+
+                  1. Uniforme read-once bp's simulieren allgemeine
+                  read-once bp's, wobei ``Uniformitaet'' bedeutet,
+                  dass fuer jeden Weg von der Quelle zu einer Senke
+                  auch nur hoechstens ein zugehoeriger Input
+                  existiert.
+
+                  2. Das Zeilen-Modell:
+
+                     Gegeben Eingabe $A \in [n]^m$, wobei $[n] = \{1,
+                     \ldots, n\}$, finde $i_1, i_2 \in [m]$ und $j \in
+                     [n]$ mit $A_{i_1} = A_{i_2} = j.$
+                     Dieses Suchproblem soll durch ein $n$-fach
+                     read-once bp in $m$ Variablen geloest werden.
+                     ($A(i)$ gibt die Nummer des Loches fuer Taube $i$
+                     an. Oder: Dieses Suchproblem findet zu gegebener
+                     Abbildung $[m] \ra [n]$ zwei Stellen, deren
+                     Funktionswerte uebereinstimmen. (Wobei jedoch
+                     noch zusaetzlich das $j$ ausgegeben werden muss.)
+
+                  Die minimale Groesse eines solchen bp's ist nun
+                  mindestens
+
+                            $\exp(\Omega(n \cdot \log n))$.
+
+                  3. Das Spalten-Modell:
+
+                     Gegeben $A \in [m]^n$, finde $i \notin A([m])$.
+                     Betrachtet werden $m$-fache read-once bp's in $n$
+                     Variablen.
+                     (Hier soll also zu gegener Abbildung $[n] \ra
+                     [m]$ ein nicht-erreichter Wert ausgegeben
+                     werden.)
+
+                  Dieses Problem ist nun etwas einfacher: Die minimale
+                  Groesse eines solchen bp's ist
+
+                            $\exp(\Omega(\sqrt(n) + n / \log(m)))$.
+
+                  4. Der ``Rechteck-Kalkuel''
+
+                  Hier werden nun nur noch positive Klauseln $R_{IJ}$
+                  fuer $I \sse [m]$ und $J \sse [n]$ betrachtet:
+
+                      $R_{IJ} = \{ p_{ij} : i \in I, j \in J \}$.
+
+                  Die Ableitungsregel gestattet, von einer beliebigen
+                  Anzahl (aber mind. 2(!)) von Rechteck-Klauseln, die
+                  alle ein gemeinsames $j \in [n]$ enthalten, und deren
+                  $I$-Mengen alle disjunkt sind, zu der
+                  Rechteck-Klausel ueberzugehen, die aus der
+                  Vereinigung der $I$- bzw. $J$-Mengen resultiert,
+                  wobei das eine $j$ aber entfernt wird.
+                  (Begruendung: $R_{IJ}$ bedeutet, dass mindestens
+                  eine Taube $i \in I$ in ein Loch $j \in J$ muss.
+                  Da nun die Praemissen der Regel von jeweils
+                  disjunkten Taubenmengen sprechen, und mindestens
+                  zwei Tauben zu verteilen sind, muss auch eine Taube
+                  in ein Loch ausser jenes $j$ fallen.)
+
+                  $s(m,n)$ ist die minimale Groesse eines
+                  Rechteck-Beweises fuer eine Reckteck-Klausel aus
+                  Rechteck-Axiome. (PHP faellt unter dieses Schema,
+                  wenn (wie gewoehnlich) die negativen (2-)Klauseln
+                  durch entsprechende $2 \times (m-1)$-Klauseln
+                  ersetzt werden.)
+
+                  Resolution kann Rechteck-Beweise polynomial
+                  simulieren.
+                  (Wie verhaelt es sich hier mit der
+                  Regularitaets-Bedingung??)
+
+                  Obere Schranken:
+
+                    (a) $s(n+1,n) \le 2^{n+1}$.
+
+                    (b) $s(m,n) \le \exp(O(\sqrt{n \cdot \log n} + n
+                         \cdot \log n / \log m))$.
+
+                  Satz (Theorem 4.4): $s(m,n)$ ist identisch mit der
+                  minimalen Groesse eines bp's, dass das
+                  Spalten-Modell loest.
+
+                  5. Schliesslich wird noch der
+                  ``Transversalen-Kalkuel'' betrachtet:
+
+                  Fuer irgendeine Familie ${\cal A}$ von endlichen
+                  Mengen sei $\tau({\cal A})$ die minimale Groesse
+                  einer Menge, die mit jeder Menge der Familie einen
+                  nichtleeren Schnitt hat.
+
+                  Es wird ein vollstaendiger und korrekter Kalkuel
+                  fuer das Beweisen von unteren Schranken fuer $\tau$
+                  praesentiert, und seine Aequivalenz zum
+                  Reckteck-Kalkuel bewiesen.
+
+                  (Wie steht es nun mit der behaupteten Beziehung zu
+                  regulaerer Resolution??: Zwischen der Loesung des
+                  Such-Problems fuer PHP und der Loesung des Zeilen-
+                  bzw. Spalten-Modells sehe ich keine Verbindung.)"
+}
+
+@Unpublished{SW98v,
+  author =       "Eli Ben-Sasson and Avi Wigderson",
+  title =        "Short Proofs are Narrow --- Resolution made Simple",
+  note =         "30 pages, preliminary version of \cite{SW98}",
+  year =         1998,
+  month =        "October 19,",
+  annote =       "Von Andreas Goerdt bekommen."
+}
+@TechReport{SW98R,
+  author =       "Eli Ben-Sasson and Avi Wigderson",
+  title =        "Short Proofs are Narrow --- Resolution made Simple",
+  institution =  "ECCC Electronic Colloquium on Computational Complexity ",
+  year =         1999,
+  number =       "TR99-022",
+  url =          {http://eccc.hpi-web.de/report/1999/022/},
+  month =        "July"
+}
+@InProceedings{SW98,
+  author =       "Eli Ben-Sasson and Avi Wigderson",
+  title =        "Short Proofs are Narrow --- Resolution made Simple",
+  pages =        "517--526",
+  booktitle =    "Proceedings of the 31th Annual ACM Symposium on Theory of Computing (STOC'99)",
+  year =         1999,
+  month =        "May",
+  annote =       "Hier wurde das Problem, gestellt in \cite{SW98v} und von mir geloest, einfach herausgenommen."
+}
+@Article{SW98J,
+  author =       {Eli Ben-Sasson and Avi Wigderson},
+  title =        {Short Proofs are Narrow —- Resolution Made Simple},
+  journal =      {Journal of the ACM},
+  year =         2001,
+  volume =       48,
+  number =       2,
+  pages =        {149--169},
+  month =        {March},
+  doi =          {10.1145/375827.375835},
+  annote =       {Pdf vorhanden.}
+}
+
+@TechReport{Si71,
+  author =       "I. Simon",
+  title =        "On the time required by the {D}avis-{P}utnam tautology recognition algorithm",
+  institution =  "Department of Computer Science, University of Waterloo",
+  year =         1971,
+  number =       "Research Report CSRR-2050",
+  month =        "June",
+  annote =       "Bezug: {KuLu97}"
+}
+
+@InCollection{Ts68,
+  author =       {G.S. Tseitin},
+  title =        {On the Complexity of Derivation in Propositional Calculus},
+  booktitle =    {Automation of Reasoning 2: Classical Papers on Computational Logic 1967--1970},
+  pages =        {466--483},
+  publisher =    {Springer},
+  year =         1983,
+  editor =       {Jörg H. Siekmann and Graham Wrightson},
+  series =       {Symbolic Computation: Artificial Intelligence},
+  note =         {Original publication: Seminars in Mathematics, V.A.~Steklov Mathematical Institute, Leningrad, 1968, Volume 8; english translation: Studies in mathematics and mathematical logic, Part II (A.O. Slisenko, editor), 1970, pages 115-125},
+  doi =          {10.1007/978-3-642-81955-1_28},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Urq87,
+  author =       "Alasdair Urquhart",
+  title =        "Hard Examples for Resolution",
+  journal =      "Journal of the ACM",
+  year =         1987,
+  volume =       34,
+  pages =        "209--219",
+  doi =          {10.1145/7531.8928},
+  annote =       "Dreierlei wird geleistet:
+                  1. Die Haken'sche Technik wird mit der Tseitin'schen
+                  kombiniert, und liefert nun echt exponentielle
+                  untere Schranken fuer Resolution.
+                  2. Diese Technik liefert auch derartig schwere
+                  Formeln aus 3-CNF.
+                  3. Und diese Formeln sind in Frege-Systemen schnell
+                  beweisbar."
+}
+
+@Article{Urq89,
+  author =       "Alasdair Urquhart",
+  title =        "The complexity of Gentzen Systems for Propositional Logic",
+  journal =      "Theoretical Computer Science",
+  year =         1989,
+  volume =       66,
+  number =       1,
+  pages =        "87--97",
+  annote =       "Die Techniken von \cite{Urq87} werden an den
+                  Gentzen-Kalkuel und die Klasse der reinen
+                  Aequivalenzformeln angepasst. Zwei wesentliche
+                  Resultate:
+
+                  Theorem 5.10: Eine bestimmte Folge von reinen
+                  Aequivalenzen der Laenge $O(n^2)$ hat nur
+                  Schnitt-freie Gentzen-Beweise einer Laenge von
+                  mindestens $2^{n / 16}$ verschiedenen Sequenzen.
+
+                  Theorem 5.11: Im System mit Schnitt haben diese
+                  Formeln Beweise der Laenge $O(n^6)$.
+
+                  In ``Concluding speculations'' stellt Alasdair die
+                  Hypothese auf, dass jeder untere-Schranken-Beweis
+                  fuer volle Resolution ``nicht-konstruktiv'' sein
+                  muss.
+                  Dies wurde wohl durch den Cook-Pitassi-Artikel
+                  widerlegt."
+}
+
+@Article{Urq92,
+  author =       "Alasdair Urquhart",
+  title =        "The relative complexity of resolution and cut-free Gentzen systems",
+  journal =      "Annals of Mathematics and Artificial Intelligence",
+  year =         1992,
+  volume =       6,
+  pages =        "157--168",
+  annote =       "Es werden die Beweissysteme ``Gentzen ohne
+                  Schnitt'' und ``Resolution mit beschraenkter
+                  Extension'', d.h. Aequivalenzen werden nach CNF
+                  mittels neuer Variablen ueberfuehrt, untersucht.
+                  Es wird gezeigt:
+                  1. Baumartige Resolution ist echt staerker als
+                  baumartiger Gentzen (als trennende Formeln koennen
+                  reine Aequivalenzen benutzt werden).
+                  2. Auf reinen Aequivalenzen sind Gentzen und
+                  Resolution (beide in allgemeiner Form) gleichwertig.
+                  3. Regulaerer Gentzen ist echt schwaecher als voller
+                  Gentzen (wieder koennen reine Aequivalenzen zur
+                  Trennung benutzt werden).
+                  In dieser Arbeit wird nicht gezeigt, dass Gentzen
+                  auf reinen Aequivalenzen eine exponentielle untere
+                  Schranke aufweist (und damit auch Resolution (fuer
+                  die uebersetzten Formeln))."
+}
+
+@Article{Urq95,
+  author =       "Alasdair Urquhart",
+  title =        "The complexity of propositional proofs",
+  journal =      "The Bulletin of Symbolic Logic",
+  year =         1995,
+  volume =       1,
+  number =       4,
+  pages =        "425--467",
+  doi =          {10.2307/421131},
+  annote =       "Gut lesbarer Uebersichtsartikel. Folgendes wird
+                  bewiesen (oder zumindest diskutiert):
+
+                  Theorem 4.1: Die Tableau-Methode kann die (triviale)
+                  Wahrheitswert-Methode nicht p-simulieren, denn auf
+                  der ausgezeichneten KNF mit n Variablen braucht sie
+                  mind. $n!$ viele Schritte.
+
+                  Theorem 4.2 Fuer die ``Baumformeln'' (binaerer Baum,
+                  alle innere Knoten mit verschiedenen Variablen
+                  markiert) im Falle des vollstaendigen Baumes braucht
+                  die Tableaumethode $2^{c 2^n}$ viele Schritte, wobei
+                  $c \approx 0.67$ ($2^n$ ist (i.w.) sowohl die Anzahl
+                  der Klauseln als die der Variablen).
+
+                  Theorem 5.1 Baumartige Resolution p-simuliert
+                  Tableau, aber nicht umgekehrt (siehe die Baumformeln,
+                  fuer die Resolution triviale Beweise liefert).
+
+                  Es wird dann die Tseitin'sche Methode fuer untere
+                  Schranken entwickelt. Leicht folgt dann:
+
+                  Theorem 5.2 Baum-Resolution kann DP-Resolution nicht
+                  p-simulieren.
+
+                  In Verbindung mit dem Haken'schen Argument (``bottle
+                  neck'') unter Benutzung von Expandern ergibt sich
+                  dann die exponentielle untere Schranke fuer
+                  Resolution (Theorem 5.3).
+
+                  Paragraph 6 untersucht einen schnittfreien
+                  Gentzen-Kalkuel G, wobei Aequivalenz die einzige
+                  Verknuepfung ist.
+
+                  Theorem 6.1 Baum-Resolution (nach Ueberfuehrung der
+                  Aequivalenz-Formeln in CNF mittels der
+                  Standard-Transformation) p-simuliert Baum-Gentzen,
+                  aber nicht umgekehrt.
+
+                  Theorem 6.4 Resolution, Gentzen und Gentzen mit
+                  ``analytischem Schnitt'' sind poly-aequivalent (fuer
+                  reine Aequivalenzen).
+
+                  Fuer gegebene Verknuepfungsbasis sind Gentzen und
+                  Tableau p-aequivalent.
+                  [Somit ist also wohl Resolution auf reinen
+                  Aequivalenzen besonders schlecht.]
+
+                  Theorem 7.1 Alle Frege-Systeme, alle natuerlichen
+                  Deduktionssysteme und alle Gentzen-Systeme mit
+                  Schnitt sind p-aequivalent.
+
+                  Die exponentielle untere Schranke fuer PHP in
+                  Frege-Systemen beschraenkter Tiefe wird skizziert.
+
+                  Theorem 8.1 Extended Resolution, Extended Frege und
+                  Frege mit Substitution sind p-aequivalent.
+
+                  Theorem 8.2 Cook's System PV: Zu Gleichungen E kann
+                  eine polynomial wachsende Familie $E_n$ von
+                  aussagenlogischen Formeln assoziiert werden, so dass
+                  $E_n$ genau dann eine Tautologie ist, wenn $E$ fuer
+                  alle eingesetzten Numerale $\le n$ richtig ist.
+                  Ist $E$ in PV beweisbar, so hat die Familie $E_n$ in
+                  Extended Frege einen polynomialen Beweis.
+
+                  Da PV alle polynomial-berechenbaren Funktionen
+                  als primitive Symbole enthaelt, kann die Korrektheit
+                  eines beliebigen Beweissystems der Aussagenlogik als
+                  eine Gleichung in PV ausgedrueckt werden.
+
+                  Theorem 8.3 Beweist PV die Korrektheit eines
+                  Beweissystems, dann beweist PV auch, dass Extended
+                  Frege dieses System polynomial simuliert (mit
+                  polynomial berechenbarer Transformation).
+Siehe ausfuehrliche Bearbeitung im Ordner 'Genauer'."
+}
+
+@Misc{To99p,
+  author =       "Jacobo Tor{\'a}n",
+  year =         1999,
+  note =         "Private communication",
+  annote =       "E-Post, dass Theorem 6 in \cite{ET99} falsch ist. Zitiert in \cite{Ku99b}."
+}
+
+@InProceedings{ET99,
+  author =       "Juan Luis Esteban and Jacobo Tor{\'a}n",
+  title =        "Space Bounds for Resolution",
+  editor =       "Christoph Meinel and Sophie Tison",
+  volume =       1563,
+  series =       "LNCS",
+  pages =        "551--560",
+  booktitle =    "16th Annual Symposium on Theoretical Aspects of Computer Science (STACS 99)",
+  year =         1999,
+  publisher = "Springer",
+  annote =       {Pdf-Datei vorhanden.}
+}
+@InProceedings{To99,
+  author =       "Jacobo Tor{\'a}n",
+  title =        "Lower Bounds for Space in Resolution",
+  volume =       1683,
+  series =       "Lecture Notes in Computer Science",
+  pages =        "362--373",
+  booktitle =    "Computer Science Logic, 13th International Workshop, CSL'99",
+  year =         1999,
+  publisher =    "Springer",
+  annote =       {Pdf-Datei vorhanden.}
+}
+@Article{ET99b,
+  author =       {Juan Luis Esteban and Jacobo Tor{\'a}n},
+  title =        {Space Bounds for Resolution},
+  journal =      {Information and Computation},
+  year =         2001,
+  volume =       171,
+  number =       1,
+  pages =        {84--97},
+  month =        {November},
+  annote =       {Fasst \cite{ET99} und \cite{To99} zusammen; Vorabversion von Juli 1999 wie Zeitschriftenversion vorhanden.}
+}
+
+@Article{EstebanToran2003CombCharacTreeRes,
+  author =       {Juan Luis Esteban and Jacobo Tor{\'{a}}n},
+  title =        {A combinatorial characterization of treelike resolution space},
+  journal =      {Information Processing Letters},
+  year =         {2003},
+  volume =       {87},
+  number =       {6},
+  pages =        {295--300},
+  month =        {September},
+  annote =       {ECCC-Bericht und Pdf-Datei vorhanden.}
+}
+
+@Article{Toran2004Space,
+  author =       {Jacobo Tor{\'a}n},
+  title =        {Space and width in propositional resolution ({C}olumn: {C}omputational {C}omplexity)},
+  journal =      {Bulletin of the European Association of Theoretical Computer Science (EATCS)},
+  year =         2004,
+  volume =       83,
+  pages =        {86--104},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{KM81,
+  author =       {Balakrishnan Krishnamurthy and Robert N. Moll},
+  title =        {Examples of hard tautologies in the propositional calculus},
+  booktitle =    {13th ACM Symposium on Theory of Computing (STOC'81)},
+  pages =        {28--37},
+  year =         1981,
+  annote =       {Vorhanden.
+Der Satz von Ramsey (spezialisiert): Zu jeder natuerlichen Zahl $r$ existiert $R(r)$, so
+dass jede 2-Faerbung des vollstaendigen Graphen mit $R(r)$ Ecken eine einfarbige Eckenmenge
+der Groesse $r$ enthaelt.
+
+Es wird nun die Folge $\alpha_r$ von Ramsey-Formeln wie folgt erklaert: Sei $n := R(r)$.
+Variablen sind alle 2-Teilmengen von $\set{1, \ldots, n}$ (also $m := n (n - 1) /2$ viele).
+Klauseln sind alle positiven Klauseln sowie alle negativen Klauseln der Groesse $r$
+(also $2 \choose{m}{r} \le O(m^{\log_2 m}) = O(2^{{\log_2 m}^2})$ viele, wobei die
+untere Schranke $2^{r/2} < R(r)$ benutzt wird).
+
+In Theorem 3.1.1 wird behauptet, dass jede Anwendung der DP-Prozedur auf $\alpha_r$
+(Elimination einer Variablen nach der anderen, bis die leere Klausel erscheint)
+mindestens $2^{n/4}$ viele verschiedene Klauseln produzieren muss ($n = \Omega(\sqrt{m})$).
+
+In Corollar 4.1.9 wird bewiesen, dass jeder Resolutionsbeweis von $\alpha_r$ eine Klausel
+der Groesse $\Omega(\sqrt{m})$ aufweisen muss.
+
+Bzgl. Gentzen-Systeme (mit oder ohne Schnitt??) werden die Ramsey-Zahlen $R(r_1, r_2)$
+benutzt, die kleinsten Zahlen, so dass jeder Graph mit mindestens so viel Ecken eine
+Clique der Groesse $r_1$ oder eine unabhaenige Menge der Groesse $r_2$ haben muss.
+Theorem 5.1.2 behauptet, dass jeder Gentzen-Beweis von $\alpha_r$ mindestens $2^d$
+viele verschiedene Sequenzen besitzt, wobei $d = R(r, r) - R(r, r-1) = n - R(r, r-1)$.
+Ist nun z.B. $d \ge r^3$ richtig (5.1.3), dann ist $2^d \ge 2^{\Omega(\log_2 m)^3}$, also
+super-polynomial in der Groesse von $\alpha_r$ (hier wurde die obere Schranke
+$R(r) < 4^{r-1}$ benutzt).
+
+In Theorem 5.4.1 wird behauptet, dass Klauselmengen, die invariant unter jeder Permutation
+der Variablen sind, polynomial-grosse DP-Beweise haben. (Aha!?)
+
+Schliesslich wird in "Conjecture 5.4.3" angesetzt, dass falls alle Resolutionsbeweise
+einer Klauselmenge Klauseln einer Mindestgroesse $s$ benoetigen, dass dann $2^s$ eine
+untere Schranke fuer die Anzahl der verschiedenen Klauseln in Resolutionsbeweisen ist.
+}
+}
+
+@InProceedings{BG99,
+  author =       {Maria Luisa Bonet and Nicola Galesi},
+  title =        {A Study of Proof Search Algorithms for Resolution and Polynomial Calculus},
+  booktitle =    {40th Annual Symposium on Foundations of Computer Science (FOCS)},
+  pages =        {422--431},
+  year =         1999,
+  annote =       {Konferenzband vorhanden.}
+}
+
+@TechReport{BIW2000,
+  author =       {Eli Ben-Sasson and Russell Impagliazzo and Avi Wigderson},
+  title =        {Near-Optimal Separation of Treelike and General Resolution},
+  institution =  {Electronic Colloquium on Computational Complexity (ECCC)},
+  year =         2000,
+  number =       5,
+  month =        {January},
+  url =          {http://eccc.hpi-web.de/report/2000/005/},
+  annote =       {Endversion ist \cite{BIW2004}.
+Kapitel 2: Definitions
+2.1 General
+Fuer eine Klauselmenge F sei S(F) die minimale Anzahl von Klauseln in einem (allgemeinen) Resolutionsbeweis der leeren Klausel aus F, waehrend S_T(F) die minimale Anzahl von Knoten in einem Resolutionsbaum ist.
+2.2 Restrictions
+2.3 Width
+2.4 Decision Trees
+2.5 Pebbling
+Kapitel 3: Lower Bound
+3.1 Introducing the Pebbling Contradictions
+3.2 A game for probing lower bounds on tree-like resolution
+Hier wird dieses Spiel aus \cite{PI2000} angewandt, ein Spezialfall meiner unteren Schranke.
+3.3 Lower Bounds for the Pebbling Contradictions
+Theorem 3.3 S_T(Peb_G) = 2^{Omega(P(G))}, wobei Peb_G die Pebbling-Formeln sind, und
+P(G) die Pebbling-Komplexitaet von G.
+Kapitel 4: Applications to Automated Theorem Proving
+Hier wird der Algorithmus zu "bounded resolution" (aber ohne Nennung dieser Quelle!) gebracht, und Theorem 4.1, dass diese Prozedur exponentiell schneller als DPL sein kann.
+Kapitel 5: Upper Bound
+Def. 5.1: Ein "interner Knoten" in einem DAG ist ein Knoten, der keine Quelle oder Senke ist. Eine "interne Kante" ist eine Kante, die zwei interne Knoten verbindet. Fuer ein DAG G sei e(G) die Anzahl der internen Kanten in G. Fuer eine unerfuellbare Klauselmenge F sei e(F) die minimale Anzahl e(G) fuer Resolutions-DAGs, die F widerlegen.
+
+Fuer e >= 0 sei f(e) das Maximum von S_T(F) fuer unerfuellbare F mit e(F) <= e. F heisst "e-maximal" fuer e >= 0, falls e(F) = e und S_T(F) = f(e) gilt, und Entfernen einer Klausel von F das Mass e erhoeht, oder F ueberhaupt erfuellbar macht.
+[ Dass e-maximale F fuer alle e existieren, muss bewiesen werden! ]
+[ f(0) = 7 ]
+Lemma 5.2 f(e + 1) <= 2 f(e) [ fuer e >= 0 ]
+Bew.: Sei F (e+1)-maximal. Es gibt eine Klausel C, die Resolvent zweier Klauseln aus F ist, so dass fuer F' := F + C gilt: e(F') <= f(e), denn F' hat einen Beweis G mit e(G) <= (e + 1) - 1. Ersetzt man in einem optimalen Resolutionsbaum T' fuer F' alle Axiome C durch ihren Beweis, so erhaelt man einen Resolutionsbaum T, dessen Groesse maximal doppelt der von T' ist (ersetzt man alle Blaetter bis auf eines durch zwei Blaetter, so verdoppelt man die Groesse eines binaeren Baumes). Also f(e + 1) <= Groesse von T (da F maximal) <= 2 * Groesse von T' <= 2 * f(e).
+
+Lemma 5.3 Fuer jede Klauselmenge gibt es einen Entscheidungsbaum, der das Suchproblem loest, und der hoechstens \choose{n}{\le m} Knoten hat, wobei $n$ die Anzahl der Variablen ist, und m die Anzahl der Klauseln. (Ein Entscheidungsbaum fuer das Suchproblem ist ein binaerer Baum, dessen innere Knoten mit Variablen markiert sind, und dessen Blaetter mit Klauseln oder mit 1, so dass fuer jede Belegungen der entsprechende Pfad am Endblatt eine von der Belegung falsifizierte Klausel enthaelt, oder aber 1, falls die Belegung die Klauselmenge erfuellt.)
+
+[ Leider kann man wohl dieses n^m hier nicht zu 2^m verbessern, denn Elimination purer Literale ist hier nicht zugelassen, da aus diesem Entscheidungsbaum, der an den erfuellbaren Blaettern erweitert wird um zusaetzliche Klauseln, ein Resolutionsbaum werden soll.
+Uebrigens: Eine obere Schranke fuer #SAT nur in der Anzahl der Klauseln scheint nicht moeglich zu sein. ]
+
+Def. 5.4: Sei G ein gerichteter azyklischer Graph, und sei v_1, ..., v_S eine topologische Sortierung. Fuer 0 <= i <= S sei V_0(i) die Menge \set{v_1, ..., v_i}, und V_1(i) die Menge \set{v_{i+1}, ..., v_S}. Sei e_0(i) bzw. e_1(i) die Menge der internen Kanten im von V_0(i) bzw. V_1(i) induzierten Teilgraphen, sei M_i die Menge der Knoten in V_0(i), die interne Knoten von G sind, und die mit einem Knoten in V_1(i) verbunden sind, und sei m_i := |M_i|.
+
+Angewendet auf einen Resolutionsgraphen G: F \vdash \bot [ mit mindestens einer Resolution ] gilt V_1(i): F \cup M_i \vdash \bot und V_0(i): F \vdash M_i (entsprechend interpretiert). [ Man sollte aber doch i < S fordern. ]
+
+Lemma 5.5 Hat G genau eine Quelle, dann gibt es in der Situation von Def. 5.4 einen Index i mit
+                     | e_0(i) - e_1(i) | <= 2.
+Fuer ein i mit dieser Eigenschaft gilt e_0(i) <= (e(G) - m) / 2 + 1.
+
+Bew.: [ FALSCH: Wird i um 1 erhoeht, so kann e_0(i) um 4 zunehmen, da zwei neue interne Knoten in V_0 entstanden sein koennen. Die ganze Argumentation mit "intern" scheint mir unnatuerlich, und redet wohl darum herum, dass man nur Resolutions*schritte* zaehlen sollte! ]
+
+Theorem 5.6 Es gibt eine Konstante c > 0, so dass fuer alle k >= 4 gilt
+
+     f( k * 2^k ) <= 2^{c * 2^k * log k}.
+
+Der Beweis betrachtet eine Zerlegung eines Resolutionsbeweises gemaess Lemma 5.5 in zwei annaehernd gleiche Teile, und konstruiert daraus dann einen Resolutionsbaum, wobei je nach Groesse des "Transfers" zwischen den beiden Teilen der Zerlegung nur Lemma 5.2 (und die Induktionvoraussetzung) oder auch Lemma 5.3 angewendet wird:
+
+- die "brute force"-Methode (Lemma 2) wird im Falle m_i >= 2^k angewendet, wobei dann der erste Beweisteil in Resolutionsbaeume fuer die Transferklauseln umgewandelt wird, und der zweite Beweisteil dann aus diesen Transferklauseln (plus den urspruenglichen Klauseln) die leere Klausel ableitet (die Bedingung garantiert, dass die Induktionsvoraussetzung angewendet werden kann auf beide Teile);
+- die "intelligente" Methode (Lemma 5.3) fuer "kleine" Transfers konstruiert einen Entscheidungsbaum fuer den Transfer gemaess Lemma 5.3 und setzt dann fuer die Klauseln-Blaetter den entsprechenden ersten Beweisteil ein, und fuer die 1-Blaetter erfuellen die zugehoerigen Belegungen alle Transfer-Klauseln, so dass sich die zugehoerige Klausel aus dem zweiten
+   Beweisteil ergibt.
+
+Theorem 1.2 S_T(F) <= exp( O( S(F) * log(log(S(F))) / log(S(F)) ) ).
+}
+}
+@Article{BIW2004,
+  author =       {Eli Ben-Sasson and Russell Impagliazzo and Avi Wigderson},
+  title =        {Near Optimal Separation Of Tree-Like And General Resolution},
+  journal =      {Combinatorica},
+  year =         2004,
+  volume =       24,
+  number =       4,
+  pages =        {585--603},
+  month =        {September},
+  doi =          {10.1007/s00493-004-0036-5},
+  annote =       {Pdf vorhanden; Vorversion \cite{BIW2000}.}
+}
+
+@InProceedings{PI2000,
+  author =       {Pavel Pudl{\'{a}}k and Russell Impagliazzo},
+  title =        {A lower bound for {DLL} algorithms for $k$-{SAT} (preliminary version)},
+  booktitle =    {SODA},
+  pages =        {128--136},
+  year =         2000,
+  publisher =    {ACM/SIAM},
+  annote =       {Zu besorgen; Vorversion als Pdf vorhanden.}
+}
+
+@TechReport{Rii99,
+  author =       {S{\o}ren Riis},
+  title =        {A Complexity Gap for Tree-Resolution},
+  institution =  {BRICS Basic Research in Computer Science},
+  year =         1999,
+  number =       {RS-99-29},
+  month =        {September},
+  annote =       {Siehe Bearbeitung \cite{Urq00a}, sowie meine eigene Ausarbeitung
+\cite{Ku00b}.}
+}
+
+@Unpublished{Urq00a,
+  author =       {Alasdair Urquhart},
+  title =        {Riis's Complexity Gap for Tree Resolution},
+  note =         {Manuscript},
+  month =        {February},
+  year =         2000,
+  annote =       {Ausarbeitung von \cite{Rii99}. Siehe \cite{Ku00c}.}
+}
+
+@Article{ABMP2001,
+  author =       {Michael Alekhnovich and Sam Buss and Shlomo Moran and Toniann Pitassi},
+  title =        {Minimum Propositional Proof Length is {NP}-Hard to Linearly Approximate},
+  journal =      {Journal of Symbolic Logic},
+  year =         2001,
+  volume =       66,
+  pages =        {171--191},
+  annote =       {Siehe Besprechung durch Alexander Razborov in The Bulleting of Symbolic Logic, 8(2), June 2002, pp. 301-302.}
+}
+
+@Article{Ar00,
+  author =       {Noriko H. Arai},
+  title =        {Relative efficiency of propositional proof systems: resolution vs. cut-free {LK}},
+  journal =      {Annals of Pure and Applied Logic},
+  year =         2000,
+  volume =       104,
+  pages =        {3--16},
+  annote =       {Kopiert. Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@InProceedings{ABM2001,
+  author =       {Dimitris Achlioptas and Paul Beame and Michael Molloy},
+  title =        {A sharp threshold in proof complexity},
+  booktitle =    {STOC'01},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  OPTpages =     {},
+  year =         {2001},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  address =      {Crete, Greece},
+  month =        {July},
+  OPTorganization = {},
+  OPTpublisher = {},
+  note =         {Journal version \cite{ABM2001b}.},
+  annote =       {ps-Datei vorhanden (siehe unter "Beame"); siehe Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Unpublished{Vel2001intern,
+  author =       {Andr{\'{e}} Vellino},
+  title =        {Hard examples for tree resolution},
+  note =         {Intern. Nicht zur Veroeffentlichung.},
+  year =         2001,
+  annote =       {Dezember 2001 von Toby Walsh zur Begutachtung erhalten fuer Journal of Automated Reasoning. ps-Datei vorhanden. Siehe Gutachten und Besprechung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Article{ABM2001b,
+  author =       {Dimitris Achlioptas and Paul Beame and Michael Molloy},
+  title =        {A sharp threshold in proof complexity yields lower bounds for satisfiability search},
+  journal =      {Journal of Computer and System Sciences},
+  year =         2004,
+  volume =       68,
+  pages =        {238--268},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{AHI2005SATlb,
+  author =       {Michael Alekhnovich and Edward A. Hirsch and Dmitry Itsykson},
+  title =        {Exponential Lower Bounds for the Running Time of {DPLL} Algorithms on Satisfiable Formulas},
+  journal =      {Journal of Automated Reasoning},
+  year =         2005,
+  volume =       35,
+  number =       {1-3},
+  pages =        {51--72},
+  month =        {October},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@PhdThesis{Fu1995,
+  author =       {X. Fu},
+  title =        {On the Complexity of Proof Systems},
+  school =       {University of Toronto},
+  year =         {1995},
+  OPTkey =       {},
+  OPTtype =      {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@TechReport{AD2002,
+  author =       {Albert Atserias and V{\'{i}}ctor Dalmau},
+  title =        {A Combinatorial Characterization of Resolution Width},
+  institution =  {Electronic Colloquium on Computational Complexity (ECCC)},
+  year =         2002,
+  number =       {TR02-035},
+  url =          {http://eccc.hpi-web.de/report/2002/035/}
+}
+@Article{AD2002J,
+  author =       {Albert Atserias and V{\'{i}}ctor Dalmau},
+  title =        {A combinatorial characterization of resolution width},
+  journal =      {Journal of Computer and System Sciences},
+  year =         2008,
+  volume =       74,
+  number =       {3},
+  pages =        {323--334},
+  month =        {May},
+  doi =          {10.1016/j.jcss.2007.06.025},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{BKPS2002ResDP,
+  author =       {Paul Beame and Richard Karp and Toniann Pitassi and Michael Saks},
+  title =        {The efficiency of resolution and {D}avis-{P}utnam procedures},
+  journal =      {SIAM Journal on Computing},
+  year =         2002,
+  volume =       31,
+  number =       4,
+  pages =        {1048--1075},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@InProceedings{AR2001,
+  author =       {Michael Alekhnovich and Alexander Razborov},
+  title =        {Resolution is Not Automatizable Unless {W[P]} is Tractable},
+  booktitle =    {Proc. of the 42nd IEEE FOCS},
+  pages =        {210--219},
+  year =         2001,
+  annote =       {ps-Datei vorhanden. Es gibt auch eine ausfuehrlichere Version.}
+}
+
+@InProceedings{Raz2002PHP,
+  author =       {Alexander Razborov},
+  title =        {Proof Complexity of Pigeonhole Principles},
+  booktitle =    {Proceedings of the 5th DLT},
+  pages =        {100--116},
+  year =         2002,
+  volume =       2295,
+  series =       {Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@InProceedings{Raz2002PMP,
+  author =       {Alexander A. Razborov},
+  title =        {Resolution Lower Bounds for Perfect Matching Principles},
+  booktitle =    {Proceeding of the 17th Annual IEEE Conference on Computational Complexity (CCC'02)},
+  year =         2002,
+  organization = {IEEE},
+  annote =       {ps-Datei vorhanden. Siehe auch \cite{Raz2002PMPTR}.}
+}
+@TechReport{Raz2002PMPTR,
+  author =       {Alexander A. Razborov},
+  title =        {Resolution Lower Bounds for Perfect Matching Principles},
+  institution =  {Institute for Advanced Study, Princeton, US and Steklov Mathematical Institute, Moscow, Russia},
+  year =         {2002},
+  OPTkey =       {},
+  OPTtype =      {},
+  OPTnumber =    {},
+  OPTaddress =   {},
+  OPTmonth =     {July},
+  OPTnote =      {},
+  OPTannote =    {ps-Datei vorhanden.}
+}
+
+@InProceedings{RRaz2002WPHP,
+  author =       {Ran Raz},
+  title =        {Resolution Lower Bounds for the Weak Pigeonhole Principle},
+  booktitle =    {Proceeding of the 17th Annual IEEE Conference on Computational Complexity (CCC'02)},
+  year =         2002,
+  organization = {IEEE},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@InProceedings{Dan2002WidthPHP,
+  author =       {Stefan Dantchev},
+  title =        {Resolution width-size trade-offs for the Pigeon-Hole Principle},
+  booktitle =    {Proceeding of the 17th Annual IEEE Conference on Computational Complexity (CCC'02)},
+  year =         2002,
+  organization = {IEEE},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@InProceedings{BeSGa2001SpaceR,
+  author =       {Eli Ben-Sasson and Nicola Galesi},
+  title =        {Space Complexity of Random Formulae in Resolution},
+  booktitle =    {Proceeding of the 16th Annual IEEE Conference on Computational Complexity (CCC'01)},
+  year =         2001,
+  organization = {IEEE},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@InProceedings{DantchevRiis2001TreeResWPHP,
+  author =       {Stefan Dantchev and S{\o}ren Riis},
+  title =        {Tree-Resolution proofs of the Weak Pigeon-Hole Principle},
+  booktitle =    {Proceeding of the 16th Annual IEEE Conference on Computational Complexity (CCC'01)},
+  year =         2001,
+  organization = {IEEE},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{Alekhnovich2004MutilatedChessboard,
+  author =       {Michael Alekhnovich},
+  title =        {Mutilated chessboard problem is exponentially hard for resolution},
+  journal =      {Theoretical Computer Science},
+  year =         2004,
+  volume =       310,
+  pages =        {513--525},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@TechReport{BeameCulbersonMitchellMoore2004ResolutionGraphen,
+  author =       {Paul Beame and Joseph Culberson and David Mitchell and Cristopher Moore},
+  title =        {The Resolution Complexity of Random Graph $k$-Colorability },
+  institution =  {Electronic Colloquium on Computational Complexity},
+  year =         2004,
+  number =       {TR04-012},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@InProceedings{HwangMitchell2005MehrereZweige,
+  author =       {David G. Mitchell and Joey Hwang},
+  title =        {2-way vs. d-way Branching for {CSP}},
+  booktitle =    {Principles and Practice of Constraint Programming --- CP 2005},
+  crossref =     {CP2005},
+  pages =        {343--357},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{BureshOppenheimPitassi2007resolutionrefinements,
+  author =       {Joshua Buresh-Oppenheim and Toniann Pitassi},
+  title =        {The complexity of resolution refinements},
+  journal =      {The Journal of Symbolic Logic},
+  year =         2007,
+  volume =       72,
+  number =       4,
+  pages =        {1336--1352},
+  month =        {December},
+  annote =       {Zeitschrift vorhanden.}
+}
+
+@InProceedings{IwamaMiyazaki1999PHP,
+  author =       {Kazuo Iwama and Shuichi Miyazaki},
+  title =        {Tree-Like Resolution Is Superpolynomially Slower Than DAG-Like Resolution for the Pigeonhole Principle},
+  booktitle =    {Algorithms and Computation},
+  pages =        {133--142},
+  year =         1999,
+  editor =       {Alok Aggarwal and C. Pandu Rangan},
+  volume =       1741,
+  series =       {Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  doi = {10.1007/3-540-46632-0_14},
+  annote =       {Zu besorgen.}
+}
+
+@InProceedings{DantchevRiis2001PHP,
+  author =       {Stefan Dantchev and S\o{}ren Riis},
+  title =        {Tree Resolution proofs of the Weak Pigeon-Hole Principle},
+  booktitle =    {16th Annual IEEE Conference on Computational Complexity},
+  pages =        {69-75},
+  year =         2001,
+  doi = {10.1109/CCC.2001.933873},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@TechReport{BeyersdorffGalesiLauria2010PHP,
+  author =       {Olaf Beyersdorff and Nicola Galesi and Massimo Lauria},
+  title =        {A Lower Bound for the Pigeonhole Prinziple in Tree-like Resolution by Asymmetric Prover-Delayer Games},
+  institution =  {Electronic Colloquium in Computational Complexity (ECCC)},
+  year =         2010,
+  number =       {TR10-081},
+  annote =       {Pdf-Datei vorhanden.}
+}
+@Article{BeyersdorffGalesiLauria2010Treelike,
+  author =       {Olaf Beyersdorff and Nicola Galesi and Massimo Lauria},
+  title =        {A Lower Bound for the Pigeonhole Principle in Tree-like Resolution by Asymmetric Prover-Delayer Games},
+  journal =      {Information Processing Letters},
+  year =         2010,
+  volume =       110,
+  number =       23,
+  pages =        {1074--1077},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@article{Nordstrom2012PebbleProofTimeSpaceSurvey,
+  author    = {Jakob Nordstr{\"o}m},
+  title     = {Pebble Games, Proof Complexity, and Time-Space Trade-offs},
+  journal   = {Logical Methods in Computer Science},
+  volume    = {9},
+  number    = {3},
+  year      = {2013},
+  pages     = {1--63},
+  ee        = {http://dx.doi.org/10.2168/LMCS-9(3:15)2013, http://arxiv.org/abs/1307.3913},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  annote    = {Pdf-Datei vorhanden.}
+}
+
+@Article{AtseriasBonetEsteban2002BeyondResolution,
+  author =       {Albert Atserias and Maria Luisa Bonet and Juan Luis Esteban},
+  title =        {Lower Bounds for the Weak Pigeonhole Principle and Random Formulas beyond Resolution},
+  journal =      {Information and Computation},
+  year =         2002,
+  volume =       176,
+  number =       2,
+  pages =        {136--152},
+  month =        {August},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Urquhart2012RegularWidth,
+  author =       {Alasdair Urquhart},
+  title =        {Width and size of regular resolution proofs},
+  journal =      {Logical Methods in Computer Science},
+  year =         2012,
+  volume =       8,
+  number =       {2:08},
+  pages =        {1--15},
+  month =        {June},
+  doi =          {10.2168/LMCS-8(2:8)2012},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Article{Urquhart2011Depth,
+  author =       {Alasdair Urquhart},
+  title =        {The Depth of Resolution Proofs},
+  journal =      {Studia Logica},
+  year =         2011,
+  volume =       99,
+  pages =        {349--364},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{Chan2013Depth,
+  author =       {Siu Man Chan},
+  title =        {Just a Pebble Game},
+  booktitle =    {2013 IEEE Conference on Computational Complexity (CCC)},
+  pages =        {133-143},
+  year =         2013,
+  doi =          {10.1109/CCC.2013.22}
+}
+@TechReport{Chan2013DepthECCC,
+  author =       {Siu Man Chan},
+  title =        {Just a Pebble Game},
+  institution =  {Electronic Colloquium on Computational Complexity (ECCC)},
+  year =         2013,
+  number =       {TR13-042},
+  month =        {March},
+  note =         {41 pages, \url{http://eccc.hpi-web.de/report/2013/042/}}
+}
+
+@InProceedings{JaervisaloNordstroem2012PracticalHardness,
+  author =       {Matti J{\"{a}}rvisalo and Arie Matsliah and Jakob Nordstr{\"{o}}m and Stanislav {\v{Z}}ivn{\'{y}}},
+  title =        {Relating Proof Complexity Measures and Practical Hardness of {SAT}},
+  booktitle =    {Principles and Practice of Constraint Programming (CP 2012)},
+  pages =        {316--331},
+  year =         2012,
+  editor =       {Michela Milano},
+  volume =       {7514},
+  series =       {Lecture Notes in Computer Science},
+  doi =          {10.1007/978-3-642-33558-7_25},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{NordstroemHastad2013SpaceLength,
+  author =       {Jakob Nordstr{\"{o}}m and Johan H{\aa}stad},
+  title =        {Towards an Optimal Separation of Space and Length in Resolution},
+  journal =      {Theory of Computing},
+  year =         2013,
+  volume =       9,
+  number =       14,
+  pages =        {471--557},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{HertelHertelUrquhart2007Dangerous,
+  author =       {Alexander Hertel and Philipp Hertel and Alasdair Urquhart},
+  title =        {Formalizing Dangerous {SAT} Encodings},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2007},
+  crossref =     {Lisbon2007},
+  pages =        {159--172},
+  doi =          {10.1007/978-3-540-72788-0_18}
+}
+
+@Article{EstebanGalesiMessner2004KRes,
+  author =       {Juan Luis Esteban and Nicola Galesi and Jochen Messner},
+  title =        {On the complexity of resolution with bounded conjunctions},
+  journal =      {Theoretical Computer Science},
+  year =         2004,
+  volume =       321,
+  number =       {2-3},
+  pages =        {347--370},
+  doi =          {dx.doi.org/10.1016/j.tcs.2004.04.004},
+  annote =       {Pdf vorhanden.}
+}
+
+@InProceedings{GalesiThapen2005Pebbling,
+  author =       {Nicola Galesi and Neil Thapen},
+  title =        {Resolution and Pebbling Games},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2005},
+  crossref =     {StAndrews2005},
+  pages =        {76--90},
+  doi =          {dx.doi.org/10.1007/11499107_6},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{JarvisaloJunttila2009LimitRestrictedLearning,
+  author =       {Matti J{\"{a}}rvisalo and Tommi Junttila},
+  title =        {Limitations of restricted branching in clause learning},
+  journal =      {Constraints},
+  year =         {2009},
+  volume =       {14},
+  number =       {3},
+  month =        {September},
+  pages =        {325--356},
+  doi =          {10.1007/s10601-008-9062-z},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{JarvisaloNiemala2008StructuralBranchingExperiments,
+  author =       {Matti J{\"{a}}rvisalo and Ilkka Niemel{\"{a}}},
+  title =        {The effect of structural branching on the efficiency of clause learning {SAT} solving: An experimental study},
+  journal =      {Journal of Algorithms},
+  year =         {2008},
+  volume =       {63},
+  number =       {1-3},
+  pages =        {90--113},
+  doi =          {10.1016/j.jalgor.2008.02.005},
+  annote =       {Pdf vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Frege systems (Fregesysteme) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@InProceedings{BPR97,
+  author =       "Maria Luisa Bonet and Toniann Pitassi and Ran Raz",
+  title =        "No Feasible Interpolation for ${TC}^0$-{F}rege Proofs",
+  pages =        "254--263",
+  booktitle =    "38th Symposium on Foundations of Computer
+                  Science (FOCS' 97)",
+  year =         1997,
+  annote =       "Beweisen, dass Interpolation fuer
+                  ($TC^0$-)Frege-Systeme nicht ``feasible'' ist, und
+                  dass somit ($TC^0$-)Frege-Systeme nicht
+                  automatizierbar sind in dem Sinne, dass eine
+                  Frege-Widerlegung in Zeit polynomial in der
+                  kuerzesten Frege-Widerlegung gefunden werden koennte."
+}
+
+@InProceedings{CoRe74a,
+  author =       "Stephen A. Cook and Robert A. Reckhow",
+  title =        "On the lengths of proofs in the propositional calculus",
+  pages =        "135--148",
+  booktitle =    "6th A.C.M. Symposium on the Theory of Computing",
+  year =         1974,
+  month =        "May",
+  note =         "Preliminary version",
+  annote =       "Kopiert."
+}
+
+@Article{CoRe74b,
+  author =       "Stephen A. Cook and Robert A. Reckhow",
+  title =        "Corrections for ``{O}n the lengths of proofs in the propositional calculus {P}reliminary version''",
+  journal =      "SIGACT News",
+  year =         1974,
+  volume =       6,
+  pages =        "15--22",
+  month =        "July",
+  note =         "Reference: \cite{CoRe74a}",
+  annote =       "Vorhanden."
+}
+
+@PhdThesis{Re1975,
+  author =       {Robert A. Reckhow},
+  title =        {On the lengths of proofs in the propositional calculus},
+  school =       {University of Toronto, Department of Computer Science},
+  year =         1975,
+  annote =       {Siehe Bearbeitung in "Aussagenlogik" im Ordner "Genauer".}
+}
+
+@Article{CoRe79,
+  author =       "Stephen A. Cook and Robert A. Reckhow",
+  title =        "The relative efficiency of propositional proof systems",
+  journal =      "The Journal of Symbolic Logic",
+  year =         1979,
+  volume =       44,
+  number =       1,
+  pages =        "36--50",
+  month =        "March",
+  annote =       "Kopiert.
+
+                  \S 1:
+
+                  1.1: NP ist abgeschlossen unter Komplement gdw. TAUT
+                  in NP ist.
+
+                  1.4: Eine Sprache ist in NP wenn sie leer ist oder
+                  ein polynomial beschraenktes Beweissystem hat.
+
+                  \S 2:
+
+                  2.3: Sei $\kappa$ eine bestimmte (vollstaendige)
+                  Verknuepfungsbasis, und seien $F_1$ und $F_2$ zwei
+                  Frege-Systeme ueber $\kappa$. Dann gibt es eine
+                  polynomial berechenbare Funktion, die Beweise
+                  bzgl. $F_1$ in Beweise bzgl. $F_2$ transformiert, so
+                  dass sowohl die Anzahl der Zeilen als auch die
+                  Laengen der Formeln nur um einen konstanten Faktor
+                  wachsen.
+
+                  2.4 Alle Frege-Systeme ueber $\kappa$ simulieren
+                  einander polynomial.
+
+                  2.5 (Lemma) Beweise in einem Frege-System sind
+                  abgeschlossen unter Substitutionen.
+
+                  \S 3:
+
+                  3.4 Bezueglich $\kappa$ sind alle Frege-Systeme und
+                  alle Systeme natuerliche Deduktion polynomial
+                  aequivalent (simulieren einander polynomial).
+
+                  \S 4:
+
+                  Das Schubfach-Prinzip hat einen kurzen Beweis in
+                  einem ``Extended Frege System''.
+
+                  4.3 Sei $F$ ein Frege-System, und $eF$ das
+                  zugehoerige extended Frege system. Dann kann ein
+                  Beweis in $eF$ bezueglich der Anzahl der Zeilen (!)
+                  linear durch $F$ simuliert werden
+                  [die Groesse der Formeln kann explodieren].
+
+                  4.6 Ein Beweis in irgendeinem EF-System kann so
+                  umgestaltet werden, dass die Laenge der Formeln im
+                  neuen Beweis linear in der Anzahl der Zeilen des
+                  alten Beweises ist (und die Anzahl der Zeilen
+                  waechst auch nur linear dabei).
+
+                  4.7 Man betrachte EF-Systeme ueber beliebigen Basen:
+                  Ein solches ist genau dann polynomial beschraenkt,
+                  wenn alle es sind, und es spielt dabei keine Rolle,
+                  ob die Gesamtlaenge eines Beweises oder nur seine
+                  Zeilenzahl gezaehlt wird.
+
+                  \S 5:
+
+                  5.3 Frege-Systeme mit Substitution koennen EF
+                  polynomial simulieren.
+                  "
+}
+
+@Article{BeP96b,
+  author =       {Paul Beame and Toniann Pitassi},
+  title =        {An Exponential Separation between the Parity Principle and the Pigeonhole Principle},
+  journal =      {Annals of Pure and Applied Logic},
+  year =         1996,
+  volume =       80,
+  pages =        {197--225},
+  annote =       {Vorhanden als ps-Datei.
+Das "Paritaets-Prinzip" besagt, dass ein (beliebiger, ungerichteter) Graph mit
+einer ungeraden Eckenanzahl keine perfekte Zuordnung haben kann
+(in Verallgemeinerung des Schubfachprinzips).
+
+In Ajtai 90 wurde eine super-polynomiale untere Schranke fuer Frege-Systeme
+beschraenkter Tiefe fuer das Paritaets-Prinzip gegeben, wobei die Frege-Systeme
+als zusaetzliche Axiomenschemata (genauer, eine Familie von Schemata) das
+Schubfachprinzip verwendet duerfen. Hier wird nun eine (sub-)exponentielle untere
+Schranke gezeigt, und es wird keine Nicht-Standard-Modell-Theorie mehr verwendet.}
+}
+
+@InProceedings{BDGMP98,
+  author =       {Maria Luisa Bonet and Carlos Domingo and Ricard Gavald{\'a} and Alexis Maciel and Toniann Pitassi},
+  title =        {Non-automatizability of bounded depth {F}rege proofs},
+  booktitle =    {Fourteenth Annual IEEE Conference on Computational Complexity},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  OPTpages =     {},
+  year =         {1999},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InCollection{BP2001Overview,
+  author =       {Paul Beame and Toniann Pitassi},
+  title =        {Propositional Proof Complexity: Past, Present, and Future},
+  booktitle =    {Current Trends in Theoretical Computer Science: Entering the 21st Century},
+  pages =        {42--70},
+  publisher =    {World Scientific Publishing},
+  year =         2001,
+  editor =       {G. Paun and G. Rozenberg and A. Salomaa}
+}
+
+@Article{Segerlind2007CompProofs,
+  author =       {Nathan Segerlind},
+  title =        {The complexity of propositional proofs},
+  journal =      {The Bulletin of Symbolic Logic},
+  year =         2007,
+  volume =       13,
+  number =       4,
+  pages =        {417--481},
+  month =        {December},
+  doi =          {10.2178/bsl/1203350879},
+  annote =       {Zeitschrift vorhanden.}
+}
+
+@article{AlekhnovichBRW02,
+  author    = {Michael Alekhnovich and Eli Ben-Sasson and Alexander A. Razborov and Avi Wigderson},
+  title     = {Space Complexity in Propositional Calculus},
+  journal   = {SIAM Journal on Computing},
+  volume    = {31},
+  number    = {4},
+  year      = {2002},
+  pages     = {1184--1211},
+  ee        = {http://dx.doi.org/10.1137/S0097539700366735}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Andere Systeme (Other systems) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@InProceedings{Ko77,
+  author =       "Dexter Kozen",
+  title =        "Lower bounds for natural proof systems",
+  OPTcrossref =  "",
+  OPTkey =       "",
+  OPTeditor =    "",
+  OPTvolume =    "",
+  OPTnumber =    "",
+  OPTseries =    "",
+  pages =        "254--266",
+  booktitle = "18th Annual Symposium on Foundations of Computer Science",
+  year =         "1977",
+  OPTorganization = "",
+  OPTpublisher = "",
+  OPTaddress =   "",
+  OPTmonth =     "",
+  OPTnote =      "",
+  OPTannote =    ""
+}
+
+@InProceedings{IPU94,
+  author =       {Russell Impagliazzo and Toniann Pitassi and Alasdair Urquhart},
+  title =        {Upper and Lower Bounds for Tree-like Cutting Planes Proofs},
+  booktitle =    {Proceedings of 9th Annual IEEE Symposium on Logic in Computer Science},
+  OPTcrossref =  {},
+  OPTkey =       {},
+  OPTpages =     {220--228},
+  OPTyear =      {1994},
+  OPTeditor =    {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTseries =    {},
+  OPTaddress =   {},
+  OPTmonth =     {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@InProceedings{BeckNordstroemTang2013PCR,
+  author =       {Chris Beck and Jakob Nordstr{\"o}m and Bangsheng Tang},
+  title =        {Some trade-off results for polynomial calculus: extended abstract},
+  booktitle =    {Proceedings of the forty-fifth annual ACM symposium on Theory of computing (STOC '13)},
+  pages =        {813--822},
+  year =         2013,
+  annote =       {Vorabversion (pdf) vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Arithmetisierung (Arithmetisation) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@PhdThesis{Do79,
+  author =       "Martin Dowd",
+  title =        "Propositional representation of arithmetic proofs",
+  school =       "University of Toronto",
+  year =         1979,
+  annote =       "Sollte den Beweis des Hauptsatzes von \cite{Co75} enthalten."
+}
+
+@Unpublished{Krajicek1999WeakPigeonhole,
+  author =       {Jan Kraj{\'{\i}}{\u{c}}ek},
+  title =        {On the weak pigeonhole principle},
+  note =         {\url{http://www.math.cas.cz/~krajicek/}},
+  month =        {August},
+  year =         1999,
+  annote =       {Bzgl. "bounded arithmetic" scheint das hier interessante offene Problem
+zu sein, ob $WPHP_n^{2n}(R)$ in der Theorie $T_2^2(R)$ beweisbar ist (geglaubt wird wohl,
+dass es nicht beweisbar ist).
+Der Zusatz "(R)" zum Schubfachprinzip meint "arithmetisiert" (unter Verwendung der Relation
+R), wobei die positiven Klauseln in dieser Version des Schubfachprinzips nur in der einen Form
+vorhanden sind, aber die negativen 2-Klauseln in beiden Formen. Ferner meint "weak" hier
+i.a. fuer $PHP_n^m$ die Bdg. $m \ge 2n$.
+
+In \cite{PWW88} wurde die Beweisbarkeit von $WPHP_n^{2n}(R) + \text{"onto"}$
+(d.h., hier sind auch die positiven Klauseln in beiden Formen vorhanden) in $T_2^2(R)$ bewiesen,
+so dass es also um die Bedeutung dieser "dualen langen" Klauseln geht.
+
+Es wird noch angemerkt, dass mit \cite{PWW88} noch folgt, dass entweder zugleich fuer alle $m = 2n$,
+$m = n^2$ und $m = \infty$ die schwachen Schubfachformeln beweisbar sind in $T_2^2(R)$ oder fuer keine
+von ihnen.
+
+Nun kommt die Korrespondenz zwischen aussagenlogischen Beweissystemen und Systemen der beschraenkten
+Arithmetik zum Zuge (siehe Kapitel 9 in \cite{Kr95}, wo sowohl fuer Formeln als auch fuer
+Beweise eine Transformation angegeben wird):
+
+Resolution korrespondiert zu einem System echt staerker als $T_2^1(R)$ aber enthalten in $T_2^2(R)$,
+und $T_2^2(R)$ korrespondiert einer Erweiterung von Resolution, genannt $R(\log)$ hier (siehe unten).
+
+Kapitel 1: Resolution and its extensions
+
+Ein $R^+$-Beweis sieht wie ein gewoehnlicher Resolutions-Beweis aus (dargestellt in Baumform, mit den
+beiden Zaehlweisen), aber Literale werden duch Konjuntionen von Literalen ersetzt (sagen wir
+"Super-Literale"):
+
+Gegeben eine Klausel $C_1 \cup \set{L}$, wobei $L$ Konjunktion von Literalen $x_i$ ist, und
+eine zweite Klausel $C_2 \cup R$, wobei $R$ eine Teilmenge von $\set{\ol{x_i}}$ ist, so kann
+der "Resolvent" $C_1 \cup C_2$ abgeleitet werden.
+
+Eine zweite Regel besagt, dass aus $C_1 \cup \set{L_1}$ und $C_1 \cup \set{L_2}$, wobei $L_1, L_2$
+"Super-Literale" sind, die Klausel $C_1 \cup C_2 \cup \set{L_1 \und L_2}$ abgeleitet werden kann.
+
+Er spricht nun (nicht sehr schoen) von der "$R(f)$-Groesse eines solchen $R^+$-Beweises, wobei
+$f: \NN \ra \NN$, womit die minimale Groesse $S$ eines $R^+$-Beweises fuer die betrachtete Formel
+gemeint ist, dessen Superliterale alle maximal $f(S)$ Literale enthalten. "Groesse" ist hier
+die Groesse als Graph, wenn aber ein oberer Index "*" gebraucht wird, dann ist die Groesse
+als Baum gemeint.
+
+Kapitel 2: Bounded formulas and sets of clauses
+
+Schubfachformeln sind beschraenkte Formeln der Arithmetik erster Stufe der Form "Disjunktion von
+Existenzformeln", deren Matrizen wiederum "Konjunktionen von Allformeln" sind. Diese ergeben
+in der Uebersetzung DNF's (genannt $DNF_1$ hier).
+
+Beispiele fuer $DNF_2$-Formeln, wo aussen auch Existenzquantoren 2. Stufe zugelassen sind, die
+ueber Teilmengen der Elemente $\le f(n)$ rangieren, wobei typischerweise $f(n) = (\log_2 n)^{O(1)}$
+gilt, sind Ramsey-Formeln und Turnier-Formeln.
+
+Ramsey-Formeln $RAM_n(\alpha)$ ($\alpha$ ein zweistelliges Praedikat) sind $\Sigma_1^b$-Formeln
+(d.h. maximal eine Alternation von (beschraenktem) All- zu Existenzquantor), die ausdrueckt,
+dass $\alpha$ keine symmetrische Relation ist oder es gibt ein Menge $X$ der Groesse (log n)/2,
+die "homogen" bzgl. $\alpha$ ist (entweder besteht die Relation zwischen allen Elementen oder keinen
+Elementen --- "Clique" oder "unabhaengig").
+
+Verglichen mit \cite{KM81} wurde also nur eine "schwache" Form von Ramseys Theorem benutzt
+(d.h. es wird anstelle der genauen (unbekannten) Ramsey-Zahl die obere Schranke aus Theorem 2.1.4
+(Erdoes) in \cite{KM81} benutzt).
+
+$RAM_n(\alpha)$ hat $n (n - 1) / 2$ viele Variable und $O(n^{\log_2})$ viele Klauseln, jede von
+der Groesse $\lfloor (\log_2 n) / 2 \rfloor$.
+
+Turnier-Formeln (??): Werden die Kanten im vollstaendigen Graphen der Groesse $n$ irgendwie
+gerichtet, dass gibt es immer eine Eckenmenge der Groesse $2 \log n$, so dass fuer alle anderen
+Ecken eine Kante aus dieser "dominierenden" Eckenmenge heraus zu jener Ecke existiert.
+
+Kapitel 3: Resolution and arithmetic
+
+Theorem 3.1: Betrachte eine $DNF_2$-Formel $\Phi$. Ist $\Phi$ beweisbar in $T_2^1$ bzw.
+$T_2^2$, dann haben die zugehoerigen Klauselmengen $\Phi_n$ quasi-polynomiale Beweise
+bzgl. $R^*(\log)$ bzw. $R(\log)$.
+
+Theorem 3.2 und 3.3 geben Kriterien, wann eine $DNF_1$- bzw. $DNF_2$-Formel exponentielle $R^*(\log)$-
+Komplexitaet hat ("exponentiell" meint $2^{n^{\Omega(1)}}$). Die Idee dieser Kriterien ist,
+dass aus der Existenz eines "Gegenbeispiel" unendlicher Groesse untere Schranken folgen.
+
+Kapitel 4: Non-standard models and lower bounds
+
+Theorem 4.1 gibt eine modelltheoretische Charakterisierung, wann eine Folge $\Phi_n$ exponentielle
+$R$- bzw. $R(\log)$-Komplexitaet hat.
+
+Kapitel 5: Ramsey theorem
+
+$RAM_n(\alpha)$ ist beweisbar in $T_2^5(\alpha)$, und nicht beweisbar in $T_2^1(\alpha)$.
+Man vermutet, dass es auch von $T_2^2(\alpha)$ unabhaengig ist.
+
+Theorem 5.1: Falls die $R(\log)$-Komplexitaet von $WPHP_n^{n^4}$ exponentiell ist, dann auch
+die von $RAM^n$, und kein $T_j^2(R)$ beweist $RAM^n(R)$.
+
+Theorem 5.2: $RAM^n$ hat exponentielle $R^*(\log)$-Komplexitaet. Der Beweis ist elementar und
+benutzt den "Erdoes Graphen", der die untere Schranke von Erdoes fuer die Ramsey-Zahlen
+ergibt --- diesen Graphen als "Eingabe" fuer die $\log$-Resolutionswiderlegung (als Entscheidungs-
+baum) genommen erhalten wir die untere Schranke.
+
+Theorem 5.3: Auch die Turnier-Formeln haben exponentielle $R^*(\log)$-Komplexitaet. Hier folgt der
+Beweis mit Theorem 3.3.
+
+Theorem 5.4 Jeder Resolutionsbeweis fuer $RAM^n$ hat eine Klausel der Laenge mindestens $1/2 n^{1/4}$
+(dies ist schwaecher als \cite{KM85}, wo $\Omega(n)$ bewiesen wird, allerdings fuer die "kritischen
+Ramsey-Formeln" (d.h., exakter Wert) --- dies sollte jedoch nichts ausmachen(?)).
+
+Kapitel 6: WPHP in $T_2^2(R)$
+
+Theorem 6.1: Fuer $m = 2n$ oder $m = n^2$ oder $m = \infty$ gilt:
+
+  1. $T_2^3(R)$ beweist alle $WPHP_n^m(R)$.
+
+  2. $T_2^2(R)$ alle $ontoWPHP_n^m$.
+
+  3. Beziehungen zwischen den drei Formen von WPHP.
+
+Corollar 6.2: Alle $ontoWPHP_n^m$ haben quasi-polynomiale $R(\log)$-Beweise. (Folgt mit Theorem 3.1.)
+
+Corollar 6.3: Hat $WPHP_n^{m}$ fuer $m = 2n$ exponentielle $R(\log)$-Komplexitaet, so auch fuer $m = n^2$
+und $m = \infty$.
+
+Lemma 6.4: In einem Modell von $T_2^2(f) + \neg WPHP_n^m(f)$ ist die Inverse von $f$ (beliebig ausserhalb
+des Wertebereiches) eine "One-way"-Funktion ($f$ ist wg. der beiden Typen von negativen Klauseln
+tatsaechlich eine "bijektive Funktion" von $[m] nach [n]$ --- n ist hier "unendlich" (nicht-Standard-
+Modell)).
+
+Theoreme 6.5, 6.6 beweisen zwei Umkehrungen von Lemma 6.4.
+
+Kapitel 7: Open problems
+
+U.a. wird das Studium von $R(2)$ angeregt.
+
+Theorem 7.5: Entweder laesst $R(id)$ keine monotone effective Interpolation zu, oder alle
+$WPHP_n^{n^k}$ haben exponentielle R-Komplexitaet.
+}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Schaltkreise etc. (Circuits etc.) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{Gav97,
+  author =       "Misha Gavrilovic",
+  title =        "A Lower Bound for Interpolation",
+  journal =      "L. J. of the IGPL",
+  year =         1997,
+  volume =       5,
+  pages =        "321--326",
+  annote =       "Kopiert. Eine polynomiale untere Schranke fuer
+                  Interpolanten, wobei die Formelgroesse bzgl.
+                  (und, oder, nicht) betrachtet wird (und nicht das
+                  staerkere Konzept bzgl. Schaltkreis-Komplexitaet).
+                  Lesbar."
+}

@@ -1,0 +1,941 @@
+% Abschnitte (Sections):
+% - Verifikation
+% - Noch unbenannt
+% - Qualitative Comparative Analysis (QCA)
+% - Sudoku
+% - Ramsey theory
+% - Kryptologie
+
+
+% %%%%%%%%%%%%%%%%
+% % Verifikation %
+% %%%%%%%%%%%%%%%%
+
+@Unpublished{FN97,  
+  author =       "Uri Feige and Kobbi Nissim",
+  title =        "On the use of interactive proofs for formal program verification",
+  note =         "The Weizmann Institute, Israel; feige@wisdom.weizmann.ac.il",
+  year =         1997,
+  month =        "April",
+  annote =       "Kopiert.
+                  Das \#-SAT-Protokoll wird ausfuehrlich
+                  beschrieben. Angewendet wird dieses Protokoll dann
+                  zur Verifikation der Korrektkeit eines
+                  Programmlaufes (Verifikation durch eine unabhaengige
+                  Instanz; Vergleich mit einer Spezifikation). Meine
+                  3-SAT-Arbeit wird zitiert zu Vergleichszwecken
+                  (z.z. ist, dass Zaehlen wohl schwieriger als
+                  Entscheiden ist).
+                  Es wird eine ``Aufspaltungs-Heuristik'' angegeben
+                  zur \#-SAT-Berechnung."
+}
+
+@Article{BGV2001,
+  author =       {Randal E. Bryant and Steven German and Miroslav N. Velev},
+  title =        {Processor Verification Using Efficient Reductions of the Logic of Uninterpreted Functions to Propositional Logic},
+  journal =      {ACM Transactions on Computational Logic},
+  year =         2001,
+  volume =       2,
+  number =       1,
+  pages =        {1--41},
+  month =        {January},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@TechReport{Er19973,
+  author =       {Lars-Henrik Eriksson},
+  title =        {Formalising railway interlocking requirements},
+  institution =  {Swedish National Rail Administration},
+  year =         1997,
+  number =       {Technical Report No 1997:3},
+  address =      {Kopieringscentralen, Banverket HK, S-781 85 Borl{\"{a}}nge, Sweden},
+  annote =       {Von Anton leihweise. Bestellt.}
+}
+
+@TechReport{Er19974,
+  author =       {Lars-Henrik Eriksson},
+  title =        {Formal verification of railway interlockings},
+  institution =  {Swedish National Rail Administration},
+  year =         1997,
+  number =       {Technical Report No 1997:4},
+  address =      {Kopieringscentralen, Banverket HK, S-781 85 Borl{\"{a}}nge, Sweden},
+  annote =       {Von Anton leihweise. Bestellt.}
+}
+
+@InProceedings{VB2001,
+  author =       {Miroslav N. Velev and Randal E. Bryant},
+  title =        {Effective Use of Boolean Satisfiability Procedures in the Formal Verification of Superscalar and {VLIW} Microprocessors},
+  booktitle =    {38th Design Automation Conference (DAC'01)},
+  pages =        {226--231},
+  year =         2001,
+  organization = {June},
+  annote =       {ps-Datei vorhanden (unter "Velev").}
+}
+
+@Article{BrVe2002,
+  author =       {Miroslav N. Velev and Randal E. Bryant},
+  title =        {Effective Use of Boolean Satisfiability Procedures in the Formal Verification of Superscalar and {VLIW} Microprocessors},
+  journal =      {Journal of Symbolic Computation},
+  year =         {To appear},
+  OPTkey =       {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {},
+  note =         {Journal version of \cite{VB2001}},
+  annote =       {Zeitschriften-Version von \cite{VB2001}.}
+}
+
+@Article{BrVe2002kurz,
+  author =       {M.~N.~Velev and R.~E.~Bryant},
+  title =        {Effective Use of Boolean Satisfiability Procedures in the Formal Verification of Superscalar and {VLIW} Microprocessors},
+  journal =      {Journal of Symbolic Computation},
+  year =         {to appear},
+  note =         {Previous version in DAC'01}
+}
+
+@InProceedings{FokkinkHollingshead1998LadderLogic,
+  author =       {Wan Fokkink and Paul Hollingshead},
+  title =        {Verification of Interlockings: from Control Tables to Ladder Logic Diagrams},
+  booktitle =    {Proceedings 3rd Workshop on Formal Methods for Industrial Critical Systems ({FMICS}'98)},
+  pages =        {171--185},
+  year =         1998,
+  editor =       {J. F. Groote and S. P. Luttik and J. J. van Wamel},
+  publisher =    {Stichting Mathematisch Centrum},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Book{GanaiGupta2007Verification,
+  author =       {Malay Ganai and Aarti Gupta},
+  title =        {SAT-Based Scalable Formal Verification Solutions},
+  publisher =    {Springer},
+  year =         2007,
+  series =       {Series on Integrated Circuits and Systems},
+  note =         {ISBN 0-387-69166-9},
+  annote =       {Vorhanden.}
+}
+
+@InProceedings{MarquesSilvaSakallah2000EDA,
+  author =       {Jo{\~ a}o P. Marques-Silva and Karem A. Sakallah},
+  title =        {Boolean Satisfiability in Electronic Design Automation},
+  booktitle =    {37th Annual Design Automation Conference (DAC '00)},
+  year =         {2000},
+  editor =       {Giovanni De Micheli},
+  pages =        {675--680},
+  publisher =    {ACM},
+  doi =          {10.1145/337292.337611},
+  annote =       {Pdf von Vorversion vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %                                                    %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Manual{GeWa99,
+  title =        {{CSPLIB}: a benchmark library for constraints},
+  author =       {Ian P. Gent and Toby Walsh},
+  organization = {Department of Computer Science, University of Strathclyde},
+  address =      {Glasgow, United Kingdom},
+  year =         1999,
+  annote =       {Beschreibt die Sammlung unter \url{http://csplib.cs.strath.ac.uk}.
+Diese Sammlung basiert auf natuerlich-sprachigen Beschreibungen, um Diversitaet zuzulassen, und das (wichtige) Problem der Repraesentierung nicht aussen vor zu lassen. Die 13 Seiten des "Reports" enthalten ausser Werbung sonst nicht viel wichtiges (und ein Beispiel).}
+}
+
+@Unpublished{MSOS97,
+  author =       "Vasco M. Manquinho and Joao P. Marques Silva and
+                  Arlindo L. Oliveira and Karem A. Sakallah",
+  title =        "Satisfiability-Based Algorithms for 0-1 Integer Programming",
+  note =         "ftp://algos.inesc.pt/pub/users/jpms/papers/",
+  annote =       "Vorhanden.
+
+                  Ein SAT-Algorithmen-basierter Loesungsansatz fur
+                  01-ILP-Probleme wird vorgestellt, der insbesondere
+                  fuer schwer zu erfuellende Probleme den
+                  dominierenden branch and bound-Techniken ueberlegen
+                  sein soll (wohl wegen des ``intelligenten
+                  Backtrackings'').
+
+                  Das ILP-Problem ist
+
+                     minimiere $c^t \cdot x$ fuer $A \cdot x \ge 0$,
+
+                  wobei $x \in \{0,1\}^N$ und $A$ nur $-1, 0,
+                  +1$-Eintraege hat --- somit ist das ILP-Problem
+                  fast ein SAT-Problem (mit $A$ als der
+                  Klauseln-Variablen-Matrix) --- nur die Optimierung
+                  muss noch geleistet werden.
+
+                  Techniken zum Beschneiden des Such-Baumes werden die
+                  folgenden genannt:
+
+                  -- ``nicht-chronologisches Zurueckgehen'' mittels
+                  ``Konflikt-Diagnose'';
+
+                  -- abgeleitete Klauseln werden hinzugefuegt;
+
+                  -- notwendige Belegungen werden mittels
+                  1-Klauseln-Elimination gefunden.
+
+                  Die Zielfunktion wird nun wie folgt eingebunden:
+
+                  A)  ``Lineare Suche''
+
+                  ES wird sukzessive $c^t \cdot x \le k$ in
+                  Klauselnform hinzugefuegt, und der SAT-Algorithmus
+                  laufengelassen.
+
+                  B) Kombination mit ``branch and bound''
+
+                  Hier wird eine obere Schranke fuer die Zielfunktion
+                  sowie eine untere Schranke fuer den besten aktuell
+                  erreichbaren Wert benutzt (in der gewoehnlichen
+                  Weise):
+
+                  Hier liegt wohl gar kein SAT-Algorithmus vor,
+                  sondern es wird nur 1-Klauseln-Elimination und
+                  Konflikt-Diagnose (mit entsprechendem
+                  nicht-chronogogischem Ruecksprung) benutzt von der
+                  SAT-Seite.
+
+
+                  Als Anwendung wird das Beispiel der Berechnung einer
+                  minimalen erfuellenden Belegung (minimal bzgl. der
+                  Anzahl der belegten Variablen) genannt
+                  (``Minimum-Size Prime Implicants'').
+
+                  Ein Nachteil der ``linearen Suche'' besteht hier
+                  darin, dass die zusaetzliche Klausel alle Variablen
+                  involviert, so dass Konflikte bzgl. dieser Klausel
+                  keine Beschneidung des Baumes mit sich bringen
+                  koennen.
+
+                  Na ja, das, was gesagt wird, ist alles offensichtlich.
+                  "
+}
+
+@TechReport{War96,
+  author =       "Joost Warners",
+  title =        "A linear-time transformation of linear inequalities into conjunctive normal form",
+  institution =  "CWI Amsterdam",
+  year =         1996,
+  number =       "CS-R9631",
+  month =        "July",
+  annote =       "Vorhanden."
+}
+
+@Article{War98,
+  author =       {Joost P. Warners},
+  title =        {A linear-time transformation of linear inequalities into conjunctive normal form},
+  journal =      {Information Processing Letters},
+  year =         1998,
+  volume =       68,
+  number =       2,
+  pages =        {63--69},
+  month =        {October},
+  doi =          {10.1016/S0020-0190(98)00144-6},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{EIM2000,
+  author =       {Thomas Eiter and Toshihide Ibaraki and Kazuhisa Makino},
+  title =        {On the Difference of Horn Theories},
+  journal =      {Journal of Computer and System Sciences},
+  year =         2000,
+  volume =       61,
+  number =       3,
+  pages =        {478--507},
+  month =        {December},
+  annote =       {Ps-Datei vorhanden (Ordner "SATversch", "HornTheorien.pdf").}
+}
+
+@Article{Mat2001,
+  author =       {R. Mathar},
+  title =        {Mathematical Modeling, Design, and Optimization of Mobile Communication Networks},
+  journal =      {Jahresbericht der Deutschen Mathematiker-Vereinigung},
+  year =         2001,
+  volume =       103,
+  number =       3,
+  pages =        {101--114},
+  month =        {November},
+  note =         {B.G. Teubner Stuttgart},
+  annote =       {Vorhanden. Koennte eine Anwendung von SAT ergeben.}
+}
+
+@Article{SSS2002,
+  author =       {Lu{\'{i}}s Guerras E Silva and Jo{\tilde{a}}o Marques-Silva and L. Miuel Silveira},
+  title =        {Satisfiability Models and Algorithms for Circuit Delay Computation},
+  journal =      {ACM Transactions on Design Automation of Electronic Systems},
+  year =         2002,
+  volume =       7,
+  number =       1,
+  month =        {January},
+  annote =       {Mit Beispiel-Formeln.}
+}
+
+@Article{FNS2001,
+  author =       {Paulo F. Flores and Hor{\'{a}}cio C. Neto and Jo{\tilde{a}}o P. Marques-Silva},
+  title =        {An Exact Solution to the Minimum Size Test Pattern Problem},
+  journal =      {ACM Transactions on Design Automation of Electronic Systems},
+  year =         {2001},
+  OPTkey =       {},
+  volume =       {6},
+  number =       {4},
+  pages =        {629--644},
+  month =        {October},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{BGGZ2002,
+  author =       {A. Glebov and S. Gavrilov and D. Blaauw and V. Zolotov},
+  title =        {False-Noise Analysis Using Logic Implications},
+  journal =      {ACM Transactions of Design Automation of Electronic Systems},
+  year =         2002,
+  volume =       7,
+  number =       3,
+  pages =        {474--498},
+  month =        {July},
+  annote =       {Anwendungen von OBDDs.}
+}
+
+@PhdThesis{Bar2002Th,
+  author =       {Clark Wayne Barrett},
+  title =        {Checking Validity of Quantifier-free Formulas in Combinations of First-order Theories},
+  school =       {Stanford University},
+  year =         2002,
+  month =        {September},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@InProceedings{BDS2002,
+  author =       {Clark W. Barrett, David L. Dill and Aaron Stump},
+  title =        {Checking Satisfiability of First-Order Formulas by Incremental Translation to {SAT}},
+  booktitle =    {14th International Conference on Computer Aided Verification (CAV)},
+  pages =        {236--249},
+  year =         2002,
+  editor =       {Ed Brinksma and Kim Guldstrand Larsen},
+  volume =       2404,
+  series =       {Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@InProceedings{BDS2002b,
+  author =       {Clark W. Barrett, David L. Dill and Aaron Stump},
+  title =        {A Generalization of Shostak's method for Combining Decision Procedures},
+  booktitle =    {Frontiers of Combining Systems (FroCoS)},
+  pages =        {132--146},
+  year =         2002,
+  editor =       {Alessandro Armando},
+  volume =       2309,
+  series =       {Lecture Notes in Artificial Intelligence},
+  month =        {April},
+  publisher =    {Springer},
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Article{BrVe2002Transitivity,
+  author =       {Randal E. Bryant and Miroslav N. Velev},
+  title =        {Boolean Satisfiability with Transitivity Constraints},
+  journal =      {ACM Transactions on Computational Logic},
+  year =         2002,
+  volume =       3,
+  number =       4,
+  pages =        {604--627},
+  month =        {October},
+  annote =       {Transitivitaets-Bedingungen werden in Aussagenlogik formuliert.}
+}
+
+@Article{HungSongAboulhamidKenningsCoppola2004RoutingSAT,
+  author =       {William N.N. Hung and Xiaoyu Song and El Mostapha Aboulhamid and Andrew Kennings and Alan Coppola},
+  title =        {Segmented Channel Routability Via Satisfiability},
+  journal =      {ACM Transactions on Design Automation of Electronic Systems},
+  year =         2004,
+  volume =       9,
+  number =       4,
+  pages =        {517-528},
+  month =        {October}
+}
+
+@Article{CabondeGivryLobjoisWarners1999FAP,
+  author =       {B. Cabon and S. de Givry and L. Lobjois and T.Schiex and J.P. Warners},
+  title =        {Radio Link Frequency Assignment},
+  journal =      {Constraints},
+  year =         1999,
+  volume =       4,
+  number =       1,
+  pages =        {79--89},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@MastersThesis{Borgne1994FAP,
+  author =       {Ludvig Borgne},
+  title =        {Automatic Frequency Assignment for Cellular Telephones Using Local Search Heuristics},
+  school =       {Uppsala University, Sweden},
+  year =         1994,
+  month =        {February},
+  note =         {Uppsala Master's Theses in Computing Science 64; ISSN 1100-1836},
+  annote =       {ps-Datei vorhanden.}
+}
+
+% Von Joao Marques-Silva, 15.3.2006:
+
+@InProceedings{clarke-fmcad02,
+  author =       {P. Chauhan and E. Clarke and J. Kukula and S. Sapra and H. Veith and D. Wang},
+  title =        {Automated Abstraction Refinement for Model Checking Large State Spaces Using {SAT} Based Conflict Analysis},
+  booktitle =    {International Conference on Formal Methods in Computer-Aided Design},
+  year =         {2002}
+}
+@InProceedings{mcmillan-cav03,
+  author =       {K. L. McMillan},
+  title =        {Interpolation and {SAT}-based Model Checking},
+  booktitle =    {International Conference on Computer-Aided Verification},
+  year =         {2003}
+}
+@InProceedings{kas-fpga99,
+  author =       {G.-J. Nam and K. A. Sakallah and R. A. Rutenbar},
+  title =        {Satisfiability-Based Layout Revisited: Detailed Routing of Complex {FPGA}s Via Search-Based Boolean {SAT}},
+  booktitle =    {International Symposium on Field-Programmable Gate Arrays},
+  year =         {1999},
+  month =        {February}
+}
+@Article{mazure-amai98,
+  author =       {B. Mazure and L. Sais and E. Gr\'{e}goire},
+  title =        {Boosting Complete Techniques Thanks to Local Search Methods},
+  journal =      {Annals of Mathematics and Artificial Intelligence},
+  year =         {1998},
+  volume =       {22},
+  number =       {3-4},
+  pages =        {319--331}
+}
+@InProceedings{goldberg-date03,
+   author = "E. Goldberg and Y. Novikov",
+   title= "Verification of Proofs of Unsatisfiability for {CNF} Formulas",
+   booktitle = {Design, Automation and Test in Europe Conference},
+   pages = {10886--10891},
+   month = mar,
+   year = 2003
+}
+@InProceedings{stuckey-ppdp03,
+  author =       {M. G. de la Banda and P. J. Stuckey and J. Wazny},
+  title =        {Finding All Minimal Unsatisfiable Sub-sets},
+  booktitle = {International Conference on Principles and Practice of Declarative Programming},
+  year =         {2003}
+}
+
+@Article{SinzKaiserKuechlin:2003Automotive,
+ Author = {Carsten Sinz and Andreas Kaiser and Wolfgang K{\"{u}}chlin},
+ Title = {Formal Methods for the Validation of Automotive Product Configuration Data},
+ JOURNAL = {Artificial Intelligence for Engineering Design, Analysis and Manufacturing},
+ PUBLISHER = {Cambridge University Press},
+ VOLUME = 17,
+ NUMBER = 1,
+ PAGES = {75--97},
+ YEAR = 2003,
+ MONTH = JAN,
+}
+
+@InCollection{BiereCimattiClarkeStrichmanZhu2003BMC,
+  author =       {Armin Biere and Alessandro Cimatti and Edmund M. Clarke and Ofer Strichman and Y. Zhu},
+  title =        {Bounded Model Checking},
+  booktitle =    {Highly Dependable Software},
+  crossref =     {Zelkowitz2003Dependable},
+  pages =        {117--148},
+  doi =          {10.1016/S0065-2458(03)58003-2},
+  annote =       {Pdf einer Vorabversion vorhanden.}
+}
+@Book{Zelkowitz2003Dependable,
+  editor =       {Marvin Zelkowitz},
+  title =        {Highly Dependable Software},
+  booktitle =    {Highly Dependable Software},
+  publisher =    {Academic Press},
+  year =         2003,
+  volume =       58,
+  series =       {Advances in Computers},
+  isbn =         {978-0-12-012158-8}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{JehleJohannsenLangeRachinsky2006BMCregular,
+  author =       {Markus Jehle and Jan Johannsen and Martin Lange and Nicolas Rachinsky},
+  title =        {Bounded Model Checking for All Regular Properties},
+  journal =      {Electronic Notes in Theoretical Computer Science},
+  year =         2006,
+  volume =       144,
+  pages =        {3--18},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Unpublished{JehleJohannsenLangeRachinsky2005ImprovedTranslation,
+  author =       {Markus Jehle and Jan Johannsen and Martin Lange and Nicolas Rachinsky},
+  title =        {Improved bounded model checking for the linear time $\mu$-calculus},
+  note =         {Submitted},
+  year =         2005,
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Unpublished{Johannsen2006Hierarchie,
+  author =       {Jan Johannsen},
+  title =        {An infinite hierarchy in the linear time $\mu$-calculus},
+  note =         {Submitted},
+  year =         2006,
+  annote =       {ps-Datei vorhanden.}
+}
+
+@Article{AndronikosKoletsosStavrinos2006PLTL,
+  author =       {Theodore Andronikos and George Koletsos and George Stavrinos},
+  title =        {An alternative tableaux method for propositional linear temporal logic},
+  journal =      {The Bulletin of Symbolic Logic},
+  year =         2006,
+  volume =       12,
+  number =       2,
+  pages =        {322--323},
+  month =        {June},
+  note =         {Abstracts of contributed talks, Logic Colloquium 2005},
+  annote =       {Zeitschrift vorhanden.}
+}
+
+@InProceedings{KourilFranco2005Resolutiontunnel,
+  author =       {Michal Kouril and John Franco},
+  title =        {Resolution Tunnels for Improved {SAT} Solver Performance},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2005},
+  crossref =     {StAndrews2005},
+  pages =        {143--157},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Article{ClarkeBiereRaimiZhu2001BMC,
+  author =       {Edmund Clarke and Armin Biere and Richard Raimi and Yunshan Zhu},
+  title =        {Bounded Model Checking Using Satisfiability Solving},
+  journal =      {Formal Methods in System Design},
+  year =         2001,
+  volume =       19,
+  pages =        {7--34},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InCollection{GiunchigliaGiunchigliaTacchella2000ModalSAT,
+  author =       {Enrico Giunchiglia and Fausto Giunchiglia and Armando Tacchella},
+  title =        {{SAT}-Based Decision Procedures for Classical Modal Logics},
+  booktitle =    {SAT2000: Highlights of Satisfiability Research in the Year 2000},
+  crossref =     {GMW2000},
+  pages =        {403--426}
+}
+
+@InCollection{HorrocksPatelSchneider2000Modal,
+  author =       {Ian Horrocks and Peter F. Patel-Schneider},
+  title =        {Evaluating Optimised Decision Procedures for Propositional Modal {$K_{(m)}$} Satisfiability},
+  booktitle =    {SAT2000: Highlights of Satisfiability Research in the Year 2000},
+  crossref =     {GMW2000},
+  pages =        {427--457}
+}
+
+@InCollection{HustadtSchmidt2000ModalRes,
+  author =       {Ullrich Hustadt and Renate A. Schmidt},
+  title =        {Using Resolution for Testing Modal Satisfiability and Building Models},
+  booktitle =    {SAT2000: Highlights of Satisfiability Research in the Year 2000},
+  crossref =     {GMW2000},
+  pages =        {459--483}
+}
+
+@Article{Gelder2008Colouring,
+  author =       {Allen Van Gelder},
+  title =        {Another look at graph coloring via propositional satisfiability},
+  journal =      {Discrete Applied Mathematics},
+  year =         2008,
+  volume =       156,
+  number =       2,
+  pages =        {230--243},
+  month =        {January},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Unpublished{JaegerZhang2009DHCP,
+  author =       {Gerold J{\"a}ger and Weixiong Zhang},
+  title =        {Phase transitions of and an effective algorithm for the directed Hamiltonian cycle problem},
+  note =         {To appear IWPEC 2009},
+  month =        {June},
+  year =         2009,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Qualitative Comparative Analysis (QCA) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Book{Ragin1987Comparative,
+  author =       {Charles C. Ragin},
+  title =        {The Comparative Method: Moving Beyond Qualitative and Quantitative Strategies},
+  publisher =    {University of California Press},
+  year =         1987,
+  note =         {ISBN 978-0-520-06618-2},
+  annote =       {Vorhanden.}
+}
+
+@Book{RihouxRagin2009QCA,
+  editor =       {Beno{\^{\i}}t Rihoux and Charles C. Ragin},
+  title =        {Configurational Comparative Methods: Qualitative Comparative Analysis (QCA) and Related Techniques},
+  publisher =    {SAGE Publications},
+  year =         2009,
+  volume =       51,
+  series =       {Applied Social Research Methods Series},
+  note =         {ISBN 978-1-4129-4235-5},
+  annote =       {Vorhanden.}
+}
+
+@Article{BorosHammerIbarakiKogan2000LogicalAnalysis,
+  author =       {Endre Boros and P.L. Hammer and T. Ibaraki and A. Kogan},
+  title =        {Logical analysis of numerical data},
+  journal =      {Mathematical Programming},
+  year =         2000,
+  volume =       79,
+  pages =        {163--190},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Book{SchneiderWagemann2007,
+  author =       {Carsten Q. Schneider and Claudius Wagemann},
+  title =        {Qualitative Comparative Analysis (QCA) und Fuzzy Sets: Ein Lehrbuch f\"ur Anwender und jene, die es werden wollen},
+  publisher =    {Verlag Barbara Budrich},
+  year =         2007,
+  note =         {ISBN 978-3-86649-068-0},
+  annote =       {Vorhanden.}
+}
+
+@Book{Caramani2009ComparativeMethod,
+  author =       {Daniele Caramani},
+  title =        {Introduction to the comparative method with boolean algebra},
+  publisher =    {SAGE Publications},
+  year =         2009,
+  volume =       {07-158},
+  series =       {Quantitative Applications in the Social Sciences},
+  note =         {ISBN 978-1-4129-0975-4},
+  annote =       {Vorhanden.}
+}
+
+@Book{Ragin2008SocialInquiry,
+  author =       {Charles C. Ragin},
+  title =        {Redesigning Social Inquiry: Fuzzy Sets and Beyond},
+  publisher =    {University of Chicago Press},
+  year =         2008,
+  note =         {ISBN-13 978-0-226-70275-9},
+  annote =       {Vorhanden.}
+}
+
+@Article{CressSnow2000HomelessMobilization,
+  author =       {Daniel M. Cress and David A. Snow},
+  title =        {The Outcomes of Homeless Mobilization: The Influence of Organization, Disruption, Political Mediation, and Framing},
+  journal =      {The American Journal of Sociology},
+  year =         2000,
+  volume =       105,
+  number =       4,
+  pages =        {1063--1104},
+  month =        {January},
+  annote =       {Pdf vorhanden.}
+}
+
+@Article{Marx2008FootwearIndustry,
+  author =       {Axel Marx},
+  title =        {Limits to non-state market regulation: A qualitative comparative analysis of the international sport footwear industry and the Fair Labor Association},
+  journal =      {Regulation \& Governance},
+  year =         2008,
+  volume =       2,
+  pages =        {253--273},
+  note =         {doi:10.1111/j.1748-5991.2008.00037.x},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Unpublished{Marx2010Benchmarks,
+  author =       {Axel Marx},
+  title =        {Crisp-set Qualitative Analysis ({csQCA}) and model specification: benchmarks for future {csQCA} applications},
+  note =         {To appear in International Journal of Multiple Research Approaches},
+  year =         2010,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@Proceedings{NAPSA200422,
+  title =        {Symposium: Qualitative Comparative Analysis},
+  year =         2004,
+  volume =       2,
+  number =       2,
+  series =       {Newsletter of the American Political Science Association; Organized Section on Qualitative Methods},
+  organization = {American Political Science Association},
+  annote =       {Pdf-Datei vorhanden.}
+}
+@InProceedings{Mahoney2004Terminology,
+  author =       {James Mahoney},
+  title =        {Introduction: A Note on Terminology},
+  booktitle =    {Symposium: Qualitative Comparative Analysis},
+  crossref =     {NAPSA200422},
+  pages =        2
+}
+@InProceedings{RaginRihoux2004State,
+  author =       {Charles C. Ragin and Beno{\^{\i}}t Rihoux},
+  title =        {Qualitative Comparative Analysis ({QCA}): State of the Art and Prospects},
+  booktitle =    {Symposium: Qualitative Comparative Analysis},
+  crossref =     {NAPSA200422},
+  pages =        {3--13}
+}
+@InProceedings{Lieberson2004Comments,
+  author =       {Stanley Lieberson},
+  title =        {Comments on the Use and Utility of {QCA}},
+  booktitle =    {Symposium: Qualitative Comparative Analysis},
+  crossref =     {NAPSA200422},
+  pages =        {13--14}
+}
+@InProceedings{Seawright2004Regression,
+  author =       {Jason Seawright},
+  title =        {Qualitative Comparative Analysis vis-a-vis Regression},
+  booktitle =    {Symposium: Qualitative Comparative Analysis},
+  crossref =     {NAPSA200422},
+  pages =        {14--17}
+}
+@InProceedings{Mahoney2004Terminology,
+  author =       {James Mahoney},
+  title =        {Reflections on Fuzzy-Set/{QCA}},
+  booktitle =    {Symposium: Qualitative Comparative Analysis},
+  crossref =     {NAPSA200422},
+  pages =        {17--21},
+}
+@InProceedings{RaginRihoux2004Rebuttals,
+  author =       {Charles C. Ragin and Beno{\^{\i}}t Rihoux},
+  title =        {Replies to Commentators: Reassurances and Rebuttals},
+  booktitle =    {Symposium: Qualitative Comparative Analysis},
+  crossref =     {NAPSA200422},
+  pages =        {22--24}
+}
+@InProceedings{Lieberson2004Response,
+  author =       {Stanley Lieberson},
+  title =        {Response to Reassurances and Rebuttals},
+  booktitle =    {Symposium: Qualitative Comparative Analysis},
+  crossref =     {NAPSA200422},
+  pages =        {25}
+}
+
+@Article{CarenPanofsky2005TQCA,
+  author =       {Neal Caren and Aaron Panofsky},
+  title =        {TQCA: A Technique for Adding Temporality to Qualitative Comparative Analysis},
+  journal =      {Sociological Methods \& Research},
+  year =         2005,
+  volume =       34,
+  number =       2,
+  pages =        {147--172},
+  month =        {November},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@TechReport{DelreuxHesters2010Contradictions,
+  author =       {Tom Delreux and Delphine Hesters},
+  title =        {Solving contradictory simplifying assumptions in {QCA}: presentation of a new best practice},
+  institution =  {COMPASSS},
+  year =         2010,
+  number =       {Working Paper 2010-58},
+  note =         {\url{http://www.compasss.org}},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+% %%%%%%%%%%
+% % Sudoku %
+% %%%%%%%%%%
+
+@InProceedings{LynceOuaknine2006Sudoku,
+  author =       {In{\^{e}}s Lynce and Jo{\"{e}}l Ouaknine},
+  title =        {Sudoku as a {SAT} Problem},
+  booktitle =    {Ninth International Symposium on Artificial Intelligence and Mathematics},
+  year =         2006,
+  note =         {Available at \url{http://anytime.cs.umass.edu/aimath06/proceedings/P34.pdf}},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@MastersThesis{TakayukiYato2003Sudoku,
+  author =       {Takayuki Yato},
+  title =        {Complexity and Completeness of finding Another Solution and its applications to puzzles},
+  school =       {University of Tokyo},
+  year =         2003,
+  note =         {Available at \url{http://www-imai.is.s.u-tokyo.ac.jp/~yato/data2/MasterThesis.pdf}},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{Lewis2007Sudoku,
+  author =       {Rhydian Lewis},
+  title =        {On the Combination of Constraint Programming and Stochastic Search: The Sudoku Case},
+  booktitle =    {Hybrid Metaheuristics: 4th International Workshop (HM 2007)},
+  pages =        {96--107},
+  year =         2007,
+  volume =       4771,
+  series =       {Lecture Notes in Computer Science},
+  publisher =    {Springer},
+  annote =       {Pdf-Datei vorhanden.}
+}
+@Article{Lewis2007Sudoku2,
+  author =       {Rhydian Lewis},
+  title =        {Metaheuristics can solve sudoku puzzles},
+  journal =      {Journal of Heuristics},
+  year =         2007,
+  volume =       13,
+  number =       4,
+  pages =        {387--401},
+  month =        {August},
+  doi =          {10.1007/s10732-007-9012-8},
+  annote =       {Zu besorgen.}
+}
+
+@Unpublished{Cazenave2006Sudoku,
+  author =       {Tristan Cazenave},
+  title =        {A search based Sudoku solver},
+  note =         {Available at \url{http://www.ai.univ-paris8.fr/~cazenave/sudoku.pdf}; 10 pages},
+  year =         2006,
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%%%
+% % Ramsey theory %
+% %%%%%%%%%%%%%%%%%
+
+@InProceedings{LiuTruszcynski2004LocalBootstrapping,
+  author =       {Lengning Liu and Miroslaw Truszczy{\'{n}}ski},
+  title =        {Local Search with Boostrapping},
+  booktitle =    {The Seventh International Conference on Theory and Applications of Satisfiability Testing},
+  crossref =     {Vancouver2004},
+  pages =        {299--304},
+  note =         {Data for results on van der Waerden numbers available at \url{http://www.cs.uky.edu/~marek}.}
+}
+@InProceedings{DransfieldMarekTruszcynski2003VanderWaerden,
+  author =       {Michael R. Dransfield and Victor W. Marek and Miroslaw Truszczy{\'{n}}ski},
+  title =        {Satisfiability and Computing van der {W}aerden Numbers},
+  booktitle =    {Theory and Applications of Satisfiability Testing 2003},
+  crossref =     {SantaMargherita2003b},
+  pages =        {1--13},
+  annote = {pdf-Datei vorhanden.}
+}
+@Article{DransfieldLiuMarekTruszcynski2004VanderWaerden,
+  author =       {Michael R. Dransfield and Lengning Liu and Victor W. Marek and Miroslaw Truszczy{\'{n}}ski},
+  title =        {Satisfiability and computing van der {W}aerden Numbers},
+  journal =      {The Electronic Journal of Combinatorics},
+  year =         2004,
+  volume =       11,
+  number =       {\#{}R41},
+  annote =       {pdf-Datei vorhanden. Aktualisierte Version von \cite{DransfieldMarekTruszcynski2003VanderWaerden}.}
+}
+
+@Article{HerwigHeuleLambalgenMaaren2005VanderWaerden,
+  author =       {P.R. Herwig and M.J.H. Heule and P.M. van Lambalgen and H. van Maaren},
+  title =        {A New Method to Construct Lower Bounds for Van der {W}aerden Numbers},
+  journal =      {The Electronic Journal of Combinatorics},
+  year =         2007,
+  volume =       14,
+  number =       {\#{}R6},
+  annote =       {pdf-Datei vorhanden.}
+}
+
+@Misc{Franco2007WaerdenLexington,
+  author =       {Michal Kouril},
+  title =        {$\mr{W}(2,6)=1132$},
+  month =        {January},
+  year =         2007,
+  note =         {See \url{http://www.cs.uc.edu/~kourilm/}},
+  annote =       {Besuch von Sean and John in Lexington.}
+}
+@Article{KourilPaulW26,
+  author =       {Michal Kouril and Jerome L. Paul},
+  title =        {The van der {W}aerden Number ${W}(2,6)$ is $1132$},
+  journal =      {Experimental Mathematics},
+  year =         2008,
+  volume =       17,
+  number =       1,
+  pages =        {53--61},
+  annote =       {Pdf-Datei vorhanden.}
+}
+@Article{Kouril2012W34,
+  author =       {Michal Kouril},
+  title =        {Computing the van der {W}aerden number ${W}(3,4) = 293$},
+  journal =      {INTEGERS: Electronic Journal of Combinatorial Number Theory},
+  year =         2012,
+  volume =       12,
+  number =       {A46},
+  pages =        {1--13},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{HeuleWalsh2010SolutionsSymmetry,
+  author =       {Marijn Heule and Toby Walsh},
+  title =        {Symmetry within Solutions},
+  booktitle =    {Proceedings of the Twenty-Fourth AAAI Conference on Artificial Intelligence (AAAI-10)},
+  pages =        {77--82},
+  year =         2010,
+  annote =       {Pdf-Datei vorhanden.}
+}
+@InProceedings{HeuleWalsh2010SolutionsSymmetryW,
+  author =       {Marijn Heule and Toby Walsh},
+  title =        {Internal Symmetry},
+  booktitle =    {The 10th International Workshop on Symmetry in Constraint Satisfaction Problems (SymCon'10)},
+  pages =        {19--33},
+  year =         2010,
+  editor =       {Pierre Flener and Justin Pearson},
+  annote =       {Pdf-Datei vorhanden. Leicht erweiterte und wohl korrigierte Ausgabe von \cite{HeuleWalsh2010SolutionsSymmetry}.}
+}
+
+@Article{CooperFilasetaHarringtonWhite2014Pythagorean,
+  author =       {Joshua Cooper and Michael Filaseta and Joshua Harrington and Daniel White},
+  title =        {On Colorings of {P}ythagorean Triples within Colorings of the Positive Integers},
+  journal =      {Journal of Combinatorics and Number Theory},
+  year =         2014,
+  volume =       6,
+  pages =        {1--16},
+  url =          {https://www.novapublishers.com/catalog/product_info.php?products_id=51296},
+  annote =       {Pdf von Vorabdruck vorhanden.}
+}
+
+@TechReport{CooperOverstreet2015Pythagorean,
+  author =       {Joshua Cooper and Ralph Overstreet},
+  title =        {Coloring so that no {P}ythagorean Triple is Monochromatic},
+  institution =  {arXiv},
+  year =         2015,
+  number =       {arXiv:1505.02222v1 [math.CO]},
+  month =        {May},
+  url =          {http://arxiv.org/abs/1505.02222},
+  annote =       {Pdf vorhanden.}
+}
+
+
+% %%%%%%%%%%%%%%%
+% % Kryptologie %
+%%%%%%%%%%%%%%%%%
+
+@Article{MassacciMarraro2000DESSAT,
+  author =       {Fabio Massacci and Laura Marraro},
+  title =        {Logical Cryptoanalysis as a {SAT} Problem},
+  journal =      {Journal of Automated Reasoning},
+  year =         2000,
+  volume =       24,
+  number =       {1-2},
+  pages =        {165--203},
+  month =        {February},
+  doi =          {10.1023/A:1006326723002},
+  annote =       {Auch in \cite{GMW2000}, 343-375. Pdf vorhanden.}
+}
+
+@InProceedings{EibachPilzVoelkel2008Bivium,
+  author =       {Tobias Eibach and Enrico Pilz and Gunnar V{\"{o}}lkel},
+  title =        {Attacking {B}ivium Using {SAT} Solvers},
+  booktitle =    {Theory and Applications of Satisfiability Testing - SAT 2008},
+  crossref =     {Guangzhou2008},
+  pages =        {63--76},
+  annote =       {Pdf-Datei vorhanden.}
+}
+
+@InProceedings{MironovZhang2006SATHash,
+  author =       {Ilya Mironov and Lintao Zhang},
+  title =        {Applications of {SAT} Solvers to Cryptanalysis of Hash Functions},
+  booktitle =    {Theory and Applications of Satisfiability Testing – SAT 2006},
+  crossref =     {Seattle2006},
+  pages =        {102--115},
+  doi =          {10.1007/11814948_13}
+}
+
