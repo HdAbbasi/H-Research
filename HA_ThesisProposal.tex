@@ -6,7 +6,7 @@
 
 \usepackage{a4}
 \usepackage{graphicx}
-%\usepackage{tikz-qtree}
+\usepackage{tikz-qtree}
 \usepackage[active]{srcltx}
 \usepackage[all]{xy}
 \usepackage{enumerate}
@@ -29,7 +29,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-This research investigates the connection between SAT problems (and particularly unsatisfiable problems) and combinatorics from two different aspects. The first aspect is concerned with two measures of resolution proof complexity. In general, there are various measures for representing the complexity of SAT problems called "hardness measures''. Here, two measures of hardness for resolution proofs ("tree-hardness'' and "width-hardness'') are reviewed and a game characterisation is investigated for them. This game is performed by two players for a clause-set $F$ and has an "optimal value'' corresponds to the hardness measures of $F$. Then, this game is applied for an special graphs called Tseitin graph to obtain the hardness measures.
+This research investigates the connection between SAT problems (and particularly unsatisfiable problems) and combinatorics from two different aspects. The first aspect is concerned with two measures of resolution proof complexity. In general, there are various measures for representing the complexity of SAT problems called "hardness measures''. Here, two measures of hardness for resolution proofs ("tree-hardness'' and "width-hardness'') are reviewed and a game characterisation is investigated for them. The game is performed by two players for a clause-set $F$ and has an "optimal value'' corresponds to the hardness measures of $F$. Then, the game is applied for an special graphs called Tseitin graph to obtain the hardness measures.
 
 The second aim of this research is to study the structure of minimally unsatisfiable clause-sets due to understand unsatisfiability. For investigating the properties of these clause-sets special reduction/extension are reviewed. Then, "deficiency" (the difference between the number of clauses and the number of variables in $F$) is used as a measure to classify minimally unsatisfiable clause-sets. So far, the structure of minimally unsatisfiable clause-sets with deficiency 1,2 are almost well-known but for higher deficiencies, our knowledge is limited. On the other hand, according to the literature it seems that there are finitely many-patterns for these clause-sets which is a motivation for further studies.
 \end{abstract}
@@ -43,7 +43,7 @@ There are many interesting relations between combinatorics and the satisfiabilit
 
 The hardness is defined as a measure of complexity (the amount of effort needed to discover unsatisfiability) for a representation $F$ of a boolean function $f$ in SAT solving. Various hardness measures have been investigated in the literature and the relation between these measures is studied in \cite{BeyersdorffGwynneKullmann2013PHPER,BeyersdorffKullmann2014PHP,GwynneKullmann2013GoodRepresentationsIIex}. In this proposal, two measures of the hardness are investigated. The first one is the tree-hardness which is related to the size of resolution proofs. The width-hardness is the second measure and is related to the width of clauses in resolution proofs. An overview of these two measure is given in \cite{BeyersdorffGwynneKullmann2013PHPER,BeyersdorffKullmann2014PHP, GwynneKullmann2012Slur}. We start with defining these measures and then, a game characterisation is given for them based on Prover-Delayer game in \cite{BeyersdorffKullmann2014PHP} which has two players.
 
-The XOR-representation is investigated in \cite{GwynneKullmann2013GoodRepresentations,GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} with the goal of finding a good representation for XOR-constraints. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. Here, we use this representation for applying the game characterisation of hardness measures for special graphs (Tseitin graph) based on \cite{GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata}. Finding the optimal move of players in this game and also formulation of hardness measures for Tseitin graph are investigated in this research.
+The XOR-representation is investigated in \cite{GwynneKullmann2013GoodRepresentations,GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} with the goal of finding a good representation for XOR-constraints. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. Here, we use XOR-representation for applying the game characterisation of hardness measures for special graphs (Tseitin graph) based on \cite{GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata}. Finding the optimal move of players in the game and also formulation of hardness measures for Tseitin graph are investigated in this research.
 
 The second area of investigation around the connection of combinatorics and satisfiability problems is concerned with minimally unsatisfiable clause-sets which are referred as the building block for understanding unsatisfiability in \cite{KullmannZhao2010Extremal}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{KullmannZhao2010Extremal, Kullmann2007HandbuchMU,KullmannZhao2012ConfluenceJ}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency and it is used for classification of minimally unsatisfiable clause-sets. In this report, we give an overview of results regarding unsatisfiable clause-sets with small deficiency and then, we discuss open problems and our research themes. So far, the structure of clause-sets in $\Musati{\delta=1}$ is well-known and an overview of them is given in \cite{KullmannZhao2010Extremal, Ku99dK,KleineBuening2000SubclassesMU,DDK98}. For clause-sets in $\Musati{\delta=2}$, \cite{KleineBuening2000SubclassesMU} gives a formula which is isomorphism for each $F' \in \Smusati{\delta=2}$ and further investigation on these clause-sets is presented in \cite{KullmannZhao2010Extremal, KleineBuening2000SubclassesMU, KullmannZhao2012ConfluenceJ}. The knowledge for the structure of clause-sets in $\Musati{\delta \ge 3}$ is very limited. For example, \cite{KullmannZhao2016UHitSAT} studies the characterization of clause-sets in $\Uclashi{\delta=2} \subset \Musati{\delta=2}$ and \cite{KullmannZhao2010Extremal} investigates some properties of clause-sets with deficiency three. Thus, characterization of clause-sets in these subclasses is an open research question (which is investigated in this research).
 
@@ -94,34 +94,34 @@ In this chapter, basic concepts and definitions is given according to \cite{Gwyn
 \section{Clause-sets}
 \label{sec:Clause-sets}
 
-The infinite set of variables is denoted by $\bmm{\Va}$. A \textbf{partial assignment} $\vp$ is a map which assigns a unique value in $\set{0,1}$ to some elements of a finite set of variables. The domain of this map is a set of variables denoted by $\var(\vp)$. The set of all partial assignments is indicated by $\bmm{\Pass}$ and for $V \in \pote(\Va)$, $\bmm{\Tass(V)}$ is the set of total assignments over $V$. The empty partial assignment is denoted by $\epa:= \es \in \Pass$. For a partial assignment $\vp \in \Pass$, the number of variables is defined as $n(\vp):=\abs{\var(\vp)}$. For two partial assignments $\vp, \psi \in \Pass$, the composition operation is defined as $\bmm{\vp \circ \psi} := \psi \cup (\vp \sm \var(\psi)) \in \Pass$ which is the union of their variables if they do not conflict. In the case of conflicting variables, the second assignment is considered. This operation has associative property and it is commutative if $\vp, \psi$ do not clash.
+The infinite set of variables is denoted by $\bmm{\Va}$. A \textbf{partial assignment} $\vp$ is a map which assigns a value in $\set{0,1}$ to some elements of a finite set of variables. The domain of the map is a set of variables denoted by $\var(\vp)$. The set of all partial assignments is $\bmm{\Pass}$ and for $V \in \pote(\Va)$, $\bmm{\Tass(V)}$ is the set of total assignments over $V$. The empty partial assignment is denoted by $\epa:= \es \in \Pass$. For a partial assignment $\vp \in \Pass$, the number of variables is defined as $n(\vp):=\abs{\var(\vp)}$. For two partial assignments $\vp, \psi \in \Pass$, the composition operation is defined as $\bmm{\vp \circ \psi} := \psi \cup (\vp \sm \var(\psi)) \in \Pass$ which is the union of their variables if they do not conflict. In the case of conflicting variables, the second assignment is considered. The operation has associative property and it is commutative if $\vp, \psi$ do not clash.
 
 A \textbf{literal} is a pair $(v,\ve)$ with $\var((v,\ve)):=v \in \Va$ (the underlying variable) and $\val((v,\ve)):=\ve \in \set{0,1}$. The set of all literals is $\bmm{\Lit}$. Two literals $x, y \in \Lit$ clash if they have a same variable but different values. For a set $L \sse \Lit$ we define $\var(L) := \set{\var(x) :x \in L}$, $\lit(L):= \set{x \in \Lit : \var(x) \in \var(L)}$ and $\ol{L} := \lit(L) \sm L$. A \textbf{clause} is defined as a finite and clash-free set of literals. The set of all clauses is denoted by $\bmm{\Cl}$ and $\bot := \es \in \Cl$ is the empty clause. The length (width) of a clause $C$ is the number of variables in $C$.
 
-A \textbf{clause-set} is a finite set of clauses and $\bmm{\Cls}$ is the set of all clause-sets. The empty clause-set is indicated by $\top := \es \in \Cls$. For $F \in \Cls$ we define $\var(F) := \bc_{C \in F} \var(C) \in \pote(\Va)$ and $\lit(F) := \var(F) \cup \ol{\var(F)}$. The number of variables in $F$ is denoted by $n(F) := \abs{\var(F)} \in \NNZ$ and the number of clauses is $c(F) := \abs{F} \in \NNZ$. The number of literal occurrences in $F$ is also denoted by $\ell(F) := \sum_{C \in F} \abs{C} \in \NNZ$. If the union of literals occurring in $F$ is indicated by $\bigcup F \subset \Lit$, then a \textbf{pure literal} for $F \in \Cls$ is defined as $x \in \bigcup F$ and $\ol{x} \not \in \bigcup F$. A clause-set $F$ is called $k-\Cls$ if every clause in $F$ has length (width) at most $k$. A full clause $C$  for a clause-set $F$ is defined as $C \in F$ and $\var(C) = \var(F)$, and a clause-set $F$ is called full if every clause of $F$ is full. The full clause-set for a finite set of variables $V$ is denoted by $A(V)$. 
+A \textbf{clause-set} is a finite set of clauses and $\bmm{\Cls}$ is the set of all clause-sets. The empty clause-set is denoted by $\top := \es \in \Cls$. For $F \in \Cls$ we define $\var(F) := \bc_{C \in F} \var(C) \in \pote(\Va)$ and $\lit(F) := \var(F) \cup \ol{\var(F)}$. The number of variables in $F$ is denoted by $n(F) := \abs{\var(F)} \in \NNZ$ and the number of clauses is $c(F) := \abs{F} \in \NNZ$. The number of literal occurrences in $F$ is also denoted by $\ell(F) := \sum_{C \in F} \abs{C} \in \NNZ$. If the union of literals occurring in $F$ is denoted by $\bigcup F \subset \Lit$, then a \textbf{pure literal} for $F \in \Cls$ is defined as $x \in \bigcup F$ and $\ol{x} \not \in \bigcup F$. A clause-set $F$ is called $k-\Cls: k \in \NN$ if every clause in $F$ has length (width) at most $k$. A full clause $C$  for a clause-set $F$ is defined as $C \in F$ and $\var(C) = \var(F)$, and a clause-set $F$ is called full if every clause of $F$ is full. The full clause-set for a finite set of variables $V$ is denoted by $A(V)$. 
 
 \begin{examp}\label{exp:An}
-If $A(V)$ for $V=\set{1,..., n}$ is indicated by $A_n$ then $A_0 = \set{\bot}$, $A_1 = \set{\set{1},\set{-1}}$ and $A_2 = \set{\set{-1,-2},\set{-1,2},\set{1,-2},\set{1,2}}$.
+For $V=\set{1,..., n}$, $n \in \NNZ$, if $A(V)$ is denoted by $A_n$ then we have $A_0 = \set{\bot}$, $A_1 = \set{\set{1},\set{-1}}$ and $A_2 = \set{\set{-1,-2},\set{-1,2},\set{1,-2},\set{1,2}}$.
 \end{examp}
 
-Partial assignments are extended from variables to literals using $\vp(\ol{v})=\ol{\vp(v)}$. The operation of a partial assignment on a clause-set is defined as $\bmm{\vp * F} := \set{C \sm \vp : C \in F \wedge C \cap \ol{\vp} = \es} \in \Cls$. This means removing all clauses having at least one literal with $\vp (x)=1$ and then, removing from all clauses the literals with $\vp (x)=0$. For a clause $C$, the partial assignment $\vp_C$ sets precisely the literals in $C$ to 0. A clause-set $F$ is called \textbf{satisfiable} if there exists a partial assignment $\vp$ such that $\vp * F = \top$. Another definition for a satisfiable clause-set $F$ is that there exists a clause which clashes with all clauses of $F$. The set of all satisfiable clause-sets is indicated by $\bmm{\Sat} := \set{F \in \Cls \mb \ex\, \vp \in \Pass : \vp * F = \top}$ while $\bmm{\Usat} := \Cls \sm \Sat$. If $\vp * F = \top$ then the partial assignment is called a satisfying assignment for $F$.
+Partial assignments are extended from variables to literals using $\vp(\ol{v})=\ol{\vp(v)}$. The operation of a partial assignment on a clause-set is defined as $\bmm{\vp * F} := \set{C \sm \vp : C \in F \wedge C \cap \ol{\vp} = \es} \in \Cls$. This means removing all clauses having at least one literal with $\vp (x)=1$ and then, removing from all clauses the literals with $\vp (x)=0$. For a clause $C$, the partial assignment $\vp_C$ sets precisely the literals in $C$ to 0. A clause-set $F$ is called \textbf{satisfiable} if there exists a partial assignment $\vp$ such that $\vp * F = \top$. Another definition for a satisfiable clause-set $F$ is that there exists a clause which clashes with all clauses of $F$. The set of all satisfiable clause-sets is $\bmm{\Sat} := \set{F \in \Cls \mb \ex\, \vp \in \Pass : \vp * F = \top}$ while $\bmm{\Usat} := \Cls \sm \Sat$. If $\vp * F = \top$ then the partial assignment is called a satisfying assignment for $F$.
 
-Two clause-sets $F, G$ are called \textbf{isomorphic}, if one can get $G$ from $F$ by renaming the variables of $F$ (and also flipping the variables is allowed if needed). Thus, the isomorphism is considered as a bijection $\alpha: \lit(F) \ra \lit(G)$ such that $\alpha(\ol{x}) = \ol{\alpha(x)}$) and the clauses of $F$ are precisely mapped to the clauses of $G$. 
+Two clause-sets $F, G \in \Cls$ are called \textbf{isomorphic}, if one can get $G$ from $F$ by renaming the variables of $F$ (and also flipping the variables is allowed if needed). Thus, the isomorphism is considered as a bijection $\alpha: \lit(F) \ra \lit(G)$ such that $\alpha(\ol{x}) = \ol{\alpha(x)}$) and the clauses of $F$ are precisely mapped to the clauses of $G$. 
 
-A boolean function is a total assignment $f$ over a finite set of variables $V$ and denoted by $f:  \Tass(V) \ra \set{0,1}$. The Conjunctive Normal Form (or the CNF-representation) is the interpretation of a clause-set $F$ as a boolean function $f$ by considering the $F$ as the conjunction of clauses and a clause $C \in F$ as the disjunction of literals. In general, $F$ is a CNF-representation of $f$ if $\var(F) \spe \var(f)$ and for $\vp \in \Tass(\var(f))$, $(\vp * F) \in \Sat \iff f(\vp) = 1$. If $v \in \var(f)$ it is called primary variable while $v \in \var(F) \sm \var(f)$ is called auxiliary variable.
+A boolean function $f$ is a total assignment over a finite set of variables $V \subset \Va$ and denoted by $f:  \Tass(V) \ra \set{0,1}$. The Conjunctive Normal Form (or the CNF-representation) is the interpretation of a clause-set $F$ as a boolean function $f$ by considering the $F \in \Cls$ as the conjunction of clauses and a clause $C \in F$ as the disjunction of literals. In general, $F$ is a CNF-representation of $f$ if $\var(F) \spe \var(f)$ and for $\vp \in \Tass(\var(f))$ holds $(\vp * F) \in \Sat \iff f(\vp) = 1$. If $v \in \var(f)$ it is called primary variable while $v \in \var(F) \sm \var(f)$ is called auxiliary variable.
 
 \section{Implication-relation}
 \label{sec:imprel}
 
 \begin{defi}\label{def:imp-rel}
-The \textbf{implication-relation} for two clause-sets $F, F'$ is defined as $F \models F'$ if $\fa\, \vp \in \Pass : \vp * F = \top \Ra \vp * F' = \top$. This relation can also be considered between a clause $C$ and a clause-set $F$ if $F \models \set{C}$ (which is indicated as $F \models C$).
+The \textbf{implication-relation} for two clause-sets $F, F' \in \Cls$ is defined as $F \models F'$ if $\fa\, \vp \in \Pass : \vp * F = \top \Ra \vp * F' = \top$. The implication-relation can also be considered between a clause $C$ and a clause-set $F$ if $F \models \set{C}$ (which is $F \models C$).
 \end{defi}
 Remarks:
   \begin{enumerate}
   \item For  $F \in \Usat$ the only implication-relation is $F \models \bot$.
   \item A literal $x$ is called a \textbf{forced literal} for a clause-set $F$ if $F \models x$ and $\pab{x \ra 1}$ is the forced assignment for $F$. Thus,  $\pab{x \ra 1} * F$ is satisfiability-equivalent to $F$.
   \item A clause $C$ is called an \textbf{implicate} of a clause-set $F$ if $F \models C$ and it is called a \textbf{prime implicate} if there no $ C' \sse C$ as an implicate of $F$. The set of all prime implicates of $F$ is denoted by $\primec_0(F) \in \Cls$.
-  \item A clause $C$ is called an \textbf{implicant} of a clause-set $F$ if $C$ as a partial assignment is a satisfying assignment for $F$. In other words, $C$ must fulfill $C * F=\top$. A \textbf{prime implicant} is a minimal implicant and the set of all prime implicants is indicated by $\primec_1(F) \in \Cls$. 
+  \item A clause $C$ is called an \textbf{implicant} of a clause-set $F$ if $C$ as a partial assignment is a satisfying assignment for $F$. In other words, $C$ must fulfill $C * F=\top$. A \textbf{prime implicant} is a minimal implicant and the set of all prime implicants is denoted by $\primec_1(F) \in \Cls$. 
   \item For $F \in \Usat$ we have $\primec_0(F) = \set{\bot}$ and $\primec_1(F) = \top$.
   \item Two clause-sets $F, G$ are called ``logically equivalent'' if $F \models G$ and $G \models F$. In this case, we have $\primec_0(F) = \primec_0(G)$ and $\primec_1(F) = \primec_1(G)$.
   \end{enumerate}
@@ -133,7 +133,7 @@ For $F = \{\{ \ol x, y\} , \{ \ol y, z\}\}, prc_0(F) = \{\{\ol x, y\} , \{\ol y,
 \section{Decision tree and resolution tree}
 \label{sec:trees}
 
-A \textbf{full binary tree} is a tree that every node except leaves has exactly two children (or parents). The root of the tree $T$ is indicated by $\rt(T)$.
+A \textbf{full binary tree} is a tree that every node except leaves has exactly two children (or parents). The root of the tree $T$ is denoted by $\rt(T)$.
 
 \begin{defi}\label{def:isomo-trees}
 Two binary tree $T_1, T_2$ are called \textbf{isomorphic} if there is a bijective map $\alpha$ for the set of vertices $V$ of $T_1, T_2$ such that $\alpha: V(T_1) \ra V(T_2)$ and $\alpha(\rt(T_1))=\rt(T_2)$. Also, for each inner vertex $a$ with right child $b$ and left child $c$, $\alpha(a)$ either has children $\alpha(b)$, $\alpha(c)$ or $\alpha(a)$ has children $\alpha(c)$,$\alpha(b)$.
@@ -151,7 +151,7 @@ Remarks:
 The \textbf{resolution} is an operation applied to two clauses $C,D$ which clash in exactly one variable and produces a new clause. The result of the resolution for $C \cap \overline D = \{ x \}$ (which is called a \textbf{resolvent}) is defined as $\bmm{C \diamond D} := (C \cup D) \setminus \{x, \overline x\} $. $C,D$ are called \textbf{resolvable clauses} and $x$ is the \textbf{resolution literal}. 
 \end{defi}
 \begin{defi}\label{def:resolution-tree}
-Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the \textbf{resolution tree}. The tree is indicated by $\bmm{T : F \vdash C}$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. 
+Using the resolution operation, a binary tree is produced for a clause-set $F$ which is called the \textbf{resolution tree}. The tree is denoted by $\bmm{T : F \vdash C}$ which clause $C$ is the root (conclusion) of $T$. The leaves of $T$ (axioms) are the clauses of $F$ and each inner node is the resolvent of its two parents. 
 \end{defi}
 Remarks:
   \begin{enumerate}
@@ -166,11 +166,10 @@ Remarks:
 \begin{examp}\label{exp:res1}
 A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol a, \ol b}}$ is as Fig \ref{fig:resol1}. Since the empty clause is driven, it is called the resolution refutation.
    \begin{figure}
-     \centering
-     XXX
-%    \begin{tikzpicture}[grow'=up]
-%    \Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\ol a,b\}}$ ] [.${\{ \ol b\}}$ ${\{a, \ol b\}}$ ${\{\ol a, \ol b\}}$ ] ]
-%    \end{tikzpicture}
+   \centering  
+   \begin{tikzpicture}[grow'=up]
+   \Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\ol a,b\}}$ ] [.${\{ \ol b\}}$ ${\{a, \ol b\}}$ ${\{\ol a, \ol b\}}$ ] ]
+   \end{tikzpicture}
    \caption{A resolution tree for Example \ref{exp:res1}.}
    \label{fig:resol1}
    \end{figure}
@@ -306,10 +305,10 @@ Based on \cite{GwynneKullmann2012Slur}, For $F \in \Cls$ and $k \in \NNZ$ we hav
 \subsection{Width-hardness of clause-sets}
 \label{sec:whdd}
 
-Another measure for the complexity of an unsatisfiable clause-set $F$ as in \cite{BeyersdorffKullmann2014PHP, BeyersdorffGwynneKullmann2013PHPER} is the width-hardness (or asymmetric width) and indicated by $\whardness(F)$. 
+Another measure for the complexity of an unsatisfiable clause-set $F$ as in \cite{BeyersdorffKullmann2014PHP, BeyersdorffGwynneKullmann2013PHPER} is the width-hardness (or asymmetric width) and denoted by $\whardness(F)$. 
 
 \begin{defi}\label{def:kres}
-Based on \cite{Kl93}, for a resolution proof $T: F \vdash C$ consider that each node (resolvent) in $T$ have at least one parent with length at most $k$. In this case, the resolvent is called $\bmm{k}$-\textbf{resolvent}. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $\bmm{k}$\textbf{-resolution} and denoted by $\bmm{F \vdash^k C}$.
+Based on \cite{Kl93}, for $F \in \Cls$ and a resolution proof $T: F \vdash C$ consider each node (resolvent) in $T$ with at least one parent with length at most $k: k \in \NN$. In this case, the resolvent is called $\bmm{k}$-\textbf{resolvent}. If every resolvent in $T$ is a $k$-resolvent, then $T:F \vdash C$ is called $\bmm{k}$\textbf{-resolution} and denoted by $\bmm{F \vdash^k C}$.
 \end{defi}
 Remarks:
   \begin{enumerate}
@@ -334,7 +333,7 @@ Remarks:
   \whardness(T) := \max \big (\whardness(T_1), \whardness(T_2), \, \min(\abs{C(w_1)}, \abs{C(w_2)}) \big )
   \end{displaymath}
   and $\whardness(F) := \min \set{\whardness(T) \mb T : F \vdash \bot}$.
-  \item In \cite{BeyersdorffGwynneKullmann2013PHPER}, another hardness measure is given which is called symmetric width. Also, the relation between this measure and $\whardness$ is discusses in Section 5 of this reference.
+  \item In \cite{BeyersdorffGwynneKullmann2013PHPER}, another hardness measure is given which is called symmetric width. Also, the relation between symmetric width and $\whardness$ is discusses in Section 5 of this reference.
   \end{enumerate}
   
 \begin{lem}\label{lem:hd-whd}
@@ -344,7 +343,7 @@ By \cite{BeyersdorffKullmann2014PHP}, $\Wrefc_0 = \Urefc_0$ and $\Wrefc_1 = \Ure
 \section{Game characterisations of hardness measures}
 \label{sec:game-pd}
 
-In \cite{PI2000}, a game (with two player: Delayer and Prover) is explained to obtain a lower bounds on resolution refutation for $F \in \Usat$. In this game, Delayer starts the game by claiming to know a satisfying assignment for $F$, and Prover wants to expose his lie by asking for a variable value in each round. Then, Delayer can either choose to set some variables to 0/1, or can defer the choice to the Prover. In the latter case, Delayer gets one point. This game is modified to an asymmetric version in \cite{BGL13a} which precisely characterises tree resolution size. In \cite{BeyersdorffKullmann2014PHP,BeyersdorffGwynneKullmann2013PHPER}, the asymmetric version of the game is characterised to obtain $\hardness(F)$ and $\whardness(F)$ of a clause-set $F \in \Cls$. In this game, Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ by two players. Delayer extend $\vp$ to $\vp'$ such that $\vp' \spe \vp$ while Prover extend $\vp$ to $\vp'$ such that $\vp' \spe \vp$ with $\vp' * F= \top$ or $n(\vp')=n(\vp)+1$. Section \ref{sec:game-hdf} is dedicated to explain the game for obtaining $\hardness(F)$ and in Section \ref{sec:game-whdf} the game for $\whardness(F)$ is presented.
+In \cite{PI2000}, a game (with two player: Delayer and Prover) is explained to obtain a lower bounds on resolution refutation for $F \in \Usat$. In this game, Delayer starts the game by claiming to know a satisfying assignment for $F$, and Prover wants to expose his lie by asking for a variable value in each round. Then, Delayer can either choose to set some variables to 0/1, or can defer the choice to the Prover. In the latter case, Delayer gets one point. The game is modified to an asymmetric version in \cite{BGL13a} which precisely characterises tree resolution size. In \cite{BeyersdorffKullmann2014PHP,BeyersdorffGwynneKullmann2013PHPER}, the asymmetric version of the game is characterised to obtain $\hardness(F)$ and $\whardness(F)$ of a clause-set $F \in \Cls$. In the game, Delayer starts the game and two players play in turns. There is a partial assignment $\vp \in \Pass: \var(\vp) \sse \var(F)$ (initially empty) that is extended to $\vp'$ by two players. Delayer extend $\vp$ to $\vp'$ such that $\vp' \spe \vp$ while Prover extend $\vp$ to $\vp'$ such that $\vp' \spe \vp$ with $\vp' * F= \top$ or $n(\vp')=n(\vp)+1$. Section \ref{sec:game-hdf} is dedicated to explain the game for obtaining $\hardness(F)$ and in Section \ref{sec:game-whdf} the game for $\whardness(F)$ is presented.
 
 \subsection{Game characterisations of tree-hardness}
 \label{sec:game-hdf}
@@ -419,7 +418,7 @@ In Definition \ref{lem:atm-m-D-P}, the atomic move for Delayer is defined as rem
 \subsection{Game characterisations of width-hardness}
 \label{sec:game-whdf}
 
-In \cite{BeyersdorffKullmann2014PHP}, a modified version of Prover-Delayer game is given to obtain the width-hardness of only unsatisfiable clause-sets. In this game, strategy of Delayer is to maximize $\whardness(F)$ while the strategy of Prover is to minimize $\whardness(F)$. There is a global partial  assignment $\vp \in \Pass$ with $\var(\vp) \sse \var(F)$ and initially empty which is extended by players and the game ends one $\bot \in \vp * F$ is achieved.
+In \cite{BeyersdorffKullmann2014PHP}, a modified version of Prover-Delayer game is given to obtain the width-hardness of only unsatisfiable clause-sets. In the game, strategy of Delayer is to maximize $\whardness(F)$ while the strategy of Prover is to minimize $\whardness(F)$. There is a global partial  assignment $\vp \in \Pass$ with $\var(\vp) \sse \var(F)$ and initially empty which is extended by players and the game ends one $\bot \in \vp * F$ is achieved.
 
 \begin{lem}\label{lem:whdgame}
 By \cite{BeyersdorffKullmann2014PHP}, for $F \in \Usat$ the Prover-Delayer game to obtain $\whardness(F)$ is as follows:
@@ -448,10 +447,10 @@ Can we generalise the game characterisation of width-hardness for all clause-set
 \section{XOR representation}
 \label{sec:XOR representation}
 
-The CNF-clause-sets is defined in Section \ref{sec:Clause-sets}. In this section, XOR-clause-set is explained for extending the hardness game for graphs. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. This representation is investigated in \cite{GwynneKullmann2013GoodRepresentations,GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} with the goal of finding a good representation for XOR-constraints.
+The CNF-clause-sets is defined in Section \ref{sec:Clause-sets}. In this section, XOR-clause-set is explained for extending the hardness game for graphs. An XOR-clause-set for $f$ is the interpretation of a clause-set $F \in \Cls$ as a system of XOR-constraints whose clauses $C$ are parity equation for $v \in \var(C)$. The XOR-representation is investigated in \cite{GwynneKullmann2013GoodRepresentations,GwynneKullmann2013GoodRepresentationsIIex,GwynneKullmann2013GoodRepresentationsIILata} with the goal of finding a good representation for XOR-constraints.
 
 \begin{defi}\label{def:xor-const} 
-An \textbf{XOR-constraint} (or parity constraint) is a boolean function (parity function) $f$ in the form of $x_1 \oplus \dots \oplus x_n = \ve$ that $x_1, \dots, x_n \in \Lit$ and $\ve \in \set{0,1}$.
+An \textbf{XOR-constraint} (or parity constraint) is a boolean function (parity function) $f$ in the form of $x_1 \oplus \dots \oplus x_n = \ve$, $n \in \NN$ such that $x_1, \dots, x_n \in \Lit$ and $\ve \in \set{0,1}$.
 \end{defi}
 
 Remarks:
@@ -491,10 +490,10 @@ The satisfiability of the following XOR-clause-sets $F$ are investigated using t
   \end{enumerate}
 \end{examp}
 
-For each XOR-clause-set $F$ there is a unique equivalent CNF-clause-set $F'$ (without auxiliary variables). To obtain this equivalent CNF-clause-set, a translation is defined and indicated by $X_0(F)$. This translation, converts each clause of $F$ to a set of full clauses in CNF-representation and then $F'$ is the union of these sets. If $F$ has long clauses, then obtaining $X_0(F)$ is not practical.
+For each XOR-clause-set $F$ there is a unique equivalent CNF-clause-set $F'$ (without auxiliary variables). To obtain the equivalent CNF-clause-set, a translation is defined and denoted by $X_0(F)$. The translation $X_0(F)$ converts each clause of $F$ to a set of full clauses in CNF-representation and then $F'$ is the union of these sets. If $F$ has long clauses, then obtaining $X_0(F)$ is not practical.
 
 \begin{defi}\label{def:x0tr}
-By \cite{GwynneKullmann2013GoodRepresentationsIIex}, the \textbf{$X_0$ translation} is a map $X_0: \Cls \ra \Cls$ where the input is an XOR-clause-set and the output is a  CNF-clause-set. Consider an XOR-clause $C \in F$, the $X_0$ translation of this clause is defined as the set of prime implicates of the boolean function for $C$ (without auxiliary variables) and indicated by $X_0(C)=\primec_0(x_1 \oplus \dots \oplus x_n = 0)$. The translation $X_0(C)$ contains all the full clauses over the set of variables in $C$ whose parity are different from the parity of $C$. Thus, $\abs{X_0(C)}=2^{\var(C)-1}$. Finally, the CNF-clause-set is obtained by $X_0(F) := \bc_{C \in F} X_0(C)$.
+By \cite{GwynneKullmann2013GoodRepresentationsIIex}, the \textbf{$X_0$ translation} is a map $X_0: \Cls \ra \Cls$ where the input is an XOR-clause-set and the output is a  CNF-clause-set. Consider an XOR-clause $C \in F$, the $X_0$ translation of $C$ is defined as the set of prime implicates of the boolean function for $C$ (without auxiliary variables) and denoted by $X_0(C)=\primec_0(x_1 \oplus \dots \oplus x_n = 0)$. The translation $X_0(C)$ contains all the full clauses over the set of variables in $C$ whose parity are different from the parity of $C$. Thus, $\abs{X_0(C)}=2^{\var(C)-1}$. Finally, the CNF-clause-set is obtained by $X_0(F) := \bc_{C \in F} X_0(C)$.
 \end{defi} 
 
 \begin{examp}\label{exp:X0}
@@ -525,44 +524,45 @@ Remarks:
   \end{enumerate}
 
 \begin{defi}\label{def:tseitindef}
-By \cite{GwynneKullmann2013GoodRepresentationsIIex}, a graph $G$ as explained in Lemma \ref{lem:chgvar} with $\ve=1$ in $\Phi$, is called a \textbf{Tseitin graph}. The equivalent CNF-clause-set of $G$ is obtained by $X_0$ translation of $T_0(G,\rho)$ and indicated by $\bmm{T(G,\rho)} := X_0(T_0(G,\rho))$. The clause-set $T(G,\rho) \in \Usat$ is called the \textbf{Tseitin clause-set} of $G$.
+By \cite{GwynneKullmann2013GoodRepresentationsIIex}, a graph $G$ as explained in Lemma \ref{lem:chgvar} with $\ve=1$ in $\Phi$, is called a \textbf{Tseitin graph}. The equivalent CNF-clause-set of $G$ is obtained by $X_0$ translation of $T_0(G,\rho) \in \Cls$ and denoted by $\bmm{T(G,\rho)} := X_0(T_0(G,\rho))$. The clause-set $T(G,\rho) \in \Usat$ is called the \textbf{Tseitin clause-set} of $G$.
 \end{defi}
 Remarks:
   \begin{enumerate}
   \item The clause-set $T(G,\rho) \in \Usat$ is an special subset of clause-sets $F \in \Usat$ and all variables $v \in \var(T(G,\rho) )$ are occurred at most in two clauses (every edge is labeled with a distinct variable). In the case of hypergraph (as in \cite{BeyersdorffGwynneKullmann2013PHPER}), we have hyperedges and variables occurring in more than two clauses are allowed.
-  \item Removing an edge $e \in E$ from a Tseitin graph $G$ is equivalent to assigning a value to $e$.
+  \item Removing an edge $e \in E(G)$ from a Tseitin graph $G$ is equivalent to assigning a value to $e$. Also, $G-e$ is a Tseitin graph.
+  \item A complete Tseitin graph with $n \in \NN$ vetices is denoted by $K_n$ in this report.
 \end{enumerate}
 %----------------------------------------------
 \section{Application of game characterisation for Tseitin graph}
 \label{sec:appgame}
 
-In Section \ref{sec:game-hdf}, a game is explained to obtain the hardness of a clause-set $F \in \Cls$. In this section, this game is applied to a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). 
+In Section \ref{sec:game-hdf}, a game is explained to obtain the hardness of a clause-set $F \in \Cls$. In this section, the game is applied to a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). 
 %For this reason, first the concept of atomic move is explained for Tsitin graph. Then, the structure of a tree (game-tree) showing all possible atomic moves for a Tseitin graph is given. Finally, the game is applied for a Tseitin graph. 
 
 %In this section based on the game characterisation of the hardness in Section \ref{sec:game-hdf}, a game is explained to obtain the hardness of a Tseitin graph (with Tseitin clause-set $T(G,\rho) \in \Usat$). For this reason, first the concept of atomic move is explained for Tsitin graph. Then, the structure of a tree (game-tree) showing all possible atomic moves for a Tseitin graph is given. Finally, the game is applied for a Tseitin graph.
  
 \begin{defi}\label{def:bridge}
-Consider a Tseitin graph $G$ as explained in Section \ref{sec:Tseitin graph}. If there is an edge $e \in E$ whose deletion increases the number of connected components of $G$, then $e$ is called a \textbf{bridge}.
+Consider a Tseitin graph $G$ as explained in Section \ref{sec:Tseitin graph}. If there is an edge $e \in E(G)$ whose deletion increases the number of connected components of $G$, then $e$ is called a \textbf{bridge}.
 \end{defi} 
 
 \begin{lem}\label{lem:game3}
-In a Tseitin graph $G$ if an edge $e \in E$ is removed, then $\rho(w)$ of both endpoints will be changed to keep $G$ unsatisfiable. 
+In a Tseitin graph $G$ if an edge $e \in E(G)$ is removed, then $\rho(w)$ of both endpoints will be changed to keep $T(G-e,\rho)$ unsatisfiable. 
 \end{lem}
 \begin{prf}
 According to the Definition \ref{def:tseitindef} of a Tseitin graph $G$, the XOR-clause-set $T_0(G,\rho)$ is unsatisfiable since $\ve=1$ for $\Phi$. Thus, based on Lemma \ref{lem:chgvar} by removing any edge (assigning a value to a variable) the equation of endpoints must be changed to keep $\ve=1$ unchanged.
 \end{prf}
 Remarks:
   \begin{enumerate}
-  \item For a Tseitin graph $G$, removing a bridge (assigning a variable) divides $G$ into two components $G_1,G_2 $ with $T(G_1,\rho), T(G_2,\rho) \in \Usat$. If the hardness of $G$ is indicated by $\hardness(T(G,\rho))$, then we have $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho)) \le \hardness(T(G,\rho)) $ (by Lemma \ref{lem:hd-var}). In this proposal  report,  $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$ are indicated by  $\hardness_1$ and $\hardness_2$ respectively.
+  \item For a Tseitin graph $G$, removing a bridge (assigning a variable) divides $G$ into two components $G_1,G_2 $ with $T(G_1,\rho), T(G_2,\rho) \in \Usat$. If the hardness of $G$ is denoted by $\hardness(T(G,\rho))$, then we have $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho)) \le \hardness(T(G,\rho)) $ (by Lemma \ref{lem:hd-var}). In this proposal  report,  $\hardness(T(G_1,\rho)), \hardness(T(G_2,\rho))$ are denoted by  $\hardness_1$ and $\hardness_2$ respectively.
 \end{enumerate}
 
-Consider the game in Lemma \ref{lem:hd-game-main} for obtaining the hardness of $F \in \Cls$. The game is performed between two players by removing some variables (assigning some variables) in each round. In \cite{BeyersdorffKullmann2014PHP}, this game is applied for a Tseitin graph $G$ to obtain the hardness of $T(G,\rho)$ as follows:
+Consider the game in Lemma \ref{lem:hd-game-main} for obtaining the hardness of $F \in \Cls$. The game is performed between two players by removing some variables (assigning some variables) in each round. In \cite{BeyersdorffKullmann2014PHP}, the game is applied for a Tseitin graph $G$ to obtain the hardness of $T(G,\rho)$ as follows:
 
 %In the case of Delayer, based on \cite{BeyersdorffKullmann2014PHP} the atomic move is just removing some variables while in the case of Prover, it is removing exactly one variables. Now for a Tseitin graph, based on this expression of atomic move (and also by considering removing at most one variable in each round), there is a tree (as in Lemma \ref{lem:game-tree}) showing all possible moves for the two players. The hardness of the graph $G$ can be obtained using this tree. Then, the atomic move is optimized for a Tsetin graph in Lemma \ref{lem:atmv} to apply this game for a this graph.
 
 
 \begin{lem}\label{lem:game-tseitin-hd}
-By \cite{BeyersdorffKullmann2014PHP}, consider  $G$ as a non-trivial Tseitin graph. Then $\hardness(T(G,\rho))$ is characterised by the following game:
+By \cite{BeyersdorffKullmann2014PHP}, consider  $G$ as a non-trivial Tseitin graph. Then $\hardness(T(G,\rho)) \in \NNZ$ is characterised by the following game:
   \begin{enumerate}
   \item An atomic move for $G$ is defined as removing some $e \in E(G)$ and choosing a connected component of $G - e$. 
   \item The two players play in turns, and Delayer starts with $G$.
@@ -588,9 +588,8 @@ Remarks:
 \begin{examp}\label{exp:gg1}
 Fig \ref{fig:gg1} shows the game-tree for graph $K_3$ (complete graph with 3 vertices). The children of each node are all possible moves (whether the move is optimal or not) in hardness game for $K_3$. Here, $\ve $ shows the empty move (or when delayer decides to remove no edge) and $\bot$ shows the end of game. The game starts from leaves by counting the number of prover's moves until that leaf and assign this number to that leaf. Then, by considering the maximum assigned number in the Delayer's level and the minimum number in the Prover's level we get the $\hardness(K_3)=2$.
    \begin{figure}
-     \begin{center}
-       XXX
-       % \includegraphics[scale =0.45]{gg1.png}
+   \begin{center}
+   \includegraphics[scale =0.45]{gg1.png}
    \caption{The game-tree for $K_3$.}
    \label{fig:gg1}
    \end{center}
@@ -599,14 +598,14 @@ Fig \ref{fig:gg1} shows the game-tree for graph $K_3$ (complete graph with 3 ver
 %The optimal value for the hardness of a Tseitin graph $G$ would be in the case that both players play optimally. The optimal move for Delayer is the one which maximizes the hardness and for Prover, the move that minimizes the hardness. Based on Lemma \ref{lem:game-tree}, the optimal move is explained as atomic move in Lemma \ref{def:atmv}.
 
 \begin{lem}\label{lem:tseitin-game-bridge}
-Consider a Tseitin graph $G \not = K_2$ with a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$. In the case of Delayer, the optimal atomic move is to remove the edge and discard the component with smaller hardness (that is having less edges) and the game is continued with the other component. In the case of Prover, the optimal atomic move is to remove the bridge and discard the component with bigger hardness.
+Consider a Tseitin graph $G \not = K_2$ with a bridge $e \in E(G)$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$. In the case of Delayer, the optimal atomic move is to remove the edge and discard the component with smaller hardness (that is having less edges) and the game is continued with the other component. In the case of Prover, the optimal atomic move is to remove the bridge and discard the component with bigger hardness.
 \end{lem}
 \begin{prf}
 Based on Section \ref{sec:game-pd}, the strategy of Delayer is to delay the game while for the Prover it is vise verse. If $G=K_2$, then Delayer must not remove the bridge otherwise the game ends. Else if $G \not = K_2$, then Delayer should remove the bridge and choose the component with bigger hardness to delay the game (to prevent the case that Prover chooses the smaller component). Otherwise Prover removes the bridge and chooses the smaller component to finish the game ASAP.
 \end{prf}
 
 \begin{lem}\label{lem:hd1hd2}
-Consider a Tseitin graph $G \not = K_2$. If there is a bridge $e \in E$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$, then there are two cases for $\hardness_{total}$. If $\hardness_1= \hardness_2$, then $\hardness_{total}= \hardness_1= \hardness_2$. Else, $ \abs {\hardness_1- \hardness_2 } \geq 1$ and if $ \hardness_1 > \hardness_2 $  then $\hardness_{total}= \hardness_1$.
+Consider a Tseitin graph $G \not = K_2$. If there is a bridge $e \in E(G)$ such that connects two components $G_1,G_2$ with $\hardness_1$ and $\hardness_2$, then there are two cases for $\hardness_{total}$. If $\hardness_1= \hardness_2$, then $\hardness_{total}= \hardness_1= \hardness_2$. Else, $ \abs {\hardness_1- \hardness_2 } \geq 1$ and if $ \hardness_1 > \hardness_2 $  then $\hardness_{total}= \hardness_1$.
 \end{lem}	
 \begin{prf}
 Based on Lemma \ref{lem:game-tseitin-hd}, Delayer starts the game. If $\hardness_1= \hardness_2$, then it does not change the result whether Delayer removes the bridge or it chooses to do nothing and Prover removes the bridge in next move. In both cases $\hardness_{total}$ would be equal to the hardness of the selected component. Otherwise, if $ \hardness_1 > \hardness_2 $ based on \ref{lem:tseitin-game-bridge} Delayer removes the bridge and discards the  component with smaller hardness. In this case, Prover has not performed any move and it did not get any points. Thus, in the next step Prover continues the game and  $\hardness_{total}= \hardness_1$.
@@ -620,7 +619,7 @@ Consider Lemma \ref{lem:hd1hd2}. If $ \abs {\hardness_1- \hardness_2 } \geq 2$ a
 \end{prf}
 
 \begin{lem}\label{lem:atmvtseitin}
-Consider the game in Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$ with Tseitin clause-set $T(G,\rho) \in \Usat$. The optimal atomic move in Lemma \ref{lem:atm-m-D-P} for this game is as follows:
+Consider the game in Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$ with Tseitin clause-set $T(G,\rho) \in \Usat$. The optimal atomic move in Lemma \ref{lem:atm-m-D-P} for the game is as follows:
   \begin{enumerate}
   \item In the case of Delayer, if $G \not = K_2$, the optimal atomic move is removing all bridges (trouble makers) and then choosing the component with the biggest hardness (and discarding other components). 
   \item In the case of Prover, there are two possible situations. If there is no bridge in the graph then the optimal atomic move for Prover is not clear but it should remove an edge. If there is only one bridge, then the optimal atomic move is removing the bridge and choosing the component with the smallest hardness (and discarding other components). In both cases, the hardness decreases one unit.
@@ -644,7 +643,7 @@ Remarks:
 %\end{prf}
 
 \begin{examp}\label{exp:hd-K3}
-Fig \ref{fig:game1} shows the Prover-Delayer game based on optimal atomic move in Lemma \ref{lem:atmvtseitin} for graph $K_3$ in Fig \ref{fig:hd1}. In this game, Delayer starts the game and since the graph has no bridge, Delayer differs the choice to Prover. Then, Prover removes an edge (in this case, he can remove any edge). In third move, Delayer has to do nothing since removing any edge will lead to ending the game. Thus, Prover removes an edge and the graph is divided to two components: one isolated vertex and one edge. Prover chooses the vertex (the smaller component) to finish the game. The hardness of the graph (which is the number of moves done by Prover) is as $\hardness(K_3)=2$.
+Fig \ref{fig:game1} shows the Prover-Delayer game based on optimal atomic move in Lemma \ref{lem:atmvtseitin} for graph $K_3$ in Fig \ref{fig:hd1}. In the game, Delayer starts the game and since the graph has no bridge, Delayer differs the choice to Prover. Then, Prover removes an edge (in this case, he can remove any edge). In third move, Delayer has to do nothing since removing any edge will lead to ending the game. Thus, Prover removes an edge and the graph is divided to two components: one isolated vertex and one edge. Prover chooses the vertex (the smaller component) to finish the game. The hardness of the graph (which is the number of moves done by Prover) is as $\hardness(K_3)=2$.
   \begin{figure}%[h]
   \centering
   \begin{tabular}{|c|c|} 
@@ -656,9 +655,8 @@ Fig \ref{fig:game1} shows the Prover-Delayer game based on optimal atomic move i
   \caption{The optimal atomic moves for graph $K_3$ in Fig \ref{fig:hd1} with $\hardness(K_3)=2$.}  \label{fig:game1}
   \end{figure}
   \begin{figure}
-    \begin{center}
-      XXX
-      % \includegraphics[scale =0.45]{g1.png}
+  \begin{center}
+  \includegraphics[scale =0.45]{g1.png}
   \caption{The hardness game for graph $K_3$ in Example \ref{exp:hd-K3}.} \label{fig:hd1}
   \end{center}
   \end{figure}
@@ -679,9 +677,8 @@ Fig \ref{fig:game2} shows the Prover-Delayer game based on optimal atomic move i
   \caption{The optimal atomic moves for Fig \ref{fig:hd2} and  $\hardness(K_4)=4$.} \label{fig:game2}
   \end{figure}
   \begin{figure}
-    \begin{center}
-      XXX
-      % \includegraphics[scale =0.26]{g2.png}
+  \begin{center}
+  \includegraphics[scale =0.26]{g2.png}
   \caption{The hardness game for graph $K_4$ in Example \ref{exp:hd-K4}.}  \label{fig:hd2}
   \end{center}
   \end{figure}	   
@@ -705,9 +702,8 @@ Fig \ref{fig:game3} shows  the Prover-Delayer game based on optimal atomic move 
   \caption{The optimal atomic moves for Fig \ref{fig:hd3} and $\hardness(K_5)=7$.} \label{fig:game3}
   \end{figure}
   \begin{figure}
-    \begin{center}
-      XXX
-      % \includegraphics[scale =0.4]{g3.png}
+  \begin{center}
+  \includegraphics[scale =0.4]{g3.png}
   \caption{The hardness game for graph $K_5$ in Example \ref{exp:hd-K5}.} \label{fig:hd3}
   \end{center}
   \end{figure}
@@ -764,9 +760,8 @@ Fig \ref{fig:game4} shows the atomic moves of hardness game for graph $G_1$ in F
    \caption{The optimal atomic moves for Fig \ref{fig:hd4}.} \label{fig:game4}
    \end{figure}
    \begin{figure}
-     \begin{center}
-       XXX
-       % \includegraphics[scale =0.4]{graph_hd1.png}
+   \begin{center}
+   \includegraphics[scale =0.4]{graph_hd1.png}
    \caption{The hardness game for graph $G_1$ in Example \ref{exp:graph-notK}.}  \label{fig:hd4}
    \end{center}
    \end{figure}
@@ -781,7 +776,7 @@ The time complexity of the Delayer-Prover game in Lemma \ref{lem:game-tseitin-hd
 \end{conj}
 
 \begin{quest}\label{que:gamehd-move}
-Consider Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$. If Delayer removes some non-bridge edges $e \in E$ such that the hardness remain unchanged, then is optimal value of the game still the hardness of $G$?
+Consider Lemma \ref{lem:game-tseitin-hd} for a Tseitin graph $G$. If Delayer removes some non-bridge edges $e \in E(G)$ such that the hardness remain unchanged, then is optimal value of the game still the hardness of $G$?
 \end{quest}
 
 \begin{quest}\label{que:gamehd}
@@ -792,7 +787,7 @@ How can we extend the game in Lemma \ref{lem:game-tseitin-hd} for Tseitin hyperg
 In Section  \ref{sec:game-whdf}, a game characterisation is given to obtain the width-hardness of a clause-set $F \in \Usat$. Here, this game is applied to a Tseitin garph $G$ based on Lemma 9.7 in \cite{BeyersdorffGwynneKullmann2013PHPER}.
 
 \begin{lem}\label{lem:whd-tseitin-game}
-By \cite{BeyersdorffGwynneKullmann2013PHPER}, consider  a Tseitin graph $G$ for a Tseitin clause-set $T(G,\rho) \in \Usat$. Then $\whardness(T(G,\rho))$ is obtained as follows:
+By \cite{BeyersdorffGwynneKullmann2013PHPER}, consider  a Tseitin graph $G$ for a Tseitin clause-set $T(G,\rho) \in \Usat$. Then $\whardness(T(G,\rho)) \in \NNZ$ is obtained as follows:
   \begin{enumerate}
   \item The atomic move is the same as Lemma \ref{lem:game-tseitin-hd} (as removing some $e \in E(G)$ and choosing a connected component of $G - e$).
   \item Two players play in turns, and Delayer starts the game.
@@ -826,7 +821,7 @@ In this section, an overview of minimally unsatisfiable clause-sets is given at 
 %One of the main class of unsatisfiable clause-sets are minimally unsatisfiable clause-sets which is referred as the building block for understanding unsatisfiability in \cite{KullmannZhao2010Extremal}. So, understanding the concept of minimally unsatisfiable clause-sets and investigating their properties and subclasses are important. An overview of these clause-sets are presented in \cite{KullmannZhao2010Extremal, Kullmann2007HandbuchMU,KullmannZhao2012ConfluenceJ}. An interesting measure for the complexity of clause-sets and particularly minimally unsatisfiable clause-sets is deficiency. 
 
 \begin{defi}\label{def:mu}
-A clause-set $F \in \Usat$ is \textbf{minimally unsatisfiable} if by removing any arbitrary clause $C \in F$, the clause-set $F \sm \set{C}$ becomes satisfiable. The set of all minimally unsatisfiable clause-sets is indicated by $\bmm{\Musat} \in \Usat$.
+A clause-set $F \in \Usat$ is \textbf{minimally unsatisfiable} if by removing any arbitrary clause $C \in F$, the clause-set $F \sm \set{C}$ becomes satisfiable. The set of all minimally unsatisfiable clause-sets is $\bmm{\Musat} \in \Usat$.
 \end{defi}
 Remarks:
   \begin{enumerate}
@@ -835,23 +830,23 @@ Remarks:
   \end{enumerate}
 
 \begin{defi}\label{def:deficiency}
-The \textbf{deficiency} for a clause-set $F \in \Cls$ is defined as the difference between the number of clauses and the number of variables and indicated by $\bmm{\delta} \in \ZZ: \delta(F)= c(F) - n(F)$.
+The \textbf{deficiency} for a clause-set $F \in \Cls$ is defined as the difference between the number of clauses and the number of variables and denoted by $\bmm{\delta} \in \ZZ: \delta(F)= c(F) - n(F)$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item In this report, the minimally unsatisfiable clause-sets with deficiency $k \in \ZZ$ are indicated by $\Musati{\delta=k}$.
+  \item In this report, the minimally unsatisfiable clause-sets with deficiency $k \in \ZZ$ are denoted by $\Musati{\delta=k}$.
   \item The complexity of the problem $\Musati{\delta=k}$ with fixed $k$ is $P$ (by Theorem 11.2.1 in \cite{Kullmann2007HandbuchMU}).
   \item All $F \in \Musati{\delta=k}$ have $k \ge 1$ (by Theorem 8 in \cite{DDK98}).
   \end{enumerate}
 
 \begin{defi}\label{def:degree}
-For a clause-set $F \in \Cls$ the \textbf{literal degree} for a literal $x \in \lit(F)$ is the number of the literal occurrence and denoted by $\bmm{\ldeg_F(x)} \in \NNZ$. The \textbf{variable degree} for a variable $v \in \var(F)$ is defined as $\bmm{\vdeg_F(v)} := \ldeg_F(v) + \ldeg_F(-v) \in \NNZ$. Also, the \textbf{minimum variable degree} (or min-var-deg) is defined as the minimum of variable degree for all variables in $F$ and indicated by $\bmm{\minvdeg(F)} \in \NN$.
+For a clause-set $F \in \Cls$ the \textbf{literal degree} for a literal $x \in \lit(F)$ is the number of the literal occurrence and denoted by $\bmm{\ldeg_F(x)} \in \NNZ$. The \textbf{variable degree} for a variable $v \in \var(F)$ is defined as $\bmm{\vdeg_F(v)} := \ldeg_F(v) + \ldeg_F(-v) \in \NNZ$. Also, the \textbf{minimum variable degree} (or min-var-deg) is defined as the minimum of variable degree for all variables in $F$ and denoted by $\bmm{\minvdeg(F)} \in \NN$.
 \end{defi}
 Remarks:
   \begin{enumerate}
   \item It is obvious that $\vdeg_F(v) \le 2 \delta(F)$ and thus for $n(F) >0$, $\minvdeg(F) \le 2 \delta(F)$. A sharper upper bound for $\minvdeg(F)$ is given in Theorem 9.10 of \cite{KullmannZhao2010Extremal}.
   \item All full clauses $A_n$ have deficiency $2^n - n$ and if $n \ge 1$, then  $\minvdeg(A_n) =2^n$.
-  \item In \cite{KullmannZhao2010Extremal}, the problem of finding the min-var-deg for minimally unsatisfiable clause-sets with fixed deficiency is indicated by $\minnonmer(k) $ (that is $\minnonmer(k)  :=  \minvdeg(\Musati{\delta=k}) \in \NN$) and an improved upper bound/ lower bound for $\minnonmer(k) $ is given.
+  \item In \cite{KullmannZhao2010Extremal}, the problem of finding the min-var-deg for minimally unsatisfiable clause-sets with fixed deficiency is denoted by $\minnonmer(k) $ (that is $\minnonmer(k)  :=  \minvdeg(\Musati{\delta=k}) \in \NN$) and an improved upper bound/ lower bound for $\minnonmer(k) $ is given.
     \end{enumerate}
     
 \begin{defi}\label{def:singvar}
@@ -859,7 +854,7 @@ By \cite{KullmannZhao2012ConfluenceJ}, for a non-pure variable $v \in \var(F)$ i
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item The set of nonsingular minimally unsatisfiable clause-sets $F \in \Musat$ is indicated by $\bmm{\Musat'} \in \Musat$. Thus, if $F \in \Musat'$, then all variables in $F$ are occurred at least twice positively and at least twice negatively.
+  \item The set of nonsingular minimally unsatisfiable clause-sets $F \in \Musat$ is denoted by $\bmm{\Musat'} \in \Musat$. Thus, if $F \in \Musat'$, then all variables in $F$ are occurred at least twice positively and at least twice negatively.
   \item A \textbf{non-1-singular variable} is a variable which $m$-singular for some $m \ge 2$.
    \end{enumerate}
  
@@ -902,11 +897,11 @@ Remarks:
 \label{sec:hit}
 
 \begin{defi}\label{def:hit-cls}
-A clause-set $F \in \Cls $ is called a \textbf{hitting clause-set} iff all clauses $C,D \in F$, $C \not = D$ have at least one clash. The set of all hitting clause-sets is indicated by $\bmm{\Clash} \in \Cls$.
+A clause-set $F \in \Cls $ is called a \textbf{hitting clause-set} iff all clauses $C,D \in F$, $C \not = D$ have at least one clash. The set of all hitting clause-sets is $\bmm{\Clash} \in \Cls$.
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item The set of all unsatisfiable hitting clause-sets is indicated by $\bmm{\Uclash} := \Usat \cap \Clash$. The set of all nonsingular unsatisfiable hitting clause-sets is denoted by $\bmm{\Uclash'} \subset \Uclash$).
+  \item The set of all unsatisfiable hitting clause-sets is $\bmm{\Uclash} := \Usat \cap \Clash$. The set of all nonsingular unsatisfiable hitting clause-sets is denoted by $\bmm{\Uclash'} \subset \Uclash$).
   \item If $F \in \Uclash$, then every clause $C \in F$ (as a partial assignment) is a satisfying assignment for $F \sm \set{C}$.
   \item If $F \in \Musat$ then removing any clause $C \in F$ makes $F \sm \set{C}$ satisfiable. On the other hand, if $F \in \Uclash$ then every $C \in F$ is a satisfying assignment for $F \sm \set{C}$. Thus, $\Uclash \subset \Musat$. \cite{KullmannZhao2016UHitSAT} gives an overview of unsatisfiable hitting clause-sets.
   \item For all full clauses $A_n$ we have $A_n \in \Uclash$.
@@ -932,7 +927,7 @@ A clause set $F \in \Cls$ is called \textbf{saturated} minimally unsatisfiable i
 \end{defi}
 Remarks:
   \begin{enumerate}
-  \item The set of all nonsingular saturated minimally unsatisfiable clause-sets is indicated by $\bmm{\Smusatns} \subset \Smusat$.
+  \item The set of all nonsingular saturated minimally unsatisfiable clause-sets is $\bmm{\Smusatns} \subset \Smusat$.
   \item For all clause-sets $F \in \Cls$, if $F \in \Uclash$ then $ F \in \Smusat$ ,i.e. $\Uclash \subset \Smusat$ (by Lemma 2 in \cite{KullmannZhao2012ConfluenceJ}). 
   \item The properties of clause-set in $\Smusatnsi{\delta=1}, \Smusatnsi{\delta=2}$ are investigated in Sections \ref{sec:smu1} , \ref{sec:smu2}.
   \item For every $F \in \Musat$ there is a saturation $F' \in \Smusat$. A saturated clause-set  $F'$ for $F$ is obtained using an operation defined in Definition \ref{def:smu-opr}.
@@ -999,7 +994,7 @@ By \cite{KullmannZhao2012ConfluenceJ}, for $S \in \Smusat$ we have $\abs{\sdp(F)
 \end{lem} 
 
 \begin{defi}\label{def:singularextn}
-By \cite{KullmannZhao2010Extremal} for a clause-set $F \in\Cls$ and a variable $v \not \in \var(F)$, a \textbf{singular extension} is defined as the reverse direction of a singular DP-reduction. Thus, for obtaining a \textbf{singular m-extension} $F' $of $F$ with $v$, first we choose $m$ different clauses $D_i:D_1, \dots, D_m \in F$. Then, we consider a clause  $C: C \sse \bca_{i=1}^m D_i$. In the next step, for every $D_i$ we consider a clause $D_i':(D_i \sm C) \sse D_i' \sse D_i$. Finally, we obtain $C' := C \addcup \set{x}$, and $D_i'' := D_i' \addcup \set{\ol{x}}$ for $i \in \tb 1m$. Then, we have:
+By \cite{KullmannZhao2010Extremal} for a clause-set $F \in\Cls$ and a variable $x \not \in \var(F)$, a \textbf{singular extension} is defined as the reverse direction of a singular DP-reduction. Thus, for obtaining a \textbf{singular m-extension} $F' $of $F$ with $x$, first we choose $m$ different clauses $D_i:D_1, \dots, D_m \in F$. Then, we consider a clause  $C: C \sse \bca_{i=1}^m D_i$. In the next step, for every $D_i$ we consider a clause $D_i':(D_i \sm C) \sse D_i' \sse D_i$. Finally, we obtain $C' := C \addcup \set{x}$, and $D_i'' := D_i' \addcup \set{\ol{x}}$ for $i \in \tb 1m$. Then, we have:
   \begin{displaymath}
     F' := (F \sm \set{D_1,\dots,D_m}) \addcup \set{C', D_1'',\dots,D_m''}.
   \end{displaymath}
@@ -1026,7 +1021,7 @@ The \textbf{subsumption resolution} is a reduction of a clause-set $F \in \Cls$ 
 \end{defi}
 
 \begin{defi}\label{def:fsr}
-\cite{KullmannZhao2010Extremal} The \textbf{strict full subsumption resolution} is the reduction of $F \in \Cls$ to $F'\in \Cls$ as follows and indicated by $\bmm{F \tsubres F'}$. To obtain $F'$, consider a clause $R \in F'$ (the resolvent) and a literal $x \in \var(F'):\var(x) \notin R$ ($x, \ol{x}$ the resolution literals). Then if $C := R \addcup \set{x}$ and $D := R \addcup \set{\ol{x}}$ (the parent clauses), then we have $F = (F' \sm \set{R}) \addcup \set{C,D}$.
+\cite{KullmannZhao2010Extremal} The \textbf{strict full subsumption resolution} is the reduction of $F \in \Cls$ to $F'\in \Cls$ as follows and denoted by $\bmm{F \tsubres F'}$. To obtain $F'$, consider a clause $R \in F'$ (the resolvent) and a literal $x \in \var(F'):\var(x) \notin R$ ($x, \ol{x}$ the resolution literals). Then if $C := R \addcup \set{x}$ and $D := R \addcup \set{\ol{x}}$ (the parent clauses), then we have $F = (F' \sm \set{R}) \addcup \set{C,D}$.
 
 $F \tsubresk{k} F'$ for $k \in \NNZ$ shows the application of exactly $k$ steps of strict full subsumption resolution. 
 \end{defi}
@@ -1066,7 +1061,7 @@ See Lemma \ref{lem:sDP-infl}.
 If $F \in \Musati{\delta=1}$ with $n(F)=m$, then it can be refuted in $m$ resolution steps (that is performing exactly $m$ steps of singular DP-reduction).
 \end{lem}
 \begin{prf}
-By Lemma \ref{lem:mu1-sdp} we know that $sDF(\Musati{\delta=1})=\set{\bot}$. Also, from Lemma \ref{lem:mu1-uvd} we know that if $F \in \Musati{\delta=1}$ with $n(F) > 0$, then there is at least one variable occurring exactly one positively and exactly one negatively. Now for $F \in \Musati{\delta=1}$ if we perform one step sDP (refutation) for this variable (and obtain $F' \in \Musati{\delta=1}$) two cases may happen. The first case is that $F' =\set{\bot}$. The second case is that $F' \not = \set{\bot}$ and it must have at least one variable occurring exactly one positively and exactly one negatively. Thus, if we continue this process we get $\set{\bot}$ after exactly $m$ steps. 
+By Lemma \ref{lem:mu1-sdp} we know that $sDF(\Musati{\delta=1})=\set{\bot}$. Also, from Lemma \ref{lem:mu1-uvd} we know that if $F \in \Musati{\delta=1}$ with $n(F) > 0$, then there is at least one variable $v \in \var(F)$ occurring exactly one positively and exactly one negatively. Now for $F \in \Musati{\delta=1}$ if we perform one step sDP (refutation) for $v$ (and obtain $F' \in \Musati{\delta=1}$) two cases may happen. The first case is that $F' =\set{\bot}$. The second case is that $F' \not = \set{\bot}$ and it must have at least one variable occurring exactly one positively and exactly one negatively. Thus, if we continue this process we get $\set{\bot}$ after exactly $m$ steps. 
 \end{prf}
 
 \begin{lem}\label{lem:mu1-sma-uhit}
@@ -1095,7 +1090,7 @@ For the proof of the second part, if $F'$ is obtained by removing any literal $x
 For a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $, we can obtain any $F' \in  \Musati{\delta=1}$ with $\var(F)=\var(F')$ by iterated application of subsumption resolution.
 \end{lem}
 \begin{prf}
-For the reason of using subsumption resolution see Lemma \ref{lem:mu1-build} part 2. We can perform this operation for $F \in \Smusati{\delta=1}$ if no pure literal is produced which is exactly the condition of subsumption resolution in Definition \ref{def:sres} (that is there must be a clause $D \in F: D \sm \set{\ol x} \sse C$).
+For the reason of using subsumption resolution see Lemma \ref{lem:mu1-build} part 2. We can perform subsumption resolution for $F \in \Smusati{\delta=1}$ if no pure literal is produced which is exactly the condition of subsumption resolution in Definition \ref{def:sres} (that is there must be a clause $D \in F: D \sm \set{\ol x} \sse C$).
 \end{prf}
 
 \begin{lem}\label{lem:smu1-uhit1}
@@ -1134,20 +1129,18 @@ Consider two clause-sets $F_1,F_2 \in \Smusati{\delta=1}$. Then, $F_1=F_2 \iff T
 \end{lem}    
 \begin{prf}
 By Definition \ref{def:isomo-trees} and Lemma \ref{lem:mu1-build}.
-%For $F \in \Smusati{\delta=1}$ there exist a unique resolution tree $ T(F) $ as described in Lemma \ref{} part 1. Also, based on Definition \ref{}, if two binary tree is isomorphic then there is a bijective map between them. 
 \end{prf}                                                                                                     
                                                                                                                                                                                                                                            
 \begin{lem}\label{lem:mu1-iso-num}
-Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ variables. Then, the number of isomorphic trees $T(F)$ with $n$ variables is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
+Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ clauses ($n-1$ variables). Then, the number of isomorphic trees $T(F)$ with $n$ clauses is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
 \begin{displaymath}
  1, 1, 1, 2, 3, 6, 11, 23, 46, 98, 207, 451, ...
 \end{displaymath}
-The first number is for trivial resolution tree, the second one is for $n=1$ and etc. Pic \ref{fig:isotree} shows the isomorphic trees for $n=0,1,..., 5$.
+The first number is for trivial resolution tree, the second one is for $n=1$ and etc. Pic \ref{fig:isotree} shows the isomorphic trees for $n=1,..., 6$.
  \begin{figure}
    \begin{center}
-     XXX
-     % \includegraphics[scale =0.45]{a001190.png}
-   \caption{The isomorphic trees for $n=0,1,..., 5$ by \url{https://oeis.org/A001190/a001190.gif}.}
+   \includegraphics[scale =0.45]{a001190.png}
+   \caption{The isomorphic trees for $n=1,..., 6$ by \url{https://oeis.org/A001190/a001190.gif}.}
    \label{fig:isotree}
    \end{center}
    \end{figure}
@@ -1317,8 +1310,8 @@ How can we determine the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
 \bibliographystyle{plainurl}
-\BibliographyOKlibrary
-%\bibliography{HA_ResearchRef}
+%\BibliographyOKlibrary
+\bibliography{HA_ResearchRef}
 
 \end{document}
 
