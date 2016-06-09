@@ -6,7 +6,7 @@
 
 \usepackage{a4}
 \usepackage{graphicx}
-\usepackage{tikz-qtree}
+%\usepackage{tikz-qtree}
 \usepackage[active]{srcltx}
 \usepackage[all]{xy}
 \usepackage{enumerate}
@@ -94,7 +94,15 @@ In this chapter, basic concepts and definitions is given according to \cite{Gwyn
 \section{Clause-sets}
 \label{sec:Clause-sets}
 
-The infinite set of variables is denoted by $\bmm{\Va}$. A \textbf{partial assignment} $\vp$ is a map which assigns a value in $\set{0,1}$ to some elements of a finite set of variables. The domain of the map is a set of variables denoted by $\var(\vp)$. The set of all partial assignments is $\bmm{\Pass}$ and for $V \in \pote(\Va)$, $\bmm{\Tass(V)}$ is the set of total assignments over $V$. The empty partial assignment is denoted by $\epa:= \es \in \Pass$. For a partial assignment $\vp \in \Pass$, the number of variables is defined as $n(\vp):=\abs{\var(\vp)}$. For two partial assignments $\vp, \psi \in \Pass$, the composition operation is defined as $\bmm{\vp \circ \psi} := \psi \cup (\vp \sm \var(\psi)) \in \Pass$ which is the union of their variables if they do not conflict. In the case of conflicting variables, the second assignment is considered. The operation has associative property and it is commutative if $\vp, \psi$ do not clash.
+The infinite set of variables is denoted by $\bmm{\Va}$. A \textbf{partial assignment} $\vp$ is a map which assigns a value in $\set{0,1}$ to some elements of a finite set of variables. The domain of $\vp$ is denoted by $\var(\vp) \subset \Va$. The set of all partial assignments is $\bmm{\Pass}$ and for $V \in \pote(\Va)$, that is, a finite set of variables, $\bmm{\Tass(V)}$ is the set of total assignments over $V$, that is, the set of $\vp \in \Pass$ with $\var(\vp) = V$. The empty partial assignment is denoted by $\epa:= \es \in \Pass$. For a partial assignment $\vp \in \Pass$, the number of variables is defined as $n(\vp):=\abs{\var(\vp)} \in \NNZ$.
+
+XXX $\vp = \set{(v,\vp(v)) : v \in \var(\vp)}$
+
+$f = \set{(x,f(x)) : x \in \dom(f)}$
+
+for a map $f$ and a set $X$, we denote by $f | X := \set{(x,f(x)) : x \in \dom(f) \cap X}$ XXX
+
+For two partial assignments $\vp, \psi \in \Pass$, the composition operation is defined as $\bmm{\vp \circ \psi} := \psi \cup (\vp | \var(\psi)) \in \Pass$ which is the ??? union of their variables if they do not conflict. In the case of conflicting variables, the second assignment $\psi$ is considered. This operation is associative, and it is commutative if $\vp, \psi$ do not clash (that is not having conflict).
 
 A \textbf{literal} is a pair $(v,\ve)$ with $\var((v,\ve)):=v \in \Va$ (the underlying variable) and $\val((v,\ve)):=\ve \in \set{0,1}$. The set of all literals is $\bmm{\Lit}$. Two literals $x, y \in \Lit$ clash if they have a same variable but different values. For a set $L \sse \Lit$ we define $\var(L) := \set{\var(x) :x \in L}$, $\lit(L):= \set{x \in \Lit : \var(x) \in \var(L)}$ and $\ol{L} := \lit(L) \sm L$. A \textbf{clause} is defined as a finite and clash-free set of literals. The set of all clauses is denoted by $\bmm{\Cl}$ and $\bot := \es \in \Cl$ is the empty clause. The length (width) of a clause $C$ is the number of variables in $C$.
 
@@ -167,9 +175,9 @@ Remarks:
 A resolution tree for $F = \set{\set{a,b},\set{\ol a,b},\set{a, \ol b},\set{\ol a, \ol b}}$ is as Fig \ref{fig:resol1}. Since the empty clause is driven, it is called the resolution refutation.
    \begin{figure}
    \centering  
-   \begin{tikzpicture}[grow'=up]
-   \Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\ol a,b\}}$ ] [.${\{ \ol b\}}$ ${\{a, \ol b\}}$ ${\{\ol a, \ol b\}}$ ] ]
-   \end{tikzpicture}
+   %\begin{tikzpicture}[grow'=up]
+   %\Tree [.$\bot$  [.${\{b\}}$ ${\{a,b\}}$ ${\{\ol a,b\}}$ ] [.${\{ \ol b\}}$ ${\{a, \ol b\}}$ ${\{\ol a, \ol b\}}$ ] ]
+  % \end{tikzpicture}
    \caption{A resolution tree for Example \ref{exp:res1}.}
    \label{fig:resol1}
    \end{figure}
@@ -589,7 +597,7 @@ Remarks:
 Fig \ref{fig:gg1} shows the game-tree for graph $K_3$ (complete graph with 3 vertices). The children of each node are all possible moves (whether the move is optimal or not) in hardness game for $K_3$. Here, $\ve $ shows the empty move (or when delayer decides to remove no edge) and $\bot$ shows the end of game. The game starts from leaves by counting the number of prover's moves until that leaf and assign this number to that leaf. Then, by considering the maximum assigned number in the Delayer's level and the minimum number in the Prover's level we get the $\hardness(K_3)=2$.
    \begin{figure}
    \begin{center}
-   \includegraphics[scale =0.45]{gg1.png}
+  % \includegraphics[scale =0.45]{gg1.png}
    \caption{The game-tree for $K_3$.}
    \label{fig:gg1}
    \end{center}
@@ -656,7 +664,7 @@ Fig \ref{fig:game1} shows the Prover-Delayer game based on optimal atomic move i
   \end{figure}
   \begin{figure}
   \begin{center}
-  \includegraphics[scale =0.45]{g1.png}
+  %\includegraphics[scale =0.45]{g1.png}
   \caption{The hardness game for graph $K_3$ in Example \ref{exp:hd-K3}.} \label{fig:hd1}
   \end{center}
   \end{figure}
@@ -678,7 +686,7 @@ Fig \ref{fig:game2} shows the Prover-Delayer game based on optimal atomic move i
   \end{figure}
   \begin{figure}
   \begin{center}
-  \includegraphics[scale =0.26]{g2.png}
+  %\includegraphics[scale =0.26]{g2.png}
   \caption{The hardness game for graph $K_4$ in Example \ref{exp:hd-K4}.}  \label{fig:hd2}
   \end{center}
   \end{figure}	   
@@ -703,7 +711,7 @@ Fig \ref{fig:game3} shows  the Prover-Delayer game based on optimal atomic move 
   \end{figure}
   \begin{figure}
   \begin{center}
-  \includegraphics[scale =0.4]{g3.png}
+  %\includegraphics[scale =0.4]{g3.png}
   \caption{The hardness game for graph $K_5$ in Example \ref{exp:hd-K5}.} \label{fig:hd3}
   \end{center}
   \end{figure}
@@ -761,7 +769,7 @@ Fig \ref{fig:game4} shows the atomic moves of hardness game for graph $G_1$ in F
    \end{figure}
    \begin{figure}
    \begin{center}
-   \includegraphics[scale =0.4]{graph_hd1.png}
+  % \includegraphics[scale =0.4]{graph_hd1.png}
    \caption{The hardness game for graph $G_1$ in Example \ref{exp:graph-notK}.}  \label{fig:hd4}
    \end{center}
    \end{figure}
@@ -1139,7 +1147,7 @@ Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ clauses ($n-1$ variables).
 The first number is for trivial resolution tree, the second one is for $n=1$ and etc. Pic \ref{fig:isotree} shows the isomorphic trees for $n=1,..., 6$.
  \begin{figure}
    \begin{center}
-   \includegraphics[scale =0.45]{a001190.png}
+   %\includegraphics[scale =0.45]{a001190.png}
    \caption{The isomorphic trees for $n=1,..., 6$ by \url{https://oeis.org/A001190/a001190.gif}.}
    \label{fig:isotree}
    \end{center}
@@ -1217,7 +1225,7 @@ For the first part, consider $F \in \Musati{\delta=2}$. Then, based on Lemma \re
 \end{prf}
 Remarks:
   \begin{enumerate}
-  \item There is exactly one full element of $\Musati{\delta=2}$, namely $A_2$.
+  \item There is exactly one full clause-set in $\Musati{\delta=2}$, namely $A_2$ (up to isomorphism).
   \item For $\Dt{n} \in \Smusatnsi{\delta=2}$ and each $v \in \var(\Dt{n})$, $\ve \in \set{0,1}$, holds $\pao v{\ve} * \Dt{n} \in \Musati{\delta=1}$ (by Lemma \ref{lem:smu-mu}).
   \end{enumerate}
   
