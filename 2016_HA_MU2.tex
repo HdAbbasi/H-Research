@@ -103,7 +103,7 @@
   \item saturation;
   \item splitting on a variable with minimum degree, which must occur here twice positively and twice negatively, yields in both cases an element of $\Musati{\delta=1}$.
   \end{enumerate}
-\item Which elements of $\Musati{\delta=1}$ have full clauses?
+\item Which elements of $\Musati{\delta=1}$ have full clauses? (done)
 \item Investigate the special elements of $\Musati{\delta=1}$ obtained via splitting, with two characterisations: Horn clause-sets, and the underlying tree $T$ has Horton-Strahler number $\hts(T) \le 1$. (done)
 \item Understand how $\Musati{\delta=2}$ is obtained from $\Musatnsi{\delta=2}$ via singular expansion. (done)
   \begin{enumerate}
@@ -111,7 +111,7 @@
   \item Create catalogues of elements of $\Musati{\delta=2}$ and its subclasses for small number of clauses.
   \item Determine all the measures for the elements of the catalogue.
   \end{enumerate}
-\item For a non-trivial binary tree $T$ and $F(T) \in \Uclashi{\delta=1}$, is the number of 1-singular variables in $F(T)$ equal $2^{\hts(T)-1}$ ?
+\item For a non-trivial binary tree $T$ and $F(T) \in \Uclashi{\delta=1}$, is the number of 1-singular variables in $F(T)$ equal $2^{\hts(T)-1}$ ? (done-answer:no)
 \item Is every element of $\Musati{\delta=2}$ obtained (modulo renaming) from some $\Dt{n}$, by expanding every clause via variable-disjoint elements from $\Musati{\delta=1}$ ?
   \begin{enumerate}
   \item So we start with $\Musatnsi{\delta=2}$, and use the expansion process, which takes an $F \in \Musati{\delta=2}$ and a $C \in F$, and creates a clause-factorisation $F' := (F,C) \cor G$ for some $G \in \Musati{\delta=1}$ according to \cite[Definition 27]{KullmannZhao2016UHitSAT} with $\var(F) \cap \var(G)$, where then $F' \in \Musati{\delta=2}$ holds.
@@ -325,7 +325,7 @@ See Lemma \ref{lem:sDP-infl}.
 If $F \in \Musati{\delta=1}$ with $n(F)=m$, then it can be refuted in $m$ resolution steps (that is performing exactly $m$ steps of singular DP-reduction).
 \end{lem}
 \begin{prf}
-By Lemma \ref{lem:mu1-sdp} we know that $sDF(\Musati{\delta=1})=\set{\bot}$. Also, from Lemma \ref{lem:mu1-uvd} we know that if $F \in \Musati{\delta=1}$ with $n(F) > 0$, then there is at least one variable $v \in \var(F)$ occurring exactly one positively and exactly one negatively. Now for $F \in \Musati{\delta=1}$ if we perform one step sDP (refutation) for $v$ (and obtain $F' \in \Musati{\delta=1}$) two cases may happen. The first case is that $F' =\set{\bot}$. The second case is that $F' \not = \set{\bot}$ and it must have at least one variable occurring exactly one positively and exactly one negatively. Thus, if we continue this process we get $\set{\bot}$ after exactly $m$ steps. 
+By Lemma \ref{lem:mu1-sdp} we know that $sDF(\Musati{\delta=1})=\set{\bot}$. Also, from Lemma \ref{lem:mu1-uvd} we know that if $F \in \Musati{\delta=1}$ with $n(F) > 0$, then there is at least one variable $v \in \var(F)$ occurring exactly one positively and exactly one negatively. Now for $F \in \Musati{\delta=1}$ if we perform one step sDP (refutation) for $v$ (and obtain $F' \in \Musati{\delta=1}$) two cases may happen. If $F' =\set{\bot}$ then we have $m=1$. Else if $F' \not = \set{\bot}$ then $F'$ must have at least one variable $w \in \var(F')$ occurring exactly one positively and exactly one negatively. Thus, if we continue this process we get $\set{\bot}$ after exactly $m$ steps. 
 \end{prf}
 
 \begin{lem}\label{lem:mu1-sma-uhit}
@@ -349,13 +349,10 @@ For the first part, by considering the two criteria of the tree (each inner node
  
 For the proof of the second part, if $F'$ is obtained by removing any literal $x \in C$ from a clause $C$ using subsumption resolution then there is a clause $D:D \sm \set{\ol x} \sse C$. If $C':=C \sm \set{x}$ then $D,C'$ do not clash and $F'$ is not a hitting clause-set any more (and also not saturated). But, $F'$ is still minimally saturated according to Section \ref{sec:fsr-e}. Thus, $F'\in  \Musati{\delta=1} \not \in \Smusati{\delta=1}=\Uclashi{\delta=1}$. If we perform more steps of subsumption resolution for $F'\in  \Musati{\delta=1}$, the result is still in $ \Musati{\delta=1}$. 
 \end{prf}
-
-\begin{lem}\label{lem:smu1tomu1}
-For a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $, we can obtain any $F' \in  \Musati{\delta=1}$ with $\var(F)=\var(F')$ by iterated application of subsumption resolution.
-\end{lem}
-\begin{prf}
-For the reason of using subsumption resolution see Lemma \ref{lem:mu1-build} part 2. We can perform subsumption resolution for $F \in \Smusati{\delta=1}$ if no pure literal is produced which is exactly the condition of subsumption resolution in Definition \ref{def:sres} (that is there must be a clause $D \in F: D \sm \set{\ol x} \sse C$).
-\end{prf}
+Remarks:
+  \begin{enumerate}
+  \item For a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $, we can obtain any $F' \in  \Musati{\delta=1}$ with $\var(F)=\var(F')$ by iterated application of subsumption resolution.
+  \end{enumerate}
 
 \begin{lem}\label{lem:smu1-uhit1}
 All clause-sets $F \in  \Smusati{\delta=1} = \Uclashi{\delta=1} \subset \Musati{\delta=1}$ can be obtained by any on the following methods:
@@ -381,7 +378,7 @@ An special group of $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$ can be obtai
 \end{prf}
 
 \begin{lem}\label{lem:smu1hs1}
-By \cite{GwynneKullmann2013GoodRepresentations}, consider $F \in \Smusati{\delta=1}$ with the resolution tree $T(F)$ as in Lemma \ref{lem:mu1-build}. Then, we have:
+By \cite{GwynneKullmann2013GoodRepresentations}, consider $F \in \Smusati{\delta=1}$ with the full binary tree $T(F)$ as in Lemma \ref{lem:mu1-build}. Then, we have:
   \begin{enumerate}
   \item $\hardness(F) = \hts(T(F))$.
   \item Also, $F$ has a full clause iff $\hts(T(F)) \le 1$.
@@ -409,10 +406,34 @@ The first number is for trivial resolution tree, the second one is for $n=1$ and
   % \end{center}
   % \end{figure}
 \end{lem}   
-                             
+    
+\begin{lem}\label{lem:comb-mu1}
+The characterization of all clause-sets $F \in \Musati{\delta=1}$ with full clauses is as follows:
+  \begin{enumerate}
+  \item If $F\in \Smusati{\delta=1} $ then $F$ has exactly two full clause iff $\hts(T(F)) \le 1$ ($T(F)$ is the full binary tree for $F$). 
+  \item Now, consider $F \in \Smusati{\delta=1}$ with a full variable $v \in \var(F)$ such that $\hts(T(F)) \le 1$. If $v$ is an $m$-singular variable ($m \ge 1$), then the number of all clause-sets $F' \in \Musati{\delta=1}$ with $\var(F)=\var(F')$ obtained from $F$ by literal elimination as Lemma \ref{lem:mu1-build} (considering zero elimination) is as:
+\begin{displaymath}
+{m-1 \choose 0}+{m-1 \choose 1}+...+{m-1 \choose m-1}=\sum_{0 \le k \le m-1} {m-1 \choose k}
+\end{displaymath}  
+and based on \url{http://en.wikipedia.org/wiki/Combination#Number_of_k-combinations_for_all_k} we have:
+\begin{displaymath}
+\sum_{0 \le k \le m-1} {m-1 \choose k}=2^k
+\end{displaymath}  
+  \end{enumerate}                        
+\end{lem} 
+\begin{prf}
+Part 1: By Lemma \ref{lem:smu1hs1} we know that for $F$ there is a full clauses and based on Lemma \ref{lem:mu1-build}, $T(F)$ is a full binary tree such that each inner node has exactly two children. Thus, $F$ has exactly two full clauses.
+
+Part 2: for the $m$-singular variable $v$ there is exactly $m$ occurrence and one complementary. To obtain $F' \in \Musati{\delta=1}$ from $F$ we can repeat removing $v$ occurrence if no pure literal is produced. Thus, we can remove up to $m-1$ occurrence of $v$. 
+\end{prf}  
+
+                                                                               
 \begin{quest}\label{que:hitnum}
 For a non-trivial binary tree $T$ and $F(T) \in \Smusati{\delta=1}=\Uclashi{\delta=1}$, is the number of 1-singular variables in $F(T)$ equal $2^{\hts(T)-1}$?
+
+Answer: Consider a clause-set $F \in \Smusati{\delta=1}=\Uclashi{\delta=1}$ with an odd number of 1-singular variables (based on Lemma \ref{lem:mu1-build} this is possible). Since $2^{\hts(T)-1}$ is an even number, thus the answer of the question is no.
 \end{quest}
+
 
 Some general remarks: 
   \begin{enumerate}
