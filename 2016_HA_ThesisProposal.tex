@@ -1218,15 +1218,14 @@ If we saturate $F_0, F_1$ in Lemma \ref{lem:mu2-horn-tree}, what would happen to
 \end{quest}
 
 \begin{lem}\label{lem:mu2-build}
-All $F \in \Musati{\delta=2}$ can be obtained from $\Dt{n}$ (in Lemma \ref{lem:mu2-Fn}) by singular extension of  $\Dt{n}$. Also, for a clause-set $F \in \Musati{\delta=2}$ we can obtain a clause-set $F' \in \Musati{\delta=2}$ via singular extension.
+All $F \in \Musati{\delta=2}$ can be obtained from $\Dt{n}$ by singular extension of  $\Dt{n}$. Also, for a clause-set $F \in \Musati{\delta=2}$ we can obtain a clause-set $F' \in \Musati{\delta=2}$ via singular extension.
 \end{lem}
 \begin{prf}
-For the first part, consider $F \in \Musati{\delta=2}$. Then, based on Lemma \ref{lem:mu2-Fn} an iterated application of singular DP-reduction leads to $F'=\Dt{n}$. Also, the singular DP-extension is the reverse direction of singular DP-reduction (and does not change the deficiency and minimal unsatisfiability). Thus, we can obtain all $F \in \Musati{\delta=2}$ by singular extension of $\Dt{n}$. For the second part, consider $F \in \Musati{\delta=2}$. Based on definition \ref{def:singularextn}, if $F'$ is obtained by application of singular extension then $F' \in \Musati{\delta=2}$.
+For the first part, consider $F \in \Musati{\delta=2}$. Then, based on Lemma \ref{lem:mu2-Fn} an iterated application of singular DP-reduction leads to $F'=\Dt{n}$. Also, the singular DP-extension is the reverse direction of singular DP-reduction (and does not change the deficiency and minimal unsatisfiability). Thus, we can obtain all $F \in \Musati{\delta=2}$ by singular extension of $\Dt{n}$. For the second part, consider $F \in \Musati{\delta=2}$. Based on Definition \ref{def:singularextn}, if $F'$ is obtained by application of singular extension then $F' \in \Musati{\delta=2}$.
 \end{prf}
 Remarks:
   \begin{enumerate}
   \item There is exactly one full clause-set in $\Musati{\delta=2}$, namely $A_2$ (up to isomorphism).
-  \item For $\Dt{n} \in \Smusatnsi{\delta=2}$ and each $v \in \var(\Dt{n})$, $\ve \in \set{0,1}$, holds $\pao v{\ve} * \Dt{n} \in \Musati{\delta=1}$ (by Lemma \ref{lem:smu-mu}).
   \end{enumerate}
   
 \begin{lem}\label{lem:mu2-sing}
@@ -1246,7 +1245,7 @@ How can we describe the subclasses $\Uclashi{\delta=2}$ and $\Smusati{\delta=2}$
 \end{quest}
 
 \begin{quest}\label{que:mu2-hardness}
-Based on Section \ref{sec:Hardnessmeasures}, how can we determine the hardness and the width hardness for $F \in \Musati{\delta=2}$? and moreover how can we determine the resolution- and tree-resolution-complexity precisely?
+Based on Section \ref{sec:Hardnessmeasures}, how can we determine the hardness and the width-hardness for $F \in \Musati{\delta=2}$? and moreover how can we determine the resolution- and tree-resolution complexity precisely?
 \end{quest}
 
 \begin{quest}\label{que:mu2-count}
@@ -1316,10 +1315,9 @@ How can we determine the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and a
   \item Question \ref{que:smu-3} : determination of the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and also $\Smusatnsi{\delta=3}$.
   \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
 \bibliographystyle{plainurl}
-%\BibliographyOKlibrary
-\bibliography{HA_ResearchRef}
+\BibliographyOKlibrary
+
 
 \end{document}
 
