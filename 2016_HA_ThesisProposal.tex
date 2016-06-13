@@ -78,7 +78,7 @@ The initial results regarding the minimally unsatisfiable clause-sets in Chapter
   \item Lemma \ref{lem:smu1-uhit1} : a modified description for three methods of obtaining clause-sets $F \in \Smusati{\delta=1}$.
   \item Lemma \ref{lem:mu1-strc} : investigation of the structure of clause-sets $F \in \Smusati{\delta=1}$ with $\hts(F) \le 1$.
   \item Lemma \ref{lem:mu1-iso} : investigation of the equality relation between two clause-sets $F,F' \in \Smusati{\delta=1}$ by their resolution tree.
-  \item Lemma \ref{lem:mu1-iso-num} : characterisation of the number of isomorphic trees $T(F)$ for $F \in  \Smusati{\delta=1}$ as the Wedderburn-Etherington numbers.
+  \item Lemma \ref{lem:mu1-iso-num} : characterisation of the number of isomorphism types of trees $T(F)$ for $F \in  \Smusati{\delta=1}$ as the Wedderburn-Etherington numbers.
   \item Lemma \ref{lem:mu2-smu2} : investigation of the saturation stability of $F \in  \Musatnsi{\delta=2}$ ($\Dt{n}$) under splitting.
   \item Lemma \ref{lem:mu2-horn-tree} : investigation of the structure of clause-sets obtained by splitting $F \in  \Musatnsi{\delta=2}$ ($\Dt{n}$).
   \item Lemma \ref{lem:mu2-build} : investigation of how all clause-sets $F' \in \Musati{\delta=2}$ can be obtained from $F \in  \Musatnsi{\delta=2}$.
@@ -974,7 +974,7 @@ For a clause-set $F \in \Smusat$ if $F'$ is obtained by eliminating a literal oc
 \section{Reduction/ extension of minimally unsatisfiable clause-sets}
 \label{sec:r-e}
 
-To understand the structure of minimally unsatisfiable clause-sets and finding the isomorphic types of $\Musati{\delta=k}$ some types of reduction/ extension of clause-sets are reviewed in this section according to \cite{KullmannZhao2010Extremal,KullmannZhao2012ConfluenceJ}.
+To understand the structure of minimally unsatisfiable clause-sets and finding the isomorphism types of $\Musati{\delta=k}$ some types of reduction/ extension of clause-sets are reviewed in this section according to \cite{KullmannZhao2010Extremal,KullmannZhao2012ConfluenceJ}.
 
 \subsection{Singular reduction/ extension}
 \label{sec:sing-re} 
@@ -1140,15 +1140,15 @@ By Definition \ref{def:isomo-trees} and Lemma \ref{lem:mu1-build}.
 \end{prf}                                                                                                     
                                                                                                                                                                                                                                            
 \begin{lem}\label{lem:mu1-iso-num}
-Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ clauses ($n-1$ variables). Then, the number of isomorphic trees $T(F)$ with $n$ clauses is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
+Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ clauses ($n-1$ variables). Then, the number of isomorphism types of trees $T(F)$ with $n$ clauses is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
 \begin{displaymath}
  1, 1, 1, 2, 3, 6, 11, 23, 46, 98, 207, 451, ...
 \end{displaymath}
-The first number is for trivial resolution tree, the second one is for $n=1$ and etc. Pic \ref{fig:isotree} shows the isomorphic trees for $n=1,..., 6$.
+The first number is for trivial resolution tree, the second one is for $n=1$ and etc. Pic \ref{fig:isotree} shows the isomorphism types of trees for $n=1,..., 6$.
  \begin{figure}
    \begin{center}
    %\includegraphics[scale =0.45]{a001190.png}
-   \caption{The isomorphic trees for $n=1,..., 6$ by \url{https://oeis.org/A001190/a001190.gif}.}
+   \caption{The isomorphism types of trees for $n=1,..., 6$ by \url{https://oeis.org/A001190/a001190.gif}.}
    \label{fig:isotree}
    \end{center}
    \end{figure}
@@ -1233,7 +1233,7 @@ Remarks:
 \end{lem}  
 
 \begin{quest}\label{que:mu-2-ism}
-If we extend some of clause-sets in $\Dt{n}$ with different $n$ using Lemma \ref{lem:mu2-build}, is it possible to obtain isomorphic clause-sets with different $n$?
+If we extend some of clause-sets in $\Dt{n}$ with different $n$ using Lemma \ref{lem:mu2-build}, is it possible to obtain isomorphism types of clause-sets with different $n$?
 \end{quest}
 
 \begin{quest}\label{que:mu2-from-mu1}
@@ -1280,7 +1280,7 @@ By Conjecture 15.6 in \cite{KullmannZhao2010Extremal} for every deficiency $k \i
 \end{conj}
  
 \begin{quest}\label{que:str-3}
-Based on Conjecture \ref{con:mudelta}, is there any isomorphic form for $F \in \Musati{\delta=3}$?
+Based on Conjecture \ref{con:mudelta}, is there any isomorphism type for $F \in \Musati{\delta=3}$?
 \end{quest}
 
 \begin{quest}\label{que:smu-3}
@@ -1306,15 +1306,16 @@ How can we determine the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and a
   \item Question \ref{que:smu-elim} : investigation of minimally unsatisfiability of a clause-set $F' \in \Cls $ obtained by eliminating a literal occurrences in $F \in \Smusat$.
   \item Question \ref{que:hitnum} : formulation of the number of 1-singular variables in $F(T)$ for a non-trivial binary tree $T$ such that $F(T) \in \Smusati{\delta=1}=\Uclashi{\delta=1}$.
   \item Question \ref{que:mu-2-horn} : the effect of saturating $F_0, F_1$ in Lemma \ref{lem:mu2-horn-tree} on the structure of their resolution tree.
-  \item Question \ref{que:mu-2-ism} : investigation of the possibility of obtaining isomorphic clause-sets by extending some of clause-sets in $\Dt{n}$ with different $n$.
+  \item Question \ref{que:mu-2-ism} : investigation of the possibility of obtaining same isomorphism type of clause-sets by extending some of clause-sets in $\Dt{n}$ with different $n$.
 %  \item Question \ref{que:mu2-from-mu1} : investigating weather 
   \item Question \ref{que:mu2-uhit2} : investigation of the structure of subclasses $\Uclashi{\delta=2}$ and $\Smusati{\delta=2}$.
   \item Question \ref{que:mu2-hardness} : determination of the hardness and the width hardness for $F \in \Musati{\delta=2}$.
   \item Question \ref{que:mu2-count} : formulation of the number of non-isomorphic elements of $F \in \Musati{\delta=2}$ for a given number of clauses.
-  \item Question \ref{que:str-3} : investigation of the existence of any isomorphic form for $F \in \Musati{\delta=3}$.
+  \item Question \ref{que:str-3} : investigation of the existence of any isomorphism types of $F \in \Musati{\delta=3}$.
   \item Question \ref{que:smu-3} : determination of the non-isomorphic elements of $\Uclashnsi{\delta=3}$ and also $\Smusatnsi{\delta=3}$.
   \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \bibliographystyle{plainurl}
 \BibliographyOKlibrary
 
