@@ -1,4 +1,5 @@
 % Oliver Kullmann, 15.5.2016 (Swansea)
+% Edited by Hoda Abbasizanjani
 % The bibtex-entry of this paper is \cite{AbbasizanjaniKullmann2016MU2}.
 
 % Switching between report- and journal-version: uncomment the appropriate
@@ -120,7 +121,7 @@
   \item A counter-example already for $c=5$ should be given by the example for the singular extensions of $\Dt{2}$ as given in \cite{KullmannZhao2014UHit}.
   \end{enumerate}
   \item For an arbitrary $F \in \Uclashi{\delta=2}$, is it possible to get $F' \not \in \Uclashi{\delta=2}$ by making a saturation extension of $F$?
-  \item Determining the number of isomorphic types of clause-sets obtained from $\Dt{n}$ by the following methods:
+  \item Determining the number of isomorphism types of clause-sets obtained from $\Dt{n}$ by the following methods:
   \begin{enumerate}
   \item singular extension of $\Dt{n}$.
   \item saturated extension of $\Dt{n}$.
@@ -393,15 +394,15 @@ By Definition \ref{def:isomo-trees} and Lemma \ref{lem:mu1-build}.
 \end{prf}                                                                                                     
                                                                                                                                                                                                                                            
 \begin{lem}\label{lem:mu1-iso-num}
-Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ clauses ($n-1$ variables). Then, the number of isomorphic trees $T(F)$ with $n$ clauses is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
+Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ clauses ($n-1$ variables). Then, the number of isomorphism types of trees $T(F)$ with $n$ clauses is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
 \begin{displaymath}
  1, 1, 1, 2, 3, 6, 11, 23, 46, 98, 207, 451, ...
 \end{displaymath}
-The first number is for trivial resolution tree, the second one is for $n=1$ and etc. Pic \ref{fig:isotree} shows the isomorphic trees for $n=1,..., 6$.
+The first number is for trivial resolution tree, the second one is for $n=1$ and etc. Pic \ref{fig:isotree} shows the isomorphism types of trees for $n=1,..., 6$.
 % \begin{figure}
  % \begin{center}
  %  \includegraphics[scale =0.45]{a001190.png}
-   %\caption{The isomorphic trees for $n=1,..., 6$ by \url{https://oeis.org/A001190/a001190.gif}.}
+   %\caption{The isomorphism types of trees for $n=1,..., 6$ by \url{https://oeis.org/A001190/a001190.gif}.}
  %  \label{fig:isotree}
   % \end{center}
   % \end{figure}
@@ -411,22 +412,27 @@ The first number is for trivial resolution tree, the second one is for $n=1$ and
 The characterization of all clause-sets $F \in \Musati{\delta=1}$ with full clauses is as follows:
   \begin{enumerate}
   \item If $F\in \Smusati{\delta=1} $ then $F$ has exactly two full clause iff $\hts(T(F)) \le 1$ ($T(F)$ is the full binary tree for $F$). 
-  \item Now, consider $F \in \Smusati{\delta=1}$ with a full variable $v \in \var(F)$ such that $\hts(T(F)) \le 1$. If $v$ is an $m$-singular variable ($m \ge 1$), then the number of all clause-sets $F' \in \Musati{\delta=1}$ with $\var(F)=\var(F')$ obtained from $F$ by literal elimination as Lemma \ref{lem:mu1-build} (considering zero elimination) is as:
-\begin{displaymath}
-{m-1 \choose 0}+{m-1 \choose 1}+...+{m-1 \choose m-1}=\sum_{0 \le k \le m-1} {m-1 \choose k}
-\end{displaymath}  
-and based on \url{http://en.wikipedia.org/wiki/Combination#Number_of_k-combinations_for_all_k} we have:
-\begin{displaymath}
-\sum_{0 \le k \le m-1} {m-1 \choose k}=2^k
-\end{displaymath}  
-  \end{enumerate}                        
-\end{lem} 
+  \item Now, consider $F \in \Smusati{\delta=1}$ with a full variable $v \in \var(F)$ such that $\hts(T(F)) \le 1$. If $v$ is an $m$-singular variable ($m \ge 1$), then the number of all clause-sets $F' \in \Musati{\delta=1}$ having at least one full clause with $\var(F)=\var(F')$ and obtained from $F$ by literal elimination as Lemma \ref{lem:mu1-build} (considering zero elimination) is as:
+    \begin{eqnarray*}
+  \begin{cases}
+ 1  & m=1\\ 2 \sum_{0 \le k \le m-2} {m-2 \choose k}=2^{m-1}  & m \ge 2
+  \end{cases}.
+  \end{eqnarray*}  
+  \end{enumerate}                       
+\end{lem}  
 \begin{prf}
 Part 1: By Lemma \ref{lem:smu1hs1} we know that for $F$ there is a full clauses and based on Lemma \ref{lem:mu1-build}, $T(F)$ is a full binary tree such that each inner node has exactly two children. Thus, $F$ has exactly two full clauses.
 
-Part 2: for the $m$-singular variable $v$ there is exactly $m$ occurrence and one complementary. To obtain $F' \in \Musati{\delta=1}$ from $F$ we can repeat removing $v$ occurrence if no pure literal is produced. Thus, we can remove up to $m-1$ occurrence of $v$. 
+Part 2: for the $m$-singular variable $v$ there is exactly $m$ occurrence and one complementary. If $m=1$ then there is only one clause-set with a full clause namely $A_1$. Else, to obtain $F' \in \Musati{\delta=1}$ from $F$ we can repeat removing $v$ occurrence except for the two full clause that is $m-2$ clauses (and no pure literal is produced). In this case, we have
+\begin{displaymath}
+{m-2 \choose 0}+{m-2 \choose 1}+...+{m-2 \choose m-2}= \sum_{0 \le k \le m-2} {m-2 \choose k} 
+\end{displaymath} 
+clause-sets with exactly two full clauses which based on \url{http://en.wikipedia.org/wiki/Combination#Number_of_k-combinations_for_all_k} is
+\begin{displaymath}
+\sum_{0 \le k \le m-2} {m-2 \choose k}=2^{m-2}.
+\end{displaymath}  
+Also, we can remove $v$ occurrence in one of the two full clauses to obtain a clause-set with one full clause. Thus, the total number of clause-sets with at least one full clause is $2 \sum_{0 \le k \le m-2} {m-2 \choose k}=2^{m-1}$ 
 \end{prf}  
-
                                                                                
 \begin{quest}\label{que:hitnum}
 For a non-trivial binary tree $T$ and $F(T) \in \Smusati{\delta=1}=\Uclashi{\delta=1}$, is the number of 1-singular variables in $F(T)$ equal $2^{\hts(T)-1}$?
@@ -495,15 +501,14 @@ If we saturate $F_0, F_1$ in Lemma \ref{lem:mu2-horn-tree}, what would happen to
 \end{quest}
 
 \begin{lem}\label{lem:mu2-build}
-All $F \in \Musati{\delta=2}$ can be obtained from $\Dt{n}$ (in Lemma \ref{lem:mu2-Fn}) by singular extension of  $\Dt{n}$. Also, for a clause-set $F \in \Musati{\delta=2}$ we can obtain a clause-set $F' \in \Musati{\delta=2}$ via singular extension.
+All $F \in \Musati{\delta=2}$ can be obtained from $\Dt{n}$ by singular extension of  $\Dt{n}$. Also, for a clause-set $F \in \Musati{\delta=2}$ we can obtain a clause-set $F' \in \Musati{\delta=2}$ via singular extension.
 \end{lem}
 \begin{prf}
-For the first part, consider $F \in \Musati{\delta=2}$. Then, based on Lemma \ref{lem:mu2-Fn} an iterated application of singular DP-reduction leads to $F'=\Dt{n}$. Also, the singular DP-extension is the reverse direction of singular DP-reduction (and does not change the deficiency and minimal unsatisfiability). Thus, we can obtain all $F \in \Musati{\delta=2}$ by singular extension of $\Dt{n}$. For the second part, consider $F \in \Musati{\delta=2}$. Based on definition \ref{def:singularextn}, if $F'$ is obtained by application of singular extension then $F' \in \Musati{\delta=2}$.
+For the first part, consider $F \in \Musati{\delta=2}$. Then, based on Lemma \ref{lem:mu2-Fn} an iterated application of singular DP-reduction leads to $F'=\Dt{n}$. Also, the singular DP-extension is the reverse direction of singular DP-reduction (and does not change the deficiency and minimal unsatisfiability). Thus, we can obtain all $F \in \Musati{\delta=2}$ by singular extension of $\Dt{n}$. For the second part, consider $F \in \Musati{\delta=2}$. Based on Definition \ref{def:singularextn}, if $F'$ is obtained by application of singular extension then $F' \in \Musati{\delta=2}$.
 \end{prf}
 Remarks:
   \begin{enumerate}
   \item There is exactly one full clause-set in $\Musati{\delta=2}$, namely $A_2$ (up to isomorphism).
-  \item For $\Dt{n} \in \Smusatnsi{\delta=2}$ and each $v \in \var(\Dt{n})$, $\ve \in \set{0,1}$, holds $\pao v{\ve} * \Dt{n} \in \Musati{\delta=1}$ (by Lemma \ref{lem:smu-mu}).
   \end{enumerate}
   
 \begin{lem}\label{lem:mu2-sing}
@@ -511,7 +516,7 @@ Remarks:
 \end{lem}  
 
 \begin{quest}\label{que:mu-2-ism}
-If we extend some of clause-sets in $\Dt{n}$ with different $n$ using Lemma \ref{lem:mu2-build}, is it possible to obtain isomorphic clause-sets with different $n$?
+If we extend some of clause-sets in $\Dt{n}$ with different $n$ using Lemma \ref{lem:mu2-build}, is it possible to obtain isomorphism types of clause-sets with different $n$?
 \end{quest}
 
 \begin{quest}\label{que:mu2-from-mu1}
@@ -523,7 +528,7 @@ How can we describe the subclasses $\Uclashi{\delta=2}$ and $\Smusati{\delta=2}$
 \end{quest}
 
 \begin{quest}\label{que:mu2-hardness}
-Based on Section \ref{sec:Hardnessmeasures}, how can we determine the hardness and the width hardness for $F \in \Musati{\delta=2}$? and moreover how can we determine the resolution- and tree-resolution-complexity precisely?
+Based on Section \ref{sec:Hardnessmeasures}, how can we determine the hardness and the width-hardness for $F \in \Musati{\delta=2}$? and moreover how can we determine the resolution- and tree-resolution complexity precisely?
 \end{quest}
 
 \begin{quest}\label{que:mu2-count}
