@@ -125,7 +125,7 @@
   \begin{enumerate}
   \item singular extension of $\Dt{n}$.
   \item saturated extension of $\Dt{n}$.
-  \item the extension of unsatisfiable hitting clause-sets of $\Dt{2}$ (that is $\Dt{2}, \Dt{3}$).
+  \item the extension of unsatisfiable hitting clause-sets of $\Dt{n}$ (that is $\Dt{2}, \Dt{3}$).
   \end{enumerate}
 \end{enumerate}
 
@@ -305,7 +305,7 @@ Remarks:
   \end{enumerate}
   
 \begin{lem}\label{lem:mu-refu-tree}
-Based on \cite{KleineBuening2000SubclassesMU} if $F \in \Musati{\delta=k}$ then an iterated application of singular DP-reduction and the splitting leads to a splitting tree, where the leafs are labeled with clause-sets in $\Musati{\delta=1}$. Also, the number of leafs of the splitting tree is bounded by $2^{k-1}$.
+Based on \cite{KleineBuening2000SubclassesMU} if $F \in \Musati{\delta=k}$ then an iterated application of singular DP-reduction and the splitting leads to a splitting tree, where the leafs are labelled with clause-sets in $\Musati{\delta=1}$. Also, the number of leafs of the splitting tree is bounded by $2^{k-1}$.
 \end{lem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -341,12 +341,12 @@ The structure of resolution trees for $F \in \Smusati{\delta=1}=\Uclashi{\delta=
 \begin{lem}\label{lem:mu1-build}
 Based of \cite{KullmannZhao2016UHitSAT}, the structure of resolution trees  for $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $ and  $F \in \Musati{\delta=1}$ are as follows:
   \begin{enumerate}
-  \item For $F \in \Smusati{\delta=1}$, there exist a resolution tree $T$ such that each inner node is labeled by a distinct variable $v \in \var(F)$ and the left edge of this node is labeled by $v$ and also the right edge is labeled by $\ol v$. The set of all clauses in leaves is $F$. Also, there is one variable occurring in all clauses (full variable). 
+  \item For $F \in \Smusati{\delta=1}$, there exist a resolution tree $T$ such that each inner node is labelled by a distinct variable $v \in \var(F)$ and the left edge of this node is labelled by $v$ and also the right edge is labelled by $\ol v$. The set of all clauses in leaves is $F$. Also, there is one variable occurring in all clauses (full variable). 
   \item Consider the resolution tree in part 1. If we remove a literal $x$ from one of leaves $C$ such that removing that literal does not produce any pure literal (by application of subsumption resolution in Definition \ref{def:sres}), then the new clause-set $F'$ is in $ \Musati{\delta=1}$. If more literal elimination are performed for $F'$, all clause-sets in $ \Musati{\delta=1}$ can be obtained.
   \end{enumerate}
 \end{lem}
 \begin{prf}
-For the first part, by considering the two criteria of the tree (each inner node labeled by a distinct variable $v \in \var(F)$ and the left/right edge of this node labeled by $v$/ $\ol v$) we can get $\set{\bot}$ by only iterated application of singular DP-reduction. Thus, based on Lemma \ref{lem:mu1-sdp} we have $F(T) \in  \Musati{\delta=1}$. Furthermore, based on those two criteria any two different clauses $C,D$ in leaves clash and also any clauses in leaves contains at least one literal occurring exactly one in $F$ (as singular variable). Thus, $F$ is a hitting clause set and we have $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $. Also, there is exactly one full variable (variable occurring in all clauses) which is the variable corresponding to the edges leading to the root of $T:F \vdash \bot$.
+For the first part, by considering the two criteria of the tree (each inner node labelled by a distinct variable $v \in \var(F)$ and the left/right edge of this node labelled by $v$/ $\ol v$) we can get $\set{\bot}$ by only iterated application of singular DP-reduction. Thus, based on Lemma \ref{lem:mu1-sdp} we have $F(T) \in  \Musati{\delta=1}$. Furthermore, based on those two criteria any two different clauses $C,D$ in leaves clash and also any clauses in leaves contains at least one literal occurring exactly one in $F$ (as singular variable). Thus, $F$ is a hitting clause set and we have $F \in \Smusati{\delta=1}=\Uclashi{\delta=1} $. Also, there is exactly one full variable (variable occurring in all clauses) which is the variable corresponding to the edges leading to the root of $T:F \vdash \bot$.
  
 For the proof of the second part, if $F'$ is obtained by removing any literal $x \in C$ from a clause $C$ using subsumption resolution then there is a clause $D:D \sm \set{\ol x} \sse C$. If $C':=C \sm \set{x}$ then $D,C'$ do not clash and $F'$ is not a hitting clause-set any more (and also not saturated). But, $F'$ is still minimally saturated according to Section \ref{sec:fsr-e}. Thus, $F'\in  \Musati{\delta=1} \not \in \Smusati{\delta=1}=\Uclashi{\delta=1}$. If we perform more steps of subsumption resolution for $F'\in  \Musati{\delta=1}$, the result is still in $ \Musati{\delta=1}$. 
 \end{prf}
@@ -394,7 +394,7 @@ By Definition \ref{def:isomo-trees} and Lemma \ref{lem:mu1-build}.
 \end{prf}                                                                                                     
                                                                                                                                                                                                                                            
 \begin{lem}\label{lem:mu1-iso-num}
-Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ clauses ($n-1$ variables). Then, the number of isomorphism types of trees $T(F)$ with $n$ clauses is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
+Consider $F \in \Smusati{\delta=1}$ with $n \in \NNZ$ clauses . The number of isomorphism types of trees $T(F)$ with $n$ clauses is obtained as a sequence of Wedderburn-Etherington numbers (sequence A001190 in the On-line Encyclopedia of Integer Sequences \cite{Sloane2008OEIS}) that is (\url{https://oeis.org/A001190}) :
 \begin{displaymath}
  1, 1, 1, 2, 3, 6, 11, 23, 46, 98, 207, 451, ...
 \end{displaymath}
@@ -407,9 +407,39 @@ The first number is for trivial resolution tree, the second one is for $n=1$ and
   % \end{center}
   % \end{figure}
 \end{lem}   
-    
+ 
+\begin{lem}\label{lem:smu1-full-clause}   
+Let $F, G\in \Uclashi{\delta=1}=\Smusati{\delta=1} $.
+  \begin{enumerate}
+  \item $\hts(T(F))=0 \iff F$ is trivial (i.e. $F=A_0$).
+  \item $ \hts(T(F)) = 1 \iff  \nfc(F)=2$. 
+  \item $\hts(T(F)) \ge 2 \Ra \nfc(F)=0$.
+  \item If $\hts(T(F))=\hts(T(G))=1$ and $c(F)=c(G)$, then $F \cong G$.
+  \end{enumerate} 
+\end{lem}
+\begin{prf}
+XXX
+\end{prf}  
+
+\begin{conj}\label{con:mu1-hs-ge2}
+For all $F \in \Musati{\delta=1}$ holds: $\fa T \in T(F) : \hts(T) \ge 2  \Ra \nfc(F)=0$
+\end{conj}    
+%\begin{conj}\label{con:mu1-hs-ge2}
+%Let $F \in \Musati{\delta=1}$. If there exist no resolution tree $T(F)$ such that $\hts(T(F)) =1 $ then $F$ has no full clauses.
+%\end{conj}  
+
+\begin{conj}\label{con:mu1-iso-hs}
+For all non-trivial $F \in \Musati{\delta=1}$ with $\hts(T(F)) = 1$:
+  \begin{enumerate}
+  \item The number of isomorphism types with 
+  \item 
+  \end{enumerate}
+\end{conj}
+
+ 
+                                                                           
 \begin{lem}\label{lem:comb-mu1}
-The characterization of all clause-sets $F \in \Musati{\delta=1}$ with full clauses is as follows:
+The characterisation of all clause-sets $F \in \Musati{\delta=1}$ with full clauses is as follows:
   \begin{enumerate}
   \item If $F\in \Smusati{\delta=1} $ then $F$ has exactly two full clause iff $\hts(T(F)) \le 1$ ($T(F)$ is the full binary tree for $F$). 
   \item Now, consider $F \in \Smusati{\delta=1}$ with a full variable $v \in \var(F)$ such that $\hts(T(F)) \le 1$. If $v$ is an $m$-singular variable ($m \ge 1$), then the number of all clause-sets $F' \in \Musati{\delta=1}$ having at least one full clause with $\var(F)=\var(F')$ and obtained from $F$ by literal elimination as Lemma \ref{lem:mu1-build} (considering zero elimination) is as:
@@ -433,7 +463,16 @@ clause-sets with exactly two full clauses which based on \url{http://en.wikipedi
 \end{displaymath}  
 Also, we can remove $v$ occurrence in one of the two full clauses to obtain a clause-set with one full clause. Thus, the total number of clause-sets with at least one full clause is $2 \sum_{0 \le k \le m-2} {m-2 \choose k}=2^{m-1}$ 
 \end{prf}  
-                                                                               
+
+\begin{lem}\label{lem:mu1-1sing-cnt}
+For all $F \in \Uclashi{\delta=1}$ holds $2^{\hts(T)-1} \le \abs{\varosing(F)} \le n(F)$.
+\end{lem}                                                                              
+\begin{prf}
+XXX
+\end{prf}  
+                                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                            
 \begin{quest}\label{que:hitnum}
 For a non-trivial binary tree $T$ and $F(T) \in \Smusati{\delta=1}=\Uclashi{\delta=1}$, is the number of 1-singular variables in $F(T)$ equal $2^{\hts(T)-1}$?
 
@@ -514,6 +553,59 @@ Remarks:
 \begin{lem}\label{lem:mu2-sing}
  By Lemma 5.13 in \cite{KullmannZhao2010Extremal}, if $F \in \Musati{\delta=2}$ with $\minvdeg(F) \ge 4$ then $F$ is singular if and only if $F$ contains a unit-clause.
 \end{lem}  
+
+%===>>
+\begin{conj}\label{con:horn-satur}
+  For  $F_0:=\pao v0 * \Dt{n}$ and $F_1:=\pao v1 * \Dt{n}$, let $S(F_0)=\set{F:F \in \Smusat(F_0)}$ and $S(F_1)=\set{F:F \in \Smusat(F_1)}$. We have  $\abs{ S(F_0) / {\cong}}=\abs{ S(F_1) / {\cong}}=1$.
+\end{conj}
+
+\begin{conj}\label{con:Fn-split-satur}
+  For all $F \in \Rho \cap \Musati{\delta=1}$ with $SH(F):=\set{G:G \in \Smusat(F)}$, holds $\abs{ SH(F) / {\cong}}=1$.
+\end{conj}
+
+\begin{lem}\label{lem:mu2-fc-partition}
+  For all $F'  \in \Musati{\delta=2}$ obtained by $m$-singular extension of $F  \in \Musati{\delta=2}$ holds:
+  \begin{enumerate}
+  \item $\nfc(F)=0 \Ra  \nfc(F')=0$.
+  \item $\nfc(F)=1 \Ra  \nfc(F') \le 2$.
+  \item $\nfc(F) \ge 2 \Ra  \nfc(F') \le 4$.
+  %\item If $\nfc(F)=3 \Ra  \nfc(F') \le 3$.
+  %\item If $\nfc(F)=4 \Ra  \nfc(F') \le 4$.
+  \end{enumerate}
+\end{lem}
+\begin{prf}
+  XXX
+\end{prf}
+Remarks:
+  \begin{enumerate}
+  \item  For $F  \in \Musati{\delta=2}$ obtained by $m$-singular extension of $\Dt{n}$, if $\nfc(F) \in \set{3,4}$ then $\Dt{n}=\Dt{2}$.
+  \end{enumerate}
+
+\begin{lem}\label{lem:mu2-fc-count}
+  For $F' \in \Musati{\delta=2}$ as the non-strict fs-extension of $F \in \Musati{\delta=2}$ holds:
+  \begin{enumerate}
+  \item $\nfc(F)=0 \Ra  \nfc(F')=0$.
+  \item If $\nfc(F)\not =0$ then $\nfc(F') \in \set{0,2}$.
+  \end{enumerate}
+\end{lem}
+\begin{prf}
+  XXX
+\end{prf}
+%<<===
+
+\begin{lem}\label{lem:mu2-satur-ext}
+  Let $S$ be the set of all clause-sets obtained by saturation extension of $\Dt{2}$. We have $\abs{ S / {\cong}}=3$.
+\end{lem}
+\begin{prf}
+  XXX
+  \begin{enumerate}
+  \item For unit-extension: exactly one isomorphism type.
+  \item For 1-singular extension: exactly one isomorphism type.
+  \item For 2-singular extension: exactly one isomorphism type.
+  \item In the case 3-singular extension, there is no saturated extension.
+  \end{enumerate}
+XXX
+\end{prf}
 
 \begin{quest}\label{que:mu-2-ism}
 If we extend some of clause-sets in $\Dt{n}$ with different $n$ using Lemma \ref{lem:mu2-build}, is it possible to obtain isomorphism types of clause-sets with different $n$?
